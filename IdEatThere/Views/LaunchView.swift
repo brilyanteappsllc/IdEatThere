@@ -18,15 +18,15 @@ struct LaunchView: View {
         // MARK: - Authorization Status, Geolocating User -
         
         // Not determined
-        if model.authorizationState == .notDetermined || userManager.newUser {
+        if model.authorizationState == .notDetermined  {
         
             // - Onboarding View -
             OnboardingView()
             
         }
         // Approved Permission
-        else if (model.authorizationState == CLAuthorizationStatus.authorizedAlways ||
-                 model.authorizationState == CLAuthorizationStatus.authorizedWhenInUse) && !userManager.newUser {
+        else if model.authorizationState == CLAuthorizationStatus.authorizedAlways ||
+                 model.authorizationState == CLAuthorizationStatus.authorizedWhenInUse {
             
             // - Home View -
             HomeView()

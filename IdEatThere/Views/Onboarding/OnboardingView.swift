@@ -10,8 +10,9 @@ import SwiftUI
 struct OnboardingView: View {
     
     @EnvironmentObject var model: ContentModel
+    @EnvironmentObject var userManager : UserManager
     
-    @State private var tabSelection = 0
+    @State var tabSelection = 0
     
     private let blue = Color(red: 0/255, green: 130/255, blue: 167/255)
     private let turquoise = Color(red: 55/255, green: 197/255, blue: 192/255)
@@ -42,10 +43,15 @@ struct OnboardingView: View {
                 
                 // Second Tab
                 VStack (spacing: 20) {
-                    Text("First, let's create your account")
-                        .bold()
-                        .font(.title)
-                    Text("We'll show you the best restaurants based on your location!")
+                    if userManager.newUser {
+                        Text("First, let's create your account")
+                            .bold()
+                            .font(.title)
+                        Text("We'll show you the best restaurants based on your location!")
+                    }
+                    else {
+                        Text("Whoopie! Let's get rollin with some eats")
+                    }
                     
                 }
                 .multilineTextAlignment(.center)
@@ -82,7 +88,10 @@ struct OnboardingView: View {
                     tabSelection = 1
                 }
                 else if tabSelection == 1 {
-                    tabSelection = 2
+                   userManager.createUserFormShowing = true
+                    if !userManager.newUser {
+                        tabSelection = 2
+                    }
                 }
                 else {
                     // Request for geo location permission
@@ -107,9 +116,19 @@ struct OnboardingView: View {
                             .padding()
                         
                     case 1:
-                        Text("Create Account")
-                            .bold()
-                            .padding()
+                        if userManager.newUser {
+                            Text("Create Account")
+                                .bold()
+                                .padding()
+                                .sheet(isPresented: $userManager.createUserFormShowing, onDismiss: userManager.checkLogin) {
+                                    CreateUserForm()
+                                }
+                        }
+                        else {
+                            Text("Next")
+                                .bold()
+                                .padding()
+                        }
                         
                     case 2:
                         Text("Get My Location")
@@ -124,13 +143,9 @@ struct OnboardingView: View {
             }
             .padding()
             .accentColor(tabSelection == 0 ? blue: turquoise)
-
-            
             
         }
         .background(tabSelection == 0 ? blue : turquoise)
-        
-        
         
     }
 }
