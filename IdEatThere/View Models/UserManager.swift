@@ -87,6 +87,9 @@ class UserManager : NSObject, ObservableObject {
                     // No longer a new user
                     self.newUser = false
                     
+                    // Auto Sign in
+                    self.checkLogin()
+                    
                 }
                 else {
                     

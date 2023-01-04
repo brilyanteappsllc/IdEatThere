@@ -42,22 +42,22 @@ struct OnboardingView: View {
 
                 
                 // Second Tab
-                VStack (spacing: 20) {
-                    if userManager.newUser {
-                        Text("First, let's create your account")
-                            .bold()
-                            .font(.title)
-                        Text("We'll show you the best restaurants based on your location!")
-                    }
-                    else {
-                        Text("Whoopie! Let's get rollin with some eats")
-                    }
-                    
-                }
-                .multilineTextAlignment(.center)
-                .foregroundColor(.white)
-                .tag(1)
-                
+//                VStack (spacing: 20) {
+//                    if userManager.newUser {
+//                        Text("First, let's create your account")
+//                            .bold()
+//                            .font(.title)
+//                        Text("We'll show you the best restaurants based on your location!")
+//                    }
+//                    else {
+//                        Text("Whoopie! Let's get rollin with some eats")
+//                    }
+//
+//                }
+//                .multilineTextAlignment(.center)
+//                .foregroundColor(.white)
+//                .tag(1)
+//
                 
                 
                 // Third Tab
@@ -73,7 +73,7 @@ struct OnboardingView: View {
                 }
                 .multilineTextAlignment(.center)
                 .foregroundColor(.white)
-                .tag(2)
+                .tag(1)
                 
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
@@ -87,12 +87,12 @@ struct OnboardingView: View {
                 if tabSelection == 0  {
                     tabSelection = 1
                 }
-                else if tabSelection == 1 {
-                   userManager.createUserFormShowing = true
-                    if !userManager.newUser {
-                        tabSelection = 2
-                    }
-                }
+//                else if tabSelection == 1 {
+//                   userManager.createUserFormShowing = true
+//                    if !userManager.newUser {
+//                        tabSelection = 2
+//                    }
+//                }
                 else {
                     // Request for geo location permission
                     model.requestGeolocationPermission()
@@ -115,22 +115,22 @@ struct OnboardingView: View {
                             .bold()
                             .padding()
                         
-                    case 1:
-                        if userManager.newUser {
-                            Text("Create Account")
-                                .bold()
-                                .padding()
-                                .sheet(isPresented: $userManager.createUserFormShowing, onDismiss: userManager.checkLogin) {
-                                    CreateUserForm()
-                                }
-                        }
-                        else {
-                            Text("Next")
-                                .bold()
-                                .padding()
-                        }
+//                    case 1:
+//                        if userManager.newUser {
+//                            Text("Create Account")
+//                                .bold()
+//                                .padding()
+//                                .sheet(isPresented: $userManager.createUserFormShowing, onDismiss: userManager.checkLogin) {
+//                                    CreateUserForm()
+//                                }
+//                        }
+//                        else {
+//                            Text("Next")
+//                                .bold()
+//                                .padding()
+//                        }
                         
-                    case 2:
+                    case 1:
                         Text("Get My Location")
                             .bold()
                             .padding()

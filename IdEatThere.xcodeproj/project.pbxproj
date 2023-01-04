@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3E958C5E2E691181F0D2CE46 /* Pods_IdEatThere.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92EF205CBF9EB2037722FFD8 /* Pods_IdEatThere.framework */; };
+		8603C24529653488006C1A58 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8603C24429653488006C1A58 /* MapView.swift */; };
+		8603C247296534CB006C1A58 /* MyGroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8603C246296534CB006C1A58 /* MyGroupsView.swift */; };
+		8603C24A296534DE006C1A58 /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8603C249296534DE006C1A58 /* MyProfileView.swift */; };
+		8603C24D29653EA4006C1A58 /* EditUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8603C24C29653EA4006C1A58 /* EditUserProfile.swift */; };
+		8603C24F29653EA9006C1A58 /* EditUserProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8603C24E29653EA9006C1A58 /* EditUserProfileButton.swift */; };
+		8603C25129653EEC006C1A58 /* LogoutForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8603C25029653EEC006C1A58 /* LogoutForm.swift */; };
 		86E4BCA92965248900244E88 /* IdEatThereApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4BCA82965248900244E88 /* IdEatThereApp.swift */; };
 		86E4BCB02965248C00244E88 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86E4BCAF2965248C00244E88 /* Preview Assets.xcassets */; };
 		86E4BCB72965256100244E88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86E4BCB62965256100244E88 /* GoogleService-Info.plist */; };
@@ -38,6 +44,12 @@
 
 /* Begin PBXFileReference section */
 		422838B4F703525B278161DB /* Pods-IdEatThere.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IdEatThere.debug.xcconfig"; path = "Target Support Files/Pods-IdEatThere/Pods-IdEatThere.debug.xcconfig"; sourceTree = "<group>"; };
+		8603C24429653488006C1A58 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		8603C246296534CB006C1A58 /* MyGroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsView.swift; sourceTree = "<group>"; };
+		8603C249296534DE006C1A58 /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
+		8603C24C29653EA4006C1A58 /* EditUserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserProfile.swift; sourceTree = "<group>"; };
+		8603C24E29653EA9006C1A58 /* EditUserProfileButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserProfileButton.swift; sourceTree = "<group>"; };
+		8603C25029653EEC006C1A58 /* LogoutForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutForm.swift; sourceTree = "<group>"; };
 		86E4BCA52965248900244E88 /* IdEatThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IdEatThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86E4BCA82965248900244E88 /* IdEatThereApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdEatThereApp.swift; sourceTree = "<group>"; };
 		86E4BCAF2965248C00244E88 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -90,6 +102,27 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		8603C2432965346C006C1A58 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				8603C25029653EEC006C1A58 /* LogoutForm.swift */,
+				8603C24429653488006C1A58 /* MapView.swift */,
+				8603C246296534CB006C1A58 /* MyGroupsView.swift */,
+				8603C249296534DE006C1A58 /* MyProfileView.swift */,
+				8603C24B29653E91006C1A58 /* Profile Edit */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		8603C24B29653E91006C1A58 /* Profile Edit */ = {
+			isa = PBXGroup;
+			children = (
+				8603C24C29653EA4006C1A58 /* EditUserProfile.swift */,
+				8603C24E29653EA9006C1A58 /* EditUserProfileButton.swift */,
+			);
+			path = "Profile Edit";
+			sourceTree = "<group>";
+		};
 		86E4BC9C2965248900244E88 = {
 			isa = PBXGroup;
 			children = (
@@ -132,10 +165,11 @@
 		86E4BCB82965261000244E88 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				86E4BCCC2965261000244E88 /* LaunchView.swift */,
 				86E4BCB92965261000244E88 /* Home */,
+				8603C2432965346C006C1A58 /* Tabs */,
 				86E4BCC72965261000244E88 /* Denied */,
 				86E4BCC92965261000244E88 /* Common */,
-				86E4BCCC2965261000244E88 /* LaunchView.swift */,
 				86E4BCCD2965261000244E88 /* Onboarding */,
 			);
 			path = Views;
@@ -361,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86E4BCDA2965261000244E88 /* BusinessSectionHeader.swift in Sources */,
+				8603C24529653488006C1A58 /* MapView.swift in Sources */,
 				86E4BCDE2965261000244E88 /* LaunchView.swift in Sources */,
 				86E4BCDB2965261000244E88 /* LocationDeniedView.swift in Sources */,
 				86E4BCE02965261000244E88 /* OnboardingView.swift in Sources */,
@@ -375,13 +410,18 @@
 				86E4BCE12965261000244E88 /* LoginForm.swift in Sources */,
 				86E4BCD82965261000244E88 /* BusinessDetail.swift in Sources */,
 				86E4BCDC2965261000244E88 /* DashedDivider.swift in Sources */,
+				8603C24F29653EA9006C1A58 /* EditUserProfileButton.swift in Sources */,
+				8603C24A296534DE006C1A58 /* MyProfileView.swift in Sources */,
 				86E4BCDF2965261000244E88 /* CreateUserForm.swift in Sources */,
 				86E4BCD72965261000244E88 /* BusinessTitle.swift in Sources */,
 				86E4BCEB2965263000244E88 /* Business Search.swift in Sources */,
 				86E4BCD32965261000244E88 /* DirectionsMap.swift in Sources */,
+				8603C24D29653EA4006C1A58 /* EditUserProfile.swift in Sources */,
+				8603C25129653EEC006C1A58 /* LogoutForm.swift in Sources */,
 				86E4BCEA2965263000244E88 /* Business.swift in Sources */,
 				86E4BCE52965262300244E88 /* UserManager.swift in Sources */,
 				86E4BCD42965261000244E88 /* BusinessList.swift in Sources */,
+				8603C247296534CB006C1A58 /* MyGroupsView.swift in Sources */,
 				86E4BCED2965264D00244E88 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
