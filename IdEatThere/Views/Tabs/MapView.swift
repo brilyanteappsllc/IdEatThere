@@ -51,7 +51,7 @@ struct MapView: View {
                                 Spacer()
                                 YelpAttribution(link: "https://yelp.ca")
                             }
-                            .padding(.trailing, -20)
+                            
                             
                         }
                         

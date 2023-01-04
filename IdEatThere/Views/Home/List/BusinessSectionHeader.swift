@@ -16,11 +16,12 @@ struct BusinessSectionHeader: View {
         ZStack (alignment: .leading) {
         
         Rectangle()
-            .foregroundColor(.black)
-            .frame(height: 45)
+            .foregroundColor(.white)
+            .cornerRadius(10)
+            .frame(height: 50)
         Text(title)
             .font(.headline)
-            .foregroundColor(.white)
+            .foregroundColor(.black)
         
     }
         Divider()

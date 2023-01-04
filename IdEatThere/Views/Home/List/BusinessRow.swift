@@ -43,6 +43,7 @@ struct BusinessRow: View {
                     // Formatting number of decimal places, f = floating point
                     Text(String(format: distanceMiles, (business.distance ?? 0) * 0.000621 )) // convert to miles
                         .font(.caption)
+                        .foregroundColor(.black)
                     
                 }
                 
@@ -53,6 +54,7 @@ struct BusinessRow: View {
                     Image("regular_\(business.rating ?? 0)")
                     Text("\(business.reviewCount ?? 0) Reviews")
                         .font(.caption)
+                        .foregroundColor(.black)
                     
                 }
                 

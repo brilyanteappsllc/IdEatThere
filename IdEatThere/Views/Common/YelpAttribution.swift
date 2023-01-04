@@ -17,7 +17,7 @@ struct YelpAttribution: View {
             Image("yelp")
                 .resizable()
                 .scaledToFit()
-                .frame(height: 36)
+                .frame(height: 45)
         }
         
         
