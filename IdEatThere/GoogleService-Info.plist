@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>391636096989-3ia5upj4gagrb0g8pbu03jmj6339ofrd.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.391636096989-3ia5upj4gagrb0g8pbu03jmj6339ofrd</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBVtT6nF6YyzLgnqkfXq2Mi1R5aYv0ehhw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>391636096989</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.brilyanteappsllc.IdEatThere</string>
+	<key>PROJECT_ID</key>
+	<string>i-d-eat-there-ce9f1</string>
+	<key>STORAGE_BUCKET</key>
+	<string>i-d-eat-there-ce9f1.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:391636096989:ios:c87eab03f48f02720c8834</string>
+</dict>
+</plist>
