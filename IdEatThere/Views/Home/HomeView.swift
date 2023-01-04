@@ -25,8 +25,8 @@ struct HomeView: View {
                 MapView()
                     .tabItem{
                         VStack{
-                            Image(systemName: "house.circle")
-                            Text("Home")
+                            Image(systemName: "mappin.and.ellipse")
+                            Text("Map")
                         }
                     }
                     
@@ -36,7 +36,7 @@ struct HomeView: View {
                     .tabItem {
                         VStack{
                             Image(systemName: "person.3")
-                            Text("Community")
+                            Text("My Groups")
                         }
                     }
                 
