@@ -11,9 +11,7 @@ import SwiftUI
 
 struct FilteredTagData : Identifiable {
     
-    enum filter {
-        case none, reviews, stars, isOpen, takesReservations
-    }
+ 
     
     
     var id = UUID()
@@ -23,6 +21,6 @@ struct FilteredTagData : Identifiable {
     var isReviewsSelected : Bool = false
     var isStarsSelected : Bool = false
     var isIsOpenSelected : Bool = false
-    var filter : filter
+    var filter : ContentModel.filterOption
     
 }

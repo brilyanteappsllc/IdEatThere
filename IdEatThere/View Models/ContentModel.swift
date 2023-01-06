@@ -19,17 +19,21 @@ class ContentModel: ObservableObject {
     @Published var placemark : CLPlacemark?
     @Published var locationManager = CLLocationManager()
     
+    enum filterOption {
+        case none, reviews, stars, isOpen, takesReservations
+    }
+    
     var filterTagData = [
-        FilteredTagData(imageName: "rectangle.and.pencil.and.ellipsis", title: "Reviews", filter: .reviews),
-        FilteredTagData(imageName: "star.circle", title: "Stars", filter: .stars),
-        FilteredTagData(imageName: "envelope.open", title: "Is Open", filter: .isOpen),
-        FilteredTagData(imageName: "phone", title: "Takes Reservations", filter: .takesReservations)
+        FilteredTagData(imageName: "rectangle.and.pencil.and.ellipsis", title: "Reviews", filter: filterOption.reviews),
+        FilteredTagData(imageName: "star.circle", title: "Stars", filter: filterOption.stars),
+        FilteredTagData(imageName: "envelope.open", title: "Is Open", filter: filterOption.isOpen),
+        FilteredTagData(imageName: "phone", title: "Takes Reservations", filter: filterOption.takesReservations)
     ]
     @Published var selection = [FilteredTagData]()
-   @Published var filteredRestaurants = [Business]()
+    @Published var filteredRestaurants : [Business] = []
     @Published var mySelectedRestaurants : [Business] = []
     @Published var searchText: String = ""
-    @Published var selectedCategory: String = ""
+    @Published var filterOptions : filterOption = .none
     
     private let dataService = RestaurantDataService()
     private var cancellables = Set<AnyCancellable>()
@@ -68,23 +72,28 @@ class ContentModel: ObservableObject {
                 self?.locationManager = returnedLocationManager
             }.store(in: &cancellables)
         
+        // Filters the restaurants based on user input for search bar text and selected catagories
         $searchText
-            .combineLatest(dataService.$restaurants)
+            .combineLatest(dataService.$restaurants, $filterOptions)
             .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
-            .map(filterRestaurantsByTextSearch)
+            .map(filterRestaurantsByCategory)
             .sink { [weak self] (returnedRestaurants) in
                 self?.restaurants = returnedRestaurants
             }
             .store(in: &cancellables)
         
-        $selectedCategory
-            .combineLatest(dataService.$restaurants)
-            .map(filterRestaurantsByReviewsCategory)
-            .sink { [weak self] (returnedRestaurants) in
-                self?.restaurants = returnedRestaurants
-            }
-            .store(in: &cancellables)
 
+    }
+    
+    private func filterRestaurantsByCategory(text: String, restaurants: [Business], filter: filterOption) -> [Business] {
+        var searchedRestaurants = filterRestaurantsByTextSearch(text: text, restaurants: restaurants)
+        
+        // Filter by category
+        let filteredRestaurants = filterCategory(filter: filter, restaurants: searchedRestaurants)
+        
+        return filteredRestaurants
+        
+        
     }
     
     private func filterRestaurantsByTextSearch(text: String, restaurants: [Business]) -> [Business] {
@@ -92,7 +101,6 @@ class ContentModel: ObservableObject {
         guard !text.isEmpty else {
             return restaurants
         }
-        
         let lowerCasedText = text.lowercased()
         return restaurants.filter { (restaurant) in
             return restaurant.name!.lowercased().contains(lowerCasedText) || restaurant.alias!.lowercased().contains(lowerCasedText)
@@ -100,17 +108,32 @@ class ContentModel: ObservableObject {
         
     }
     
-    private func filterRestaurantsByReviewsCategory(text: String, restaurants: [Business]) -> [Business] {
-        
-        guard !text.isEmpty else {
-           return restaurants
-        }
-        
-            return restaurants.filter { (restaurant) in
-                return restaurant.reviewCount! <= 500
+    private func filterCategory(filter: filterOption, restaurants: [Business]) -> [Business] {
+
+        switch filter {
+        case .none :
+
+            return restaurants
+
+        case .stars :
+            return restaurants.filter { business in
+                return business.rating ?? 1 < 4
             }
-            
-        
+        case .reviews :
+            return restaurants.filter { business in
+                return business.reviewCount ?? 100 <= 1000
+            }
+
+        case .isOpen :
+            return restaurants.filter { business in
+                return !(business.isClosed ?? false)
+            }
+
+        case .takesReservations :
+            return restaurants
+
+        }
+
     }
 
         

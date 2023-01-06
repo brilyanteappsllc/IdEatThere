@@ -8,8 +8,24 @@
 import SwiftUI
 
 struct MyGroupsView: View {
+    
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            
+            ScrollView {
+                
+                VStack(alignment: .leading, spacing: 0) {
+                    Text("Hi")
+                }
+            }
+            .navigationTitle("Edit Groups")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    XMarkButton()
+                }
+        }
+        }
     }
 }
 

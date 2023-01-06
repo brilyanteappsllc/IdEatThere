@@ -48,6 +48,7 @@ struct ColorTheme {
         case "ScrollEdge" :
             let scrollEdgeAppearance = UITabBarAppearance()
             scrollEdgeAppearance.configureWithTransparentBackground()
+            scrollEdgeAppearance.backgroundColor = (UIColor(Color.theme.background))
             scrollEdgeAppearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor(Color.theme.green)]
             scrollEdgeAppearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor(Color.theme.red)]
             scrollEdgeAppearance.stackedLayoutAppearance.normal.iconColor = UIColor(Color.theme.green)

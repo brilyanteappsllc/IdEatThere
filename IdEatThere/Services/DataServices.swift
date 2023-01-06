@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import SwiftUI
 
 class RestaurantDataService:  NSObject, CLLocationManagerDelegate, ObservableObject {
     

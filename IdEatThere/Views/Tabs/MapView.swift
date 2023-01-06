@@ -49,7 +49,7 @@ struct MapView: View {
                         Divider()
                         
                         // - BusinessList View -
-                        FilterButton(searchText: $model.searchText, selectedCategory: $model.selectedCategory)
+                        FilterButton(searchText: $model.searchText, filterOptions: $model.filterOptions)
                         ZStack (alignment: .top) {
                             
                             BusinessList()

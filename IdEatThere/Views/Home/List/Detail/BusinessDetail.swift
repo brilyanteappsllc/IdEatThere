@@ -13,6 +13,8 @@ struct BusinessDetail: View {
     @State var showDirections = false
     @State private var animateButton : Bool = false
     @State private var isAddedToMyGroup : Bool = false
+    @State private var testFalse : Bool = false
+    @State private var showMyGroupsView : Bool = false // new sheet to add restaurant to my groups list
     
     var body: some View {
         
@@ -118,7 +120,7 @@ struct BusinessDetail: View {
             // - Button to get directions -
             HStack {
                 Button {
-                    showDirections = true
+                    showDirections.toggle()
                 } label: {
                     ZStack {
                         Rectangle()
@@ -128,7 +130,7 @@ struct BusinessDetail: View {
                             Text("Get Directions")
                                 .foregroundColor(.white)
                                 .bold()
-                            CircleButton(iconName: "map.circle.fill", height: 15, width: 15, addToMyGroup: $isAddedToMyGroup)
+                            CircleButton(iconName: "map.circle.fill", height: 15, width: 15, addToMyGroup: $testFalse)
                         }
                     }
                 }
@@ -138,9 +140,9 @@ struct BusinessDetail: View {
                 }
                 
                 Button {
-                    self.isAddedToMyGroup = true
-                    self.animateButton = true
-                
+                    self.isAddedToMyGroup.toggle()
+                    self.animateButton.toggle()
+                    showMyGroupsView.toggle()
                 } label: {
                     ZStack {
                         Rectangle()
@@ -157,6 +159,10 @@ struct BusinessDetail: View {
                     }
                 }
                 .padding()
+                .sheet(isPresented: $showMyGroupsView, content: {
+                    MyGroupsView()
+                        .environmentObject(business)
+                })
             }
         } // End of VStack
         

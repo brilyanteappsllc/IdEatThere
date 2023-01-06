@@ -20,6 +20,7 @@ struct IdEatThereApp: App {
             LaunchView()
                 .environmentObject(ContentModel())
                 .environmentObject(UserManager())
+                .environmentObject(RestaurantDataService())
         }
     }
 }
