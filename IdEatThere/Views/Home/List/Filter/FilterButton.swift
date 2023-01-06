@@ -13,7 +13,8 @@ struct FilterButton: View {
     
     @State var isFilterShowing = false
     @State var selectedFilter = false
-    @Binding var searchText: String
+    @Binding var searchText : String
+    @Binding var selectedCategory : String
     
     var body: some View {
         
@@ -41,6 +42,7 @@ struct FilterButton: View {
                     filterModel.clearSelection()
                     self.selectedFilter = false
                     self.searchText = ""
+                    self.selectedCategory = ""
                     UIApplication.shared.endEditing()
                 }) {
                     Image(systemName: "xmark.circle.fill")
@@ -80,6 +82,7 @@ struct FilterButton: View {
                             .onTapGesture {
                                 filterModel.toggleFilter(at: index)
                                 self.selectedFilter = true
+                                self.selectedCategory = filterModel.filterTagData[index].title
                             }
                     }
                 }
@@ -91,7 +94,7 @@ struct FilterButton: View {
 
 struct FilterButton_Previews: PreviewProvider {
     static var previews: some View {
-        FilterButton(searchText: .constant(""))
+        FilterButton(searchText: .constant(""), selectedCategory: .constant(""))
             .environmentObject(ContentModel())
     }
 }

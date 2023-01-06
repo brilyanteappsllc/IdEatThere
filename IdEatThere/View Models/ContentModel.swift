@@ -29,6 +29,7 @@ class ContentModel: ObservableObject {
    @Published var filteredRestaurants = [Business]()
     @Published var mySelectedRestaurants : [Business] = []
     @Published var searchText: String = ""
+    @Published var selectedCategory: String = ""
     
     private let dataService = RestaurantDataService()
     private var cancellables = Set<AnyCancellable>()
@@ -70,7 +71,15 @@ class ContentModel: ObservableObject {
         $searchText
             .combineLatest(dataService.$restaurants)
             .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
-            .map(filterRestaurants)
+            .map(filterRestaurantsByTextSearch)
+            .sink { [weak self] (returnedRestaurants) in
+                self?.restaurants = returnedRestaurants
+            }
+            .store(in: &cancellables)
+        
+        $selectedCategory
+            .combineLatest(dataService.$restaurants)
+            .map(filterRestaurantsByReviewsCategory)
             .sink { [weak self] (returnedRestaurants) in
                 self?.restaurants = returnedRestaurants
             }
@@ -78,7 +87,7 @@ class ContentModel: ObservableObject {
 
     }
     
-    private func filterRestaurants(text: String, restaurants: [Business]) -> [Business] {
+    private func filterRestaurantsByTextSearch(text: String, restaurants: [Business]) -> [Business] {
         
         guard !text.isEmpty else {
             return restaurants
@@ -89,16 +98,25 @@ class ContentModel: ObservableObject {
             return restaurant.name!.lowercased().contains(lowerCasedText) || restaurant.alias!.lowercased().contains(lowerCasedText)
         }
         
+    }
+    
+    private func filterRestaurantsByReviewsCategory(text: String, restaurants: [Business]) -> [Business] {
         
+        guard !text.isEmpty else {
+           return restaurants
+        }
         
-        
+            return restaurants.filter { (restaurant) in
+                return restaurant.reviewCount! <= 500
+            }
+            
         
     }
 
         
     
     
-    // MARK: - Filtering the Restaurants
+    // MARK: - Filtering Button
     // 3. toggles the selection of the filter at the given index
     func toggleFilter(at index: Int) {
         guard index >= 0 && index < filterTagData.count else { return }
