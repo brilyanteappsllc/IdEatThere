@@ -18,6 +18,7 @@ struct YelpAttribution: View {
                 .resizable()
                 .scaledToFit()
                 .frame(height: 45)
+                .cornerRadius(25)
         }
         
         

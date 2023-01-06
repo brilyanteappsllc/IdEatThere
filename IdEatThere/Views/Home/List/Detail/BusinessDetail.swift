@@ -34,25 +34,6 @@ struct BusinessDetail: View {
                     
                 }
                 .ignoresSafeArea(.all, edges: .top)
-
-                
-                // - Open or closed status -
-                ZStack (alignment: .leading) {
-
-                        Rectangle()
-                            .frame(height: 36)
-                            .opacity(0)
-                    
-                    HStack {
-                        Text(business.isClosed! ? "Closed..." : "Open!")
-                            .foregroundColor(.white)
-                            .bold()
-                            .padding(.leading)
-                        
-                        Spacer()
-                        YelpAttribution(link: business.url!)
-                    }
-                }
                 
             }
             
@@ -61,9 +42,13 @@ struct BusinessDetail: View {
                 // BusinessTitle View
                 HStack {
                     BusinessTitle(business: business)
-                        .padding()
+                        .padding(.leading)
                     
                 }
+                
+                Text(business.isClosed! ? "Closed..." : "Open!")
+                    .foregroundColor(business.isClosed! ? Color.theme.red : Color.theme.green)
+                    .padding(.leading)
                 
                 
                 DashedDivider()
@@ -71,78 +56,47 @@ struct BusinessDetail: View {
                 
                 // - Phone -
                 HStack {
-                    Text("Phone: ")
-                        .bold()
-                    Text(business.phone ?? "")
                     Spacer()
-                    Link("Call", destination: URL(string: "tel:\(business.phone ?? "")")!)
-                
-                }
-                .padding()
-                
-                DashedDivider()
-                    .padding(.horizontal)
-                
-                // - Review count and read -
-                HStack {
-                    Text("Reviews: ")
-                        .bold()
-                    Text("\(business.reviewCount ?? 0)")
+                    VStack {
+                        Image(systemName: "phone.connection")
+                        Link("Call", destination: URL(string: "tel:\(business.phone ?? "")")!)
+                    }
                     Spacer()
-                    Link("Read", destination: URL(string: "\(business.url ?? "")")!)
-                
-                }
-                .padding()
-                
-                
-                DashedDivider()
-                    .padding(.horizontal)
-                
-                // - Website -
-                HStack {
-                    Text("View in Yelp: ")
-                        .bold()
-                        
+                    VStack {
+                        Image(systemName: "rectangle.and.pencil.and.ellipsis")
+                        Link("Reviews", destination: URL(string: "\(business.url ?? "")")!)
+                    }
                     Spacer()
-                    YelpAttribution(link: business.url!)
-                
-                }
-                .padding()
-                
-                
-                DashedDivider()
-                    .padding(.horizontal)
-                
-            
-            } // End of Group
-            
-            
-            // - Button to get directions -
-            HStack {
-                Button {
-                    showDirections.toggle()
-                } label: {
-                    ZStack {
-                        Rectangle()
-                            .frame(height: 48)
-                            .opacity(0)
-                        HStack {
-                            Text("Get Directions")
-                                .foregroundColor(.white)
-                                .bold()
-                            CircleButton(iconName: "map.circle.fill", height: 15, width: 15, addToMyGroup: $testFalse)
+                    VStack {
+                        Button {
+                            showDirections.toggle()
+                        } label: {
+                            ZStack {
+                                VStack {
+                                    Image(systemName: "map.circle.fill")
+                                    Text("Map")
+                                }
+                            }
+                        }
+                        .sheet(isPresented: $showDirections) {
+                            DirectionsView(business: business)
                         }
                     }
+                    Spacer()
+                    VStack {
+                        YelpAttribution(link: business.url!)
+                    }
+                    Spacer()
                 }
                 .padding()
-                .sheet(isPresented: $showDirections) {
-                    DirectionsView(business: business)
-                }
+                
+                DashedDivider()
+                    .padding(.horizontal)
                 
                 Button {
                     self.isAddedToMyGroup.toggle()
                     self.animateButton.toggle()
-                    showMyGroupsView.toggle()
+  //                  showMyGroupsView.toggle()
                 } label: {
                     ZStack {
                         Rectangle()
@@ -159,10 +113,10 @@ struct BusinessDetail: View {
                     }
                 }
                 .padding()
-                .sheet(isPresented: $showMyGroupsView, content: {
-                    MyGroupsView()
-                        .environmentObject(business)
-                })
+//                .sheet(isPresented: $showMyGroupsView, content: {
+//                    MyGroupsView()
+//                        .environmentObject(business)
+//                })
             }
         } // End of VStack
         

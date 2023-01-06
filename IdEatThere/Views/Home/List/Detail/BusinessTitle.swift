@@ -30,9 +30,13 @@ struct BusinessTitle: View {
             }
 
             // - Star review -
-            Image("regular_\(business.rating ?? 0)")
-                .padding(.bottom, 5)
-            
+            HStack {
+                Text(String(business.rating ?? 0.0))
+                    .font(.headline)
+                    .padding(.bottom, 5)
+                Image("regular_\(business.rating ?? 0)")
+                    .padding(.bottom, 5)
+            }
         }
 
     }
