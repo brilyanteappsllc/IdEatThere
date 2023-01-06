@@ -13,8 +13,8 @@ import SwiftUI
 class ContentModel: ObservableObject {
     
     @Published var authorizationState = CLAuthorizationStatus.notDetermined
-    @Published var restaurants = [Business]()
-    @Published var sights = [Business]()
+    @Published var restaurants : [Business] = []
+    @Published var sights : [Business] = []
     
     @Published var placemark : CLPlacemark?
     @Published var locationManager = CLLocationManager()
@@ -26,7 +26,7 @@ class ContentModel: ObservableObject {
         FilteredTagData(imageName: "phone", title: "Takes Reservations", filter: .takesReservations)
     ]
     @Published var selection = [FilteredTagData]()
-    @Published var filteredRestaurants = [Business]()
+   @Published var filteredRestaurants = [Business]()
     @Published var mySelectedRestaurants : [Business] = []
     @Published var searchText: String = ""
     
@@ -66,7 +66,33 @@ class ContentModel: ObservableObject {
             .sink { [weak self] (returnedLocationManager) in
                 self?.locationManager = returnedLocationManager
             }.store(in: &cancellables)
+        
+        $searchText
+            .combineLatest(dataService.$restaurants)
+            .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
+            .map(filterRestaurants)
+            .sink { [weak self] (returnedRestaurants) in
+                self?.restaurants = returnedRestaurants
+            }
+            .store(in: &cancellables)
 
+    }
+    
+    private func filterRestaurants(text: String, restaurants: [Business]) -> [Business] {
+        
+        guard !text.isEmpty else {
+            return restaurants
+        }
+        
+        let lowerCasedText = text.lowercased()
+        return restaurants.filter { (restaurant) in
+            return restaurant.name!.lowercased().contains(lowerCasedText) || restaurant.alias!.lowercased().contains(lowerCasedText)
+        }
+        
+        
+        
+        
+        
     }
 
         
