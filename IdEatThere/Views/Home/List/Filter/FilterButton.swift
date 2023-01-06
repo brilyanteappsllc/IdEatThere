@@ -12,14 +12,23 @@ struct FilterButton: View {
     @EnvironmentObject var filterModel : ContentModel
     
     @State var isFilterShowing = false
+    @State var selectedFilter = false
+    @Binding var searchText: String
     
     var body: some View {
         
-        VStack{
+        VStack {
             HStack {
                 Image(systemName: "magnifyingglass")
-                    .foregroundColor(.gray)
-                // 3
+                    .foregroundColor(
+                        selectedFilter || !searchText.isEmpty ?
+                        Color.theme.accent : Color.theme.secondaryText
+                    )
+                
+                TextField("Search...", text: $searchText)
+                    .foregroundColor(Color.theme.accent)
+//                    .disableAutocorrection(true)
+                
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(filterModel.selection) { item in
@@ -28,18 +37,30 @@ struct FilterButton: View {
                     }
                 }
                 Spacer()
-                Button(action: { filterModel.clearSelection() }) {
+                Button(action: {
+                    filterModel.clearSelection()
+                    self.selectedFilter = false
+                    self.searchText = ""
+                    UIApplication.shared.endEditing()
+                }) {
                     Image(systemName: "xmark.circle.fill")
-                        .foregroundColor(Color.black.opacity(0.6))
+                       .padding(3)
+                        .foregroundColor(
+                            selectedFilter || !searchText.isEmpty ?
+                            Color.theme.accent : Color.theme.secondaryText)
                 }
             }
+            .font(.headline)
             .padding(6)
-            .background(RoundedRectangle(cornerRadius: 8).foregroundColor(Color.gray.opacity(0.5)))
-            
+            .background(
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(Color.theme.background)
+                    .shadow(
+                        color: Color.theme.accent,
+                        radius: 5, x: 0, y: 0)
+                        )
             ZStack {
-                Rectangle()
-                    .frame(width: 150, height: 20)
-                    .opacity(0)
+                
                 HStack {
                     Text(isFilterShowing ? "Collapse Filters" : " Show Filter Options")
                     ChevronDownButton(iconName: "chevron.down", height: 15, width: 15)
@@ -58,13 +79,10 @@ struct FilterButton: View {
                         FilterTag(filterData: filterModel.filterTagData[index])
                             .onTapGesture {
                                 filterModel.toggleFilter(at: index)
+                                self.selectedFilter = true
                             }
                     }
                 }
-            }
-            
-            else {
-                
             }
         }
     }
@@ -73,7 +91,7 @@ struct FilterButton: View {
 
 struct FilterButton_Previews: PreviewProvider {
     static var previews: some View {
-        FilterButton()
+        FilterButton(searchText: .constant(""))
             .environmentObject(ContentModel())
     }
 }

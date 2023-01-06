@@ -11,6 +11,7 @@ struct OnboardingView: View {
     
     @EnvironmentObject var model: ContentModel
     @EnvironmentObject var userManager : UserManager
+    @EnvironmentObject var modelLocation : RestaurantDataService
     
     @State var tabSelection = 0
     
@@ -95,7 +96,7 @@ struct OnboardingView: View {
 //                }
                 else {
                     // Request for geo location permission
-                    model.requestGeolocationPermission()
+                    modelLocation.requestGeolocationPermission()
                 }
                 
                 

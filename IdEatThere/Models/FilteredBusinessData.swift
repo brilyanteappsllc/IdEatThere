@@ -12,7 +12,7 @@ import SwiftUI
 struct FilteredTagData : Identifiable {
     
     enum filter {
-        case none, reviews, stars, isOpen
+        case none, reviews, stars, isOpen, takesReservations
     }
     
     

@@ -14,15 +14,18 @@ struct BusinessSection: View {
     
     var body: some View {
         
-        Section (header: BusinessSectionHeader(title: title)) {
-            ForEach(businesses) { business in
-                
-                NavigationLink {
-                    BusinessDetail(business: business)
-                } label: {
-                    BusinessRow(business: business)
-                }
-            }
+  //      Section (header: BusinessSectionHeader(title: title)) {
+            
+//            List {
+                ForEach(businesses) { business in
+                    
+                    NavigationLink {
+                        BusinessDetail(business: business)
+                    } label: {
+                        BusinessRow(business: business)
+                    }
+//                }
+ //           }
         }
     }
 }
