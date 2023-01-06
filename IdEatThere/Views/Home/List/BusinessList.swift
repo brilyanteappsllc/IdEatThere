@@ -17,7 +17,7 @@ struct BusinessList: View {
             LazyVStack(alignment: .leading, pinnedViews: [.sectionHeaders]) {
                 
                 // - Restaruants -
-                BusinessSection(title: "Top 10 Restaurants", businesses: model.restaurants)
+                BusinessSection(title: "Top Restaurants in Your Area!", businesses: model.filteredRestaurants)
                 
                 // - Sights -
                 // Off for now

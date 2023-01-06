@@ -24,7 +24,7 @@ struct BusinessRow: View {
     
     var body: some View {
         
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading) { 
             
             HStack {
                 // Image - need to fetch imageURL
@@ -39,11 +39,11 @@ struct BusinessRow: View {
                 VStack(alignment: .leading) {
                     Text(business.name ?? "")
                         .bold()
-                        .foregroundColor(.black)
+                        .foregroundColor(Color.theme.secondaryText)
                     // Formatting number of decimal places, f = floating point
                     Text(String(format: distanceMiles, (business.distance ?? 0) * 0.000621 )) // convert to miles
                         .font(.caption)
-                        .foregroundColor(.black)
+                        .foregroundColor(Color.theme.secondaryText)
                     
                 }
                 
@@ -54,7 +54,7 @@ struct BusinessRow: View {
                     Image("regular_\(business.rating ?? 0)")
                     Text("\(business.reviewCount ?? 0) Reviews")
                         .font(.caption)
-                        .foregroundColor(.black)
+                        .foregroundColor(Color.theme.secondaryText)
                     
                 }
                 
@@ -62,5 +62,14 @@ struct BusinessRow: View {
             DashedDivider()
                 .padding(.vertical)
         }
+    }
+}
+
+
+
+struct BusinessRow_Previews: PreviewProvider {
+    static var previews: some View {
+        BusinessRow(business: Business())
+            .environmentObject(ContentModel())
     }
 }

@@ -15,8 +15,11 @@
 		8603C24F29653EA9006C1A58 /* EditUserProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8603C24E29653EA9006C1A58 /* EditUserProfileButton.swift */; };
 		8603C25129653EEC006C1A58 /* LogoutForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8603C25029653EEC006C1A58 /* LogoutForm.swift */; };
 		8627F9EA29672EBF00382DA8 /* FilterTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8627F9E929672EBF00382DA8 /* FilterTag.swift */; };
-		8627F9EC29672EC500382DA8 /* FilterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8627F9EB29672EC500382DA8 /* FilterBar.swift */; };
 		8627F9F129674F6D00382DA8 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8627F9F029674F6D00382DA8 /* Color.swift */; };
+		8627F9F429676C5900382DA8 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8627F9F329676C5900382DA8 /* CircleButton.swift */; };
+		8627F9F92967755500382DA8 /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8627F9F82967755500382DA8 /* FilterButton.swift */; };
+		8627F9FB2967769800382DA8 /* ChevronDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8627F9FA2967769800382DA8 /* ChevronDownButton.swift */; };
+		8627F9FD2967811000382DA8 /* CircleButtonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8627F9FC2967811000382DA8 /* CircleButtonAnimation.swift */; };
 		86C1A978296674CE00C1B602 /* FilteredBusinessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1A977296674CE00C1B602 /* FilteredBusinessData.swift */; };
 		86E4BCA92965248900244E88 /* IdEatThereApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4BCA82965248900244E88 /* IdEatThereApp.swift */; };
 		86E4BCB02965248C00244E88 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86E4BCAF2965248C00244E88 /* Preview Assets.xcassets */; };
@@ -55,8 +58,11 @@
 		8603C24E29653EA9006C1A58 /* EditUserProfileButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserProfileButton.swift; sourceTree = "<group>"; };
 		8603C25029653EEC006C1A58 /* LogoutForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutForm.swift; sourceTree = "<group>"; };
 		8627F9E929672EBF00382DA8 /* FilterTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTag.swift; sourceTree = "<group>"; };
-		8627F9EB29672EC500382DA8 /* FilterBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterBar.swift; sourceTree = "<group>"; };
 		8627F9F029674F6D00382DA8 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		8627F9F329676C5900382DA8 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		8627F9F82967755500382DA8 /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
+		8627F9FA2967769800382DA8 /* ChevronDownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChevronDownButton.swift; sourceTree = "<group>"; };
+		8627F9FC2967811000382DA8 /* CircleButtonAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonAnimation.swift; sourceTree = "<group>"; };
 		86C1A977296674CE00C1B602 /* FilteredBusinessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredBusinessData.swift; sourceTree = "<group>"; };
 		86E4BCA52965248900244E88 /* IdEatThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IdEatThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86E4BCA82965248900244E88 /* IdEatThereApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdEatThereApp.swift; sourceTree = "<group>"; };
@@ -135,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				8627F9E929672EBF00382DA8 /* FilterTag.swift */,
-				8627F9EB29672EC500382DA8 /* FilterBar.swift */,
+				8627F9F82967755500382DA8 /* FilterButton.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -146,6 +152,16 @@
 				8627F9F029674F6D00382DA8 /* Color.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8627F9F229676C4A00382DA8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8627F9F329676C5900382DA8 /* CircleButton.swift */,
+				8627F9FA2967769800382DA8 /* ChevronDownButton.swift */,
+				8627F9FC2967811000382DA8 /* CircleButtonAnimation.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		86E4BC9C2965248900244E88 = {
@@ -291,6 +307,7 @@
 		86E4BCF02965266200244E88 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				8627F9F229676C4A00382DA8 /* Common */,
 				8627F9EF29674F6200382DA8 /* Extensions */,
 				86E4BCEE2965265A00244E88 /* Assets.xcassets */,
 				86E4BCEC2965264D00244E88 /* Constants.swift */,
@@ -427,8 +444,8 @@
 				8627F9F129674F6D00382DA8 /* Color.swift in Sources */,
 				86E4BCDE2965261000244E88 /* LaunchView.swift in Sources */,
 				86E4BCDB2965261000244E88 /* LocationDeniedView.swift in Sources */,
+				8627F9FB2967769800382DA8 /* ChevronDownButton.swift in Sources */,
 				86E4BCE02965261000244E88 /* OnboardingView.swift in Sources */,
-				8627F9EC29672EC500382DA8 /* FilterBar.swift in Sources */,
 				86E4BCD52965261000244E88 /* BusinessRow.swift in Sources */,
 				86E4BCE62965262300244E88 /* ContentModel.swift in Sources */,
 				86E4BCD62965261000244E88 /* BusinessSection.swift in Sources */,
@@ -438,9 +455,11 @@
 				86E4BCD12965261000244E88 /* HomeView.swift in Sources */,
 				86E4BCD22965261000244E88 /* BusinessMap.swift in Sources */,
 				86E4BCA92965248900244E88 /* IdEatThereApp.swift in Sources */,
+				8627F9FD2967811000382DA8 /* CircleButtonAnimation.swift in Sources */,
 				86E4BCE12965261000244E88 /* LoginForm.swift in Sources */,
 				86E4BCD82965261000244E88 /* BusinessDetail.swift in Sources */,
 				86E4BCDC2965261000244E88 /* DashedDivider.swift in Sources */,
+				8627F9F429676C5900382DA8 /* CircleButton.swift in Sources */,
 				8603C24F29653EA9006C1A58 /* EditUserProfileButton.swift in Sources */,
 				8603C24A296534DE006C1A58 /* MyProfileView.swift in Sources */,
 				86E4BCDF2965261000244E88 /* CreateUserForm.swift in Sources */,
@@ -448,6 +467,7 @@
 				86E4BCEB2965263000244E88 /* Business Search.swift in Sources */,
 				86E4BCD32965261000244E88 /* DirectionsMap.swift in Sources */,
 				8603C24D29653EA4006C1A58 /* EditUserProfile.swift in Sources */,
+				8627F9F92967755500382DA8 /* FilterButton.swift in Sources */,
 				8627F9EA29672EBF00382DA8 /* FilterTag.swift in Sources */,
 				8603C25129653EEC006C1A58 /* LogoutForm.swift in Sources */,
 				86E4BCEA2965263000244E88 /* Business.swift in Sources */,

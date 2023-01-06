@@ -34,6 +34,12 @@ struct MapView: View {
                             Image(systemName: "location")
                             Text(model.placemark?.locality ?? "") //city associated with placemark
                             Spacer()
+//                            Button {
+//                                self.isMapShowing = true
+//                            } label: {
+//                                CircleButton(iconName: "chevron.right")
+//                            }
+
                             Button("Switch to map view") {
                                 self.isMapShowing = true
                             }
@@ -43,14 +49,15 @@ struct MapView: View {
                         Divider()
                         
                         // - BusinessList View -
+                        FilterButton()
                         ZStack (alignment: .top) {
                             
                             BusinessList()
                             
-                            HStack {
-                                Spacer()
-                                YelpAttribution(link: "https://yelp.ca")
-                            }
+//                            HStack {
+//                                Spacer()
+//                                YelpAttribution(link: "https://yelp.ca")
+//                            }
                             
                             
                         }
@@ -116,5 +123,6 @@ struct MapView: View {
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
         MapView()
+            .environmentObject(ContentModel())
     }
 }

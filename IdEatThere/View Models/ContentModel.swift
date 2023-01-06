@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import SwiftUI
 
 class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     
@@ -17,6 +18,18 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     @Published var sights = [Business]()
     
     @Published var placemark : CLPlacemark?
+    
+    
+    var filterTagData = [
+        FilteredTagData(imageName: "rectangle.and.pencil.and.ellipsis", title: "Reviews", filter: .reviews),
+        FilteredTagData(imageName: "star.circle", title: "Stars", filter: .stars),
+        FilteredTagData(imageName: "envelope.open", title: "Is Open", filter: .isOpen)
+     //   FilteredBusinessData(imageName: "phone", title: "Takes Reservations")
+    ]
+    @Published var selection = [FilteredTagData]()
+    @Published var filteredRestaurants = [Business]()
+    @Published var mySelectedRestaurants : [Business] = []
+    
     
     // MARK: - Core Location -
     
@@ -112,7 +125,7 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
                 URLQueryItem(name: "categories", value: String(category)),
 //               URLQueryItem(name: "sort_by", value: "review_count"),
 //                URLQueryItem(name: "sort_by", value: "rating"),
-                URLQueryItem(name: "limit", value: "30")
+//                URLQueryItem(name: "limit", value: "60")
             ]
         let url = urlComponents?.url
         
@@ -173,6 +186,7 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
                                 self.sights = businesses
                             case Constants.restaurantsKey:
                                 self.restaurants = businesses
+                                self.filteredRestaurants = self.restaurants
                             default:
                                 break
                             }
@@ -191,6 +205,66 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
             // Start the DataTask
                 dataTask.resume()
         }
+        
+    }
+    
+    // MARK: - Filtering the Restaurants
+    // 3. toggles the selection of the filter at the given index
+    func toggleFilter(at index: Int) {
+        guard index >= 0 && index < filterTagData.count else { return }
+        filterTagData[index].isSelected.toggle()
+        refreshSelection()
+    //    updateFilteredRestaurants(filter: filterTagData[index].filter)
+    }
+    
+    // 4. clears the selected items
+    func clearSelection() {
+        for index in 0..<filterTagData.count {
+            filterTagData[index].isSelected = false
+        }
+        refreshSelection()
+        self.filteredRestaurants = self.restaurants
+    }
+    
+    // 5. remakes the published selection list
+    private func refreshSelection() {
+        let result = filterTagData.filter{ $0.isSelected }
+        withAnimation {
+            selection = result
+        }
+        
+
+        
+    
+    }
+    
+    func updateFilteredRestaurants(filter: FilteredTagData.filter) -> [Business] {
+        
+        switch filter {
+            
+        case .none :
+            return filteredRestaurants
+            
+        case .isOpen :
+            filteredRestaurants = restaurants.filter({ business in
+                !(business.isClosed ?? false) })
+            
+            return filteredRestaurants
+        
+        case .stars :
+            filteredRestaurants = restaurants.filter({ business in
+                business.rating ?? 0 >= 4
+            })
+            
+            return filteredRestaurants
+            
+        case .reviews :
+            filteredRestaurants = restaurants.filter({ business in
+                business.reviewCount ?? 0 <= 500
+            })
+            return filteredRestaurants
+        }
+        
         
     }
     

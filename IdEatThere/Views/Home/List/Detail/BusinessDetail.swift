@@ -11,6 +11,8 @@ struct BusinessDetail: View {
     
     var business: Business
     @State var showDirections = false
+    @State private var animateButton : Bool = false
+    @State private var isAddedToMyGroup : Bool = false
     
     var body: some View {
         
@@ -34,14 +36,20 @@ struct BusinessDetail: View {
                 
                 // - Open or closed status -
                 ZStack (alignment: .leading) {
-                    Rectangle()
-                        .frame(height: 36)
-                        .foregroundColor(business.isClosed! ? .gray : .blue)
+
+                        Rectangle()
+                            .frame(height: 36)
+                            .opacity(0)
                     
-                    Text(business.isClosed! ? "Closed" : "Open")
-                        .foregroundColor(.white)
-                        .bold()
-                        .padding(.leading)
+                    HStack {
+                        Text(business.isClosed! ? "Closed..." : "Open!")
+                            .foregroundColor(.white)
+                            .bold()
+                            .padding(.leading)
+                        
+                        Spacer()
+                        YelpAttribution(link: business.url!)
+                    }
                 }
                 
             }
@@ -53,9 +61,6 @@ struct BusinessDetail: View {
                     BusinessTitle(business: business)
                         .padding()
                     
-                    Spacer()
-                    YelpAttribution(link: business.url!)
-                    
                 }
                 
                 
@@ -64,7 +69,7 @@ struct BusinessDetail: View {
                 
                 // - Phone -
                 HStack {
-                    Text("Phone")
+                    Text("Phone: ")
                         .bold()
                     Text(business.phone ?? "")
                     Spacer()
@@ -78,7 +83,7 @@ struct BusinessDetail: View {
                 
                 // - Review count and read -
                 HStack {
-                    Text("Reviews")
+                    Text("Reviews: ")
                         .bold()
                     Text("\(business.reviewCount ?? 0)")
                     Spacer()
@@ -93,12 +98,11 @@ struct BusinessDetail: View {
                 
                 // - Website -
                 HStack {
-                    Text("Website:")
+                    Text("View in Yelp: ")
                         .bold()
-                    Text(business.url ?? "")
-                        .lineLimit(1)
+                        
                     Spacer()
-                    Link("Visit", destination: URL(string: "\(business.url ?? "")")!)
+                    YelpAttribution(link: business.url!)
                 
                 }
                 .padding()
@@ -112,27 +116,48 @@ struct BusinessDetail: View {
             
             
             // - Button to get directions -
-            Button {
-                showDirections = true
-            } label: {
-                ZStack {
-                    Rectangle()
-                        .frame(height: 48)
-                        .foregroundColor(.blue)
-                        .cornerRadius(10)
-                    
-                    Text("Get Directions")
-                        .foregroundColor(.white)
-                        .bold()
-                
+            HStack {
+                Button {
+                    showDirections = true
+                } label: {
+                    ZStack {
+                        Rectangle()
+                            .frame(height: 48)
+                            .opacity(0)
+                        HStack {
+                            Text("Get Directions")
+                                .foregroundColor(.white)
+                                .bold()
+                            CircleButton(iconName: "map.circle.fill", height: 15, width: 15, addToMyGroup: $isAddedToMyGroup)
+                        }
+                    }
                 }
+                .padding()
+                .sheet(isPresented: $showDirections) {
+                    DirectionsView(business: business)
+                }
+                
+                Button {
+                    self.isAddedToMyGroup = true
+                    self.animateButton = true
+                
+                } label: {
+                    ZStack {
+                        Rectangle()
+                            .opacity(0)
+                        HStack {
+                            Text(isAddedToMyGroup ? "Added to My Group!" : "Add to My Group!")
+                                .foregroundColor(Color.theme.accent)
+                                .bold()
+                            CircleButton(iconName: "heart.fill", height: 15, width: 15, addToMyGroup: $isAddedToMyGroup)
+                                .background(
+                                    CircleButtonAnimation(animate: $animateButton)
+                                    )
+                        }
+                    }
+                }
+                .padding()
             }
-            .padding()
-            .sheet(isPresented: $showDirections) {
-                DirectionsView(business: business)
-            }
-
-            
         } // End of VStack
         
     }

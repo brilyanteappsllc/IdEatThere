@@ -11,17 +11,42 @@ struct BusinessSectionHeader: View {
     
     var title: String
     
+    @ObservedObject var filterModel = ContentModel()
+    
     var body: some View {
     
         ZStack (alignment: .leading) {
         
         Rectangle()
-            .foregroundColor(.white)
+                .foregroundColor(Color.theme.accent)
             .cornerRadius(10)
             .frame(height: 50)
-        Text(title)
-            .font(.headline)
-            .foregroundColor(.black)
+            
+            Text(title)
+                    .font(.headline)
+                    .foregroundColor(Color.theme.secondaryText)
+            
+//            VStack {
+//                Text(title)
+//                    .font(.headline)
+//                    .foregroundColor(Color.theme.secondaryText)
+//                VStack {
+//                            FilterBar()
+//                                .environmentObject(filterModel)
+//                            Spacer()
+//                            List {
+//                                ForEach(0..<filterModel.filterTagData.count) { index in
+//                                    FilterTag(filterData: filterModel.filterTagData[index])
+//                                        .onTapGesture {
+//                                            filterModel.toggleFilter(at: index)
+//                                            filterModel.updateFilteredRestaurants(filter: filterModel.filterTagData[index].filter)
+//                                        }
+//                                }
+//                            }
+//                        }
+//                        .padding()
+//           }
+
         
     }
         Divider()
