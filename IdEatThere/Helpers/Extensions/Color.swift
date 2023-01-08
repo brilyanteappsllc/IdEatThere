@@ -23,7 +23,8 @@ struct ColorTheme {
     let secondaryText = Color("SecondaryTextColor")
     let blackText = Color("BlackTextColor")
     let gold = Color("GoldColor")
-    
+    let tabSelectedItemColor = Color("TabSelectedItemColor")
+    let tabUnselectedItemColor = Color("TabUnselectedItemColor")
 
     
     func tabBarAppearance(appearance: String) -> UITabBarAppearance {
@@ -35,10 +36,10 @@ struct ColorTheme {
             let standardApperance = UITabBarAppearance()
             standardApperance.configureWithDefaultBackground()
             standardApperance.backgroundColor = UIColor(Color.theme.background)
-            standardApperance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor(Color.theme.green)]
-            standardApperance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor(Color.theme.red)]
-            standardApperance.stackedLayoutAppearance.normal.iconColor = UIColor(Color.theme.green)
-            standardApperance.stackedLayoutAppearance.selected.iconColor = UIColor(Color.theme.red)
+            standardApperance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor(Color.theme.tabUnselectedItemColor)]
+            standardApperance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor(Color.theme.tabSelectedItemColor)]
+            standardApperance.stackedLayoutAppearance.normal.iconColor = UIColor(Color.theme.tabUnselectedItemColor)
+            standardApperance.stackedLayoutAppearance.selected.iconColor = UIColor(Color.theme.tabSelectedItemColor)
             UITabBar.appearance().standardAppearance = standardApperance
             let tab = UITabBar.appearance().standardAppearance
             
@@ -48,11 +49,11 @@ struct ColorTheme {
         case "ScrollEdge" :
             let scrollEdgeAppearance = UITabBarAppearance()
             scrollEdgeAppearance.configureWithTransparentBackground()
-            scrollEdgeAppearance.backgroundColor = (UIColor(Color.theme.background))
-            scrollEdgeAppearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor(Color.theme.green)]
-            scrollEdgeAppearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor(Color.theme.red)]
-            scrollEdgeAppearance.stackedLayoutAppearance.normal.iconColor = UIColor(Color.theme.green)
-            scrollEdgeAppearance.stackedLayoutAppearance.selected.iconColor = UIColor(Color.theme.red)
+            scrollEdgeAppearance.backgroundColor = UIColor(Color.theme.background)
+            scrollEdgeAppearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor(Color.theme.tabUnselectedItemColor)]
+            scrollEdgeAppearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor(Color.theme.tabSelectedItemColor)]
+            scrollEdgeAppearance.stackedLayoutAppearance.normal.iconColor = UIColor(Color.theme.tabUnselectedItemColor)
+            scrollEdgeAppearance.stackedLayoutAppearance.selected.iconColor = UIColor(Color.theme.tabSelectedItemColor)
             UITabBar.appearance().scrollEdgeAppearance = scrollEdgeAppearance
             let tab = UITabBar.appearance().scrollEdgeAppearance
             

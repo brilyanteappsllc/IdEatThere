@@ -24,8 +24,8 @@ class ContentModel: ObservableObject {
     }
     
     var filterTagData = [
-        FilteredTagData(imageName: "rectangle.and.pencil.and.ellipsis", title: "Reviews", filter: filterOption.reviews),
-        FilteredTagData(imageName: "star.circle", title: "Stars", filter: filterOption.stars),
+        FilteredTagData(imageName: "rectangle.and.pencil.and.ellipsis", title: "1000 Review Count", filter: filterOption.reviews),
+        FilteredTagData(imageName: "star.circle", title: "At Least 4 Stars", filter: filterOption.stars),
         FilteredTagData(imageName: "envelope.open", title: "Is Open", filter: filterOption.isOpen),
         FilteredTagData(imageName: "phone", title: "Takes Reservations", filter: filterOption.takesReservations)
     ]
@@ -117,11 +117,11 @@ class ContentModel: ObservableObject {
 
         case .stars :
             return restaurants.filter { business in
-                return business.rating ?? 1 < 4
+                return business.rating ?? 1 > 4
             }
         case .reviews :
             return restaurants.filter { business in
-                return business.reviewCount ?? 100 <= 1000
+                return business.reviewCount ?? 100 >= 1000
             }
 
         case .isOpen :

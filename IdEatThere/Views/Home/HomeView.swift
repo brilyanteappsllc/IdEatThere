@@ -30,7 +30,7 @@ struct HomeView: View {
         
         ZStack {
             
-            Color.theme.background
+            Color.theme.red
                 .ignoresSafeArea()
             
             TabView{
@@ -38,8 +38,8 @@ struct HomeView: View {
                 MapView()
                     .tabItem{
                         VStack{
-                            Image(systemName: "mappin.and.ellipse")
-                            Text("Map")
+                            Image(systemName: "fork.knife")
+                            Text("Eats")
                         }
                     }
                     

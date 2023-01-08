@@ -29,6 +29,7 @@ class Business: Decodable, Identifiable, ObservableObject {
     var phone: String?
     var displayPhone: String?
     var distance: Double?
+    var data : data?
     
     enum CodingKeys: String, CodingKey {
         
@@ -105,6 +106,12 @@ struct Location: Decodable {
         case state
     }
 }
+
+struct data : Decodable {
+    
+    var reservation_openings : String?
+}
+
 
 
 struct Category: Decodable {

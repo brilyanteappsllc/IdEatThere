@@ -21,7 +21,8 @@ struct ChevronDownButton: View {
             .foregroundColor(Color.theme.accent)
             .background(
             Rectangle()
-                .foregroundColor(Color.theme.background)
+                .foregroundColor(Color.theme
+                    .background)
             )
             .shadow(
                 color: Color.theme.accent.opacity(0.25),
