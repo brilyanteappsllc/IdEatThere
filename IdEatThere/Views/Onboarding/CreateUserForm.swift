@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CreateUserForm: View {
     
-    @EnvironmentObject var userManager : UserManager
+    @EnvironmentObject var userManager : UserManagerModel
         
         var body: some View {
             

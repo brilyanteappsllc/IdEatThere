@@ -9,8 +9,8 @@ import SwiftUI
 
 struct OnboardingView: View {
     
-    @EnvironmentObject var model: ContentModel
-    @EnvironmentObject var userManager : UserManager
+    @EnvironmentObject var model: RestaurantsContentModel
+    @EnvironmentObject var userManager : UserManagerModel
     @EnvironmentObject var modelLocation : RestaurantDataService
     
     @State var tabSelection = 0

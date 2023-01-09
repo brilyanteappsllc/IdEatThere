@@ -11,7 +11,7 @@ import MapKit
 
 struct BusinessMap: UIViewRepresentable {
     
-    @EnvironmentObject var model: ContentModel
+    @EnvironmentObject var model: RestaurantsContentModel
     @Binding var selectedBusiness: Business?
     
     

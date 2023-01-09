@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BusinessList: View {
     
-    @EnvironmentObject var model: ContentModel
+    @EnvironmentObject var model: RestaurantsContentModel
     
     var body: some View {
         

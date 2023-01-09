@@ -10,8 +10,8 @@ import CoreLocation
 
 struct LaunchView: View {
     
-    @EnvironmentObject var model : ContentModel
-    @EnvironmentObject var userManager : UserManager
+    @EnvironmentObject var model : RestaurantsContentModel
+    @EnvironmentObject var userManager : UserManagerModel
     
     var body: some View {
         

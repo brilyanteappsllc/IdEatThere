@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseFirestore
 
-class UserManager : NSObject, ObservableObject {
+class UserManagerModel : NSObject, ObservableObject {
     
     
     let db = Firestore.firestore()

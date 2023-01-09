@@ -11,7 +11,7 @@ struct BusinessSectionHeader: View {
     
     var title: String
     
-    @ObservedObject var filterModel = ContentModel()
+    @ObservedObject var filterModel = RestaurantsContentModel()
     
     var body: some View {
     

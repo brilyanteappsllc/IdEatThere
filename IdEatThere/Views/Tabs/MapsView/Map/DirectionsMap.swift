@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DirectionsMap : UIViewRepresentable {
     
-    @EnvironmentObject var model: ContentModel
+    @EnvironmentObject var model: RestaurantsContentModel
     var business: Business
     
     var start: CLLocationCoordinate2D {

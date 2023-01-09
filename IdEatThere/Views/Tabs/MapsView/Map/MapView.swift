@@ -12,7 +12,7 @@ struct MapView: View {
     @State var isMapShowing = false
     @State var selectedBusiness: Business?
     
-    @EnvironmentObject var model: ContentModel
+    @EnvironmentObject var model: RestaurantsContentModel
     
     var body: some View {
         // If there is data
@@ -43,6 +43,7 @@ struct MapView: View {
                             Button("Switch to map view") {
                                 self.isMapShowing = true
                             }
+                            .foregroundColor(Color.theme.blackText)
                             
                         }
                         
@@ -123,6 +124,6 @@ struct MapView: View {
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
         MapView()
-            .environmentObject(ContentModel())
+            .environmentObject(RestaurantsContentModel())
     }
 }

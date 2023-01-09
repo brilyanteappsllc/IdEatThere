@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginForm: View {
     
-    @EnvironmentObject var userManager : UserManager
+    @EnvironmentObject var userManager : UserManagerModel
     var body: some View {
         
         NavigationView {

@@ -10,7 +10,7 @@ import CoreLocation
 import Combine
 import SwiftUI
 
-class ContentModel: ObservableObject {
+class RestaurantsContentModel: ObservableObject {
     
     @Published var authorizationState = CLAuthorizationStatus.notDetermined
     @Published var restaurants : [Business] = []

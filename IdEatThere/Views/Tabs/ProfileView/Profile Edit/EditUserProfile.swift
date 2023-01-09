@@ -10,7 +10,7 @@ import FirebaseAuth
 
 struct EditUserProfileForm: View {
     
-    @EnvironmentObject var userManager: UserManager
+    @EnvironmentObject var userManager: UserManagerModel
     var body: some View {
         
         ZStack {
@@ -44,6 +44,6 @@ struct EditUserProfileForm: View {
 struct EditUserProfileForm_Previews: PreviewProvider {
     static var previews: some View {
         EditUserProfileForm()
-            .environmentObject(ContentModel())
+            .environmentObject(RestaurantsContentModel())
     }
 }

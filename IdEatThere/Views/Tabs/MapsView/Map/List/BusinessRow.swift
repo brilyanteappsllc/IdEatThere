@@ -70,6 +70,6 @@ struct BusinessRow: View {
 struct BusinessRow_Previews: PreviewProvider {
     static var previews: some View {
         BusinessRow(business: Business())
-            .environmentObject(ContentModel())
+            .environmentObject(RestaurantsContentModel())
     }
 }

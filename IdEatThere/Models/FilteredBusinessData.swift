@@ -21,6 +21,6 @@ struct FilteredTagData : Identifiable {
     var isReviewsSelected : Bool = false
     var isStarsSelected : Bool = false
     var isIsOpenSelected : Bool = false
-    var filter : ContentModel.filterOption
+    var filter : RestaurantsContentModel.filterOption
     
 }

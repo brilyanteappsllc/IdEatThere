@@ -9,12 +9,12 @@ import SwiftUI
 
 struct FilterButton: View {
     
-    @EnvironmentObject var filterModel : ContentModel
+    @EnvironmentObject var filterModel : RestaurantsContentModel
     
     @State var isFilterShowing = false
     @State var selectedFilter = false
     @Binding var searchText : String
-    @Binding var filterOptions : ContentModel.filterOption
+    @Binding var filterOptions : RestaurantsContentModel.filterOption
     
     var body: some View {
         

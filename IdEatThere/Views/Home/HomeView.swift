@@ -12,7 +12,7 @@ struct HomeView: View {
     @State var isMapShowing = false
     @State var selectedBusiness: Business?
     
-    @EnvironmentObject var model: ContentModel
+    @EnvironmentObject var model: RestaurantsContentModel
     
     @State var tabSelection = 1
     

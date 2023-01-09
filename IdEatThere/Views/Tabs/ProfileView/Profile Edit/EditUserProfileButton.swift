@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EditUserProfileButton: View {
     
-    @EnvironmentObject var userManager: UserManager
+    @EnvironmentObject var userManager: UserManagerModel
     
     var body: some View {
         Button {
@@ -27,6 +27,6 @@ struct EditUserProfileButton: View {
 struct EditUserProfileButton_Previews: PreviewProvider {
     static var previews: some View {
         EditUserProfileButton()
-            .environmentObject(ContentModel())
+            .environmentObject(RestaurantsContentModel())
     }
 }

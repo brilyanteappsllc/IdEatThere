@@ -10,7 +10,7 @@ import FirebaseAuth
 
 struct LogoutForm: View {
     
-    @EnvironmentObject var userManager : UserManager
+    @EnvironmentObject var userManager : UserManagerModel
     
     var body: some View {
         

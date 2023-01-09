@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MyProfileView: View {
     
-    @EnvironmentObject var userManager : UserManager
+    @EnvironmentObject var userManager : UserManagerModel
     
     var body: some View {
        

@@ -16,8 +16,8 @@ struct IdEatThereApp: App {
     var body: some Scene {
         WindowGroup {
             LaunchView()
-                .environmentObject(ContentModel())
-                .environmentObject(UserManager())
+                .environmentObject(RestaurantsContentModel())
+                .environmentObject(UserManagerModel())
                 .environmentObject(RestaurantDataService())
         }
     }
