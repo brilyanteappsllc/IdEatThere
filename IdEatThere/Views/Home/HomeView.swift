@@ -34,6 +34,15 @@ struct HomeView: View {
                 .ignoresSafeArea()
             
             TabView{
+                // --- Community View ----
+                MyGroupsView()
+                    .tabItem {
+                        VStack{
+                            Image(systemName: "person.3")
+                            Text("My Groups")
+                        }
+                    }
+                
                 // --- Home View ---
                 MapView()
                     .tabItem{
@@ -44,14 +53,6 @@ struct HomeView: View {
                     }
                     
                 
-                // --- Community View ----
-                MyGroupsView()
-                    .tabItem {
-                        VStack{
-                            Image(systemName: "person.3")
-                            Text("My Groups")
-                        }
-                    }
                 
                 
                 // --- My Profile View ---

@@ -133,11 +133,9 @@
 		8603C2432965346C006C1A58 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
-				8603C25029653EEC006C1A58 /* LogoutForm.swift */,
-				8603C24429653488006C1A58 /* MapView.swift */,
-				8603C246296534CB006C1A58 /* MyGroupsView.swift */,
-				8603C249296534DE006C1A58 /* MyProfileView.swift */,
-				8603C24B29653E91006C1A58 /* Profile Edit */,
+				8643AB49296B883A0069D5F5 /* MyGroupsView */,
+				8643AB4A296B88460069D5F5 /* MapsView */,
+				8643AB4B296B88500069D5F5 /* ProfileView */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -145,6 +143,7 @@
 		8603C24B29653E91006C1A58 /* Profile Edit */ = {
 			isa = PBXGroup;
 			children = (
+				8603C25029653EEC006C1A58 /* LogoutForm.swift */,
 				8603C24C29653EA4006C1A58 /* EditUserProfile.swift */,
 				8603C24E29653EA9006C1A58 /* EditUserProfileButton.swift */,
 			);
@@ -192,6 +191,31 @@
 				8627FA012967F63800382DA8 /* DataServices.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		8643AB49296B883A0069D5F5 /* MyGroupsView */ = {
+			isa = PBXGroup;
+			children = (
+				8603C246296534CB006C1A58 /* MyGroupsView.swift */,
+			);
+			path = MyGroupsView;
+			sourceTree = "<group>";
+		};
+		8643AB4A296B88460069D5F5 /* MapsView */ = {
+			isa = PBXGroup;
+			children = (
+				86E4BCBB2965261000244E88 /* Map */,
+			);
+			path = MapsView;
+			sourceTree = "<group>";
+		};
+		8643AB4B296B88500069D5F5 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				8603C249296534DE006C1A58 /* MyProfileView.swift */,
+				8603C24B29653E91006C1A58 /* Profile Edit */,
+			);
+			path = ProfileView;
 			sourceTree = "<group>";
 		};
 		86E4BC9C2965248900244E88 = {
@@ -250,8 +274,6 @@
 			isa = PBXGroup;
 			children = (
 				86E4BCBA2965261000244E88 /* HomeView.swift */,
-				86E4BCBB2965261000244E88 /* Map */,
-				86E4BCBE2965261000244E88 /* List */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -259,6 +281,8 @@
 		86E4BCBB2965261000244E88 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				86E4BCBE2965261000244E88 /* List */,
+				8603C24429653488006C1A58 /* MapView.swift */,
 				86E4BCBC2965261000244E88 /* BusinessMap.swift */,
 				86E4BCBD2965261000244E88 /* DirectionsMap.swift */,
 			);

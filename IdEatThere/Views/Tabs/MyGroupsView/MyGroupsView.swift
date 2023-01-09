@@ -11,6 +11,8 @@ struct MyGroupsView: View {
     
     
     var body: some View {
+        
+        
         NavigationView {
             
             ScrollView {
@@ -19,7 +21,9 @@ struct MyGroupsView: View {
                     Text("Hi")
                 }
             }
-            .navigationTitle("Edit Groups")
+            
+            
+            .navigationTitle("I'd Eat That")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     XMarkButton()
