@@ -16,15 +16,7 @@ struct HomeView: View {
     
     @State var tabSelection = 1
     
-    // --- UI Tab Bar Color ---
-    init() {
 
-        // Setting Standard appearance when content is scrolled under the tab bar
-        ColorTheme().tabBarAppearance(appearance: "Standard")
-        
-        // Setting apperance when content is no longer under the tab bar
-        ColorTheme().tabBarAppearance(appearance: "ScrollEdge")
-    }
     
     var body: some View {
         
@@ -45,7 +37,7 @@ struct HomeView: View {
                     .tabItem{
                         VStack{
                             Image(systemName: "fork.knife")
-                            Text("Eats")
+                            Text("I'd Eat That")
                         }
                     }
                     

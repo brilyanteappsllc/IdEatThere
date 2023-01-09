@@ -28,7 +28,7 @@ class UserManagerModel : NSObject, ObservableObject {
     @Published var errorMessage : String?
     @Published var userName : String = ""
     @Published var newUser : Bool = true
-    
+
     // MARK: - Check Login / New User
     func checkLogin() {
         self.loggedIn = Auth.auth().currentUser == nil ? false : true
@@ -43,7 +43,14 @@ class UserManagerModel : NSObject, ObservableObject {
     func isNewUser() {
         
         
+        
     }
+    //MARK: -- Reload
+    
+    func reloadView() {
+        objectWillChange.send()
+    }
+
     
     // MARK: - Sign In
     func signIn() {

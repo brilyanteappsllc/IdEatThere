@@ -29,6 +29,13 @@
 		8643AB48296B83CC0069D5F5 /* AddToMyGroupButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB47296B83CC0069D5F5 /* AddToMyGroupButton.swift */; };
 		8643AB4D296C44EC0069D5F5 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB4C296C44EB0069D5F5 /* CustomTabBar.swift */; };
 		8643AB4F296C499C0069D5F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB4E296C499C0069D5F5 /* AppDelegate.swift */; };
+		8643AB6D296C792C0069D5F5 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB6C296C792C0069D5F5 /* Fonts.swift */; };
+		8643AB87296C7EB00069D5F5 /* NotoSerifToto-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8643AB86296C7EB00069D5F5 /* NotoSerifToto-VariableFont_wght.ttf */; };
+		8643AB89296C87EA0069D5F5 /* NoGroupsYet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB88296C87EA0069D5F5 /* NoGroupsYet.swift */; };
+		8643AB8B296C905E0069D5F5 /* HostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB8A296C905E0069D5F5 /* HostButton.swift */; };
+		8643AB8D296C94AF0069D5F5 /* CreateGroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB8C296C94AF0069D5F5 /* CreateGroupsView.swift */; };
+		8643AB8F296CC3190069D5F5 /* MyGroupsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB8E296CC3190069D5F5 /* MyGroupsModel.swift */; };
+		8643AB91296CC4050069D5F5 /* GroupsDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB90296CC4050069D5F5 /* GroupsDataService.swift */; };
 		86C1A978296674CE00C1B602 /* FilteredBusinessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1A977296674CE00C1B602 /* FilteredBusinessData.swift */; };
 		86E4BCA92965248900244E88 /* IdEatThereApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4BCA82965248900244E88 /* IdEatThereApp.swift */; };
 		86E4BCB02965248C00244E88 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86E4BCAF2965248C00244E88 /* Preview Assets.xcassets */; };
@@ -81,6 +88,14 @@
 		8643AB47296B83CC0069D5F5 /* AddToMyGroupButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToMyGroupButton.swift; sourceTree = "<group>"; };
 		8643AB4C296C44EB0069D5F5 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		8643AB4E296C499C0069D5F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8643AB6B296C787F0069D5F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8643AB6C296C792C0069D5F5 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		8643AB86296C7EB00069D5F5 /* NotoSerifToto-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerifToto-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		8643AB88296C87EA0069D5F5 /* NoGroupsYet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoGroupsYet.swift; sourceTree = "<group>"; };
+		8643AB8A296C905E0069D5F5 /* HostButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostButton.swift; sourceTree = "<group>"; };
+		8643AB8C296C94AF0069D5F5 /* CreateGroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupsView.swift; sourceTree = "<group>"; };
+		8643AB8E296CC3190069D5F5 /* MyGroupsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsModel.swift; sourceTree = "<group>"; };
+		8643AB90296CC4050069D5F5 /* GroupsDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsDataService.swift; sourceTree = "<group>"; };
 		86C1A977296674CE00C1B602 /* FilteredBusinessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredBusinessData.swift; sourceTree = "<group>"; };
 		86E4BCA52965248900244E88 /* IdEatThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IdEatThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86E4BCA82965248900244E88 /* IdEatThereApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdEatThereApp.swift; sourceTree = "<group>"; };
@@ -166,6 +181,7 @@
 		8627F9EF29674F6200382DA8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				8643AB6C296C792C0069D5F5 /* Fonts.swift */,
 				8627F9F029674F6D00382DA8 /* Color.swift */,
 				8627F9FE2967F17200382DA8 /* UIApplication.swift */,
 			);
@@ -185,6 +201,7 @@
 				8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */,
 				8643AB45296B7FAA0069D5F5 /* MapLinkButton.swift */,
 				8643AB47296B83CC0069D5F5 /* AddToMyGroupButton.swift */,
+				8643AB8A296C905E0069D5F5 /* HostButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -193,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				8627FA012967F63800382DA8 /* DataServices.swift */,
+				8643AB90296CC4050069D5F5 /* GroupsDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -201,6 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				8603C246296534CB006C1A58 /* MyGroupsView.swift */,
+				8643AB88296C87EA0069D5F5 /* NoGroupsYet.swift */,
+				8643AB8C296C94AF0069D5F5 /* CreateGroupsView.swift */,
 			);
 			path = MyGroupsView;
 			sourceTree = "<group>";
@@ -220,6 +240,14 @@
 				8603C24B29653E91006C1A58 /* Profile Edit */,
 			);
 			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		8643AB52296C78130069D5F5 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				8643AB86296C7EB00069D5F5 /* NotoSerifToto-VariableFont_wght.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		86E4BC9C2965248900244E88 = {
@@ -243,6 +271,7 @@
 		86E4BCA72965248900244E88 /* IdEatThere */ = {
 			isa = PBXGroup;
 			children = (
+				8643AB6B296C787F0069D5F5 /* Info.plist */,
 				8643AB4E296C499C0069D5F5 /* AppDelegate.swift */,
 				86E4BCA82965248900244E88 /* IdEatThereApp.swift */,
 				86E4BCB82965261000244E88 /* Views */,
@@ -341,6 +370,7 @@
 			children = (
 				86E4BCE32965262300244E88 /* UserManager.swift */,
 				86E4BCE42965262300244E88 /* ContentModel.swift */,
+				8643AB8E296CC3190069D5F5 /* MyGroupsModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -358,6 +388,7 @@
 		86E4BCF02965266200244E88 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				8643AB52296C78130069D5F5 /* Font */,
 				8627F9F229676C4A00382DA8 /* Common */,
 				8627F9EF29674F6200382DA8 /* Extensions */,
 				86E4BCEE2965265A00244E88 /* Assets.xcassets */,
@@ -436,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86E4BCB02965248C00244E88 /* Preview Assets.xcassets in Resources */,
+				8643AB87296C7EB00069D5F5 /* NotoSerifToto-VariableFont_wght.ttf in Resources */,
 				86E4BCEF2965265B00244E88 /* Assets.xcassets in Resources */,
 				86E4BCB72965256100244E88 /* GoogleService-Info.plist in Resources */,
 			);
@@ -491,15 +523,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				86E4BCDA2965261000244E88 /* BusinessSectionHeader.swift in Sources */,
+				8643AB8D296C94AF0069D5F5 /* CreateGroupsView.swift in Sources */,
 				8603C24529653488006C1A58 /* MapView.swift in Sources */,
 				8627F9F129674F6D00382DA8 /* Color.swift in Sources */,
 				8643AB4F296C499C0069D5F5 /* AppDelegate.swift in Sources */,
 				86E4BCDE2965261000244E88 /* LaunchView.swift in Sources */,
+				8643AB8B296C905E0069D5F5 /* HostButton.swift in Sources */,
 				86E4BCDB2965261000244E88 /* LocationDeniedView.swift in Sources */,
 				8627F9FB2967769800382DA8 /* ChevronDownButton.swift in Sources */,
 				8643AB46296B7FAA0069D5F5 /* MapLinkButton.swift in Sources */,
 				86E4BCE02965261000244E88 /* OnboardingView.swift in Sources */,
 				86E4BCD52965261000244E88 /* BusinessRow.swift in Sources */,
+				8643AB6D296C792C0069D5F5 /* Fonts.swift in Sources */,
 				86E4BCE62965262300244E88 /* ContentModel.swift in Sources */,
 				8627FA022967F63900382DA8 /* DataServices.swift in Sources */,
 				86E4BCD62965261000244E88 /* BusinessSection.swift in Sources */,
@@ -514,6 +549,7 @@
 				8643AB42296B7DFE0069D5F5 /* CallButton.swift in Sources */,
 				86E4BCE12965261000244E88 /* LoginForm.swift in Sources */,
 				86E4BCD82965261000244E88 /* BusinessDetail.swift in Sources */,
+				8643AB91296CC4050069D5F5 /* GroupsDataService.swift in Sources */,
 				86E4BCDC2965261000244E88 /* DashedDivider.swift in Sources */,
 				8627F9F429676C5900382DA8 /* CircleButton.swift in Sources */,
 				8603C24F29653EA9006C1A58 /* EditUserProfileButton.swift in Sources */,
@@ -522,6 +558,7 @@
 				86E4BCD72965261000244E88 /* BusinessTitle.swift in Sources */,
 				86E4BCEB2965263000244E88 /* Business Search.swift in Sources */,
 				86E4BCD32965261000244E88 /* DirectionsMap.swift in Sources */,
+				8643AB8F296CC3190069D5F5 /* MyGroupsModel.swift in Sources */,
 				8627FA0429687D3A00382DA8 /* XMarkButton.swift in Sources */,
 				8643AB44296B7F1F0069D5F5 /* ReviewsLinkButton.swift in Sources */,
 				8603C24D29653EA4006C1A58 /* EditUserProfile.swift in Sources */,
@@ -534,6 +571,7 @@
 				86E4BCE52965262300244E88 /* UserManager.swift in Sources */,
 				86E4BCD42965261000244E88 /* BusinessList.swift in Sources */,
 				8603C247296534CB006C1A58 /* MyGroupsView.swift in Sources */,
+				8643AB89296C87EA0069D5F5 /* NoGroupsYet.swift in Sources */,
 				86E4BCED2965264D00244E88 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -667,6 +705,7 @@
 				DEVELOPMENT_TEAM = B4VL48Q5L8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IdEatThere/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "I'd Eat There";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Grant permission to view restaurants and sights near you.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -700,6 +739,7 @@
 				DEVELOPMENT_TEAM = B4VL48Q5L8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IdEatThere/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "I'd Eat There";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Grant permission to view restaurants and sights near you.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

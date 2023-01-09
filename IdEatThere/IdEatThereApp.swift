@@ -19,6 +19,7 @@ struct IdEatThereApp: App {
                 .environmentObject(RestaurantsContentModel())
                 .environmentObject(UserManagerModel())
                 .environmentObject(RestaurantDataService())
+                .environmentObject(MyGroupsModel())
         }
     }
 }

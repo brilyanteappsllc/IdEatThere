@@ -9,32 +9,53 @@ import SwiftUI
 
 struct MyGroupsView: View {
     
+    @EnvironmentObject var myGroupsModel : MyGroupsModel
+
+    
     
     var body: some View {
         
-        
-        NavigationView {
+        if myGroupsModel.hasGroups == true {
             
-            ScrollView {
+            NavigationView {
                 
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("Hi")
+                ZStack(alignment: .top) {
+                    
+                    ScrollView() {
+
+                        
+                        Text("Here are you groups")
+                        
+                        
+                        
+                    }
+                }
+                             .navigationTitle("My Groups")
+                
+            }
+        }
+        
+        else {
+            
+            ZStack {
+                
+                NavigationView {
+                    
+                    
+                    NoGroupsYet()
+                    
+                        .navigationTitle("")
+                    //      .font(Font.headingFont)
+                    //  .foregroundColor(Color.theme.accent)
                 }
             }
-            
-            
-            .navigationTitle("I'd Eat That")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    XMarkButton()
-                }
-        }
         }
     }
 }
 
-struct MyGroupsView_Previews: PreviewProvider {
-    static var previews: some View {
-        MyGroupsView()
-    }
-}
+//struct MyGroupsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MyGroupsView()
+//            .environmentObject(UserManagerModel())
+//    }
+//}

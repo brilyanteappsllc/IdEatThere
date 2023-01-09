@@ -15,16 +15,21 @@ struct XMarkButton: View {
         
         
         Button(action: {
-            dismiss.callAsFunction()
+    //        UserManagerModel().userHasGroups = true
+    //        dismiss()
         }, label: {
-            Image(systemName: "xmark")
-                .font(.headline)
+            VStack {
+                Text( "Swipe down to exit ")
+                Image(systemName: "chevron.down")
+                    .font(.headline)
+
+            }
         })
     }
 }
 
-struct XMarkButton_Previews: PreviewProvider {
-    static var previews: some View {
-        XMarkButton()
-    }
-}
+//struct XMarkButton_Previews: PreviewProvider {
+//    static var previews: some View {
+//        XMarkButton()
+//    }
+//}

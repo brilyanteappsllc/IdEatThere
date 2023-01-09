@@ -49,5 +49,6 @@ struct CreateUserForm: View {
 struct CreateUserForm_Previews: PreviewProvider {
     static var previews: some View {
         CreateUserForm()
+            .environmentObject(UserManagerModel())
     }
 }
