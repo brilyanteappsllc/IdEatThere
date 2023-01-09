@@ -14,7 +14,7 @@ struct HomeView: View {
     
     @EnvironmentObject var model: ContentModel
     
-    @State var tabSelection = 0
+    @State var tabSelection = 1
     
     // --- UI Tab Bar Color ---
     init() {
@@ -29,9 +29,6 @@ struct HomeView: View {
     var body: some View {
         
         ZStack {
-            
-            Color.theme.red
-                .ignoresSafeArea()
             
             TabView{
                 // --- Community View ----
@@ -63,6 +60,7 @@ struct HomeView: View {
                             Text("My Profile")
                         }
                     }
+                    .tag(3)
             }
             
         }

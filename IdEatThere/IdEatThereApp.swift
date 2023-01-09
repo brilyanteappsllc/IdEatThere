@@ -11,9 +11,7 @@ import Firebase
 @main
 struct IdEatThereApp: App {
     
-    init() {
-        FirebaseApp.configure()
-    }
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate: AppDelegate
     
     var body: some Scene {
         WindowGroup {

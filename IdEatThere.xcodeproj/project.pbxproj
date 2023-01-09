@@ -27,6 +27,8 @@
 		8643AB44296B7F1F0069D5F5 /* ReviewsLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */; };
 		8643AB46296B7FAA0069D5F5 /* MapLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB45296B7FAA0069D5F5 /* MapLinkButton.swift */; };
 		8643AB48296B83CC0069D5F5 /* AddToMyGroupButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB47296B83CC0069D5F5 /* AddToMyGroupButton.swift */; };
+		8643AB4D296C44EC0069D5F5 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB4C296C44EB0069D5F5 /* CustomTabBar.swift */; };
+		8643AB4F296C499C0069D5F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB4E296C499C0069D5F5 /* AppDelegate.swift */; };
 		86C1A978296674CE00C1B602 /* FilteredBusinessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1A977296674CE00C1B602 /* FilteredBusinessData.swift */; };
 		86E4BCA92965248900244E88 /* IdEatThereApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4BCA82965248900244E88 /* IdEatThereApp.swift */; };
 		86E4BCB02965248C00244E88 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86E4BCAF2965248C00244E88 /* Preview Assets.xcassets */; };
@@ -77,6 +79,8 @@
 		8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsLinkButton.swift; sourceTree = "<group>"; };
 		8643AB45296B7FAA0069D5F5 /* MapLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLinkButton.swift; sourceTree = "<group>"; };
 		8643AB47296B83CC0069D5F5 /* AddToMyGroupButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToMyGroupButton.swift; sourceTree = "<group>"; };
+		8643AB4C296C44EB0069D5F5 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		8643AB4E296C499C0069D5F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86C1A977296674CE00C1B602 /* FilteredBusinessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredBusinessData.swift; sourceTree = "<group>"; };
 		86E4BCA52965248900244E88 /* IdEatThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IdEatThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86E4BCA82965248900244E88 /* IdEatThereApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdEatThereApp.swift; sourceTree = "<group>"; };
@@ -239,6 +243,7 @@
 		86E4BCA72965248900244E88 /* IdEatThere */ = {
 			isa = PBXGroup;
 			children = (
+				8643AB4E296C499C0069D5F5 /* AppDelegate.swift */,
 				86E4BCA82965248900244E88 /* IdEatThereApp.swift */,
 				86E4BCB82965261000244E88 /* Views */,
 				86E4BCE22965262300244E88 /* View Models */,
@@ -274,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				86E4BCBA2965261000244E88 /* HomeView.swift */,
+				8643AB4C296C44EB0069D5F5 /* CustomTabBar.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -487,6 +493,7 @@
 				86E4BCDA2965261000244E88 /* BusinessSectionHeader.swift in Sources */,
 				8603C24529653488006C1A58 /* MapView.swift in Sources */,
 				8627F9F129674F6D00382DA8 /* Color.swift in Sources */,
+				8643AB4F296C499C0069D5F5 /* AppDelegate.swift in Sources */,
 				86E4BCDE2965261000244E88 /* LaunchView.swift in Sources */,
 				86E4BCDB2965261000244E88 /* LocationDeniedView.swift in Sources */,
 				8627F9FB2967769800382DA8 /* ChevronDownButton.swift in Sources */,
@@ -520,6 +527,7 @@
 				8603C24D29653EA4006C1A58 /* EditUserProfile.swift in Sources */,
 				8627F9F92967755500382DA8 /* FilterButton.swift in Sources */,
 				8627F9EA29672EBF00382DA8 /* FilterTag.swift in Sources */,
+				8643AB4D296C44EC0069D5F5 /* CustomTabBar.swift in Sources */,
 				8603C25129653EEC006C1A58 /* LogoutForm.swift in Sources */,
 				86E4BCEA2965263000244E88 /* Business.swift in Sources */,
 				8643AB48296B83CC0069D5F5 /* AddToMyGroupButton.swift in Sources */,
