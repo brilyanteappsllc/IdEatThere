@@ -14,33 +14,41 @@ struct CreateUserForm: View {
         var body: some View {
             
             NavigationView {
-                Form {
-                    
-                    Section {
-                        TextField("Email", text: $userManager.email)
-                        TextField("Name", text: $userManager.name)
-                        SecureField("Password", text: $userManager.password)
-                    }
-                    if userManager.errorMessage != nil {
+                VStack {
+                    Form {
+                        
                         Section {
-                            Text(userManager.errorMessage!)
-                            
+                            TextField("Name", text: $userManager.name)
+                            TextField("Email", text: $userManager.email)
+                            // Phone #
+                            SecureField("Password", text: $userManager.password)
                         }
+                        if userManager.errorMessage != nil {
+                            Section {
+                                Text(userManager.errorMessage!)
+                                
+                            }
+                        }
+                        
+                        
+                        Button {
+                            userManager.createAccount()
+                        } label: {
+                            HStack {
+                                Spacer()
+                                Text("Create Account")
+                                Spacer()
+                            }
+                        }
+                        
                     }
+                    .navigationTitle("Create Account")
                     
-                    Button {
-                        userManager.createAccount()
-                    } label: {
-                        HStack {
-                            Spacer()
-                            Text("Create Account")
-                            Spacer()
-                        }
-                    }
-
+                    // TODO: create hyperlink to privacy policy
+                    Text("By creating an account you agree to our privacy policy")
+                        .multilineTextAlignment(.center)
+                        Spacer()
                 }
-                .navigationTitle("Create Account")
-                
             }
             
         }

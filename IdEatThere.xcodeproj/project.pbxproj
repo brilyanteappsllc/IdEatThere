@@ -96,6 +96,7 @@
 		8643AB8C296C94AF0069D5F5 /* CreateGroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupsView.swift; sourceTree = "<group>"; };
 		8643AB8E296CC3190069D5F5 /* MyGroupsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsModel.swift; sourceTree = "<group>"; };
 		8643AB90296CC4050069D5F5 /* GroupsDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsDataService.swift; sourceTree = "<group>"; };
+		86A2571E296DCEC800CFDFAB /* IdEatThere.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IdEatThere.entitlements; sourceTree = "<group>"; };
 		86C1A977296674CE00C1B602 /* FilteredBusinessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredBusinessData.swift; sourceTree = "<group>"; };
 		86E4BCA52965248900244E88 /* IdEatThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IdEatThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86E4BCA82965248900244E88 /* IdEatThereApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdEatThereApp.swift; sourceTree = "<group>"; };
@@ -271,6 +272,7 @@
 		86E4BCA72965248900244E88 /* IdEatThere */ = {
 			isa = PBXGroup;
 			children = (
+				86A2571E296DCEC800CFDFAB /* IdEatThere.entitlements */,
 				8643AB6B296C787F0069D5F5 /* Info.plist */,
 				8643AB4E296C499C0069D5F5 /* AppDelegate.swift */,
 				86E4BCA82965248900244E88 /* IdEatThereApp.swift */,
@@ -699,6 +701,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = IdEatThere/IdEatThere.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"IdEatThere/Preview Content\"";
@@ -733,6 +736,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = IdEatThere/IdEatThere.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"IdEatThere/Preview Content\"";

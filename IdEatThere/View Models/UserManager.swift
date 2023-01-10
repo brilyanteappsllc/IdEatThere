@@ -75,6 +75,13 @@ class UserManagerModel : NSObject, ObservableObject {
         }
     }
     
+    // MARK: -- Sign Out
+    
+    func signOut() {
+        try! Auth.auth().signOut()
+        self.loggedIn = false
+    }
+    
     // MARK: - Create Account
     func createAccount() {
         Auth.auth().createUser(withEmail: self.email, password: self.password) { result, error in

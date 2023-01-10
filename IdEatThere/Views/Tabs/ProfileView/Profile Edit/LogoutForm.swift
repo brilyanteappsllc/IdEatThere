@@ -10,7 +10,7 @@ import FirebaseAuth
 
 struct LogoutForm: View {
     
-    @EnvironmentObject var userManager : UserManagerModel
+    
     
     var body: some View {
         
@@ -18,8 +18,9 @@ struct LogoutForm: View {
             HStack {
                 
                 Button {
-                    try! Auth.auth().signOut()
-                    userManager.loggedIn = false
+                    
+                    UserManagerModel().signOut()
+                    
                 } label: {Text("Sign out")}
                 
                 

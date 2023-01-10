@@ -13,6 +13,12 @@ struct OnboardingView: View {
     @EnvironmentObject var userManager : UserManagerModel
     @EnvironmentObject var modelLocation : RestaurantDataService
     
+    enum OnboardingStep : Int {
+        
+        case welcome = 0
+        case phone
+    }
+    
     @State var tabSelection = 0
     
     private let blue = Color(red: 0/255, green: 130/255, blue: 167/255)
@@ -28,13 +34,15 @@ struct OnboardingView: View {
                 
                 // First Tab
                 VStack (spacing: 20) {
-                    Image("city2")
+
+                    Image("onboardingRestaurant")
                         .resizable()
                         .scaledToFit()
-                    Text("Welcome to I'd Eat There!")
+                    Text("Welcome to I'd Eat There")
                         .bold()
                         .font(.title)
-                    Text("The app that makes coordinating where to eat a breeze")
+                    Text("A fun new social dining experience!")
+                    
                         
                 }
                 .multilineTextAlignment(.center)
@@ -42,42 +50,50 @@ struct OnboardingView: View {
                 .tag(0)
 
                 
-                // Second Tab
-//                VStack (spacing: 20) {
-//                    if userManager.newUser {
-//                        Text("First, let's create your account")
-//                            .bold()
-//                            .font(.title)
-//                        Text("We'll show you the best restaurants based on your location!")
-//                    }
-//                    else {
-//                        Text("Whoopie! Let's get rollin with some eats")
-//                    }
-//
-//                }
-//                .multilineTextAlignment(.center)
-//                .foregroundColor(.white)
-//                .tag(1)
-//
-                
-                
-                // Third Tab
+              //   Second Tab
                 VStack (spacing: 20) {
-                    Image("city1")
-                        .resizable()
-                        .scaledToFit()
-                    Text("Ready to discover some food?")
-                        .bold()
-                        .font(.title)
-                    Text("We'll show you the best restaurants based on your location!")
-                    
+                    if userManager.newUser {
+                        Text("Let's first create an account")
+                            .bold()
+                            .font(.title)
+                        Text("This should only take a few moments")
+                    }
+                    else {
+                        Text("Perfect! Now let's get our location")
+                            .bold()
+                            .font(.title)
+                        
+                        Text("Your location is needed to search for nearby restaurants")
+                    }
+
                 }
+                .padding(.horizontal)
                 .multilineTextAlignment(.center)
                 .foregroundColor(.white)
                 .tag(1)
+
+                
+                
+                // Third Tab
+//                VStack (spacing: 20) {
+//
+//                        Image("onboardingRestaurant")
+//                            .resizable()
+//                            .scaledToFit()
+//                        Text("Ready to discover some food?")
+//                            .bold()
+//                            .font(.title)
+//                        Text("Your location is needed to search for nearby restaurants")
+//
+//                }
+//                .padding(.horizontal)
+//                .multilineTextAlignment(.center)
+//                .foregroundColor(.white)
+//                .tag(2)
                 
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+            .disabled(true)
             
             
             
@@ -88,15 +104,13 @@ struct OnboardingView: View {
                 if tabSelection == 0  {
                     tabSelection = 1
                 }
-//                else if tabSelection == 1 {
-//                   userManager.createUserFormShowing = true
-//                    if !userManager.newUser {
-//                        tabSelection = 2
-//                    }
-//                }
                 else {
-                    // Request for geo location permission
-                    modelLocation.requestGeolocationPermission()
+                   userManager.createUserFormShowing = true
+                    
+                    // Once user creates an account we check for location permission
+                    if !userManager.newUser {
+                        modelLocation.requestGeolocationPermission()
+                    }
                 }
                 
                 
@@ -105,36 +119,32 @@ struct OnboardingView: View {
                 ZStack {
                     
                     Rectangle()
-                        .foregroundColor(.white)
+                        .foregroundColor(Color.theme.accent)
                         .frame(height: 48)
                         .cornerRadius(10)
                     
                     switch tabSelection {
                         
                     case 0:
-                        Text("Next")
+                        Text("Get Started")
+                            .foregroundColor(.white)
                             .bold()
                             .padding()
-                        
-//                    case 1:
-//                        if userManager.newUser {
-//                            Text("Create Account")
-//                                .bold()
-//                                .padding()
-//                                .sheet(isPresented: $userManager.createUserFormShowing, onDismiss: userManager.checkLogin) {
-//                                    CreateUserForm()
-//                                }
-//                        }
-//                        else {
-//                            Text("Next")
-//                                .bold()
-//                                .padding()
-//                        }
                         
                     case 1:
-                        Text("Get My Location")
-                            .bold()
-                            .padding()
+                        if userManager.newUser {
+                            Text("Create Account")
+                                .bold()
+                                .padding()
+                                .sheet(isPresented: $userManager.createUserFormShowing, onDismiss: userManager.checkLogin) {
+                                    CreateUserForm()
+                                }
+                        }
+                        else {
+                            Text("Get My Location")
+                                .bold()
+                                .padding()
+                        }
                         
                     default:
                         Text("Error")
@@ -143,10 +153,10 @@ struct OnboardingView: View {
                 }
             }
             .padding()
-            .accentColor(tabSelection == 0 ? blue: turquoise)
+            .accentColor(tabSelection == 0 ? Color.theme.background : Color.theme.background)
             
         }
-        .background(tabSelection == 0 ? blue : turquoise)
+        .background(tabSelection == 0 ? Color.theme.red: Color.theme.red)
         
     }
 }
@@ -154,5 +164,8 @@ struct OnboardingView: View {
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
         OnboardingView()
+            .environmentObject(RestaurantsContentModel())
+            .environmentObject(UserManagerModel())
+            .environmentObject(RestaurantDataService())
     }
 }
