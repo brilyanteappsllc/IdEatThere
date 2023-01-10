@@ -24,6 +24,8 @@ class UserManagerModel : NSObject, ObservableObject {
     
     @Published var email : String = ""
     @Published var name : String = ""
+    @Published var phone : String = ""
+    @Published var verificationCode : String = ""
     @Published var password : String = ""
     @Published var errorMessage : String?
     @Published var userName : String = ""

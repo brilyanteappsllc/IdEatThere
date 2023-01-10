@@ -7,89 +7,57 @@
 
 import SwiftUI
 
+enum OnboardingStep : Int {
+    
+    case welcome = 0
+    case phoneNumber = 1
+    case phoneVerification = 2
+    case profile = 3
+    case contacts = 4
+    case geoLocationPerm = 5
+    
+}
+
 struct OnboardingView: View {
     
     @EnvironmentObject var model: RestaurantsContentModel
     @EnvironmentObject var userManager : UserManagerModel
     @EnvironmentObject var modelLocation : RestaurantDataService
     
-    enum OnboardingStep : Int {
-        
-        case welcome = 0
-        case phone
-    }
+    @State var tabSelection : OnboardingStep = .welcome
     
-    @State var tabSelection = 0
-    
-    private let blue = Color(red: 0/255, green: 130/255, blue: 167/255)
-    private let turquoise = Color(red: 55/255, green: 197/255, blue: 192/255)
     
     var body: some View {
-        
         
         VStack {
             
             // Tab View
             TabView(selection: $tabSelection) {
                 
-                // First Tab
-                VStack (spacing: 20) {
-
-                    Image("onboardingRestaurant")
-                        .resizable()
-                        .scaledToFit()
-                    Text("Welcome to I'd Eat There")
-                        .bold()
-                        .font(.title)
-                    Text("A fun new social dining experience!")
-                    
-                        
-                }
-                .multilineTextAlignment(.center)
-                .foregroundColor(.white)
-                .tag(0)
-
+                // Welcome View
+                WelcomeView()
+                    .tag(OnboardingStep.welcome)
                 
-              //   Second Tab
-                VStack (spacing: 20) {
-                    if userManager.newUser {
-                        Text("Let's first create an account")
-                            .bold()
-                            .font(.title)
-                        Text("This should only take a few moments")
-                    }
-                    else {
-                        Text("Perfect! Now let's get our location")
-                            .bold()
-                            .font(.title)
-                        
-                        Text("Your location is needed to search for nearby restaurants")
-                    }
-
-                }
-                .padding(.horizontal)
-                .multilineTextAlignment(.center)
-                .foregroundColor(.white)
-                .tag(1)
-
+                // Phone Number
+                PhoneNumberView()
+                    .tag(OnboardingStep.phoneNumber)
+                
+                // Phone Number Verification
+                PhoneVerficationView()
+                    .tag(OnboardingStep.phoneVerification)
+                
+                // Profile View
+                CreateProfileView()
+                    .tag(OnboardingStep.profile)
+                
+                // Contacts View
+                ContactsView()
+                    .tag(OnboardingStep.contacts)
                 
                 
-                // Third Tab
-//                VStack (spacing: 20) {
-//
-//                        Image("onboardingRestaurant")
-//                            .resizable()
-//                            .scaledToFit()
-//                        Text("Ready to discover some food?")
-//                            .bold()
-//                            .font(.title)
-//                        Text("Your location is needed to search for nearby restaurants")
-//
-//                }
-//                .padding(.horizontal)
-//                .multilineTextAlignment(.center)
-//                .foregroundColor(.white)
-//                .tag(2)
+                // GeoLocation Permission
+                GeoLocationPermission()
+                    .tag(OnboardingStep.geoLocationPerm)
                 
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
@@ -98,20 +66,38 @@ struct OnboardingView: View {
             
             
             // Button
+            
             Button {
                 
                 // Detect which tab it is
-                if tabSelection == 0  {
-                    tabSelection = 1
-                }
-                else {
-                   userManager.createUserFormShowing = true
+                
+                switch tabSelection {
                     
-                    // Once user creates an account we check for location permission
-                    if !userManager.newUser {
-                        modelLocation.requestGeolocationPermission()
-                    }
+                case .welcome :
+                    
+                    tabSelection = .phoneNumber
+                    
+                case .phoneNumber :
+                    
+                    tabSelection = .phoneVerification
+                    
+                case .phoneVerification :
+                    
+                    tabSelection = .profile
+                    
+                case .profile :
+                    
+                    tabSelection = .contacts
+                    
+                case .contacts :
+                    
+                    tabSelection = .geoLocationPerm
+                    
+                case .geoLocationPerm :
+                    
+                    modelLocation.requestGeolocationPermission()
                 }
+                
                 
                 
             } label: {
@@ -125,38 +111,39 @@ struct OnboardingView: View {
                     
                     switch tabSelection {
                         
-                    case 0:
+                    case .welcome:
                         Text("Get Started")
                             .foregroundColor(.white)
                             .bold()
                             .padding()
                         
-                    case 1:
-                        if userManager.newUser {
-                            Text("Create Account")
-                                .bold()
-                                .padding()
-                                .sheet(isPresented: $userManager.createUserFormShowing, onDismiss: userManager.checkLogin) {
-                                    CreateUserForm()
-                                }
-                        }
-                        else {
-                            Text("Get My Location")
-                                .bold()
-                                .padding()
-                        }
+                    case .phoneNumber:
+                        Text("Next")
                         
-                    default:
-                        Text("Error")
+                    case .phoneVerification :
+                        Text("Verify")
+                        
+                        
+                    case .profile :
+                        Text("Continue")
+                        
+                    case .contacts :
+                        Text("Next")
+                        
+                        
+                    case .geoLocationPerm :
+                        
+                        Text("Get My Location")
+                        
                     }
                     
                 }
             }
             .padding()
-            .accentColor(tabSelection == 0 ? Color.theme.background : Color.theme.background)
+            .accentColor(Color.theme.background)
             
         }
-        .background(tabSelection == 0 ? Color.theme.red: Color.theme.red)
+        .background(Color.theme.red)
         
     }
 }
