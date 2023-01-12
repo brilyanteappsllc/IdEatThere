@@ -16,10 +16,10 @@ struct EditUserProfileForm: View {
         ZStack {
             VStack {
                 Spacer()
-                Text(String("\(userManager.name)"))
+                Text(String("\(userManager.firstName)"))
     
                 Section {
-                TextField("Name", text: $userManager.name)
+                TextField("Name", text: $userManager.firstName)
                         
                 }
                 Spacer()

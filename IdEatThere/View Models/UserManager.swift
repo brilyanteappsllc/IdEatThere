@@ -10,6 +10,7 @@ import SwiftUI
 import Firebase
 import FirebaseAuth
 import FirebaseFirestore
+import Contacts
 
 class UserManagerModel : NSObject, ObservableObject {
     
@@ -23,7 +24,7 @@ class UserManagerModel : NSObject, ObservableObject {
     @Published var editUserInformation : Bool =  false
     
     @Published var email : String = ""
-    @Published var name : String = ""
+    @Published var firstName : String = ""
     @Published var lastName : String = ""
     @Published var phone : String = ""
     @Published var verificationCode : String = ""
@@ -31,7 +32,7 @@ class UserManagerModel : NSObject, ObservableObject {
     @Published var errorMessage : String?
     @Published var userName : String = ""
     @Published var newUser : Bool = true
-
+    
     // MARK: - Check Login / New User
     func checkLogin() {
         self.loggedIn = Auth.auth().currentUser == nil ? false : true
@@ -53,12 +54,12 @@ class UserManagerModel : NSObject, ObservableObject {
     func reloadView() {
         objectWillChange.send()
     }
-
+    
     
     // MARK: - Sign In
     func signIn() {
         Auth.auth().signIn(withEmail: self.email, password: self.password) { result, error in
-         
+            
             // Run in the main thread, don't update any UI in the background
             DispatchQueue.main.async { [self] in
                 
@@ -127,7 +128,7 @@ class UserManagerModel : NSObject, ObservableObject {
         
         username.getDocument(source: .cache) { [self] (document, error) in
             if let document = document {
-                self.name = document.get("name") as! String
+                self.firstName = document.get("first name") as! String
             }
             else {
                 
@@ -140,11 +141,11 @@ class UserManagerModel : NSObject, ObservableObject {
     func saveFirstName() {
         
         if let currentUser = Auth.auth().currentUser {
-            let cleansedFirtName = self.name.trimmingCharacters(in: .whitespacesAndNewlines)
+            let cleansedFirtName = self.firstName.trimmingCharacters(in: .whitespacesAndNewlines)
             
             let path = db.collection("users").document(currentUser.uid)
             
-            path.setData(["name":cleansedFirtName]) {error in
+            path.setData(["first name":cleansedFirtName]) {error in
                 if error == nil {
                     // save
                     self.userInfo()
@@ -156,4 +157,65 @@ class UserManagerModel : NSObject, ObservableObject {
         }
     }
     
+    // MARK: - Get Platform Users
+    func getPlatformUsers(localContacts: [CNContact], completion: @escaping ([User]) -> Void) {
+        
+        // Array we are storing fetched platform users
+        var platformUsers = [User]()
+        
+        // Construct an array of string phone numbers to look up
+        var lookupPhoneNumbers = localContacts.map { contact in
+            
+            // Turn the contact into a phone number as a string
+            return PhoneTextHelper.sanitizePhoneNumber(phone: contact.phoneNumbers.first?.value.stringValue ?? "")
+        }
+        
+        
+        // Make sure there are lookup numbers
+        
+        guard lookupPhoneNumbers.count > 0 else {
+            completion(platformUsers)
+            return
+        }
+        
+        // Perform the queries while we still have phone numbers to look up
+        while !lookupPhoneNumbers.isEmpty {
+            
+            // Get the first < 10 phone numbers to look up
+            let tenPhoneNumbers = Array(lookupPhoneNumbers.prefix(10))
+            
+            // Remove the < 10 that we're looking for
+            lookupPhoneNumbers = Array(lookupPhoneNumbers.dropLast(10))
+            
+            let query  = db.collection("users").whereField("phone", in: tenPhoneNumbers)
+            
+            // Retrieve the users that are on the platform
+            query.getDocuments { snapshot, error in
+                
+                // Check if errors
+                if error == nil && snapshot != nil {
+                    
+                    // For each doc that was fetched, create a user
+                    for doc in snapshot!.documents {
+                        
+                        if let user = try? doc.data(as: User.self) {
+                            
+                            // Append to the platform users array
+                            platformUsers.append(user)
+                            
+                            
+                        }
+                    }
+                    
+                    // Check if we have anymore phone numbers to look up
+                    // If not, we can call the completing block and we're done
+                    
+                    if lookupPhoneNumbers.isEmpty {
+                        // Return these users
+                        completion(platformUsers)
+                    }
+                }
+            }
+        }
+    }
 }

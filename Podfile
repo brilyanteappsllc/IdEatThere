@@ -9,4 +9,5 @@ target 'IdEatThere' do
   pod 'Flurry-iOS-SDK/FlurrySDK' #Analytics Pod
   pod 'Firebase/Firestore'
   pod 'Firebase/Auth'
+  pod 'FirebaseFirestoreSwift'
 end

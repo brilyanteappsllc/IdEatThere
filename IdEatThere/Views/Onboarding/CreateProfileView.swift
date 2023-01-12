@@ -51,7 +51,7 @@ struct CreateProfileView: View {
             }
             
 
-            TextField(" First Name ", text: $userManager.name)
+            TextField(" First Name ", text: $userManager.firstName)
                 .textFieldStyle(OnboardingTextFields())
                 .padding(.top, 50)
 

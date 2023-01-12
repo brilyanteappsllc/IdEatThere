@@ -43,6 +43,9 @@
 		86A25728296DF1B900CFDFAB /* CreateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A25727296DF1B900CFDFAB /* CreateProfileView.swift */; };
 		86A2572A296DF1D500CFDFAB /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A25729296DF1D500CFDFAB /* ContactsView.swift */; };
 		86A2572C296FACA300CFDFAB /* OnboardingTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A2572B296FACA300CFDFAB /* OnboardingTextFields.swift */; };
+		86A80AD4297086BD001B8941 /* ContactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A80AD3297086BD001B8941 /* ContactsModel.swift */; };
+		86A80AD629708C9A001B8941 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A80AD529708C9A001B8941 /* User.swift */; };
+		86A80AD829709FB8001B8941 /* PhoneTextHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A80AD729709FB7001B8941 /* PhoneTextHelper.swift */; };
 		86C1A978296674CE00C1B602 /* FilteredBusinessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1A977296674CE00C1B602 /* FilteredBusinessData.swift */; };
 		86E4BCA92965248900244E88 /* IdEatThereApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4BCA82965248900244E88 /* IdEatThereApp.swift */; };
 		86E4BCB02965248C00244E88 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86E4BCAF2965248C00244E88 /* Preview Assets.xcassets */; };
@@ -111,6 +114,9 @@
 		86A25727296DF1B900CFDFAB /* CreateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileView.swift; sourceTree = "<group>"; };
 		86A25729296DF1D500CFDFAB /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		86A2572B296FACA300CFDFAB /* OnboardingTextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTextFields.swift; sourceTree = "<group>"; };
+		86A80AD3297086BD001B8941 /* ContactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsModel.swift; sourceTree = "<group>"; };
+		86A80AD529708C9A001B8941 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		86A80AD729709FB7001B8941 /* PhoneTextHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTextHelper.swift; sourceTree = "<group>"; };
 		86C1A977296674CE00C1B602 /* FilteredBusinessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredBusinessData.swift; sourceTree = "<group>"; };
 		86E4BCA52965248900244E88 /* IdEatThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IdEatThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86E4BCA82965248900244E88 /* IdEatThereApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdEatThereApp.swift; sourceTree = "<group>"; };
@@ -394,6 +400,7 @@
 				86E4BCE32965262300244E88 /* UserManager.swift */,
 				86E4BCE42965262300244E88 /* ContentModel.swift */,
 				8643AB8E296CC3190069D5F5 /* MyGroupsModel.swift */,
+				86A80AD3297086BD001B8941 /* ContactsModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -404,6 +411,7 @@
 				86E4BCE82965263000244E88 /* Business.swift */,
 				86E4BCE92965263000244E88 /* Business Search.swift */,
 				86C1A977296674CE00C1B602 /* FilteredBusinessData.swift */,
+				86A80AD529708C9A001B8941 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -417,6 +425,7 @@
 				86E4BCEE2965265A00244E88 /* Assets.xcassets */,
 				86E4BCEC2965264D00244E88 /* Constants.swift */,
 				86E4BCB62965256100244E88 /* GoogleService-Info.plist */,
+				86A80AD729709FB7001B8941 /* PhoneTextHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -553,11 +562,13 @@
 				8643AB4F296C499C0069D5F5 /* AppDelegate.swift in Sources */,
 				86E4BCDE2965261000244E88 /* LaunchView.swift in Sources */,
 				8643AB8B296C905E0069D5F5 /* HostButton.swift in Sources */,
+				86A80AD629708C9A001B8941 /* User.swift in Sources */,
 				86A25720296DEC8F00CFDFAB /* WelcomeView.swift in Sources */,
 				86E4BCDB2965261000244E88 /* LocationDeniedView.swift in Sources */,
 				8627F9FB2967769800382DA8 /* ChevronDownButton.swift in Sources */,
 				86A25728296DF1B900CFDFAB /* CreateProfileView.swift in Sources */,
 				8643AB46296B7FAA0069D5F5 /* MapLinkButton.swift in Sources */,
+				86A80AD4297086BD001B8941 /* ContactsModel.swift in Sources */,
 				86E4BCE02965261000244E88 /* OnboardingView.swift in Sources */,
 				86E4BCD52965261000244E88 /* BusinessRow.swift in Sources */,
 				8643AB6D296C792C0069D5F5 /* Fonts.swift in Sources */,
@@ -601,6 +612,7 @@
 				86E4BCD42965261000244E88 /* BusinessList.swift in Sources */,
 				8603C247296534CB006C1A58 /* MyGroupsView.swift in Sources */,
 				86A25722296DECA900CFDFAB /* PhoneNumberView.swift in Sources */,
+				86A80AD829709FB8001B8941 /* PhoneTextHelper.swift in Sources */,
 				8643AB89296C87EA0069D5F5 /* NoGroupsYet.swift in Sources */,
 				86E4BCED2965264D00244E88 /* Constants.swift in Sources */,
 			);

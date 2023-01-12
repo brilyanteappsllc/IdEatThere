@@ -47,7 +47,7 @@ struct MyProfileView: View {
                                 .cornerRadius(100)
                             Spacer()
                             VStack{
-                                Text(String("\(userManager.name)"))
+                                Text(String("\(userManager.firstName)"))
                                     .bold()
                                     .foregroundColor(Color("Sand Blush"))
 

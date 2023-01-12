@@ -9,11 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @State var isMapShowing = false
-    @State var selectedBusiness: Business?
-    
-    @EnvironmentObject var model: RestaurantsContentModel
-    
+
     @State var tabSelection = 1
     
 

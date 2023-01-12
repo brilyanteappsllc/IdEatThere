@@ -15,7 +15,7 @@ struct GeoLocationPermission: View {
                 Image("onboardingRestaurant")
                     .resizable()
                     .scaledToFit()
-                Text("Ready to discover some food?")
+                Text("Last Step!")
                     .bold()
                     .font(.title)
                 Text("Your location is needed to search for nearby restaurants")
