@@ -42,6 +42,7 @@
 		86A25726296DECD500CFDFAB /* GeoLocationPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A25725296DECD500CFDFAB /* GeoLocationPermission.swift */; };
 		86A25728296DF1B900CFDFAB /* CreateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A25727296DF1B900CFDFAB /* CreateProfileView.swift */; };
 		86A2572A296DF1D500CFDFAB /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A25729296DF1D500CFDFAB /* ContactsView.swift */; };
+		86A2572C296FACA300CFDFAB /* OnboardingTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A2572B296FACA300CFDFAB /* OnboardingTextFields.swift */; };
 		86C1A978296674CE00C1B602 /* FilteredBusinessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1A977296674CE00C1B602 /* FilteredBusinessData.swift */; };
 		86E4BCA92965248900244E88 /* IdEatThereApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4BCA82965248900244E88 /* IdEatThereApp.swift */; };
 		86E4BCB02965248C00244E88 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86E4BCAF2965248C00244E88 /* Preview Assets.xcassets */; };
@@ -109,6 +110,7 @@
 		86A25725296DECD500CFDFAB /* GeoLocationPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLocationPermission.swift; sourceTree = "<group>"; };
 		86A25727296DF1B900CFDFAB /* CreateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileView.swift; sourceTree = "<group>"; };
 		86A25729296DF1D500CFDFAB /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
+		86A2572B296FACA300CFDFAB /* OnboardingTextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTextFields.swift; sourceTree = "<group>"; };
 		86C1A977296674CE00C1B602 /* FilteredBusinessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredBusinessData.swift; sourceTree = "<group>"; };
 		86E4BCA52965248900244E88 /* IdEatThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IdEatThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86E4BCA82965248900244E88 /* IdEatThereApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdEatThereApp.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				8643AB45296B7FAA0069D5F5 /* MapLinkButton.swift */,
 				8643AB47296B83CC0069D5F5 /* AddToMyGroupButton.swift */,
 				8643AB8A296C905E0069D5F5 /* HostButton.swift */,
+				86A2572B296FACA300CFDFAB /* OnboardingTextFields.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				8643AB8D296C94AF0069D5F5 /* CreateGroupsView.swift in Sources */,
 				8603C24529653488006C1A58 /* MapView.swift in Sources */,
 				8627F9F129674F6D00382DA8 /* Color.swift in Sources */,
+				86A2572C296FACA300CFDFAB /* OnboardingTextFields.swift in Sources */,
 				8643AB4F296C499C0069D5F5 /* AppDelegate.swift in Sources */,
 				86E4BCDE2965261000244E88 /* LaunchView.swift in Sources */,
 				8643AB8B296C905E0069D5F5 /* HostButton.swift in Sources */,

@@ -13,29 +13,21 @@ struct PhoneNumberView: View {
     var body: some View {
 
             VStack {
-                Spacer()
+                
                 
                 Text("Verification")
                     .bold()
                     .font(.title)
+                    .padding(.top, 52)
                 
                 Text("Enter your mobile number below, we'll send you a verification code after.")
                     .padding(.top, 12)
                     .font(.body)
                 
-                ZStack {
-                    
-                    Rectangle()
-                        .foregroundColor(.white)
-                        .frame(height: 48)
-                        .cornerRadius(10)
-                    
-                    HStack {
-                        TextField(" e.g. +1 613 515 0123 ", text: $userManager.phone)
-    
-                    }
  
-                }
+                TextField(" e.g. +1 613 515 0123 ", text: $userManager.phone)
+                    .textFieldStyle(OnboardingTextFields())
+
                 .padding(.horizontal)
                 
                     if userManager.errorMessage != nil {

@@ -15,30 +15,20 @@ struct PhoneVerficationView: View {
     var body: some View {
         
         VStack {
-            Spacer()
-            
+          
             Text("Verification")
                 .bold()
                 .font(.title)
+                .padding(.top, 52)
             
             Text("Enter the 6-digit verification code we sent to your device")
                 .padding(.top, 12)
                 .font(.body)
             
-            ZStack {
-                
-                Rectangle()
-                    .foregroundColor(.white)
-                    .frame(height: 48)
-                    .cornerRadius(10)
-                
-                HStack {
-                    TextField(" e.g. 123456 ", text: $userManager.verificationCode)
 
-                }
+            TextField(" e.g. 123456 ", text: $userManager.verificationCode)
+                .textFieldStyle(OnboardingTextFields())
 
-            }
-            .padding(.horizontal)
             
                 if userManager.errorMessage != nil {
                     Section {
@@ -46,14 +36,16 @@ struct PhoneVerficationView: View {
                         
                     }
                 }
+            Spacer()
             
             
             
-            Text("By tapping 'Verify' you agree to our privacy policy")
+            Text("By tapping 'Verify' you agree to our Privacy Policy")
                 .multilineTextAlignment(.center)
+                .padding(.bottom, 70)
                 
           
-            Spacer()
+          
 
         }
         .padding(.horizontal)
