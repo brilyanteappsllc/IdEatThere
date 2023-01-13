@@ -24,7 +24,10 @@ struct OnboardingView: View {
     @EnvironmentObject var userManager : UserManagerModel
     @EnvironmentObject var modelLocation : RestaurantDataService
     
+    var noSwiping = true
+    
     @State var tabSelection : OnboardingStep = .welcome
+    @State var buttonDisabled = false
     
     
     var body: some View {
@@ -37,10 +40,13 @@ struct OnboardingView: View {
                 // Welcome View
                 WelcomeView()
                     .tag(OnboardingStep.welcome)
+
+                    
                 
                 // Phone Number
                 PhoneNumberView()
                     .tag(OnboardingStep.phoneNumber)
+
                 
                 // Phone Number Verification
                 PhoneVerficationView()
@@ -61,7 +67,6 @@ struct OnboardingView: View {
                 
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-            .disabled(true)
             
             
             
@@ -87,7 +92,24 @@ struct OnboardingView: View {
                     
                 case .profile :
                     
-                    tabSelection = .contacts
+                    buttonDisabled.toggle()
+                    
+                    userManager.setUserProfile(firstName: userManager.firstName, lastName: userManager.lastName, photo: userManager.photo) { isSuccess in
+                        
+                        if isSuccess {
+                            
+                            tabSelection = .contacts
+                            
+                        }
+                        
+                        else {
+                            
+                            // Show warning error
+                        }
+                        
+                        buttonDisabled.toggle()
+                        
+                    }
                     
                 case .contacts :
                     
@@ -125,7 +147,7 @@ struct OnboardingView: View {
                         
                         
                     case .profile :
-                        Text("Continue")
+                        Text(buttonDisabled ? "Uploading..." : "Save Profile")
                         
                     case .contacts :
                         Text("Next")
@@ -141,6 +163,7 @@ struct OnboardingView: View {
             }
             .padding()
             .accentColor(Color.theme.background)
+            .disabled(buttonDisabled)
             
         }
         .background(Color.theme.red)

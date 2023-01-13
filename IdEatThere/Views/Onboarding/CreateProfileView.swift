@@ -11,6 +11,11 @@ struct CreateProfileView: View {
     
     @EnvironmentObject var userManager : UserManagerModel
     
+    @State var selectedImage : UIImage?
+    @State var isPickerShowing : Bool = false
+    @State var isSourceMenuShowing = false
+    @State var source : UIImagePickerController.SourceType = .photoLibrary
+    
     var body: some View {
         
         VStack {
@@ -28,22 +33,32 @@ struct CreateProfileView: View {
             // Profile Image Button
             Button {
                 
-                // Show action sheet
+                isSourceMenuShowing.toggle()
                 
             } label: {
                 
                 ZStack {
                     
-                    Circle()
-                        .foregroundColor(.white)
+                    if selectedImage != nil {
+                        
+                        Image(uiImage: selectedImage!)
+                            .resizable()
+                            .scaledToFit()
+                            .clipShape(Circle())
+                        
+                    }
                     
-                    Circle()
-                        .stroke(Color.theme.red, lineWidth: 2)
-                    
-                    Image(systemName: "camera.fill")
-                        .foregroundColor(Color.theme.accent)
-                    
-                    
+                    else {
+                        Circle()
+                            .foregroundColor(.white)
+                        
+                        Circle()
+                            .stroke(Color.theme.red, lineWidth: 2)
+                        
+                        Image(systemName: "camera.fill")
+                            .foregroundColor(Color.theme.accent)
+                        
+                    }
                 }
                 .frame(width: 134, height: 134)
                 .padding(.top, 50)
@@ -54,26 +69,48 @@ struct CreateProfileView: View {
             TextField(" First Name ", text: $userManager.firstName)
                 .textFieldStyle(OnboardingTextFields())
                 .padding(.top, 50)
-
-
-            
    
             TextField(" Last Name ", text: $userManager.lastName)
                 .textFieldStyle(OnboardingTextFields())
-
-
-            
-                if userManager.errorMessage != nil {
-                    Section {
-                        Text(userManager.errorMessage!)
-                        
-                    }
-                }
                 
             Spacer()
 
         }
         .padding(.horizontal)
+        .confirmationDialog("From where?", isPresented: $isSourceMenuShowing, actions: {
+            
+            Button{
+                // Set the source to photo libary
+                // Show the image picker
+                self.source = .photoLibrary
+                isPickerShowing.toggle()
+            } label: {
+                Text("Photo Library")
+                
+            }
+            
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                
+                Button {
+                    // Set the source to camera
+                    self.source = .camera
+                    
+                    isPickerShowing.toggle()
+                    
+                } label : {
+                    
+                    Text("Take Photo")
+                    
+                }
+            }
+            
+            
+            
+        })
+        .sheet(isPresented: $isPickerShowing) {
+            // Show the image picker
+            ImagePicker(selectedImage: $selectedImage, source: source)
+        }
     }
 }
 

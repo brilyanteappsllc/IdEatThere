@@ -610,11 +610,16 @@ PODS:
   - Firebase/Firestore (10.3.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 10.3.0)
+  - Firebase/Storage (10.3.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (~> 10.3.0)
+  - FirebaseAppCheckInterop (10.3.0)
   - FirebaseAuth (10.3.0):
     - FirebaseCore (~> 10.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
     - GoogleUtilities/Environment (~> 7.8)
     - GTMSessionFetcher/Core (< 4.0, >= 2.1)
+  - FirebaseAuthInterop (10.3.0)
   - FirebaseCore (10.3.0):
     - FirebaseCoreInternal (~> 10.0)
     - GoogleUtilities/Environment (~> 7.8)
@@ -642,6 +647,12 @@ PODS:
     - FirebaseFirestore (~> 10.0)
     - FirebaseSharedSwift (~> 10.0)
   - FirebaseSharedSwift (10.3.0)
+  - FirebaseStorage (10.3.0):
+    - FirebaseAppCheckInterop (~> 10.0)
+    - FirebaseAuthInterop (~> 10.0)
+    - FirebaseCore (~> 10.0)
+    - FirebaseCoreExtension (~> 10.0)
+    - GTMSessionFetcher/Core (< 4.0, >= 2.1)
   - Flurry-iOS-SDK/CrashReporter (12.1.4)
   - Flurry-iOS-SDK/FlurrySDK (12.1.4):
     - Flurry-iOS-SDK/CrashReporter
@@ -729,6 +740,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Firestore
+  - Firebase/Storage
   - FirebaseFirestoreSwift
   - Flurry-iOS-SDK/FlurrySDK
 
@@ -737,13 +749,16 @@ SPEC REPOS:
     - abseil
     - BoringSSL-GRPC
     - Firebase
+    - FirebaseAppCheckInterop
     - FirebaseAuth
+    - FirebaseAuthInterop
     - FirebaseCore
     - FirebaseCoreExtension
     - FirebaseCoreInternal
     - FirebaseFirestore
     - FirebaseFirestoreSwift
     - FirebaseSharedSwift
+    - FirebaseStorage
     - Flurry-iOS-SDK
     - GoogleUtilities
     - "gRPC-C++"
@@ -758,13 +773,16 @@ SPEC CHECKSUMS:
   abseil: ebe5b5529fb05d93a8bdb7951607be08b7fa71bc
   BoringSSL-GRPC: 3175b25143e648463a56daeaaa499c6cb86dad33
   Firebase: f92fc551ead69c94168d36c2b26188263860acd9
+  FirebaseAppCheckInterop: 9fc57dfa08f0abb737b185ea065422b55355c909
   FirebaseAuth: 0e415d29d846c1dce2fb641e46f35e9888d9bec6
+  FirebaseAuthInterop: 7a766bd56971347e0de4b7674aaa62ddc7820097
   FirebaseCore: 988754646ab3bd4bdcb740f1bfe26b9f6c0d5f2a
   FirebaseCoreExtension: 93d252fabdc9696bf14a73b04d84877ab9b3a832
   FirebaseCoreInternal: 29b76f784d607df8b2a1259d73c3f04f1210137b
   FirebaseFirestore: 244f71ff14ef44f39e00b44d356eac708ce03103
   FirebaseFirestoreSwift: 55098402529ce59ba54a2ce1ad5798ae1ba563ef
   FirebaseSharedSwift: d82ad66b3f8de9dda19c77b9627cbcaad71e245e
+  FirebaseStorage: 0efbff0ac978981866d89804191688ae50d64033
   Flurry-iOS-SDK: 8e6d7d9323ad24da06f24943ed738e36039631e9
   GoogleUtilities: c2bdc4cf2ce786c4d2e6b3bcfd599a25ca78f06f
   "gRPC-C++": 9675f953ace2b3de7c506039d77be1f2e77a8db2
@@ -775,6 +793,6 @@ SPEC CHECKSUMS:
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
 
-PODFILE CHECKSUM: 4f242b91bfa553442627f3ffbf5b3939692fa2b2
+PODFILE CHECKSUM: ffb9c5bb79777c1d0b19f4e5a3dc498654327908
 
 COCOAPODS: 1.11.3

@@ -10,9 +10,13 @@ import SwiftUI
 import Firebase
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseFirestoreSwift
 import Contacts
+import FirebaseStorage
 
 class UserManagerModel : NSObject, ObservableObject {
+    
+     // TODO: NEED TO CREATE A SEPERATE DATA SERVICE MODEL
     
     
     let db = Firestore.firestore()
@@ -27,6 +31,7 @@ class UserManagerModel : NSObject, ObservableObject {
     @Published var firstName : String = ""
     @Published var lastName : String = ""
     @Published var phone : String = ""
+    @Published var photo : UIImage?
     @Published var verificationCode : String = ""
     @Published var password : String = ""
     @Published var errorMessage : String?
@@ -216,6 +221,71 @@ class UserManagerModel : NSObject, ObservableObject {
                     }
                 }
             }
+        }
+    }
+    
+    // MARK: - Set User Profile
+    
+    func setUserProfile(firstName: String, lastName: String, photo: UIImage?, completion: @escaping (Bool) -> Void) {
+        
+        // Guard if logged out
+    //    if let currentUser = Auth.auth().currentUser {
+            
+            // Set the profile data
+           let path = db.collection("users").document()
+            
+            path.setData(["firstName" : firstName,
+                          "lastName" : lastName])
+                       //   "photo" : photo])
+            
+            
+   //     }
+        
+        // Check if an image is passed through
+        
+        if let photo = photo {
+            
+            // Create storage reference
+            let storageRef = Storage.storage().reference()
+            
+            // turn our image into data
+            let imageData = photo.jpegData(compressionQuality: 0.8)
+            
+            // check that we were able to convert it to data
+            guard imageData != nil else {
+                return
+            }
+            
+            // Specify the file path and name
+            let imagePath = "images/\(UUID().uuidString).jpeg"
+            let fileRef = storageRef.child(imagePath)
+            
+            let uploadTask = fileRef.putData(imageData!, metadata: nil) { meta, error in
+                
+                if error == nil && meta != nil {
+                    path.setData(["photo" : imagePath], merge : true) {error in
+                        
+                        if error == nil {
+                            
+                            // success, notify caller
+                            completion(true)
+                        }
+                        
+                        else {
+                            completion(false)
+                        }
+                        
+                    }
+                    
+                    
+                }
+                else {
+                    
+                    
+                }
+                
+            }
+            
         }
     }
 }
