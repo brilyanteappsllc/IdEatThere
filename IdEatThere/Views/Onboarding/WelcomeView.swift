@@ -10,6 +10,7 @@ import SwiftUI
 struct WelcomeView: View {
     var body: some View {
         VStack (spacing: 20) {
+            Spacer()
 
             Image("onboardingRestaurant")
                 .resizable()
@@ -18,11 +19,19 @@ struct WelcomeView: View {
                 .bold()
                 .font(.title)
             Text("A fun new social dining experience!")
+            
+            Spacer()
+            Text("By tapping 'Get Started' you agree to our Privacy Policy")
+                .multilineTextAlignment(.center)
+                .padding(.bottom, 15)
+                
+          
 
 
         }
         .multilineTextAlignment(.center)
         .foregroundColor(.white)
+        .padding(.horizontal)
     }
 }
 

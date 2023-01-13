@@ -40,33 +40,39 @@ struct OnboardingView: View {
                 // Welcome View
                 WelcomeView()
                     .tag(OnboardingStep.welcome)
+                    .contentShape(Rectangle()).gesture(DragGesture())
 
                     
                 
                 // Phone Number
                 PhoneNumberView()
                     .tag(OnboardingStep.phoneNumber)
+                    .contentShape(Rectangle()).gesture(DragGesture())
 
                 
                 // Phone Number Verification
                 PhoneVerficationView()
                     .tag(OnboardingStep.phoneVerification)
+                    .contentShape(Rectangle()).gesture(DragGesture())
                 
                 // Profile View
                 CreateProfileView()
                     .tag(OnboardingStep.profile)
+                    .contentShape(Rectangle()).gesture(DragGesture())
                 
                 // Contacts View
                 ContactsView()
                     .tag(OnboardingStep.contacts)
+                    .contentShape(Rectangle()).gesture(DragGesture())
                 
                 
                 // GeoLocation Permission
                 GeoLocationPermission()
                     .tag(OnboardingStep.geoLocationPerm)
+                    .contentShape(Rectangle()).gesture(DragGesture())
                 
             }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             
             
             

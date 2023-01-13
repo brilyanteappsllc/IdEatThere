@@ -37,14 +37,6 @@ struct PhoneVerficationView: View {
                     }
                 }
             Spacer()
-            
-            
-            
-            Text("By tapping 'Verify' you agree to our Privacy Policy")
-                .multilineTextAlignment(.center)
-                .padding(.bottom, 70)
-                
-          
           
 
         }
