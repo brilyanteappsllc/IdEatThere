@@ -22,17 +22,9 @@ class PhoneTextHelper {
             .replacingOccurrences(of: " ", with: "")
 
     }
-    
-//    static func limitText(_ stringvar: inout String, _ limit: Int) {
-//
-//        if (stringvar.count > limit) {
-//            stringvar = String(stringvar.prefix(limit))
-//
-//        }
-//
-//    }
 }
 
+// Set the max amount of the text field
 extension Binding where Value == String {
     func max(_ limit: Int) -> Self {
         if self.wrappedValue.count > limit {
@@ -44,6 +36,7 @@ extension Binding where Value == String {
     }
 }
 
+// Apply a pattern to the phone number when user is inputting
 extension Binding where Value == String {
     
     func applyPatternOnNumbers(_ phone : String, pattern: String, replacementCharacter: Character) -> Self {
@@ -65,6 +58,10 @@ extension Binding where Value == String {
             
             DispatchQueue.main.async {
                 self.wrappedValue = String(pureNumber)
+                
+                if (self.wrappedValue.count > 14) {
+                    self.wrappedValue = String(self.wrappedValue.prefix(14))
+                }
             }
          
             }

@@ -16,18 +16,19 @@ struct PhoneNumberView: View {
             VStack {
                 
                 
-                Text("Verification")
+                Text("Phone")
                     .bold()
                     .font(.title)
                     .padding(.top, 52)
                 
-                Text("Enter your mobile number below, we'll send you a verification code after.")
+                Text("Enter your mobile number below, we'll send you a verification code after via sms.")
                     .padding(.top, 12)
                     .font(.body)
                 
  
-                TextField(" e.g. 6135150123 ", text: $userManager.phone.applyPatternOnNumbers(userManager.phone, pattern: "+# (###) ###-####", replacementCharacter: "#"))
+                TextField(" e.g. (613) 515-0123 ", text: $userManager.phone.applyPatternOnNumbers(userManager.phone, pattern: "(###) ###-####", replacementCharacter: "#"))
                     .textFieldStyle(OnboardingTextFields())
+                    .keyboardType(.numberPad)
 
                 .padding(.horizontal)
                 
