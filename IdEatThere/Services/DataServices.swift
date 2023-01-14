@@ -11,6 +11,8 @@ import SwiftUI
 
 class RestaurantDataService:  NSObject, CLLocationManagerDelegate, ObservableObject {
     
+    /// This service leverages the location of the user and also a manual location search
+    
     @Published var authorizationState = CLAuthorizationStatus.notDetermined
     @Published var restaurants = [Business]()
     @Published var sights = [Business]()

@@ -15,4 +15,7 @@ struct Constants {
     static var restaurantsKey = "restaurants"
     static var sightsKey = "arts"
     static var annotationsReuseId = "business"
+    
+    static var verificationIdStorageKey = "authVerificationId"
+    
 }

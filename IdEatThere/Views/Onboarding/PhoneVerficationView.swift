@@ -26,8 +26,9 @@ struct PhoneVerficationView: View {
                 .font(.body)
             
 
-            TextField(" e.g. 123456 ", text: $userManager.verificationCode)
+            TextField(" e.g. 123456 ", text: $userManager.verificationCode.max(6))
                 .textFieldStyle(OnboardingTextFields())
+                .keyboardType(.numberPad)
 
             
                 if userManager.errorMessage != nil {

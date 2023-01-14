@@ -90,15 +90,59 @@ struct OnboardingView: View {
                     
                 case .phoneNumber :
                     
-                    tabSelection = .phoneVerification
+                   
+                    buttonDisabled.toggle()
+
+                    userManager.sendPhoneNumber(phone: userManager.phone) { error in
+
+                        // Check for errors
+                        if error == nil {
+                            tabSelection = .phoneVerification
+
+                        }
+
+                        else {
+
+                            // Show error
+                            print(error as Any)
+                        }
+
+                        if buttonDisabled {
+                            buttonDisabled.toggle()
+                        }
+
+                    }
+                    
                     
                 case .phoneVerification :
+                    
+                   buttonDisabled.toggle()
+                    
+                    
+                    userManager.verifyCode(code: userManager.verificationCode) { error in
+                        
+                        if error == nil {
+                            
+                            tabSelection = .profile
+                            
+                        }
+                        
+                        else {
+                            
+                            // Show error
+                        }
+                        if buttonDisabled {
+                            
+                            buttonDisabled.toggle()
+                        }
+                        
+                    }
                     
                     tabSelection = .profile
                     
                 case .profile :
                     
-                    buttonDisabled.toggle()
+                   buttonDisabled.toggle()
                     
                     userManager.setUserProfile(firstName: userManager.firstName, lastName: userManager.lastName, photo: userManager.photo) { isSuccess in
                         
@@ -111,9 +155,12 @@ struct OnboardingView: View {
                         else {
                             
                             // Show warning error
+                            
                         }
                         
-                        buttonDisabled.toggle()
+                        if buttonDisabled {
+                            buttonDisabled.toggle()
+                        }
                         
                     }
                     
@@ -173,6 +220,7 @@ struct OnboardingView: View {
             
         }
         .background(Color.theme.red)
+        .disabled(buttonDisabled)
         
     }
 }

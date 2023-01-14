@@ -175,6 +175,7 @@
 		8603C2432965346C006C1A58 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				865AA12C2971D70300B37629 /* ListView */,
 				8643AB49296B883A0069D5F5 /* MyGroupsView */,
 				8643AB4A296B88460069D5F5 /* MapsView */,
 				8643AB4B296B88500069D5F5 /* ProfileView */,
@@ -252,7 +253,9 @@
 		8643AB4A296B88460069D5F5 /* MapsView */ = {
 			isa = PBXGroup;
 			children = (
-				86E4BCBB2965261000244E88 /* Map */,
+				8603C24429653488006C1A58 /* MapView.swift */,
+				86E4BCBC2965261000244E88 /* BusinessMap.swift */,
+				86E4BCBD2965261000244E88 /* DirectionsMap.swift */,
 			);
 			path = MapsView;
 			sourceTree = "<group>";
@@ -272,6 +275,19 @@
 				8643AB86296C7EB00069D5F5 /* NotoSerifToto-VariableFont_wght.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		865AA12C2971D70300B37629 /* ListView */ = {
+			isa = PBXGroup;
+			children = (
+				86E4BCBF2965261000244E88 /* BusinessList.swift */,
+				86E4BCC02965261000244E88 /* BusinessRow.swift */,
+				86E4BCC12965261000244E88 /* BusinessSection.swift */,
+				86E4BCC62965261000244E88 /* BusinessSectionHeader.swift */,
+				86E4BCC22965261000244E88 /* Detail */,
+				8627F9E829672EB700382DA8 /* Filter */,
+			);
+			path = ListView;
 			sourceTree = "<group>";
 		};
 		86E4BC9C2965248900244E88 = {
@@ -336,30 +352,6 @@
 				8643AB4C296C44EB0069D5F5 /* CustomTabBar.swift */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		86E4BCBB2965261000244E88 /* Map */ = {
-			isa = PBXGroup;
-			children = (
-				86E4BCBE2965261000244E88 /* List */,
-				8603C24429653488006C1A58 /* MapView.swift */,
-				86E4BCBC2965261000244E88 /* BusinessMap.swift */,
-				86E4BCBD2965261000244E88 /* DirectionsMap.swift */,
-			);
-			path = Map;
-			sourceTree = "<group>";
-		};
-		86E4BCBE2965261000244E88 /* List */ = {
-			isa = PBXGroup;
-			children = (
-				8627F9E829672EB700382DA8 /* Filter */,
-				86E4BCBF2965261000244E88 /* BusinessList.swift */,
-				86E4BCC02965261000244E88 /* BusinessRow.swift */,
-				86E4BCC12965261000244E88 /* BusinessSection.swift */,
-				86E4BCC22965261000244E88 /* Detail */,
-				86E4BCC62965261000244E88 /* BusinessSectionHeader.swift */,
-			);
-			path = List;
 			sourceTree = "<group>";
 		};
 		86E4BCC22965261000244E88 /* Detail */ = {

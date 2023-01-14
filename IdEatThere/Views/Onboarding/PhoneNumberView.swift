@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct PhoneNumberView: View {
     
@@ -25,7 +26,7 @@ struct PhoneNumberView: View {
                     .font(.body)
                 
  
-                TextField(" e.g. +1 613 515 0123 ", text: $userManager.phone)
+                TextField(" e.g. 6135150123 ", text: $userManager.phone.applyPatternOnNumbers(userManager.phone, pattern: "+# (###) ###-####", replacementCharacter: "#"))
                     .textFieldStyle(OnboardingTextFields())
 
                 .padding(.horizontal)
