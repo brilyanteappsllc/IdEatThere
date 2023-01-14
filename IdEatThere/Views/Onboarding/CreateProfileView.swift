@@ -20,7 +20,6 @@ struct CreateProfileView: View {
         
         VStack {
             
-            
             Text("Set Up Profile")
                 .bold()
                 .font(.title)
@@ -46,9 +45,7 @@ struct CreateProfileView: View {
                             .scaledToFit()
                             .clipShape(Circle())
                         
-                    }
-                    
-                    else {
+                    } else {
                         Circle()
                             .foregroundColor(.white)
                         
@@ -64,7 +61,6 @@ struct CreateProfileView: View {
                 .padding(.top, 50)
                 
             }
-            
 
             TextField(" First Name ", text: $userManager.firstName)
                 .textFieldStyle(OnboardingTextFields())
@@ -103,9 +99,6 @@ struct CreateProfileView: View {
                     
                 }
             }
-            
-            
-            
         })
         .sheet(isPresented: $isPickerShowing) {
             // Show the image picker

@@ -49,7 +49,7 @@ struct MyProfileView: View {
                             VStack{
                                 Text(String("\(userManager.firstName)"))
                                     .bold()
-                                    .foregroundColor(Color("Sand Blush"))
+                                    .foregroundColor(Color.theme.accent)
 
                                 Spacer()
                                 

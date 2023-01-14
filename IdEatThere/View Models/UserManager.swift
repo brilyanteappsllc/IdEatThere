@@ -126,11 +126,15 @@ class UserManagerModel : NSObject, ObservableObject {
         // Sign in the user
         Auth.auth().signIn(with: credential) { authResult, error in
             
-            DispatchQueue.main.async {
+            
+            if error == nil {
                 
-                // Notify the UI
-                completion(error)
-                
+                self.loggedIn = Auth.auth().currentUser == nil ? false : true
+                DispatchQueue.main.async {
+                    
+                    // Notify the UI
+                    completion(error)
+                }
                 
             }
             
@@ -180,7 +184,7 @@ class UserManagerModel : NSObject, ObservableObject {
         
         username.getDocument(source: .cache) { [self] (document, error) in
             if let document = document {
-                self.firstName = document.get("first name") as! String
+                self.firstName = document.get("firstName") as! String
             }
             else {
                 
@@ -197,7 +201,7 @@ class UserManagerModel : NSObject, ObservableObject {
             
             let path = db.collection("users").document(currentUser.uid)
             
-            path.setData(["first name":cleansedFirtName]) {error in
+            path.setData(["firstName":cleansedFirtName]) {error in
                 if error == nil {
                     // save
                     self.userInfo()
@@ -283,7 +287,7 @@ class UserManagerModel : NSObject, ObservableObject {
             
             path.setData(["firstName" : firstName,
                           "lastName" : lastName,
-                          "phone" : phone])
+                          "phone" : self.phone])
                        //   "photo" : photo])
             
             
