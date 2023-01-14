@@ -41,14 +41,11 @@ struct OnboardingView: View {
                 WelcomeView()
                     .tag(OnboardingStep.welcome)
                     .contentShape(Rectangle()).gesture(DragGesture())
-
-                    
                 
                 // Phone Number
                 PhoneNumberView()
                     .tag(OnboardingStep.phoneNumber)
                     .contentShape(Rectangle()).gesture(DragGesture())
-
                 
                 // Phone Number Verification
                 PhoneVerficationView()
@@ -74,10 +71,7 @@ struct OnboardingView: View {
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             
-            
-            
             // Button
-            
             Button {
                 
                 // Detect which tab it is
@@ -89,7 +83,6 @@ struct OnboardingView: View {
                     tabSelection = .phoneNumber
                     
                 case .phoneNumber :
-                    
                    
                     buttonDisabled.toggle()
 
@@ -117,7 +110,6 @@ struct OnboardingView: View {
                 case .phoneVerification :
                     
                    buttonDisabled.toggle()
-                    
                     
                     userManager.verifyCode(code: userManager.verificationCode) { error in
                         
@@ -173,8 +165,6 @@ struct OnboardingView: View {
                     modelLocation.requestGeolocationPermission()
                 }
                 
-                
-                
             } label: {
                 
                 ZStack {
@@ -211,7 +201,6 @@ struct OnboardingView: View {
                         Text("Get My Location")
                         
                     }
-                    
                 }
             }
             .padding()

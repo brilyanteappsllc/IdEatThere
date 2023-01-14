@@ -24,10 +24,6 @@ struct WelcomeView: View {
             Text("By tapping 'Get Started' you agree to our Privacy Policy")
                 .multilineTextAlignment(.center)
                 .padding(.bottom, 15)
-                
-          
-
-
         }
         .multilineTextAlignment(.center)
         .foregroundColor(.white)

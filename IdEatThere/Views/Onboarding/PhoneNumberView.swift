@@ -14,8 +14,6 @@ struct PhoneNumberView: View {
     var body: some View {
 
             VStack {
-                
-                
                 Text("Phone")
                     .bold()
                     .font(.title)
