@@ -24,13 +24,13 @@ struct MyProfileView: View {
                 
             } label: {
                 Text("Sign In")}
-            .sheet(isPresented: $userManager.loginFormShowing, onDismiss: userManager.checkLogin) {
-                LoginForm()
+//            .sheet(isPresented: $userManager.loginFormShowing, onDismiss: userManager.checkLogin) {
+//                LoginForm()
             }
-            .onAppear {
-                userManager.checkLogin()
-            }
-            }
+//            .onAppear {
+//                userManager.checkLogin()
+//            }
+//            }
         
         else {
             

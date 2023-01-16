@@ -29,7 +29,7 @@ struct LoginForm: View {
                 }
                 
                 Button {
-                    userManager.signIn()
+       //             userManager.signIn()
                 } label: {
                     
                     HStack{

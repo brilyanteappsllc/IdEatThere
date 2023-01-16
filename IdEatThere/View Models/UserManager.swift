@@ -27,6 +27,7 @@ class UserManagerModel : NSObject, ObservableObject {
     @Published var createUserFormShowing : Bool = false
     @Published var editUserInformation : Bool =  false
     
+    @Published var userId : String = ""
     @Published var email : String = ""
     @Published var firstName : String = ""
     @Published var lastName : String = ""
@@ -39,9 +40,25 @@ class UserManagerModel : NSObject, ObservableObject {
     @Published var newUser : Bool = true
     
     // MARK: - Check Login / New User
-    func checkLogin() {
+    func checkLogin() -> Bool {
         self.loggedIn = Auth.auth().currentUser == nil ? false : true
-        self.userInfo()
+ //       self.userInfo()
+        
+        return self.loggedIn
+    }
+    
+    func getLoggedInUserPhone() -> String {
+        
+        self.phone = PhoneTextHelper.sanitizePhoneNumber(phone: Auth.auth().currentUser?.phoneNumber ?? "")
+        
+        return self.phone
+    }
+    
+    func getLoggedInUserId() -> String {
+        self.userId = Auth.auth().currentUser?.uid ?? ""
+        
+        return self.userId
+        
     }
     
     func isUserAdmin() {
@@ -62,27 +79,27 @@ class UserManagerModel : NSObject, ObservableObject {
     
     
     // MARK: - Sign In
-    func signIn() {
-        Auth.auth().signIn(withEmail: self.email, password: self.password) { result, error in
-            
-            // Run in the main thread, don't update any UI in the background
-            DispatchQueue.main.async { [self] in
-                
-                if error == nil {
-                    
-                    // dismiss login form sheet view
-                    self.loginFormShowing = false
-                    self.userInfo()
-                    
-                }
-                else {
-                    
-                    // If there's an issue with logging in
-                    self.errorMessage = error!.localizedDescription
-                }
-            }
-        }
-    }
+//    func signIn() {
+//        Auth.auth().signIn(withEmail: self.email, password: self.password) { result, error in
+//
+//            // Run in the main thread, don't update any UI in the background
+//            DispatchQueue.main.async { [self] in
+//
+//                if error == nil {
+//
+//                    // dismiss login form sheet view
+//                    self.loginFormShowing = false
+//                    self.userInfo()
+//
+//                }
+//                else {
+//
+//                    // If there's an issue with logging in
+//                    self.errorMessage = error!.localizedDescription
+//                }
+//            }
+//        }
+//    }
     
     // MARK: -- Sign Out
     
@@ -143,36 +160,36 @@ class UserManagerModel : NSObject, ObservableObject {
     }
     
     // MARK: - Create Account
-    func createAccount() {
-        Auth.auth().createUser(withEmail: self.email, password: self.password) { result, error in
-            
-            DispatchQueue.main.async { [self] in
-                if error == nil {
-                    
-                    // Save the firstName
-                    self.saveFirstName()
-                    
-                    // Dismiss the form
-                    self.createUserFormShowing = false
-                    
-                    // update user info
-                    self.userInfo()
-                    
-                    // No longer a new user
-                    self.newUser = false
-                    
-                    // Auto Sign in
-                    self.checkLogin()
-                    
-                }
-                else {
-                    
-                    self.errorMessage = error!.localizedDescription
-                }
-            }
-            
-        }
-    }
+//    func createAccount() {
+//        Auth.auth().createUser(withEmail: self.email, password: self.password) { result, error in
+//
+//            DispatchQueue.main.async { [self] in
+//                if error == nil {
+//
+//                    // Save the firstName
+//                    self.saveFirstName()
+//
+//                    // Dismiss the form
+//                    self.createUserFormShowing = false
+//
+//                    // update user info
+//                    self.userInfo()
+//
+//                    // No longer a new user
+//                    self.newUser = false
+//
+//                    // Auto Sign in
+//                    self.checkLogin()
+//
+//                }
+//                else {
+//
+//                    self.errorMessage = error!.localizedDescription
+//                }
+//            }
+//
+//        }
+//    }
     
     // MARK: - User Info
     func userInfo() {
@@ -279,19 +296,27 @@ class UserManagerModel : NSObject, ObservableObject {
     
     func setUserProfile(firstName: String, lastName: String, photo: UIImage?, completion: @escaping (Bool) -> Void) {
         
-        // Guard if logged out
-    //    if let currentUser = Auth.auth().currentUser {
+        // Guard if logged in
+        guard self.checkLogin() != false else {
+            // user is not logged in
+            return
             
-            // Set the profile data
-           let path = db.collection("users").document()
+        }
+        
+        // Get user's phone
+        let userPhone = self.getLoggedInUserPhone()
+        
+        // Get user's uid and set document id
+        let usersDocumentId = self.getLoggedInUserId()
+        
             
-            path.setData(["firstName" : firstName,
-                          "lastName" : lastName,
-                          "phone" : self.phone])
+        // Set the profile data
+        let path = db.collection("users").document(usersDocumentId)
+            
+        path.setData(["firstName" : self.firstName,
+                      "lastName" : self.lastName,
+                          "phone" : userPhone])
                        //   "photo" : photo])
-            
-            
-   //     }
         
         // Check if an image is passed through
         
@@ -339,5 +364,43 @@ class UserManagerModel : NSObject, ObservableObject {
             }
             
         }
+    }
+    
+    func checkUserProfile(completion: @escaping (Bool) -> Void) {
+        
+        // Check that the user is logged in
+        
+        guard self.checkLogin() != false else {
+            
+            return
+            
+        }
+        
+        // Create firebase ref
+        
+        self.db.collection("users").document(self.getLoggedInUserId()).getDocument { snapshot, error in
+            
+            // TODO: Keep the users profile data
+            
+            if snapshot != nil && error == nil {
+                
+                // Notify users the profile exists
+                completion(snapshot!.exists)
+                
+            }
+            
+            else {
+                
+                completion(false)
+                
+            }
+            
+            
+            
+            
+        }
+        
+        
+        
     }
 }

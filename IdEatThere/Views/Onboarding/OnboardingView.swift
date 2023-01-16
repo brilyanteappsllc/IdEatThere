@@ -115,7 +115,19 @@ struct OnboardingView: View {
                         
                         if error == nil {
                             
-                            tabSelection = .profile
+                            // Check if user has a profile
+                            userManager.checkUserProfile { exists in
+                                if exists {
+                                    
+                                    // End the onboarding
+                                    // TODO: End onboarding
+                                    
+                                }
+                                
+                                else {
+                                    tabSelection = .profile
+                                }
+                            }
                             
                         }
                         
@@ -147,6 +159,7 @@ struct OnboardingView: View {
                         else {
                             
                             // Show warning error
+                            print(isSuccess)
                             
                         }
                         
