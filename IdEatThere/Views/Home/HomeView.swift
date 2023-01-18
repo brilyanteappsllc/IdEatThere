@@ -7,10 +7,18 @@
 
 import SwiftUI
 
+enum Tab : Int {
+    
+    case Groups = 0
+    case Map = 1
+    case Profile = 2
+    
+}
+
 struct HomeView: View {
     
 
-    @State var tabSelection = 1
+    @State var tabSelection : Tab = .Groups
     
 
     
@@ -18,7 +26,7 @@ struct HomeView: View {
         
         ZStack {
             
-            TabView{
+            TabView(selection: $tabSelection) {
                 // --- Community View ----
                 MyGroupsView()
                     .tabItem {
@@ -27,6 +35,7 @@ struct HomeView: View {
                             Text("My Groups")
                         }
                     }
+                    .tag(Tab.Groups)
                 
                 // --- Home View ---
                 MapView()
@@ -36,6 +45,7 @@ struct HomeView: View {
                             Text("I'd Eat That")
                         }
                     }
+                    .tag(Tab.Map)
                     
                 
                 
@@ -48,7 +58,7 @@ struct HomeView: View {
                             Text("My Profile")
                         }
                     }
-                    .tag(3)
+                    .tag(Tab.Profile)
             }
             
         }

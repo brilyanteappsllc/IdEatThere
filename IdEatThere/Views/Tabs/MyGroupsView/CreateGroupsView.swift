@@ -12,38 +12,38 @@ struct CreateGroupsView: View {
     @Environment(\.dismiss) var dismiss
     
     @EnvironmentObject var myGroupsModel : MyGroupsModel
+    @EnvironmentObject var myContactsModel : ContactsModel
     
     @Binding var hasGroups : Bool
     
     var body: some View {
         
-        Button {
+        VStack {
             
-            self.hasGroups = true
-            dismiss()
-            dismiss.callAsFunction()
-        } label: {
-            Text("Create Group Test")
-        }
+            HStack {
+                VStack {
+                    Text("Create a Group!")
+                    Text("Select contacts you'd like to invite")
+                }
+            }
+            
+            Button {
+                
+                self.hasGroups = true
+                dismiss()
+                dismiss.callAsFunction()
+            } label: {
+                Text("Create")
+            }
+            
+            ContactsListView(searchedContact: $myContactsModel.searchedContact)
+            
 
-        
-//        NavigationView {
-//
-//            Text("Hi")
-//
-//
-//                .navigationTitle("I'd Eat That")
-//                .navigationBarTitleDisplayMode(.inline)
-//                .toolbar {
-//                    ToolbarItem(placement: .principal) {
-//                        XMarkButton()
-//                    }
-//
-//        }
-//
-//
-//        }
-    }
+            
+            Spacer()
+            
+        }
+        .padding(.horizontal)    }
 }
 
 //struct CreateGroupsView_Previews: PreviewProvider {

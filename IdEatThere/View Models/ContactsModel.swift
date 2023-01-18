@@ -14,9 +14,7 @@ class ContactsModel : ObservableObject {
     
     private var localContacts = [CNContact]()
     
-    
-    
-    
+    @Published var searchedContact : String = ""
     
     func getLocalContacs() {
         

@@ -21,17 +21,23 @@ struct MyGroupsView: View {
                 
                 ZStack(alignment: .top) {
                     
-                    ScrollView() {
-
-                        
-                        Text("Here are you groups")
+                    VStack {
                         
                         
                         
+                        
+                        ScrollView() {
+                            
+                            
+                            Text("Here are you groups")
+                            
+                            
+                            
+                        }
                     }
+                    .navigationTitle("My Groups")
+                    
                 }
-                             .navigationTitle("My Groups")
-                
             }
         }
         
