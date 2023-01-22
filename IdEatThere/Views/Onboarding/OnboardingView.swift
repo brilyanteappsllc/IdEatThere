@@ -120,7 +120,7 @@ struct OnboardingView: View {
                                 if exists {
                                     
                                     // End the onboarding
-                                    // TODO: End onboarding
+                                    tabSelection = .contacts
                                     
                                 }
                                 

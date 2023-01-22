@@ -17,29 +17,61 @@ struct LaunchView: View {
         
         // MARK: - Authorization Status, Geolocating User -
         
-        // Not determined
-        if model.authorizationState == .notDetermined  {
-        
-            // - Onboarding View -
-            OnboardingView()
+        if userManager.loggedIn == false {
+            
+            if userManager.newUser || !userManager.completedOnboarding {
                 
+                if model.authorizationState == CLAuthorizationStatus.notDetermined {
+                    
+                    OnboardingView()
+                }
+                
+                // Approved Permission
+                else if model.authorizationState == CLAuthorizationStatus.authorizedAlways ||
+                            model.authorizationState == CLAuthorizationStatus.authorizedWhenInUse {
+                    
+                    // - Home View -
+                    HomeView()
+                    
+                }
+                // Denied permission
+                else {
+                    
+                    // - Denied View -
+                    LocationDeniedView()
+                    
+                }
+                
+            }
             
+            else {
+                
+                LoginForm()
+                
+            }
         }
-        // Approved Permission
-        else if model.authorizationState == CLAuthorizationStatus.authorizedAlways ||
-                 model.authorizationState == CLAuthorizationStatus.authorizedWhenInUse {
-            
-            // - Home View -
-            HomeView()
-            
-        }
-        // Denied permission
+        
         else {
             
-            // - Denied View -
-            LocationDeniedView()
+            if userManager.loggedIn {
+                
+                // Approved Permission
+                if model.authorizationState == CLAuthorizationStatus.authorizedAlways ||
+                         model.authorizationState == CLAuthorizationStatus.authorizedWhenInUse {
+                    
+                    // - Home View -
+                    HomeView()
+                    
+                }
+                // Denied permission
+                else {
+                    
+                    // - Denied View -
+                    LocationDeniedView()
+                    
+                }
+            }
         }
-        
     }
 }
 

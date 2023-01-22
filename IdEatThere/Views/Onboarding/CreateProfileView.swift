@@ -38,9 +38,9 @@ struct CreateProfileView: View {
                 
                 ZStack {
                     
-                    if selectedImage != nil {
+                    if userManager.photo != nil {
                         
-                        Image(uiImage: selectedImage!)
+                        Image(uiImage: userManager.photo!)
                             .resizable()
                             .scaledToFit()
                             .clipShape(Circle())
@@ -62,11 +62,11 @@ struct CreateProfileView: View {
                 
             }
 
-            TextField(" First Name ", text: $userManager.firstName)
+            TextField(userManager.firstName.isEmpty ? " First Name " : userManager.firstName, text: $userManager.firstName)
                 .textFieldStyle(OnboardingTextFields())
                 .padding(.top, 50)
    
-            TextField(" Last Name ", text: $userManager.lastName)
+            TextField(userManager.lastName.isEmpty ? " Last Name " : userManager.lastName, text: $userManager.lastName)
                 .textFieldStyle(OnboardingTextFields())
                 
             Spacer()

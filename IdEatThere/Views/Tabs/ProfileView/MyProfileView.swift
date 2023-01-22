@@ -12,27 +12,7 @@ struct MyProfileView: View {
     @EnvironmentObject var userManager : UserManagerModel
     
     var body: some View {
-       
-        if userManager.loggedIn == false {
-            
- 
-                // - Sign in -
-            Button {
-                
-                // - Login Form -
-                userManager.loginFormShowing = true
-                
-            } label: {
-                Text("Sign In")}
-//            .sheet(isPresented: $userManager.loginFormShowing, onDismiss: userManager.checkLogin) {
-//                LoginForm()
-            }
-//            .onAppear {
-//                userManager.checkLogin()
-//            }
-//            }
-        
-        else {
+    
             
             ZStack {
                 ScrollView {
@@ -80,8 +60,6 @@ struct MyProfileView: View {
                
             }
             
-            
-        }
 
     }
 }

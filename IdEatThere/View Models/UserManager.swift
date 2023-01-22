@@ -39,6 +39,8 @@ class UserManagerModel : NSObject, ObservableObject {
     @Published var userName : String = ""
     @Published var newUser : Bool = true
     
+    @Published var completedOnboarding : Bool = false
+    
     // MARK: - Check Login / New User
     func checkLogin() -> Bool {
         self.loggedIn = Auth.auth().currentUser == nil ? false : true
@@ -79,6 +81,12 @@ class UserManagerModel : NSObject, ObservableObject {
     
     
     // MARK: - Sign In
+    
+//    func signIn() {
+//        Auth.auth().signIn(with: <#T##AuthCredential#>)
+//
+//
+//    }
 //    func signIn() {
 //        Auth.auth().signIn(withEmail: self.email, password: self.password) { result, error in
 //
@@ -104,8 +112,13 @@ class UserManagerModel : NSObject, ObservableObject {
     // MARK: -- Sign Out
     
     func signOut() {
-        try! Auth.auth().signOut()
-        self.loggedIn = false
+        do {
+            try Auth.auth().signOut()
+            self.loggedIn = false
+        }
+        catch let error {
+            print(error)
+        }
     }
     
     // MARK: -- Phone Number Auth and Verification
@@ -202,7 +215,10 @@ class UserManagerModel : NSObject, ObservableObject {
         username.getDocument(source: .cache) { [self] (document, error) in
             if let document = document {
                 self.firstName = document.get("firstName") as! String
-            }
+                self.lastName = document.get("lastName") as! String
+                self.phone = document.get("phone") as! String
+                self.photo = (document.get("photo") as? UIImage)
+        }
             else {
                 
                 // error

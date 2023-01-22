@@ -23,13 +23,13 @@ struct PhoneNumberView: View {
                     .padding(.top, 12)
                     .font(.body)
                 
- 
-                TextField(" e.g. (613) 515-0123 ", text: $userManager.phone.applyPatternOnNumbers(userManager.phone, pattern: "(###) ###-####", replacementCharacter: "#"))
-                    .textFieldStyle(OnboardingTextFields())
-                    .keyboardType(.numberPad)
-
-                .padding(.horizontal)
-                
+                    
+                    
+                TextField(userManager.phone.isEmpty ? " e.g. (613) 515-0123 " : userManager.phone, text: $userManager.phone.applyPatternOnNumbers(userManager.phone, pattern: "(###) ###-####", replacementCharacter: "#"))
+                        .textFieldStyle(OnboardingTextFields())
+                        .keyboardType(.numberPad)
+                        .padding(.horizontal)
+            
                     if userManager.errorMessage != nil {
                         Section {
                             Text(userManager.errorMessage!)
