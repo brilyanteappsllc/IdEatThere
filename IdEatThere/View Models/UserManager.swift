@@ -362,6 +362,7 @@ class UserManagerModel : NSObject, ObservableObject {
                             
                             // success, notify caller
                             completion(true)
+                            self.newUser = false
                         }
                         
                         else {

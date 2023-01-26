@@ -46,6 +46,10 @@ struct HomeView: View {
                         }
                     }
                     .tag(Tab.Map)
+                    .onAppear{
+                        
+                    print("Test")
+                    }
                     
                 
                 

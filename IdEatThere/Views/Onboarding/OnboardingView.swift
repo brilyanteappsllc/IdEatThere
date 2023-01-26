@@ -13,9 +13,6 @@ enum OnboardingStep : Int {
     case phoneNumber = 1
     case phoneVerification = 2
     case profile = 3
-    case contacts = 4
-    case geoLocationPerm = 5
-    
 }
 
 struct OnboardingView: View {
@@ -57,16 +54,6 @@ struct OnboardingView: View {
                     .tag(OnboardingStep.profile)
                     .contentShape(Rectangle()).gesture(DragGesture())
                 
-                // Contacts View
-                ContactsView()
-                    .tag(OnboardingStep.contacts)
-                    .contentShape(Rectangle()).gesture(DragGesture())
-                
-                
-                // GeoLocation Permission
-                GeoLocationPermission()
-                    .tag(OnboardingStep.geoLocationPerm)
-                    .contentShape(Rectangle()).gesture(DragGesture())
                 
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
@@ -114,21 +101,8 @@ struct OnboardingView: View {
                     userManager.verifyCode(code: userManager.verificationCode) { error in
                         
                         if error == nil {
-                            
-                            // Check if user has a profile
-                            userManager.checkUserProfile { exists in
-                                if exists {
-                                    
-                                    // End the onboarding
-                                    tabSelection = .contacts
-                                    
-                                }
-                                
-                                else {
+                
                                     tabSelection = .profile
-                                }
-                            }
-                            
                         }
                         
                         else {
@@ -152,7 +126,6 @@ struct OnboardingView: View {
                         
                         if isSuccess {
                             
-                            tabSelection = .contacts
                             
                         }
                         
@@ -168,14 +141,7 @@ struct OnboardingView: View {
                         }
                         
                     }
-                    
-                case .contacts :
-                    
-                    tabSelection = .geoLocationPerm
-                    
-                case .geoLocationPerm :
-                    
-                    modelLocation.requestGeolocationPermission()
+            
                 }
                 
             } label: {
@@ -205,13 +171,6 @@ struct OnboardingView: View {
                     case .profile :
                         Text(buttonDisabled ? "Uploading..." : "Save Profile")
                         
-                    case .contacts :
-                        Text("Next")
-                        
-                        
-                    case .geoLocationPerm :
-                        
-                        Text("Get My Location")
                         
                     }
                 }

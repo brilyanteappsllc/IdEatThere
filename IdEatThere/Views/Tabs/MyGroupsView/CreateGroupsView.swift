@@ -12,7 +12,7 @@ struct CreateGroupsView: View {
     @Environment(\.dismiss) var dismiss
     
     @EnvironmentObject var myGroupsModel : MyGroupsModel
-    @EnvironmentObject var myContactsModel : ContactsModel
+    @EnvironmentObject var contactsModel : ContactsModel
     
     @Binding var hasGroups : Bool
     
@@ -36,14 +36,22 @@ struct CreateGroupsView: View {
                 Text("Create")
             }
             
-            ContactsListView(searchedContact: $myContactsModel.searchedContact)
+            ContactsListView(searchedContact: $contactsModel.searchedContact)
             
 
             
             Spacer()
             
         }
-        .padding(.horizontal)    }
+        .padding(.horizontal)
+        .onAppear{
+            contactsModel.getLocalContacs()
+        }
+    }
+
+        
+    
+
 }
 
 //struct CreateGroupsView_Previews: PreviewProvider {

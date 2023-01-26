@@ -17,60 +17,20 @@ struct LaunchView: View {
         
         // MARK: - Authorization Status, Geolocating User -
         
-        if userManager.loggedIn == false {
+        if userManager.newUser {
             
-            if userManager.newUser || !userManager.completedOnboarding {
-                
-                if model.authorizationState == CLAuthorizationStatus.notDetermined {
-                    
-                    OnboardingView()
-                }
-                
-                // Approved Permission
-                else if model.authorizationState == CLAuthorizationStatus.authorizedAlways ||
-                            model.authorizationState == CLAuthorizationStatus.authorizedWhenInUse {
-                    
-                    // - Home View -
-                    HomeView()
-                    
-                }
-                // Denied permission
-                else {
-                    
-                    // - Denied View -
-                    LocationDeniedView()
-                    
-                }
-                
-            }
+            OnboardingView()
             
-            else {
-                
+        }
+        
+        else if userManager.loggedIn == false {
+            
                 LoginForm()
-                
-            }
+            
         }
         
         else {
-            
-            if userManager.loggedIn {
-                
-                // Approved Permission
-                if model.authorizationState == CLAuthorizationStatus.authorizedAlways ||
-                         model.authorizationState == CLAuthorizationStatus.authorizedWhenInUse {
-                    
-                    // - Home View -
-                    HomeView()
-                    
-                }
-                // Denied permission
-                else {
-                    
-                    // - Denied View -
-                    LocationDeniedView()
-                    
-                }
-            }
+            HomeView()
         }
     }
 }

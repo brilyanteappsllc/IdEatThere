@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct MapView: View {
     
@@ -13,15 +14,19 @@ struct MapView: View {
     @State var selectedBusiness: Business?
     
     @EnvironmentObject var model: RestaurantsContentModel
+    @EnvironmentObject var modelLocation : RestaurantDataService
     
     var body: some View {
-        // If there is data
-        if model.restaurants.count != 0 ||
-            model.sights.count != 0 {
+        
+        
+        
+        // Navigation View
+        
+        NavigationView {
             
-            // Navigation View
-            
-            NavigationView {
+            // If there is data
+            if model.restaurants.count != 0 ||
+                model.sights.count != 0 {
                 
                 // Determine if we should show list or map
                 
@@ -34,12 +39,12 @@ struct MapView: View {
                             Image(systemName: "location")
                             Text(model.placemark?.locality ?? "") //city associated with placemark
                             Spacer()
-//                            Button {
-//                                self.isMapShowing = true
-//                            } label: {
-//                                CircleButton(iconName: "chevron.right")
-//                            }
-
+                            //                            Button {
+                            //                                self.isMapShowing = true
+                            //                            } label: {
+                            //                                CircleButton(iconName: "chevron.right")
+                            //                            }
+                            
                             Button("Switch to map view") {
                                 self.isMapShowing = true
                             }
@@ -55,10 +60,10 @@ struct MapView: View {
                             
                             BusinessList()
                             
-//                            HStack {
-//                                Spacer()
-//                                YelpAttribution(link: "https://yelp.ca")
-//                            }
+                            //                            HStack {
+                            //                                Spacer()
+                            //                                YelpAttribution(link: "https://yelp.ca")
+                            //                            }
                             
                             
                         }
@@ -106,19 +111,28 @@ struct MapView: View {
                         .padding()
                     }
                     .navigationBarHidden(true) // Xcode13: beed to implement on first child of the parent
-
+                    
                 }
             }
-            .accentColor(.white)
-            
-           
-             
-        }
-        else  {
-            // Still waiting for data, so show spinner
-            ProgressView()
+            else  {
+     //           Still waiting for data, so show spinner and check user location permission
+                if modelLocation.authorizationState == CLAuthorizationStatus.denied  {
+                    LocationDeniedView()
+                }
+                else {
+                    ProgressView()
+                }
+                
             }
+        }
+        .accentColor(.white)
+        .onAppear{
+            modelLocation.requestGeolocationPermission()
+        }
+        
+        
     }
+    
 }
 
 struct MapView_Previews: PreviewProvider {
