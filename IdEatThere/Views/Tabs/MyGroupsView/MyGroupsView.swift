@@ -10,7 +10,12 @@ import SwiftUI
 struct MyGroupsView: View {
     
     @EnvironmentObject var myGroupsModel : MyGroupsModel
-
+    
+    
+    var flexiblecolumns = Array(repeating: GridItem(.flexible(minimum: 0),
+                                                    spacing: 5,
+                                                    alignment: .center), count: 3)
+    
     
     
     var body: some View {
@@ -23,20 +28,55 @@ struct MyGroupsView: View {
                     
                     VStack {
                         
-                        
-                        
-                        
-                        ScrollView() {
-                            
-                            
-                            Text("Here are you groups")
-                            
-                            
+                        Group{
+                            VStack(alignment: .leading) {
+                                
+                                Text("My Groups")
+                                    .padding(.leading)
+                                    .padding(.top, 50)
+                                
+                                HostButton()
+                            }
                             
                         }
+                        
+                        Group{
+                            
+                            VStack(alignment: .leading) {
+                                
+                                Text("Groups I'm In")
+                                    .padding(.top, 25)
+                                    .padding(.leading)
+                                
+                                ScrollView(showsIndicators: true) {
+                                    
+                                    LazyVGrid(columns: flexiblecolumns) {
+                                
+                                        ForEach(0..<10) {index in
+                                            Text("PlaceHolder\(index)")
+                                            
+                                        }
+                                        
+                                    }
+                                }
+                            }
+                        }
                     }
-                    .navigationTitle("My Groups")
-                    
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar {
+                        
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            HStack {
+                                Image(systemName: "fork.knife.circle.fill")
+                                    .font(.system(size: 25))
+                              Text("I'd Eat There")
+                                    .font(.system(size: 30))
+                            }
+                            .padding(.top, 10)
+                        }
+                        
+                        
+                    }
                 }
             }
         }
@@ -59,9 +99,9 @@ struct MyGroupsView: View {
     }
 }
 
-//struct MyGroupsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MyGroupsView()
-//            .environmentObject(UserManagerModel())
-//    }
-//}
+struct MyGroupsView_Previews: PreviewProvider {
+    static var previews: some View {
+        MyGroupsView()
+            .environmentObject(MyGroupsModel())
+    }
+}

@@ -15,7 +15,7 @@ class MyGroupsModel : ObservableObject {
     
     
     
-    @Published var hasGroups : Bool = false
+    @Published var hasGroups : Bool = true
     
     @Published var groupsArray : Array = []
     

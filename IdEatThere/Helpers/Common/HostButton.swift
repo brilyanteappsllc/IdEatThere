@@ -14,13 +14,19 @@ struct HostButton: View {
         ZStack {
             
             Rectangle()
-                .frame(width: 200, height: 50)
-                .cornerRadius(20)
-                .foregroundColor(Color.theme.accent)
+                .frame(height: 125)
+                .cornerRadius(10)
+                .foregroundColor(Color.theme.groupButtonColor)
+                .padding(.horizontal)
             
-            Text("Start a group!")
-                .foregroundColor(Color.theme.blackText)
-            
+            VStack {
+                
+                Image(systemName: "plus")
+                    .padding(.bottom, 3)
+                    .font(.system(size: 20))
+                Text("Host a Group")
+                    .foregroundColor(Color.theme.blackText)
+            }
             
         
         }

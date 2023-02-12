@@ -25,6 +25,7 @@ struct ColorTheme {
     let gold = Color("GoldColor")
     let tabSelectedItemColor = Color("TabSelectedItemColor")
     let tabUnselectedItemColor = Color("TabUnselectedItemColor")
+    let groupButtonColor = Color("GroupButtonColor")
 
     
     func tabBarAppearance(appearance: String) -> UITabBarAppearance {
