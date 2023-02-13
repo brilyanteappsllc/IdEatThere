@@ -38,6 +38,8 @@
 		8643AB91296CC4050069D5F5 /* GroupsDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB90296CC4050069D5F5 /* GroupsDataService.swift */; };
 		867464CD297753C900358EEF /* ContactsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867464CC297753C900358EEF /* ContactsListView.swift */; };
 		867464CF2977544400358EEF /* GroupsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867464CE2977544400358EEF /* GroupsListView.swift */; };
+		867C99D8299996C700E57C3C /* HostSelectedContactsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C99D7299996C700E57C3C /* HostSelectedContactsButton.swift */; };
+		867C99DB2999AB0D00E57C3C /* ContactsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C99DA2999AB0D00E57C3C /* ContactsRow.swift */; };
 		86A25720296DEC8F00CFDFAB /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A2571F296DEC8F00CFDFAB /* WelcomeView.swift */; };
 		86A25722296DECA900CFDFAB /* PhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A25721296DECA900CFDFAB /* PhoneNumberView.swift */; };
 		86A25724296DECB700CFDFAB /* PhoneVerficationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A25723296DECB700CFDFAB /* PhoneVerficationView.swift */; };
@@ -111,6 +113,8 @@
 		8643AB90296CC4050069D5F5 /* GroupsDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsDataService.swift; sourceTree = "<group>"; };
 		867464CC297753C900358EEF /* ContactsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListView.swift; sourceTree = "<group>"; };
 		867464CE2977544400358EEF /* GroupsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsListView.swift; sourceTree = "<group>"; };
+		867C99D7299996C700E57C3C /* HostSelectedContactsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostSelectedContactsButton.swift; sourceTree = "<group>"; };
+		867C99DA2999AB0D00E57C3C /* ContactsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsRow.swift; sourceTree = "<group>"; };
 		86A2571E296DCEC800CFDFAB /* IdEatThere.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IdEatThere.entitlements; sourceTree = "<group>"; };
 		86A2571F296DEC8F00CFDFAB /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		86A25721296DECA900CFDFAB /* PhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberView.swift; sourceTree = "<group>"; };
@@ -231,6 +235,7 @@
 				8643AB47296B83CC0069D5F5 /* AddToMyGroupButton.swift */,
 				8643AB8A296C905E0069D5F5 /* HostButton.swift */,
 				86A2572B296FACA300CFDFAB /* OnboardingTextFields.swift */,
+				867C99D7299996C700E57C3C /* HostSelectedContactsButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -250,8 +255,8 @@
 				8603C246296534CB006C1A58 /* MyGroupsView.swift */,
 				8643AB88296C87EA0069D5F5 /* NoGroupsYet.swift */,
 				8643AB8C296C94AF0069D5F5 /* CreateGroupsView.swift */,
-				867464CC297753C900358EEF /* ContactsListView.swift */,
 				867464CE2977544400358EEF /* GroupsListView.swift */,
+				867C99D92999AAEB00E57C3C /* Contacts */,
 			);
 			path = MyGroupsView;
 			sourceTree = "<group>";
@@ -294,6 +299,15 @@
 				8627F9E829672EB700382DA8 /* Filter */,
 			);
 			path = ListView;
+			sourceTree = "<group>";
+		};
+		867C99D92999AAEB00E57C3C /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				867464CC297753C900358EEF /* ContactsListView.swift */,
+				867C99DA2999AB0D00E57C3C /* ContactsRow.swift */,
+			);
+			path = Contacts;
 			sourceTree = "<group>";
 		};
 		86E4BC9C2965248900244E88 = {
@@ -576,6 +590,7 @@
 				86A2572A296DF1D500CFDFAB /* ContactsView.swift in Sources */,
 				86E4BCE62965262300244E88 /* ContentModel.swift in Sources */,
 				8627FA022967F63900382DA8 /* RestaurantsDataServices.swift in Sources */,
+				867C99DB2999AB0D00E57C3C /* ContactsRow.swift in Sources */,
 				86E4BCD62965261000244E88 /* BusinessSection.swift in Sources */,
 				86E4BCD92965261000244E88 /* DirectionsView.swift in Sources */,
 				86A25724296DECB700CFDFAB /* PhoneVerficationView.swift in Sources */,
@@ -583,6 +598,7 @@
 				86C1A978296674CE00C1B602 /* FilteredBusinessData.swift in Sources */,
 				86E4BCD12965261000244E88 /* HomeView.swift in Sources */,
 				86E4BCD22965261000244E88 /* BusinessMap.swift in Sources */,
+				867C99D8299996C700E57C3C /* HostSelectedContactsButton.swift in Sources */,
 				86E4BCA92965248900244E88 /* IdEatThereApp.swift in Sources */,
 				8627F9FD2967811000382DA8 /* CircleButtonAnimation.swift in Sources */,
 				8627F9FF2967F17200382DA8 /* UIApplication.swift in Sources */,

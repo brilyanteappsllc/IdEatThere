@@ -20,22 +20,6 @@ struct CreateGroupsView: View {
         
         VStack {
             
-            HStack {
-                VStack {
-                    Text("Create a Group!")
-                    Text("Select contacts you'd like to invite")
-                }
-            }
-            
-            Button {
-                
-                self.hasGroups = true
-                dismiss()
-                dismiss.callAsFunction()
-            } label: {
-                Text("Create")
-            }
-            
             ContactsListView(searchedContact: $contactsModel.searchedContact)
             
 
@@ -54,8 +38,10 @@ struct CreateGroupsView: View {
 
 }
 
-//struct CreateGroupsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CreateGroupsView()
-//    }
-//}
+struct CreateGroupsView_Previews: PreviewProvider {
+    static var previews: some View {
+        CreateGroupsView(hasGroups: .constant(false))
+            .environmentObject(MyGroupsModel())
+            .environmentObject(ContactsModel())
+    }
+}

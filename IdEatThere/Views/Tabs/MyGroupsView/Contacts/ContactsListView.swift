@@ -7,33 +7,37 @@
 
 import SwiftUI
 
+
 struct ContactsListView: View {
     
+    @EnvironmentObject var myContactModel : ContactsModel
+    
     @Binding var searchedContact : String
+    @State var presentHostAlert = false
+    @State var selectedAtLeastOneContact = false
+    let hostAlert_SelectContactsTitle = "Please selected at least one contact"
     
     var body: some View {
         
         VStack {
             
-//            // Heading
-//            HStack {
-//
-//                Text("Contacts")
-//                    .font(.largeTitle)
-//
-//                Spacer()
-//
-//                Button {
-//
-//
-//                } label: {
-//                    Image(systemName: "gearshape.fill")
-//                        .resizable()
-//                        .frame(width: 20, height: 20)
-//                        .tint(Color.theme.accent)
-//
-//                }
-//            }
+            // Heading
+            HStack() {
+
+                Text("Contacts")
+                    .font(.largeTitle)
+
+                Spacer()
+
+                HostSelectedContactsButton()
+                    .onTapGesture {
+                        if !self.selectedAtLeastOneContact {
+                            self.presentHostAlert.toggle()
+                        }
+                    }
+                    .padding(.top, 10)
+                
+            }
             
             // Search Bar
             HStack {
@@ -56,8 +60,15 @@ struct ContactsListView: View {
             
             
             // List
+            List(myContactModel.users) { user in
+                
+                ContactsRow(user: user)
+                
+            }
+            .listStyle(.plain)
 
         }
+        .alert(hostAlert_SelectContactsTitle, isPresented: $presentHostAlert, actions: {})
         
         
     }

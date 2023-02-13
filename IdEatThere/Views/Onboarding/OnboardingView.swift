@@ -126,7 +126,6 @@ struct OnboardingView: View {
                         
                         if isSuccess {
                             
-                            
                         }
                         
                         else {

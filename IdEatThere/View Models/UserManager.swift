@@ -22,7 +22,7 @@ class UserManagerModel : NSObject, ObservableObject {
     let db = Firestore.firestore()
     
     // Initializers
-    @Published var loggedIn : Bool = false
+    @Published var loggedIn : Bool = true
     @Published var loginFormShowing : Bool = false
     @Published var createUserFormShowing : Bool = false
     @Published var editUserInformation : Bool =  false
@@ -37,7 +37,7 @@ class UserManagerModel : NSObject, ObservableObject {
     @Published var password : String = ""
     @Published var errorMessage : String?
     @Published var userName : String = ""
-    @Published var newUser : Bool = true
+    @Published var newUser : Bool = false
     
     @Published var completedOnboarding : Bool = false
     
@@ -335,7 +335,6 @@ class UserManagerModel : NSObject, ObservableObject {
                        //   "photo" : photo])
         
         // Check if an image is passed through
-        
         if let photo = photo {
             
             // Create storage reference
@@ -356,21 +355,37 @@ class UserManagerModel : NSObject, ObservableObject {
             let uploadTask = fileRef.putData(imageData!, metadata: nil) { meta, error in
                 
                 if error == nil && meta != nil {
-                    path.setData(["photo" : imagePath], merge : true) {error in
+                    
+                    // Get full url to image
+                    fileRef.downloadURL { url, error in
                         
-                        if error == nil {
+                        // Check for errors
+                        if url != nil && error == nil {
                             
-                            // success, notify caller
-                            completion(true)
-                            self.newUser = false
+                            // set the image path to the profile
+                            path.setData(["photo" : url!.absoluteString], merge : true) {error in
+                                
+                                if error == nil {
+                                    
+                                    // success, notify caller
+                                    completion(true)
+                                    self.newUser = false
+                                    
+                                }
+                                
+                                else {
+                                    completion(false)
+                                }
+                                
+                            }
+                            
                         }
-                        
+                        // URL download wasn't succesful
                         else {
                             completion(false)
                         }
                         
                     }
-                    
                     
                 }
                 else {
@@ -381,6 +396,11 @@ class UserManagerModel : NSObject, ObservableObject {
             }
             
         }
+        else {
+            // No image was selected
+            completion(true) // allows user to continue
+        }
+
     }
     
     func checkUserProfile(completion: @escaping (Bool) -> Void) {

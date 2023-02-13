@@ -16,7 +16,7 @@ struct MyGroupsView: View {
                                                     spacing: 5,
                                                     alignment: .center), count: 3)
     
-    
+    @State var presentCreateGroupView : Bool = false
     
     var body: some View {
         
@@ -35,7 +35,17 @@ struct MyGroupsView: View {
                                     .padding(.leading)
                                     .padding(.top, 50)
                                 
-                                HostButton()
+                                Button {
+                    //                self.hasGroups = true
+                                    presentCreateGroupView.toggle()
+                                    
+                                } label : {
+                                    
+                                        HostButton()
+                                }
+                            }
+                            .sheet(isPresented: $presentCreateGroupView) {
+                                CreateGroupsView(hasGroups: $myGroupsModel.hasGroups)
                             }
                             
                         }
@@ -71,15 +81,18 @@ struct MyGroupsView: View {
                                     .font(.system(size: 25))
                               Text("I'd Eat There")
                                     .font(.system(size: 30))
+                                    .font(Font.headingFont)
                             }
                             .padding(.top, 10)
                         }
                         
                         
                     }
+                    
+                }
+
                 }
             }
-        }
         
         else {
             
