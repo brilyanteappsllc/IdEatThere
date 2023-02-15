@@ -10,11 +10,15 @@ import Contacts
 
 class ContactsModel : ObservableObject {
     
-    @Published var users = [User]()
+   private var users = [User]()
+    
+    @Published var filterText = ""
+    @Published var filteredUsers = [User]()
     
     private var localContacts = [CNContact]()
     
     @Published var searchedContact : String = ""
+    
     
     func getLocalContacs() {
         
@@ -51,6 +55,9 @@ class ContactsModel : ObservableObject {
                         // Set the fetched users to the published users property
                         self.users = platformUsers
                         
+                        self.filterContacts(filterBy: self.filterText)
+                        
+                        
                         
                     }
                 
@@ -66,5 +73,26 @@ class ContactsModel : ObservableObject {
             }
             
         }
+    }
+    
+    func filterContacts(filterBy: String) {
+        
+        // store parameter into property
+        self.filterText = filterBy
+        
+        // If Filter text is empty, then reveal all users
+        if filterText.isEmpty {
+            self.filteredUsers = users
+            return
+        }
+        
+        // Run the users list through tht filter term to get a list of filtered users
+        self.filteredUsers = users.filter({ user in
+            // Criteria for including this user into fiiltered users list
+            user.firstName?.lowercased().contains(filterText) ?? false ||
+            user.lastName?.lowercased().contains(filterText) ?? false ||
+            user.phone?.lowercased().contains(filterText) ?? false
+        })
+        
     }
 }

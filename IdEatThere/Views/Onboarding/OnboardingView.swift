@@ -10,10 +10,10 @@ import SwiftUI
 enum OnboardingStep : Int {
     
     case welcome = 0
-//    case email = 1
-    case phoneNumber = 1
-    case phoneVerification = 2
-    case profile = 3
+    case email = 1
+    case phoneNumber = 2
+    case phoneVerification = 3
+    case profile = 4
 }
 
 struct OnboardingView: View {
@@ -40,10 +40,10 @@ struct OnboardingView: View {
                     .tag(OnboardingStep.welcome)
                     .contentShape(Rectangle()).gesture(DragGesture())
                 
-//                // Email View
-//                EmailView()
-//                    .tag(OnboardingStep.email)
-//                    .contentShape(Rectangle()).gesture(DragGesture())
+                // Email View
+                EmailView()
+                    .tag(OnboardingStep.email)
+                    .contentShape(Rectangle()).gesture(DragGesture())
                 
                 // Phone Number
                 PhoneNumberView()
@@ -76,26 +76,26 @@ struct OnboardingView: View {
                     tabSelection = .phoneNumber
                     
 //                    // TODO: Set up Email and 2FA
-//                case .email :
-//
-//                    buttonDisabled.toggle()
-//
-//                    userManager.createAccount(email: userManager.email, password: userManager.password) { error in
-//
-//                        if error == nil {
-//
-//                            tabSelection = .phoneNumber
-//                        }
-//
-//                        else {
-//                            print(error as Any)
-//                        }
-//
-//                        if buttonDisabled {
-//                            buttonDisabled.toggle()
-//                        }
-//
-//                    }
+                case .email :
+
+                    buttonDisabled.toggle()
+
+                    userManager.createAccount(email: userManager.email, password: userManager.password) { error in
+
+                        if error == nil {
+
+                            tabSelection = .phoneNumber
+                        }
+
+                        else {
+                            print(error as Any)
+                        }
+
+                        if buttonDisabled {
+                            buttonDisabled.toggle()
+                        }
+
+                    }
                 case .phoneNumber :
                    
                     buttonDisabled.toggle()
@@ -187,8 +187,8 @@ struct OnboardingView: View {
                             .bold()
                             .padding()
                         
-//                    case .email:
-//                        Text(buttonDisabled ? "Saving..." : "Create Account")
+                    case .email:
+                        Text(buttonDisabled ? "Saving..." : "Create Account")
                         
                     case .phoneNumber:
                         Text("Next")

@@ -12,7 +12,7 @@ struct ContactsListView: View {
     
     @EnvironmentObject var myContactModel : ContactsModel
     
-    @Binding var searchedContact : String
+    @Binding var filterText : String
     @State var presentHostAlert = false
     @State var selectedAtLeastOneContact = false
     let hostAlert_SelectContactsTitle = "Please selected at least one contact"
@@ -46,27 +46,33 @@ struct ContactsListView: View {
                     .foregroundColor(Color.theme.blackText
                     )
                 
-                TextField("Search Contacts...", text: $searchedContact)
+                TextField("Search Contacts...", text: $filterText)
                     .foregroundColor(Color.theme.accent)
                 
                 Button {
-                    self.searchedContact = ""
+                    self.filterText = ""
                 } label: {
                     Image(systemName: "xmark.circle.fill")
                 }
 
                 
             }
+            .onChange(of: filterText) { _ in
+                // Filter the results
+                myContactModel.filterContacts(filterBy: filterText.lowercased())
+            }
             
             
             // List
-            List(myContactModel.users) { user in
-                
-                ContactsRow(user: user)
-                
+            
+            if myContactModel.filteredUsers.count > 0 {
+                List(myContactModel.filteredUsers) { user in
+                    
+                    ContactsRow(user: user)
+                    
+                }
+                .listStyle(.plain)
             }
-            .listStyle(.plain)
-
         }
         .alert(hostAlert_SelectContactsTitle, isPresented: $presentHostAlert, actions: {})
         
@@ -76,6 +82,6 @@ struct ContactsListView: View {
 
 struct ContactsListView_Previews: PreviewProvider {
     static var previews: some View {
-        ContactsListView(searchedContact: .constant(""))
+        ContactsListView(filterText: .constant(""))
     }
 }

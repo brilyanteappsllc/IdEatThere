@@ -20,7 +20,7 @@ struct CreateGroupsView: View {
         
         VStack {
             
-            ContactsListView(searchedContact: $contactsModel.searchedContact)
+            ContactsListView(filterText: $contactsModel.filterText)
             
 
             

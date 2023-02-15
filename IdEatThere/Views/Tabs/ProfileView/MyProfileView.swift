@@ -13,9 +13,12 @@ struct MyProfileView: View {
     
     
     
+    
+    
     var body: some View {
+
         
-        let photoURL = URL(string: User().photo ?? "")
+        let photoURL = URL(string: userModel.profilePhoto ?? "")
             
             ZStack {
                 ScrollView {
@@ -60,7 +63,7 @@ struct MyProfileView: View {
                          //   .frame(width: 44, height: 44)
                         //    .resizable()
                                 .frame(width: 100, height: 100)
-                                .cornerRadius(100)
+                               // .cornerRadius(100)
                             Spacer()
                             VStack{
                                 Text(String("\(userModel.firstName)"))

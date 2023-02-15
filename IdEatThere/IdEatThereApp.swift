@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import FirebaseAuth
 
 @main
 struct IdEatThereApp: App {
@@ -21,9 +22,7 @@ struct IdEatThereApp: App {
                 .environmentObject(RestaurantDataService())
                 .environmentObject(MyGroupsModel())
                 .environmentObject(ContactsModel())
-                .onAppear{
-                    UserManagerModel().appLaunch_CheckLogin()
-                }
+            
         }
     }
 }

@@ -22,7 +22,7 @@ class UserManagerModel : NSObject, ObservableObject {
     let db = Firestore.firestore()
     
     // Initializers
-    @Published var loggedIn : Bool = false
+    @Published var loggedIn : Bool = true
     @Published var loginFormShowing : Bool = false
     @Published var createUserFormShowing : Bool = false
     @Published var editUserInformation : Bool =  false
@@ -33,7 +33,7 @@ class UserManagerModel : NSObject, ObservableObject {
     @Published var lastName : String = ""
     @Published var phone : String = ""
     @Published var photo : UIImage?
-    @Published var profilePhoto : URL?
+    @Published var profilePhoto : String?
     @Published var verificationCode : String = ""
     @Published var password : String = ""
     @Published var errorMessage : String?
@@ -50,11 +50,30 @@ class UserManagerModel : NSObject, ObservableObject {
         return self.loggedIn
     }
     
-    func appLaunch_CheckLogin() {
+    // TODO: NEED TO SET THIS UP
+    func appLaunch_listener() {
         
-        self.loggedIn = Auth.auth().currentUser == nil ? false : true
+        
+        Auth.auth().addStateDidChangeListener({ auth, user in
+            
+            if user != nil {
+                
+                print("user is logged in")
+                self.loggedIn = true
+                print(self.loggedIn)
+                
+            }
+            
+            else {
+                print("user is not logged in")
+                self.loggedIn = false
+            }
+            
+            
+        })
         
     }
+    
     
     func getLoggedInUserPhone() -> String {
         
@@ -70,20 +89,10 @@ class UserManagerModel : NSObject, ObservableObject {
         
     }
     
-    func isUserAdmin() {
-        
-        //TODO: Check if user is admin
-    }
-    
     func isNewUser() {
         
         
         
-    }
-    //MARK: -- Reload
-    
-    func reloadView() {
-        objectWillChange.send()
     }
     
     
@@ -216,7 +225,7 @@ class UserManagerModel : NSObject, ObservableObject {
                 self.firstName = document.get("firstName") as! String
                 self.lastName = document.get("lastName") as! String
                 self.phone = document.get("phone") as! String
-                self.profilePhoto = document.get("photo") as? URL
+                self.profilePhoto = document.get("photo") as? String
         }
             else {
                 
