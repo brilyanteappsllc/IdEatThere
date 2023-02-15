@@ -36,6 +36,8 @@
 		8643AB8D296C94AF0069D5F5 /* CreateGroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB8C296C94AF0069D5F5 /* CreateGroupsView.swift */; };
 		8643AB8F296CC3190069D5F5 /* MyGroupsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB8E296CC3190069D5F5 /* MyGroupsModel.swift */; };
 		8643AB91296CC4050069D5F5 /* GroupsDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB90296CC4050069D5F5 /* GroupsDataService.swift */; };
+		86726A27299D684D00ED4DB7 /* ActionButton in Frameworks */ = {isa = PBXBuildFile; productRef = 86726A26299D684D00ED4DB7 /* ActionButton */; };
+		86726A29299D6C6200ED4DB7 /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86726A28299D6C6200ED4DB7 /* EmailView.swift */; };
 		867464CD297753C900358EEF /* ContactsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867464CC297753C900358EEF /* ContactsListView.swift */; };
 		867464CF2977544400358EEF /* GroupsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867464CE2977544400358EEF /* GroupsListView.swift */; };
 		867C99D8299996C700E57C3C /* HostSelectedContactsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C99D7299996C700E57C3C /* HostSelectedContactsButton.swift */; };
@@ -111,6 +113,7 @@
 		8643AB8C296C94AF0069D5F5 /* CreateGroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupsView.swift; sourceTree = "<group>"; };
 		8643AB8E296CC3190069D5F5 /* MyGroupsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsModel.swift; sourceTree = "<group>"; };
 		8643AB90296CC4050069D5F5 /* GroupsDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsDataService.swift; sourceTree = "<group>"; };
+		86726A28299D6C6200ED4DB7 /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
 		867464CC297753C900358EEF /* ContactsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListView.swift; sourceTree = "<group>"; };
 		867464CE2977544400358EEF /* GroupsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsListView.swift; sourceTree = "<group>"; };
 		867C99D7299996C700E57C3C /* HostSelectedContactsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostSelectedContactsButton.swift; sourceTree = "<group>"; };
@@ -164,6 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86726A27299D684D00ED4DB7 /* ActionButton in Frameworks */,
 				3E958C5E2E691181F0D2CE46 /* Pods_IdEatThere.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,6 +401,7 @@
 			children = (
 				86E4BCCF2965261000244E88 /* OnboardingView.swift */,
 				86A2571F296DEC8F00CFDFAB /* WelcomeView.swift */,
+				86726A28299D6C6200ED4DB7 /* EmailView.swift */,
 				86A25721296DECA900CFDFAB /* PhoneNumberView.swift */,
 				86A25723296DECB700CFDFAB /* PhoneVerficationView.swift */,
 				86A25727296DF1B900CFDFAB /* CreateProfileView.swift */,
@@ -471,6 +476,9 @@
 			dependencies = (
 			);
 			name = IdEatThere;
+			packageProductDependencies = (
+				86726A26299D684D00ED4DB7 /* ActionButton */,
+			);
 			productName = IdEatThere;
 			productReference = 86E4BCA52965248900244E88 /* IdEatThere.app */;
 			productType = "com.apple.product-type.application";
@@ -499,6 +507,9 @@
 				Base,
 			);
 			mainGroup = 86E4BC9C2965248900244E88;
+			packageReferences = (
+				86726A25299D684D00ED4DB7 /* XCRemoteSwiftPackageReference "action-button" */,
+			);
 			productRefGroup = 86E4BCA62965248900244E88 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -570,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86E4BCDA2965261000244E88 /* BusinessSectionHeader.swift in Sources */,
+				86726A29299D6C6200ED4DB7 /* EmailView.swift in Sources */,
 				8643AB8D296C94AF0069D5F5 /* CreateGroupsView.swift in Sources */,
 				8603C24529653488006C1A58 /* MapView.swift in Sources */,
 				8627F9F129674F6D00382DA8 /* Color.swift in Sources */,
@@ -847,6 +859,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		86726A25299D684D00ED4DB7 /* XCRemoteSwiftPackageReference "action-button" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftui-library/action-button";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		86726A26299D684D00ED4DB7 /* ActionButton */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86726A25299D684D00ED4DB7 /* XCRemoteSwiftPackageReference "action-button" */;
+			productName = ActionButton;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 86E4BC9D2965248900244E88 /* Project object */;
 }

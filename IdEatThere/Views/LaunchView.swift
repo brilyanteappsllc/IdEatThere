@@ -17,21 +17,28 @@ struct LaunchView: View {
         
         // MARK: - Authorization Status, Geolocating User -
         
-        if userManager.newUser {
+        if userManager.loggedIn {
             
-            OnboardingView()
-            
-        }
-        
-        else if userManager.loggedIn == false {
-            
-                LoginForm()
-            
-        }
-        
-        else {
             HomeView()
+                .onAppear{
+                    userManager.userInfo()
+                }
+            
         }
+        
+        else if !userManager.loggedIn {
+            
+            if userManager.newUser {
+                
+                OnboardingView()
+                
+            }
+            else {
+                LoginForm()
+            }
+            
+        }
+    
     }
 }
 

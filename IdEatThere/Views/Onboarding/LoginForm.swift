@@ -81,7 +81,7 @@ struct LoginForm: View {
                             userManager.checkUserProfile { exists in
                                 if exists {
                                     
-                                    userManager.loggedIn = true
+                                    
                                     
                                 }
                                 

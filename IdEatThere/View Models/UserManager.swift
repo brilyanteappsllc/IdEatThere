@@ -22,7 +22,7 @@ class UserManagerModel : NSObject, ObservableObject {
     let db = Firestore.firestore()
     
     // Initializers
-    @Published var loggedIn : Bool = true
+    @Published var loggedIn : Bool = false
     @Published var loginFormShowing : Bool = false
     @Published var createUserFormShowing : Bool = false
     @Published var editUserInformation : Bool =  false
@@ -33,6 +33,7 @@ class UserManagerModel : NSObject, ObservableObject {
     @Published var lastName : String = ""
     @Published var phone : String = ""
     @Published var photo : UIImage?
+    @Published var profilePhoto : URL?
     @Published var verificationCode : String = ""
     @Published var password : String = ""
     @Published var errorMessage : String?
@@ -47,6 +48,12 @@ class UserManagerModel : NSObject, ObservableObject {
  //       self.userInfo()
         
         return self.loggedIn
+    }
+    
+    func appLaunch_CheckLogin() {
+        
+        self.loggedIn = Auth.auth().currentUser == nil ? false : true
+        
     }
     
     func getLoggedInUserPhone() -> String {
@@ -159,7 +166,8 @@ class UserManagerModel : NSObject, ObservableObject {
             
             if error == nil {
                 
-                self.loggedIn = Auth.auth().currentUser == nil ? false : true
+                self.userInfo()
+                
                 DispatchQueue.main.async {
                     
                     // Notify the UI
@@ -173,36 +181,27 @@ class UserManagerModel : NSObject, ObservableObject {
     }
     
     // MARK: - Create Account
-//    func createAccount() {
-//        Auth.auth().createUser(withEmail: self.email, password: self.password) { result, error in
-//
-//            DispatchQueue.main.async { [self] in
-//                if error == nil {
-//
-//                    // Save the firstName
-//                    self.saveFirstName()
-//
-//                    // Dismiss the form
-//                    self.createUserFormShowing = false
-//
-//                    // update user info
-//                    self.userInfo()
-//
-//                    // No longer a new user
-//                    self.newUser = false
-//
-//                    // Auto Sign in
-//                    self.checkLogin()
-//
-//                }
-//                else {
-//
-//                    self.errorMessage = error!.localizedDescription
-//                }
-//            }
-//
-//        }
-//    }
+    func createAccount(email: String, password: String, completion: @escaping (Error?) -> Void) {
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+
+          
+                if error == nil {
+                    
+                    DispatchQueue.main.async {
+                        
+                        // Notify the UI
+                        completion(error)
+                    }
+
+                    
+                }
+                else {
+                    completion(error)
+                    self.errorMessage = error!.localizedDescription
+                }
+
+        }
+    }
     
     // MARK: - User Info
     func userInfo() {
@@ -217,7 +216,7 @@ class UserManagerModel : NSObject, ObservableObject {
                 self.firstName = document.get("firstName") as! String
                 self.lastName = document.get("lastName") as! String
                 self.phone = document.get("phone") as! String
-                self.photo = (document.get("photo") as? UIImage)
+                self.profilePhoto = document.get("photo") as? URL
         }
             else {
                 
@@ -369,7 +368,6 @@ class UserManagerModel : NSObject, ObservableObject {
                                     
                                     // success, notify caller
                                     completion(true)
-                                    self.newUser = false
                                     
                                 }
                                 
@@ -400,6 +398,8 @@ class UserManagerModel : NSObject, ObservableObject {
             // No image was selected
             completion(true) // allows user to continue
         }
+        
+        self.loggedIn = Auth.auth().currentUser == nil ? false : true
 
     }
     
@@ -423,6 +423,7 @@ class UserManagerModel : NSObject, ObservableObject {
                 
                 // Notify users the profile exists
                 completion(snapshot!.exists)
+                self.loggedIn = true
                 
             }
             

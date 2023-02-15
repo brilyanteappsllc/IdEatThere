@@ -9,10 +9,13 @@ import SwiftUI
 
 struct MyProfileView: View {
     
-    @EnvironmentObject var userManager : UserManagerModel
+    @EnvironmentObject var userModel: UserManagerModel
+    
+    
     
     var body: some View {
-    
+        
+        let photoURL = URL(string: User().photo ?? "")
             
             ZStack {
                 ScrollView {
@@ -21,13 +24,46 @@ struct MyProfileView: View {
                         // User Profile Info
                         HStack {
                             Spacer()
-                            Image("logo")
-                                .resizable()
+                            AsyncImage(url: photoURL) { phase in
+                                
+                                switch phase {
+                                    
+                                case .empty :
+                                    
+                                    ZStack {
+                                        Circle()
+                                            .foregroundColor(.white)
+                                        
+                                        Text(User().firstName?.prefix(1) ?? "")
+                                            .bold()
+                                    }
+                                case .success(let image):
+                                    
+                                    //Display the fetched image
+                                    image
+                                        .resizable()
+                                        .scaledToFit()
+                                    
+                                case .failure (let error):
+                                    // Couldn't fetch photo url
+                                    // Display a cirlce with first letter of first name
+                                    
+                                    ZStack {
+                                        Circle()
+                                            .foregroundColor(.white)
+                                        
+                                        Text((User().firstName?.prefix(1) ?? ""))
+                                            .bold()
+                                    }
+                                }
+                            }
+                         //   .frame(width: 44, height: 44)
+                        //    .resizable()
                                 .frame(width: 100, height: 100)
                                 .cornerRadius(100)
                             Spacer()
                             VStack{
-                                Text(String("\(userManager.firstName)"))
+                                Text(String("\(userModel.firstName)"))
                                     .bold()
                                     .foregroundColor(Color.theme.accent)
 

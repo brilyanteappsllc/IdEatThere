@@ -21,6 +21,9 @@ struct IdEatThereApp: App {
                 .environmentObject(RestaurantDataService())
                 .environmentObject(MyGroupsModel())
                 .environmentObject(ContactsModel())
+                .onAppear{
+                    UserManagerModel().appLaunch_CheckLogin()
+                }
         }
     }
 }
