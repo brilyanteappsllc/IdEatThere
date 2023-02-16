@@ -7,35 +7,29 @@
 
 import SwiftUI
 
+enum Tabs: Int {
+    
+    case groups = 0
+    case maps = 1
+    case profile = 2
+}
+
 struct CustomTabBar: View {
+    
+    @Binding var tabSelection : Tabs 
     var body: some View {
         
         HStack(alignment: .center) {
             
             // -- My Groups --
             Button {
-                
+                tabSelection = .groups
             } label: {
                 
-                GeometryReader {geo in
-                    
-                    Rectangle()
-                        .foregroundColor(Color.theme.accent)
-                        .frame(width: 50, height: 10)
-                    
-                    
-                    VStack(alignment: .center, spacing: 4) {
-                        
-                        Image(systemName: "person.3")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 40, height: 30)
-                        Text("My Groups")
-                        
-                    }
-                    .frame(width: geo.size.width, height: geo.size.height)
-                    
-                }
+                TabBarButton(
+                    buttonText: "My Groups",
+                    imageName: "person.3",
+                    isActive: tabSelection == .groups)
                 
 
             }
@@ -43,55 +37,25 @@ struct CustomTabBar: View {
             // -- Eats --
             
             Button {
-                
+                tabSelection = .maps
             } label: {
                 
-                GeometryReader {geo in
-                    
-                    Rectangle()
-                        .foregroundColor(Color.theme.accent)
-                        .frame(width: 50, height: 10)
-                    
-                    
-                    
-                    VStack {
-                        
-                        Image(systemName: "fork.knife")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 24, height: 24)
-                        Text("Eats")
-                        
-                    }
-                    .frame(width: geo.size.width, height: geo.size.height)
-                }
+                TabBarButton(
+                    buttonText: "Eats",
+                    imageName: "fork.knife",
+                    isActive: tabSelection == .maps)
             }
             
             // -- My Profile --
             
             Button {
-                
+                tabSelection = .profile
             } label: {
                 
-                GeometryReader {geo in
-                    
-                    Rectangle()
-                        .foregroundColor(Color.theme.accent)
-                        .frame(width: 50, height: 10)
-                    
-                    
-                    
-                    VStack {
-                        
-                        Image(systemName: "person.circle")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 24, height: 24)
-                        Text("My Profile")
-                        
-                    }
-                    .frame(width: geo.size.width, height: geo.size.height)
-                }
+                TabBarButton(
+                    buttonText: "My Profile",
+                    imageName: "person.circle",
+                    isActive: tabSelection == .profile)
             }
                 
         }
@@ -106,6 +70,6 @@ struct CustomTabBar: View {
 
 struct CustomTabBar_Previews: PreviewProvider {
     static var previews: some View {
-        CustomTabBar()
+        CustomTabBar(tabSelection: .constant(.groups))
     }
 }

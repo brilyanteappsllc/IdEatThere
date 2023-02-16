@@ -94,5 +94,7 @@ class ContactsModel : ObservableObject {
             user.phone?.lowercased().contains(filterText) ?? false
         })
         
+        print(self.filteredUsers)
+        
     }
 }

@@ -11,7 +11,6 @@ struct CreateGroupsView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @EnvironmentObject var myGroupsModel : MyGroupsModel
     @EnvironmentObject var contactsModel : ContactsModel
     
     @Binding var hasGroups : Bool

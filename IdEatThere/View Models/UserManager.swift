@@ -38,7 +38,7 @@ class UserManagerModel : NSObject, ObservableObject {
     @Published var password : String = ""
     @Published var errorMessage : String?
     @Published var userName : String = ""
-    @Published var newUser : Bool = false
+    @Published var newUser : Bool = true
     
     @Published var completedOnboarding : Bool = false
     
@@ -53,6 +53,8 @@ class UserManagerModel : NSObject, ObservableObject {
     // TODO: NEED TO SET THIS UP
     func appLaunch_listener() {
         
+        self.userId = Auth.auth().currentUser!.uid
+        
         
         Auth.auth().addStateDidChangeListener({ auth, user in
             
@@ -61,6 +63,7 @@ class UserManagerModel : NSObject, ObservableObject {
                 print("user is logged in")
                 self.loggedIn = true
                 print(self.loggedIn)
+                print(self.userId)
                 
             }
             
@@ -73,7 +76,6 @@ class UserManagerModel : NSObject, ObservableObject {
         })
         
     }
-    
     
     func getLoggedInUserPhone() -> String {
         
@@ -449,5 +451,48 @@ class UserManagerModel : NSObject, ObservableObject {
         
         
         
+    }
+    
+    // MARK: - Create Group
+    
+    func userGroups(completion: @escaping ([Groups]) -> Void) {
+        
+        guard self.checkLogin() != false else {
+            
+            return
+            
+        }
+        
+        var groupsAttending = [Groups]()
+
+        self.userId = self.getLoggedInUserId()
+ 
+        let attendee = self.userId
+        
+        let fieldlookup = Array(attendee)
+        
+        let query = db.collection("groups").whereField("Attendees", arrayContains: attendee)
+        
+        query.getDocuments { snapshot, error in
+            
+            // Check if errors
+            if error == nil && snapshot != nil {
+                
+                // For each doc the was fetched, append to groupsArray
+                
+                for doc in snapshot!.documents {
+                    
+                    if let groups = try? doc.data(as: Groups.self) {
+                        
+                            groupsAttending.append(groups)
+                           // print(groupsAttending)
+                    }
+                }
+                
+                completion(groupsAttending)
+            }
+
+        }
+
     }
 }

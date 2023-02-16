@@ -9,12 +9,9 @@ import SwiftUI
 
 struct MyGroupsView: View {
     
+    
     @EnvironmentObject var myGroupsModel : MyGroupsModel
     
-    
-    var flexiblecolumns = Array(repeating: GridItem(.flexible(minimum: 0),
-                                                    spacing: 5,
-                                                    alignment: .center), count: 3)
     
     @State var presentCreateGroupView : Bool = false
     
@@ -22,55 +19,45 @@ struct MyGroupsView: View {
         
         if myGroupsModel.hasGroups == true {
             
+            
             NavigationView {
-                
-                ZStack(alignment: .top) {
                     
-                    VStack {
+                    VStack(alignment: .leading) {
                         
-                        Group{
-                            VStack(alignment: .leading) {
-                                
-                                Text("My Groups")
-                                    .padding(.leading)
-                                    .padding(.top, 50)
-                                
-                                Button {
-                    //                self.hasGroups = true
-                                    presentCreateGroupView.toggle()
-                                    
-                                } label : {
-                                    
-                                        HostButton()
-                                }
-                            }
-                            .sheet(isPresented: $presentCreateGroupView) {
-                                CreateGroupsView(hasGroups: $myGroupsModel.hasGroups)
-                            }
+                        Text("My Groups")
+                            .padding(.leading)
+                            .padding(.top, 50)
+                        
+                        Button {
+                            //                self.hasGroups = true
+                            presentCreateGroupView.toggle()
                             
+                        } label : {
+                            
+                            HostButton()
                         }
                         
-                        Group{
-                            
-                            VStack(alignment: .leading) {
-                                
-                                Text("Groups I'm In")
-                                    .padding(.top, 25)
-                                    .padding(.leading)
-                                
-                                ScrollView(showsIndicators: true) {
-                                    
-                                    LazyVGrid(columns: flexiblecolumns) {
-                                
-                                        ForEach(0..<10) {index in
-                                            Text("PlaceHolder\(index)")
-                                            
-                                        }
-                                        
-                                    }
-                                }
-                            }
+                        .sheet(isPresented: $presentCreateGroupView) {
+                            CreateGroupsView(hasGroups: $myGroupsModel.hasGroups)
                         }
+                        
+
+                            
+                            Text("Upcoming")
+                                .padding(.top, 25)
+                                .padding(.leading)
+                            
+                   //     ScrollView() {
+                     //       GroupsListView(groups: myGroupsModel.groupsArray)
+                     //   }
+
+                            List(myGroupsModel.groupsArray) { groups in
+                                
+                                GroupsListView(groups: groups)
+                                
+                            }
+                            .listStyle(.plain)
+                        
                     }
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
@@ -79,7 +66,7 @@ struct MyGroupsView: View {
                             HStack {
                                 Image(systemName: "fork.knife.circle.fill")
                                     .font(.system(size: 25))
-                              Text("I'd Eat There")
+                                Text("I'd Eat There")
                                     .font(.system(size: 30))
                                     .font(Font.headingFont)
                             }
@@ -88,11 +75,14 @@ struct MyGroupsView: View {
                         
                         
                     }
+                    .onAppear{
+                        MyGroupsModel().queryGroupsAttending()
+                    }
                     
-                }
 
-                }
+  
             }
+        }
         
         else {
             

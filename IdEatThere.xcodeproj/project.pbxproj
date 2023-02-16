@@ -36,6 +36,10 @@
 		8643AB8D296C94AF0069D5F5 /* CreateGroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB8C296C94AF0069D5F5 /* CreateGroupsView.swift */; };
 		8643AB8F296CC3190069D5F5 /* MyGroupsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB8E296CC3190069D5F5 /* MyGroupsModel.swift */; };
 		8643AB91296CC4050069D5F5 /* GroupsDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB90296CC4050069D5F5 /* GroupsDataService.swift */; };
+		864B2A6D299E971600D8AAF5 /* GridButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864B2A6C299E971600D8AAF5 /* GridButton.swift */; };
+		864B2A6F299EA36400D8AAF5 /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864B2A6E299EA36400D8AAF5 /* TabBarButton.swift */; };
+		864B2A71299EAF9700D8AAF5 /* SelectedGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864B2A70299EAF9700D8AAF5 /* SelectedGroupView.swift */; };
+		864B2A73299EB07600D8AAF5 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864B2A72299EB07600D8AAF5 /* Groups.swift */; };
 		86726A27299D684D00ED4DB7 /* ActionButton in Frameworks */ = {isa = PBXBuildFile; productRef = 86726A26299D684D00ED4DB7 /* ActionButton */; };
 		86726A29299D6C6200ED4DB7 /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86726A28299D6C6200ED4DB7 /* EmailView.swift */; };
 		867464CD297753C900358EEF /* ContactsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867464CC297753C900358EEF /* ContactsListView.swift */; };
@@ -113,6 +117,10 @@
 		8643AB8C296C94AF0069D5F5 /* CreateGroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupsView.swift; sourceTree = "<group>"; };
 		8643AB8E296CC3190069D5F5 /* MyGroupsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsModel.swift; sourceTree = "<group>"; };
 		8643AB90296CC4050069D5F5 /* GroupsDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsDataService.swift; sourceTree = "<group>"; };
+		864B2A6C299E971600D8AAF5 /* GridButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridButton.swift; sourceTree = "<group>"; };
+		864B2A6E299EA36400D8AAF5 /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
+		864B2A70299EAF9700D8AAF5 /* SelectedGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedGroupView.swift; sourceTree = "<group>"; };
+		864B2A72299EB07600D8AAF5 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
 		86726A28299D6C6200ED4DB7 /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
 		867464CC297753C900358EEF /* ContactsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListView.swift; sourceTree = "<group>"; };
 		867464CE2977544400358EEF /* GroupsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsListView.swift; sourceTree = "<group>"; };
@@ -240,6 +248,7 @@
 				8643AB8A296C905E0069D5F5 /* HostButton.swift */,
 				86A2572B296FACA300CFDFAB /* OnboardingTextFields.swift */,
 				867C99D7299996C700E57C3C /* HostSelectedContactsButton.swift */,
+				864B2A6C299E971600D8AAF5 /* GridButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -260,6 +269,7 @@
 				8643AB88296C87EA0069D5F5 /* NoGroupsYet.swift */,
 				8643AB8C296C94AF0069D5F5 /* CreateGroupsView.swift */,
 				867464CE2977544400358EEF /* GroupsListView.swift */,
+				864B2A70299EAF9700D8AAF5 /* SelectedGroupView.swift */,
 				867C99D92999AAEB00E57C3C /* Contacts */,
 			);
 			path = MyGroupsView;
@@ -374,6 +384,7 @@
 			children = (
 				86E4BCBA2965261000244E88 /* HomeView.swift */,
 				8643AB4C296C44EB0069D5F5 /* CustomTabBar.swift */,
+				864B2A6E299EA36400D8AAF5 /* TabBarButton.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -431,6 +442,7 @@
 				86E4BCE92965263000244E88 /* Business Search.swift */,
 				86C1A977296674CE00C1B602 /* FilteredBusinessData.swift */,
 				86A80AD529708C9A001B8941 /* User.swift */,
+				864B2A72299EB07600D8AAF5 /* Groups.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -582,6 +594,7 @@
 			files = (
 				86E4BCDA2965261000244E88 /* BusinessSectionHeader.swift in Sources */,
 				86726A29299D6C6200ED4DB7 /* EmailView.swift in Sources */,
+				864B2A6F299EA36400D8AAF5 /* TabBarButton.swift in Sources */,
 				8643AB8D296C94AF0069D5F5 /* CreateGroupsView.swift in Sources */,
 				8603C24529653488006C1A58 /* MapView.swift in Sources */,
 				8627F9F129674F6D00382DA8 /* Color.swift in Sources */,
@@ -600,6 +613,7 @@
 				86E4BCD52965261000244E88 /* BusinessRow.swift in Sources */,
 				8643AB6D296C792C0069D5F5 /* Fonts.swift in Sources */,
 				86A2572A296DF1D500CFDFAB /* ContactsView.swift in Sources */,
+				864B2A73299EB07600D8AAF5 /* Groups.swift in Sources */,
 				86E4BCE62965262300244E88 /* ContentModel.swift in Sources */,
 				8627FA022967F63900382DA8 /* RestaurantsDataServices.swift in Sources */,
 				867C99DB2999AB0D00E57C3C /* ContactsRow.swift in Sources */,
@@ -628,6 +642,7 @@
 				86E4BCDF2965261000244E88 /* CreateUserForm.swift in Sources */,
 				86E4BCD72965261000244E88 /* BusinessTitle.swift in Sources */,
 				86E4BCEB2965263000244E88 /* Business Search.swift in Sources */,
+				864B2A71299EAF9700D8AAF5 /* SelectedGroupView.swift in Sources */,
 				86E4BCD32965261000244E88 /* DirectionsMap.swift in Sources */,
 				8643AB8F296CC3190069D5F5 /* MyGroupsModel.swift in Sources */,
 				8627FA0429687D3A00382DA8 /* XMarkButton.swift in Sources */,
@@ -645,6 +660,7 @@
 				867464CD297753C900358EEF /* ContactsListView.swift in Sources */,
 				86A25722296DECA900CFDFAB /* PhoneNumberView.swift in Sources */,
 				86A80AD829709FB8001B8941 /* PhoneTextHelper.swift in Sources */,
+				864B2A6D299E971600D8AAF5 /* GridButton.swift in Sources */,
 				8643AB89296C87EA0069D5F5 /* NoGroupsYet.swift in Sources */,
 				86E4BCED2965264D00244E88 /* Constants.swift in Sources */,
 			);

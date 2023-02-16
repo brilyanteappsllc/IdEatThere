@@ -37,7 +37,7 @@ struct MyProfileView: View {
                                         Circle()
                                             .foregroundColor(.white)
                                         
-                                        Text(User().firstName?.prefix(1) ?? "")
+                                        Text(userModel.firstName.prefix(1) ?? "")
                                             .bold()
                                     }
                                 case .success(let image):
@@ -55,7 +55,7 @@ struct MyProfileView: View {
                                         Circle()
                                             .foregroundColor(.white)
                                         
-                                        Text((User().firstName?.prefix(1) ?? ""))
+                                        Text((userModel.firstName.prefix(1) ?? ""))
                                             .bold()
                                     }
                                 }

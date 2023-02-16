@@ -20,9 +20,6 @@ struct LaunchView: View {
         if userManager.loggedIn {
             
             HomeView()
-                .onAppear{
-                    userManager.userInfo()
-                }
             
         }
         

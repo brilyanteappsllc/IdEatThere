@@ -15,7 +15,7 @@ class GroupsDataService {
     
     @Published var hasGroups : Bool = false
 
-    @Published var groupsArray : Array = []
+//    @Published var groupsArray = [Groups]()
 
     
 }
