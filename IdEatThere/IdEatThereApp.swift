@@ -14,6 +14,11 @@ struct IdEatThereApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate: AppDelegate
     
+//    init() {
+//        FirebaseApp.configure()
+//        UserManagerModel().appLaunch_listener()
+//    }
+    
     var body: some Scene {
         WindowGroup {
             LaunchView()

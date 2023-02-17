@@ -17,7 +17,8 @@ enum Tab : Int {
 
 struct HomeView: View {
     
-
+    @EnvironmentObject var userManagerModel : UserManagerModel
+    @EnvironmentObject var myGroupsModel : MyGroupsModel
     @State var tabSelection : Tab = .Groups
     
 
@@ -36,6 +37,9 @@ struct HomeView: View {
                         }
                     }
                     .tag(Tab.Groups)
+                    .onAppear{
+                        myGroupsModel.queryGroupsAttending()
+                    }
                 
                 // --- Home View ---
                 MapView()

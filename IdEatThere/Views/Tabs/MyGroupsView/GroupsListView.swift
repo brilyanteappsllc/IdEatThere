@@ -26,14 +26,14 @@ struct GroupsListView: View {
              //   ForEach(groups) {group in
                     
                   //  GridButton(groupName: group.groupName! )
-                    
+
         Text(groups.groupName ?? "")
             .foregroundColor(Color.theme.accent)
-            //    }
            // }
    //     }
         .padding(.horizontal)
     }
+    
 }
 
 //struct GroupsListView_Previews: PreviewProvider {

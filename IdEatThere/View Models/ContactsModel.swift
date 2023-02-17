@@ -57,7 +57,7 @@ class ContactsModel : ObservableObject {
                         
                         self.filterContacts(filterBy: self.filterText)
                         
-                        
+                        print(self.users)
                         
                     }
                 

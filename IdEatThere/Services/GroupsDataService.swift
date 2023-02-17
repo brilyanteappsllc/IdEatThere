@@ -13,7 +13,7 @@ import FirebaseFirestore
 
 class GroupsDataService {
     
-    @Published var hasGroups : Bool = false
+//    @Published var hasGroups : Bool = false
 
 //    @Published var groupsArray = [Groups]()
 

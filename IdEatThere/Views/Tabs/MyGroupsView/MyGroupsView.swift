@@ -47,17 +47,21 @@ struct MyGroupsView: View {
                                 .padding(.top, 25)
                                 .padding(.leading)
                             
-                   //     ScrollView() {
-                     //       GroupsListView(groups: myGroupsModel.groupsArray)
-                     //   }
-
-                            List(myGroupsModel.groupsArray) { groups in
+                      //  if myGroupsModel.groups.count > 0 {
+                            
+                            ForEach(myGroupsModel.groups, id: \.id) { groups in
                                 
-                                GroupsListView(groups: groups)
+                                Text(String(groups.groupName ?? ""))
                                 
                             }
-                            .listStyle(.plain)
-                        
+//                            List(myGroupsModel.groups) { groups in
+//
+//                                GroupsListView(groups: groups)
+//
+//                            }
+//                            .listStyle(.plain)
+                   //     }
+                        Spacer()
                     }
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
@@ -75,9 +79,7 @@ struct MyGroupsView: View {
                         
                         
                     }
-                    .onAppear{
-                        MyGroupsModel().queryGroupsAttending()
-                    }
+
                     
 
   
@@ -91,7 +93,7 @@ struct MyGroupsView: View {
                 NavigationView {
                     
                     
-                    NoGroupsYet()
+                    NoGroupsYet(myGroupsModel: myGroupsModel)
                     
                         .navigationTitle("")
                     //      .font(Font.headingFont)
@@ -102,9 +104,9 @@ struct MyGroupsView: View {
     }
 }
 
-struct MyGroupsView_Previews: PreviewProvider {
-    static var previews: some View {
-        MyGroupsView()
-            .environmentObject(MyGroupsModel())
-    }
-}
+//struct MyGroupsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MyGroupsView()
+//            .environmentObject(MyGroupsModel())
+//    }
+//}

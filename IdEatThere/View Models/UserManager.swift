@@ -22,7 +22,7 @@ class UserManagerModel : NSObject, ObservableObject {
     let db = Firestore.firestore()
     
     // Initializers
-    @Published var loggedIn : Bool = true
+    @Published var loggedIn : Bool = false
     @Published var loginFormShowing : Bool = false
     @Published var createUserFormShowing : Bool = false
     @Published var editUserInformation : Bool =  false
@@ -42,6 +42,7 @@ class UserManagerModel : NSObject, ObservableObject {
     
     @Published var completedOnboarding : Bool = false
     
+    
     // MARK: - Check Login / New User
     func checkLogin() -> Bool {
         self.loggedIn = Auth.auth().currentUser == nil ? false : true
@@ -53,9 +54,6 @@ class UserManagerModel : NSObject, ObservableObject {
     // TODO: NEED TO SET THIS UP
     func appLaunch_listener() {
         
-        self.userId = Auth.auth().currentUser!.uid
-        
-        
         Auth.auth().addStateDidChangeListener({ auth, user in
             
             if user != nil {
@@ -63,8 +61,6 @@ class UserManagerModel : NSObject, ObservableObject {
                 print("user is logged in")
                 self.loggedIn = true
                 print(self.loggedIn)
-                print(self.userId)
-                
             }
             
             else {
@@ -485,7 +481,6 @@ class UserManagerModel : NSObject, ObservableObject {
                     if let groups = try? doc.data(as: Groups.self) {
                         
                             groupsAttending.append(groups)
-                           // print(groupsAttending)
                     }
                 }
                 

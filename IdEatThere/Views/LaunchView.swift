@@ -8,12 +8,18 @@
 import SwiftUI
 import CoreLocation
 
+
 struct LaunchView: View {
+    
     
     @EnvironmentObject var model : RestaurantsContentModel
     @EnvironmentObject var userManager : UserManagerModel
     
+    
+    
     var body: some View {
+        
+//        let authState = userManager.appLaunch_listener()
         
         // MARK: - Authorization Status, Geolocating User -
         

@@ -20,12 +20,12 @@ class MyGroupsModel : ObservableObject {
     
     @Published var hasGroups : Bool = true
 
-    @Published var groupsArray = [Groups]()
+    @Published var groups = [Groups]()
     
     private var groupId = ""
     
-    private let groupsDataService = GroupsDataService()
-    private var cancellables = Set<AnyCancellable>()
+//    private let groupsDataService = GroupsDataService()
+//    private var cancellables = Set<AnyCancellable>()
     
     let db = Firestore.firestore()
     
@@ -47,8 +47,10 @@ class MyGroupsModel : ObservableObject {
                 // Update the UI in the main thread
                 
                 DispatchQueue.main.async {
-                    self.groupsArray = groupsAttending
-                    print(self.groupsArray)
+                    self.groups = groupsAttending
+                    self.hasGroups = true
+                    print(self.hasGroups)
+                    print(self.groups)
                 }
             }
         }

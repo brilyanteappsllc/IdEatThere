@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NoGroupsYet: View {
     
-    @EnvironmentObject var myGroupsModel : MyGroupsModel
+    @StateObject var myGroupsModel = MyGroupsModel()
     
 //    @Binding var hasGroups : Bool
     

@@ -40,7 +40,6 @@ struct CreateGroupsView: View {
 struct CreateGroupsView_Previews: PreviewProvider {
     static var previews: some View {
         CreateGroupsView(hasGroups: .constant(false))
-            .environmentObject(MyGroupsModel())
             .environmentObject(ContactsModel())
     }
 }
