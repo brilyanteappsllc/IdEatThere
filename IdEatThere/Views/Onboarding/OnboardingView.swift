@@ -17,8 +17,7 @@ enum OnboardingStep : Int {
 }
 
 struct OnboardingView: View {
-    
-    @EnvironmentObject var model: RestaurantsContentModel
+
     @EnvironmentObject var userManager : UserManagerModel
     @EnvironmentObject var modelLocation : RestaurantDataService
     
@@ -218,7 +217,6 @@ struct OnboardingView: View {
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
         OnboardingView()
-            .environmentObject(RestaurantsContentModel())
             .environmentObject(UserManagerModel())
             .environmentObject(RestaurantDataService())
     }

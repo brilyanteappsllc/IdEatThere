@@ -129,7 +129,7 @@ class UserManagerModel : NSObject, ObservableObject {
     func signOut() {
         do {
             try Auth.auth().signOut()
-            self.loggedIn = false
+            LaunchViewModel().getLoggedInStatus()
         }
         catch let error {
             print(error)
@@ -408,6 +408,7 @@ class UserManagerModel : NSObject, ObservableObject {
         }
         
         self.loggedIn = Auth.auth().currentUser == nil ? false : true
+        LaunchViewModel().getLoggedInStatus()
 
     }
     
@@ -432,6 +433,7 @@ class UserManagerModel : NSObject, ObservableObject {
                 // Notify users the profile exists
                 completion(snapshot!.exists)
                 self.loggedIn = true
+                LaunchViewModel().getLoggedInStatus()
                 
             }
             

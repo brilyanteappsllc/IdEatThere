@@ -23,7 +23,6 @@
 		8627F9FF2967F17200382DA8 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8627F9FE2967F17200382DA8 /* UIApplication.swift */; };
 		8627FA022967F63900382DA8 /* RestaurantsDataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8627FA012967F63800382DA8 /* RestaurantsDataServices.swift */; };
 		8627FA0429687D3A00382DA8 /* XMarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8627FA0329687D3A00382DA8 /* XMarkButton.swift */; };
-		862C8B5A29A6B50500768DDE /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C8B5929A6B50500768DDE /* ProfileModel.swift */; };
 		862C8B5C29A6B53F00768DDE /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C8B5B29A6B53F00768DDE /* LaunchViewModel.swift */; };
 		8643AB42296B7DFE0069D5F5 /* CallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB41296B7DFE0069D5F5 /* CallButton.swift */; };
 		8643AB44296B7F1F0069D5F5 /* ReviewsLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */; };
@@ -105,7 +104,6 @@
 		8627F9FE2967F17200382DA8 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		8627FA012967F63800382DA8 /* RestaurantsDataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsDataServices.swift; sourceTree = "<group>"; };
 		8627FA0329687D3A00382DA8 /* XMarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMarkButton.swift; sourceTree = "<group>"; };
-		862C8B5929A6B50500768DDE /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		862C8B5B29A6B53F00768DDE /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 		8643AB41296B7DFE0069D5F5 /* CallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallButton.swift; sourceTree = "<group>"; };
 		8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsLinkButton.swift; sourceTree = "<group>"; };
@@ -435,7 +433,6 @@
 				86E4BCE42965262300244E88 /* ContentModel.swift */,
 				8643AB8E296CC3190069D5F5 /* MyGroupsModel.swift */,
 				86A80AD3297086BD001B8941 /* ContactsModel.swift */,
-				862C8B5929A6B50500768DDE /* ProfileModel.swift */,
 				862C8B5B29A6B53F00768DDE /* LaunchViewModel.swift */,
 			);
 			path = "View Models";
@@ -662,7 +659,6 @@
 				86E4BCEA2965263000244E88 /* Business.swift in Sources */,
 				8643AB48296B83CC0069D5F5 /* AddToMyGroupButton.swift in Sources */,
 				86E4BCE52965262300244E88 /* UserManager.swift in Sources */,
-				862C8B5A29A6B50500768DDE /* ProfileModel.swift in Sources */,
 				86E4BCD42965261000244E88 /* BusinessList.swift in Sources */,
 				8603C247296534CB006C1A58 /* MyGroupsView.swift in Sources */,
 				867464CD297753C900358EEF /* ContactsListView.swift in Sources */,
