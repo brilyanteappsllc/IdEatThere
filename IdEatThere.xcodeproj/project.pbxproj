@@ -24,6 +24,8 @@
 		8627FA022967F63900382DA8 /* RestaurantsDataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8627FA012967F63800382DA8 /* RestaurantsDataServices.swift */; };
 		8627FA0429687D3A00382DA8 /* XMarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8627FA0329687D3A00382DA8 /* XMarkButton.swift */; };
 		862C8B5C29A6B53F00768DDE /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C8B5B29A6B53F00768DDE /* LaunchViewModel.swift */; };
+		862C8B6029A6DCAD00768DDE /* GroupsHosting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C8B5F29A6DCAD00768DDE /* GroupsHosting.swift */; };
+		862C8B6229A6E17000768DDE /* GroupsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C8B6129A6E17000768DDE /* GroupsDetailView.swift */; };
 		8643AB42296B7DFE0069D5F5 /* CallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB41296B7DFE0069D5F5 /* CallButton.swift */; };
 		8643AB44296B7F1F0069D5F5 /* ReviewsLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */; };
 		8643AB46296B7FAA0069D5F5 /* MapLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB45296B7FAA0069D5F5 /* MapLinkButton.swift */; };
@@ -105,6 +107,8 @@
 		8627FA012967F63800382DA8 /* RestaurantsDataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsDataServices.swift; sourceTree = "<group>"; };
 		8627FA0329687D3A00382DA8 /* XMarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMarkButton.swift; sourceTree = "<group>"; };
 		862C8B5B29A6B53F00768DDE /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
+		862C8B5F29A6DCAD00768DDE /* GroupsHosting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsHosting.swift; sourceTree = "<group>"; };
+		862C8B6129A6E17000768DDE /* GroupsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsDetailView.swift; sourceTree = "<group>"; };
 		8643AB41296B7DFE0069D5F5 /* CallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallButton.swift; sourceTree = "<group>"; };
 		8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsLinkButton.swift; sourceTree = "<group>"; };
 		8643AB45296B7FAA0069D5F5 /* MapLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLinkButton.swift; sourceTree = "<group>"; };
@@ -237,20 +241,20 @@
 		8627F9F229676C4A00382DA8 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8643AB47296B83CC0069D5F5 /* AddToMyGroupButton.swift */,
+				8643AB41296B7DFE0069D5F5 /* CallButton.swift */,
 				8627F9F329676C5900382DA8 /* CircleButton.swift */,
 				8627F9FA2967769800382DA8 /* ChevronDownButton.swift */,
 				8627F9FC2967811000382DA8 /* CircleButtonAnimation.swift */,
+				86E4BCCA2965261000244E88 /* DashedDivider.swift */,
+				864B2A6C299E971600D8AAF5 /* GridButton.swift */,
+				8643AB8A296C905E0069D5F5 /* HostButton.swift */,
+				867C99D7299996C700E57C3C /* HostSelectedContactsButton.swift */,
+				8643AB45296B7FAA0069D5F5 /* MapLinkButton.swift */,
+				86A2572B296FACA300CFDFAB /* OnboardingTextFields.swift */,
+				8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */,
 				8627FA0329687D3A00382DA8 /* XMarkButton.swift */,
 				86E4BCCB2965261000244E88 /* YelpAttribution.swift */,
-				86E4BCCA2965261000244E88 /* DashedDivider.swift */,
-				8643AB41296B7DFE0069D5F5 /* CallButton.swift */,
-				8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */,
-				8643AB45296B7FAA0069D5F5 /* MapLinkButton.swift */,
-				8643AB47296B83CC0069D5F5 /* AddToMyGroupButton.swift */,
-				8643AB8A296C905E0069D5F5 /* HostButton.swift */,
-				86A2572B296FACA300CFDFAB /* OnboardingTextFields.swift */,
-				867C99D7299996C700E57C3C /* HostSelectedContactsButton.swift */,
-				864B2A6C299E971600D8AAF5 /* GridButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -272,6 +276,7 @@
 				8643AB8C296C94AF0069D5F5 /* CreateGroupsView.swift */,
 				867464CE2977544400358EEF /* GroupsListView.swift */,
 				864B2A70299EAF9700D8AAF5 /* SelectedGroupView.swift */,
+				862C8B6129A6E17000768DDE /* GroupsDetailView.swift */,
 				867C99D92999AAEB00E57C3C /* Contacts */,
 			);
 			path = MyGroupsView;
@@ -446,6 +451,7 @@
 				86C1A977296674CE00C1B602 /* FilteredBusinessData.swift */,
 				86A80AD529708C9A001B8941 /* User.swift */,
 				864B2A72299EB07600D8AAF5 /* Groups.swift */,
+				862C8B5F29A6DCAD00768DDE /* GroupsHosting.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -628,6 +634,7 @@
 				86C1A978296674CE00C1B602 /* FilteredBusinessData.swift in Sources */,
 				86E4BCD12965261000244E88 /* HomeView.swift in Sources */,
 				86E4BCD22965261000244E88 /* BusinessMap.swift in Sources */,
+				862C8B6229A6E17000768DDE /* GroupsDetailView.swift in Sources */,
 				867C99D8299996C700E57C3C /* HostSelectedContactsButton.swift in Sources */,
 				86E4BCA92965248900244E88 /* IdEatThereApp.swift in Sources */,
 				8627F9FD2967811000382DA8 /* CircleButtonAnimation.swift in Sources */,
@@ -643,6 +650,7 @@
 				8603C24F29653EA9006C1A58 /* EditUserProfileButton.swift in Sources */,
 				86A80ADA2970B731001B8941 /* ImagePicker.swift in Sources */,
 				8603C24A296534DE006C1A58 /* MyProfileView.swift in Sources */,
+				862C8B6029A6DCAD00768DDE /* GroupsHosting.swift in Sources */,
 				86E4BCDF2965261000244E88 /* CreateUserForm.swift in Sources */,
 				86E4BCD72965261000244E88 /* BusinessTitle.swift in Sources */,
 				86E4BCEB2965263000244E88 /* Business Search.swift in Sources */,

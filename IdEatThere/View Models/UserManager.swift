@@ -454,7 +454,7 @@ class UserManagerModel : NSObject, ObservableObject {
     
     // MARK: - Create Group
     
-    func userGroups(completion: @escaping ([Groups]) -> Void) {
+    func userGroupsAttending(completion: @escaping ([Groups]) -> Void) {
         
         guard self.checkLogin() != false else {
             
@@ -470,7 +470,7 @@ class UserManagerModel : NSObject, ObservableObject {
         
         let fieldlookup = Array(attendee)
         
-        let query = db.collection("groups").whereField("Attendees", arrayContains: attendee)
+        let query = db.collection("groups").whereField("attendees", arrayContains: attendee)
         
         query.getDocuments { snapshot, error in
             
@@ -488,6 +488,46 @@ class UserManagerModel : NSObject, ObservableObject {
                 }
                 
                 completion(groupsAttending)
+            }
+
+        }
+
+    }
+    
+    func userGroupsHosting(completion: @escaping ([Groups]) -> Void) {
+        
+        guard self.checkLogin() != false else {
+            
+            return
+            
+        }
+        
+        var groupsHosting = [Groups]()
+
+        self.userId = self.getLoggedInUserId()
+ 
+        let host = self.userId
+        
+        let fieldlookup = Array(host)
+        
+        let query = db.collection("groups").whereField("host", arrayContains: host)
+        
+        query.getDocuments { snapshot, error in
+            
+            // Check if errors
+            if error == nil && snapshot != nil {
+                
+                // For each doc the was fetched, append to groupsArray
+                
+                for doc in snapshot!.documents {
+                    
+                    if let groups = try? doc.data(as: Groups.self) {
+                        
+                            groupsHosting.append(groups)
+                    }
+                }
+                
+                completion(groupsHosting)
             }
 
         }

@@ -39,6 +39,7 @@ struct HomeView: View {
                     .tag(Tab.Groups)
                     .onAppear{
                         myGroupsModel.queryGroupsAttending()
+                        myGroupsModel.queryGroupsHosting()
                     }
                 
                 // --- Home View ---

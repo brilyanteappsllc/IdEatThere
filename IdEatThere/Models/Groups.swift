@@ -13,11 +13,7 @@ struct Groups : Codable, Identifiable {
     
     @DocumentID var id : String?
     var groupName : String?
-    var Attendees : [String]?
- //   var selectedRestaurant : String?
-//    var reservationTime : Date?
- //   var suggestedRestaurants : [String?]
- //   var topRestaurants : [String?]
- //   var groupTotal : Int?
+    var attendees : [String]?
+    var host : [String]?
 
 }

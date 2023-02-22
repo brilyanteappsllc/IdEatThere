@@ -43,24 +43,23 @@ struct MyGroupsView: View {
                         
 
                             
-                            Text("Upcoming")
+                    // MARK: - Hosting List
+                        Text("Hosting")
                                 .padding(.top, 25)
                                 .padding(.leading)
                             
-                      //  if myGroupsModel.groups.count > 0 {
-                            
-                            ForEach(myGroupsModel.groups, id: \.id) { groups in
-                                
-                                Text(String(groups.groupName ?? ""))
-                                
-                            }
-//                            List(myGroupsModel.groups) { groups in
-//
-//                                GroupsListView(groups: groups)
-//
-//                            }
-//                            .listStyle(.plain)
-                   //     }
+                        
+                        GroupsListView(groups: myGroupsModel.groupsHosting)
+                        
+                        
+                    // MARK: - Attending List
+                        
+                        Text("Attending")
+                            .padding(.top, 25)
+                            .padding(.leading)
+                        
+                        GroupsListView(groups: myGroupsModel.groupsAttending)
+                        
                         Spacer()
                     }
                     .navigationBarTitleDisplayMode(.inline)

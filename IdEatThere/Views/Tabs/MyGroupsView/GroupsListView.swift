@@ -9,31 +9,29 @@ import SwiftUI
 
 struct GroupsListView: View {
     
-    var groups : Groups
+    var groups : [Groups]
     
-//    private var flexiblecolumns = Array(repeating: GridItem(.flexible(minimum: 0),
-//                                                    spacing: 15,
-//                                                    alignment: .center), count: 3)
+    
     var body: some View {
         
-       // GeometryReader { geomety in
         
+        ScrollView(.horizontal) {
             
-//            LazyVGrid(columns: Array(repeating: GridItem(.flexible(minimum: 0),
-//                                                         spacing: 15,
-//                                                         alignment: .center), count: 3)) {
-        
-             //   ForEach(groups) {group in
+            let rows = GridItem(.flexible(minimum: 100, maximum: 100), spacing: 15)
+            
+            LazyHGrid(rows: [rows], spacing: 15) {
+                
+                ForEach(groups, id: \.id) { groups in
                     
-                  //  GridButton(groupName: group.groupName! )
+                    GridButton(groupName: groups.groupName ?? "")
+                    
+                }
+            }
 
-        Text(groups.groupName ?? "")
-            .foregroundColor(Color.theme.accent)
-           // }
-   //     }
+        }
         .padding(.horizontal)
+
     }
-    
 }
 
 //struct GroupsListView_Previews: PreviewProvider {

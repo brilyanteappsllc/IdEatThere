@@ -13,12 +13,12 @@ struct GridButton: View {
     
     var body: some View {
         
-        GeometryReader {geometry in
+
             
-            VStack(spacing: 0) {
+            VStack() {
                 ZStack {
                     Rectangle()
-                        .frame(height: geometry.size.width * 0.25)
+                        .frame(width: 125, height: 75)
                         .cornerRadius(10)
                         .foregroundColor(Color.theme.green)
                     Text("PlaceHolder")
@@ -27,7 +27,6 @@ struct GridButton: View {
                 Text(groupName)
                 
             }
-        }
     }
 }
 

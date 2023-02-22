@@ -20,7 +20,8 @@ class MyGroupsModel : ObservableObject {
     
     @Published var hasGroups : Bool = true
 
-    @Published var groups = [Groups]()
+    @Published var groupsAttending = [Groups]()
+    @Published var groupsHosting = [Groups]()
     
     private var groupId = ""
     
@@ -38,24 +39,40 @@ class MyGroupsModel : ObservableObject {
     
     func queryGroupsAttending() {
         
-        DispatchQueue.init(label: "getUserGroups").async {
+        DispatchQueue.init(label: "getUserGroupsAttending").async {
             
             
-            
-            UserManagerModel().userGroups() {groupsAttending in
+            UserManagerModel().userGroupsAttending() {groupsAttending in
                 
                 // Update the UI in the main thread
                 
                 DispatchQueue.main.async {
-                    self.groups = groupsAttending
-                    self.hasGroups = true
+                    self.groupsAttending = groupsAttending
+//                    self.hasGroups = true
                     print(self.hasGroups)
-                    print(self.groups)
+                    print(self.groupsAttending)
                 }
             }
         }
-        
     }
+    
+    
+    func queryGroupsHosting() {
+            
+        DispatchQueue.init(label: "getUserGroupsHosting").async {
+            
+            
+            UserManagerModel().userGroupsHosting() {groupsHosting in
+                
+                // Update the UI in the main thread
+                DispatchQueue.main.async {
+                    self.groupsHosting = groupsHosting
+                }
+            }
+        }
+            
+        }
+
 
     
     
