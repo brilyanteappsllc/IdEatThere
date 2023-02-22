@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
 
         // Check if user is logged in
-        UserManagerModel().appLaunch_listener()
+  //      LaunchViewModel().getLoggedInStatus()
 
         return true
     }

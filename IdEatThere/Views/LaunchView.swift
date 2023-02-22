@@ -12,36 +12,38 @@ import CoreLocation
 struct LaunchView: View {
     
     
-    @EnvironmentObject var model : RestaurantsContentModel
-    @EnvironmentObject var userManager : UserManagerModel
-    
+    @EnvironmentObject var launchViewModel : LaunchViewModel
     
     
     var body: some View {
         
-//        let authState = userManager.appLaunch_listener()
-        
-        // MARK: - Authorization Status, Geolocating User -
-        
-        if userManager.loggedIn {
+        if self.launchViewModel.loadingLogginStatus {
             
-            HomeView()
-            
+            ProgressView()
         }
         
-        else if !userManager.loggedIn {
+        else {
             
-            if userManager.newUser {
+            if self.launchViewModel.isUserLoggedIn {
+                
+                HomeView()
+                
+            }
+            
+            else if !self.launchViewModel.isUserLoggedIn {
+                
+                //   if userManager.newUser {
                 
                 OnboardingView()
                 
-            }
-            else {
-                LoginForm()
+                //    }
+                //   else {
+                //   LoginForm()
+                //  }
+                
             }
             
         }
-    
     }
 }
 

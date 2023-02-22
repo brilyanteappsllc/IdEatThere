@@ -11,10 +11,6 @@ struct MyProfileView: View {
     
     @EnvironmentObject var userModel: UserManagerModel
     
-    
-    
-    
-    
     var body: some View {
 
         

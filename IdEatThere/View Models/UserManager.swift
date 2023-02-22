@@ -52,7 +52,7 @@ class UserManagerModel : NSObject, ObservableObject {
     }
     
     // TODO: NEED TO SET THIS UP
-    func appLaunch_listener() {
+    func appLaunch_listener(completion: @escaping (Bool) -> Void) {
         
         Auth.auth().addStateDidChangeListener({ auth, user in
             
@@ -61,6 +61,7 @@ class UserManagerModel : NSObject, ObservableObject {
                 print("user is logged in")
                 self.loggedIn = true
                 print(self.loggedIn)
+                
             }
             
             else {
@@ -68,7 +69,7 @@ class UserManagerModel : NSObject, ObservableObject {
                 self.loggedIn = false
             }
             
-            
+        completion(self.loggedIn)
         })
         
     }
