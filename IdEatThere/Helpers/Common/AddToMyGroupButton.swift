@@ -20,7 +20,9 @@ struct AddToMyGroupButton: View {
         Button {
             self.isAddedToMyGroup.toggle()
             self.animateButton.toggle()
-//                  showMyGroupsView.toggle()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                showMyGroupsView.toggle()
+            }
         } label: {
             ZStack {
                 Rectangle()
@@ -36,7 +38,9 @@ struct AddToMyGroupButton: View {
                 }
             }
         }
-        .padding()
+        .sheet(isPresented: $showMyGroupsView) {
+            AddingToMyGroupsView()
+        }
     }
 }
 

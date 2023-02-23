@@ -94,6 +94,9 @@ struct MyProfileView: View {
                 }
                
             }
+            .onAppear{
+                userModel.userInfo()
+            }
             
 
     }

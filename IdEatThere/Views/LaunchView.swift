@@ -32,17 +32,9 @@ struct LaunchView: View {
             
             else if !self.launchViewModel.isUserLoggedIn {
                 
-                //   if userManager.newUser {
-                
-                OnboardingView()
-                
-                //    }
-                //   else {
-                //   LoginForm()
-                //  }
+               SplashScreen()
                 
             }
-            
         }
     }
 }
