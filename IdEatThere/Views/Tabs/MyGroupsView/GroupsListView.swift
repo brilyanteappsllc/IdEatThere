@@ -23,8 +23,12 @@ struct GroupsListView: View {
                 
                 ForEach(groups, id: \.id) { groups in
                     
+                    NavigationLink {
+                        SelectedGroupView(groups: groups)
+                        
+                    } label: {
                     GridButton(groupName: groups.groupName ?? "")
-                    
+                }
                 }
             }
 

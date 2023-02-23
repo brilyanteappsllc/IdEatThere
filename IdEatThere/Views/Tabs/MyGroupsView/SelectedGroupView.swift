@@ -9,10 +9,17 @@ import SwiftUI
 
 struct SelectedGroupView: View {
     
-    var business : Business
+    var groups : Groups
+    
     var body: some View {
         
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        let host = groups.host?[0]
+        
+        VStack {
+            Text("GroupId: \(groups.id ?? "")")
+            Text("GroupName: \(groups.groupName ?? "")")
+            Text("GroupHost: \(host ?? "")")
+        }
         
         
     }

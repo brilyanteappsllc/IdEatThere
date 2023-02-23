@@ -14,7 +14,6 @@ struct GridButton: View {
     var body: some View {
         
 
-            
             VStack() {
                 ZStack {
                     Rectangle()
