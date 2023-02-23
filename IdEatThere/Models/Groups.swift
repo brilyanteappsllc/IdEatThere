@@ -15,5 +15,6 @@ struct Groups : Codable, Identifiable {
     var groupName : String?
     var attendees : [String]?
     var host : [String]?
+    var restaurants : [String]?
 
 }

@@ -80,6 +80,9 @@ struct BusinessDetail: View {
 
             Spacer()
         } // End of VStack
+        .onAppear() {
+            print("\(business.id!)")
+        }
         
     }
 }

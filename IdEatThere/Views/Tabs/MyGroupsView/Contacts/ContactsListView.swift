@@ -10,7 +10,11 @@ import SwiftUI
 
 struct ContactsListView: View {
     
+    @Environment(\.dismiss) var dismiss
+    
     @EnvironmentObject var myContactModel : ContactsModel
+    @EnvironmentObject var userManagerModel : UserManagerModel
+    @EnvironmentObject var myGroupsModel : MyGroupsModel
     
     @Binding var filterText : String
     @State var presentHostAlert = false
@@ -31,9 +35,20 @@ struct ContactsListView: View {
 
                 HostSelectedContactsButton()
                     .onTapGesture {
-                        if !self.selectedAtLeastOneContact {
-                            self.presentHostAlert.toggle()
+                        userManagerModel.userCreatesGroup() { error in
+                            
+                            if error == nil {
+                                
+                                myGroupsModel.queryGroupsAttending()
+                                myGroupsModel.queryGroupsHosting()
+                                dismiss()
+                                dismiss.callAsFunction()
+                            }
+                            
                         }
+//                        if !self.selectedAtLeastOneContact {
+//                            self.presentHostAlert.toggle()
+//                        }
                     }
                     .padding(.top, 10)
                 

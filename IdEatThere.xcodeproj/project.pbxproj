@@ -28,6 +28,7 @@
 		862C8B6429A7CC5300768DDE /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C8B6329A7CC5300768DDE /* SplashScreen.swift */; };
 		862C8B6629A7CEC900768DDE /* SplashScreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C8B6529A7CEC900768DDE /* SplashScreenButton.swift */; };
 		862C8B6829A7D46E00768DDE /* AddingToMyGroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C8B6729A7D46E00768DDE /* AddingToMyGroupsView.swift */; };
+		862C8B6A29A7F4F500768DDE /* GroupTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C8B6929A7F4F500768DDE /* GroupTest.swift */; };
 		8643AB42296B7DFE0069D5F5 /* CallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB41296B7DFE0069D5F5 /* CallButton.swift */; };
 		8643AB44296B7F1F0069D5F5 /* ReviewsLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */; };
 		8643AB46296B7FAA0069D5F5 /* MapLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB45296B7FAA0069D5F5 /* MapLinkButton.swift */; };
@@ -113,6 +114,7 @@
 		862C8B6329A7CC5300768DDE /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		862C8B6529A7CEC900768DDE /* SplashScreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenButton.swift; sourceTree = "<group>"; };
 		862C8B6729A7D46E00768DDE /* AddingToMyGroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingToMyGroupsView.swift; sourceTree = "<group>"; };
+		862C8B6929A7F4F500768DDE /* GroupTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTest.swift; sourceTree = "<group>"; };
 		8643AB41296B7DFE0069D5F5 /* CallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallButton.swift; sourceTree = "<group>"; };
 		8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsLinkButton.swift; sourceTree = "<group>"; };
 		8643AB45296B7FAA0069D5F5 /* MapLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLinkButton.swift; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 				86C1A977296674CE00C1B602 /* FilteredBusinessData.swift */,
 				86A80AD529708C9A001B8941 /* User.swift */,
 				864B2A72299EB07600D8AAF5 /* Groups.swift */,
+				862C8B6929A7F4F500768DDE /* GroupTest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -629,6 +632,7 @@
 				86E4BCD52965261000244E88 /* BusinessRow.swift in Sources */,
 				8643AB6D296C792C0069D5F5 /* Fonts.swift in Sources */,
 				86A2572A296DF1D500CFDFAB /* ContactsView.swift in Sources */,
+				862C8B6A29A7F4F500768DDE /* GroupTest.swift in Sources */,
 				864B2A73299EB07600D8AAF5 /* Groups.swift in Sources */,
 				86E4BCE62965262300244E88 /* ContentModel.swift in Sources */,
 				862C8B6429A7CC5300768DDE /* SplashScreen.swift in Sources */,

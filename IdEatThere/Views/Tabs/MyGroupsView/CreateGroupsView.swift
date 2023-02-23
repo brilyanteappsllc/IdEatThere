@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct CreateGroupsView: View {
-    
-    @Environment(\.dismiss) var dismiss
-    
+        
     @EnvironmentObject var contactsModel : ContactsModel
     
     @Binding var hasGroups : Bool

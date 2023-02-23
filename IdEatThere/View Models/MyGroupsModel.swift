@@ -48,9 +48,9 @@ class MyGroupsModel : ObservableObject {
                 
                 DispatchQueue.main.async {
                     self.groupsAttending = groupsAttending
-//                    self.hasGroups = true
+                    self.hasGroups = true
                     print(self.hasGroups)
-                    print(self.groupsAttending)
+//                    print(self.groupsAttending)
                 }
             }
         }
@@ -58,7 +58,7 @@ class MyGroupsModel : ObservableObject {
     
     
     func queryGroupsHosting() {
-            
+        
         DispatchQueue.init(label: "getUserGroupsHosting").async {
             
             
@@ -67,11 +67,43 @@ class MyGroupsModel : ObservableObject {
                 // Update the UI in the main thread
                 DispatchQueue.main.async {
                     self.groupsHosting = groupsHosting
+                    print(self.groupsHosting)
                 }
             }
         }
+        
+    }
+    
+    
+    func addRestaurantNameToMyGroup(groupId: String, restaurantName : String) {
+        // Restaurant Name is stored in firebase
+        
+        DispatchQueue.init(label: "userAddedRestaurantToGroup").async {
+            
+            UserManagerModel().userAddedRestauranttoGroup(groupId: groupId, restaurantName: restaurantName) { success in
+                
+                
+                
+
+                
+                
+            }
+            
+            
+            
             
         }
+        
+        
+    }
+    
+    func queryRestaurantsInGroups() {
+        // Creates a query from the names of restaurants in firebase to yelp and outputs all the info into the user groups
+        
+        
+        
+        
+    }
 
 
     
