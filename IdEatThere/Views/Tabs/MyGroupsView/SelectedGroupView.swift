@@ -16,20 +16,43 @@ struct SelectedGroupView: View {
     
     var body: some View {
         
-        let host = myGroupsModel.groupsHostDetails
         
-        VStack {
-            Text("GroupId: \(groups.id ?? "")")
-            Text("GroupName: \(groups.groupName ?? "")")
-            Text("GroupHost: \(userHostDetails.userHostName)")
-        }
-        
-        .onAppear{
+        NavigationView {
             
-            userHostDetails.hostName(hostId: groups.host?[0] ?? "")
+            VStack {
+                Text("Your Host: \(userHostDetails.userHostName)")
+                
+             //   Text("GroupId: \(groups.id ?? "")")
+           //     Text("GroupName: \(groups.groupName ?? "")")
+                
+                
+                
+                
+            }
             
+            .onAppear{
+                
+                userHostDetails.hostName(hostId: groups.host?[0] ?? "")
+                
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                    HStack {
+                        //TODO: Add image for the group
+//                        Image(systemName: "fork.knife.circle.fill")
+//                            .font(.system(size: 25))
+                        Text(groups.groupName ?? "")
+                            .font(.system(size: 30))
+                            .font(Font.headingFont)
+                    }
+                    .padding(.top, 10)
+                }
+                
+                
+            }
         }
-        
         
     }
 }

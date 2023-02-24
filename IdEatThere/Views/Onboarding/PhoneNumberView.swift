@@ -11,6 +11,7 @@ import Combine
 struct PhoneNumberView: View {
     
     @EnvironmentObject var userManager : UserManagerModel
+    
     var body: some View {
 
             VStack {

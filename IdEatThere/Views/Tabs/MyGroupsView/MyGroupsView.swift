@@ -38,7 +38,7 @@ struct MyGroupsView: View {
                         }
                         
                         .sheet(isPresented: $presentCreateGroupView) {
-                            CreateGroupsView(hasGroups: $myGroupsModel.hasGroups)
+                            CreateGroupsView()
                         }
                         
 
@@ -75,8 +75,6 @@ struct MyGroupsView: View {
                             }
                             .padding(.top, 10)
                         }
-                        
-                        
                     }
             }
         }

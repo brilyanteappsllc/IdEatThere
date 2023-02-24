@@ -41,7 +41,7 @@ struct NoGroupsYet: View {
             
         }
         .sheet(isPresented: $presentCreateGroupView) {
-            CreateGroupsView(hasGroups: $myGroupsModel.hasGroups)
+            CreateGroupsView()
         }
 
     }

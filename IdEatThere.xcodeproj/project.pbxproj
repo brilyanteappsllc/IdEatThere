@@ -30,6 +30,8 @@
 		862C8B6829A7D46E00768DDE /* AddingToMyGroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C8B6729A7D46E00768DDE /* AddingToMyGroupsView.swift */; };
 		862C8B6A29A7F4F500768DDE /* GroupTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C8B6929A7F4F500768DDE /* GroupTest.swift */; };
 		862C8B6C29A852A200768DDE /* UserHostDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C8B6B29A852A100768DDE /* UserHostDetailsViewModel.swift */; };
+		862C8B6E29A90FB400768DDE /* SelectContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C8B6D29A90FB400768DDE /* SelectContactsView.swift */; };
+		862C8B7029A9299900768DDE /* CreateGroupButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C8B6F29A9299900768DDE /* CreateGroupButton.swift */; };
 		8643AB42296B7DFE0069D5F5 /* CallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB41296B7DFE0069D5F5 /* CallButton.swift */; };
 		8643AB44296B7F1F0069D5F5 /* ReviewsLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */; };
 		8643AB46296B7FAA0069D5F5 /* MapLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB45296B7FAA0069D5F5 /* MapLinkButton.swift */; };
@@ -117,6 +119,8 @@
 		862C8B6729A7D46E00768DDE /* AddingToMyGroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingToMyGroupsView.swift; sourceTree = "<group>"; };
 		862C8B6929A7F4F500768DDE /* GroupTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTest.swift; sourceTree = "<group>"; };
 		862C8B6B29A852A100768DDE /* UserHostDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHostDetailsViewModel.swift; sourceTree = "<group>"; };
+		862C8B6D29A90FB400768DDE /* SelectContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectContactsView.swift; sourceTree = "<group>"; };
+		862C8B6F29A9299900768DDE /* CreateGroupButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupButton.swift; sourceTree = "<group>"; };
 		8643AB41296B7DFE0069D5F5 /* CallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallButton.swift; sourceTree = "<group>"; };
 		8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsLinkButton.swift; sourceTree = "<group>"; };
 		8643AB45296B7FAA0069D5F5 /* MapLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLinkButton.swift; sourceTree = "<group>"; };
@@ -264,6 +268,7 @@
 				862C8B6529A7CEC900768DDE /* SplashScreenButton.swift */,
 				8627FA0329687D3A00382DA8 /* XMarkButton.swift */,
 				86E4BCCB2965261000244E88 /* YelpAttribution.swift */,
+				862C8B6F29A9299900768DDE /* CreateGroupButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 				862C8B6729A7D46E00768DDE /* AddingToMyGroupsView.swift */,
 				862C8B6129A6E17000768DDE /* GroupsDetailView.swift */,
 				867C99D92999AAEB00E57C3C /* Contacts */,
+				862C8B6D29A90FB400768DDE /* SelectContactsView.swift */,
 			);
 			path = MyGroupsView;
 			sourceTree = "<group>";
@@ -650,6 +656,7 @@
 				86E4BCD22965261000244E88 /* BusinessMap.swift in Sources */,
 				862C8B6229A6E17000768DDE /* GroupsDetailView.swift in Sources */,
 				867C99D8299996C700E57C3C /* HostSelectedContactsButton.swift in Sources */,
+				862C8B6E29A90FB400768DDE /* SelectContactsView.swift in Sources */,
 				86E4BCA92965248900244E88 /* IdEatThereApp.swift in Sources */,
 				8627F9FD2967811000382DA8 /* CircleButtonAnimation.swift in Sources */,
 				8627F9FF2967F17200382DA8 /* UIApplication.swift in Sources */,
@@ -675,6 +682,7 @@
 				8627FA0429687D3A00382DA8 /* XMarkButton.swift in Sources */,
 				8643AB44296B7F1F0069D5F5 /* ReviewsLinkButton.swift in Sources */,
 				8603C24D29653EA4006C1A58 /* EditUserProfile.swift in Sources */,
+				862C8B7029A9299900768DDE /* CreateGroupButton.swift in Sources */,
 				8627F9F92967755500382DA8 /* FilterButton.swift in Sources */,
 				8627F9EA29672EBF00382DA8 /* FilterTag.swift in Sources */,
 				8643AB4D296C44EC0069D5F5 /* CustomTabBar.swift in Sources */,

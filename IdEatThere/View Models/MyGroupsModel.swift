@@ -25,6 +25,12 @@ class MyGroupsModel : ObservableObject {
     @Published var groupsHostDetails = [User]()
     @Published var groupsRestaurantDetails = [Business]()
     
+    // Setting up initial group details
+    @Published var groupName = ""
+    @Published var datePicked = Date()
+    @Published var groupPhoto : UIImage?
+    @Published var allowInvitesToGroup = false
+    
     private var groupId = ""
     
 //    private let groupsDataService = GroupsDataService()
@@ -79,6 +85,13 @@ class MyGroupsModel : ObservableObject {
     
     func queryRestaurantsInGroups() {
         // Creates a query from the names of restaurants in firebase to yelp and outputs all the info into the user groups
+        
+        
+        
+        
+    }
+    
+    func createGroup(groupName: String, groupPhoto: UIImage, dataPicked: Date, allowInvites: Bool, completion: @escaping (Bool) -> Void) {
         
         
         

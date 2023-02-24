@@ -18,7 +18,7 @@ struct HostSelectedContactsButton: View {
                 .foregroundColor(Color.theme.groupButtonColor)
                 .padding(.horizontal)
 
-                Text("Host!")
+                Text("Invite!")
                     .foregroundColor(Color.theme.blackText)
             
         }
