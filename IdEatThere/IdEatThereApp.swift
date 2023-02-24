@@ -28,6 +28,7 @@ struct IdEatThereApp: App {
                 .environmentObject(MyGroupsModel())
                 .environmentObject(ContactsModel())
                 .environmentObject(LaunchViewModel())
+                .environmentObject(UserHostDetailsModel())
             
         }
     }

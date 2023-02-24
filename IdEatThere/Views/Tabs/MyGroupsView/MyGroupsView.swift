@@ -78,14 +78,6 @@ struct MyGroupsView: View {
                         
                         
                     }
-                    .onAppear{
-                        
-                        print("On My Groups Appeared")
-                    }
-
-                    
-
-  
             }
         }
         

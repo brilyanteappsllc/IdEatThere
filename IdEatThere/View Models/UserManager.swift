@@ -51,7 +51,6 @@ class UserManagerModel : NSObject, ObservableObject {
         return self.loggedIn
     }
     
-    // TODO: NEED TO SET THIS UP
     func appLaunch_listener(completion: @escaping (Bool) -> Void) {
         
         Auth.auth().addStateDidChangeListener({ auth, user in
@@ -518,8 +517,6 @@ class UserManagerModel : NSObject, ObservableObject {
         
         let fieldlookup = Array(attendee)
         
-        
-        
         let query = db.collection("groups").whereField("attendees", arrayContains: attendee)
         
         query.getDocuments { snapshot, error in
@@ -598,11 +595,7 @@ class UserManagerModel : NSObject, ObservableObject {
         let selectedGroupId = groupId
         
         let path = db.collection("users").document(groupId)
-        
-        
-        
-        
-        
+    
         
     }
 }

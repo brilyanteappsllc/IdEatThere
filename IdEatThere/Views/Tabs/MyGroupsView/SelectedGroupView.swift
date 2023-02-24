@@ -9,16 +9,25 @@ import SwiftUI
 
 struct SelectedGroupView: View {
     
+    @EnvironmentObject var myGroupsModel : MyGroupsModel
+    @EnvironmentObject var userHostDetails : UserHostDetailsModel
+    
     var groups : Groups
     
     var body: some View {
         
-        let host = groups.host?[0]
+        let host = myGroupsModel.groupsHostDetails
         
         VStack {
             Text("GroupId: \(groups.id ?? "")")
             Text("GroupName: \(groups.groupName ?? "")")
-            Text("GroupHost: \(host ?? "")")
+            Text("GroupHost: \(userHostDetails.userHostName)")
+        }
+        
+        .onAppear{
+            
+            userHostDetails.hostName(hostId: groups.host?[0] ?? "")
+            
         }
         
         

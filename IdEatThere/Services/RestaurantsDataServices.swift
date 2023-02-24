@@ -92,7 +92,7 @@ class RestaurantDataService:  NSObject, CLLocationManagerDelegate, ObservableObj
             }
             
             // If we have the coordinates of the user, send it into Yelp API
-            getBusinesses(category: Constants.sightsKey, location: userLocation!)
+ //           getBusinesses(category: Constants.sightsKey, location: userLocation!)
             getBusinesses(category: Constants.restaurantsKey, location: userLocation!)
             
         }

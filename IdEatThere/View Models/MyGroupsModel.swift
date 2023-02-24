@@ -22,6 +22,8 @@ class MyGroupsModel : ObservableObject {
 
     @Published var groupsAttending = [Groups]()
     @Published var groupsHosting = [Groups]()
+    @Published var groupsHostDetails = [User]()
+    @Published var groupsRestaurantDetails = [Business]()
     
     private var groupId = ""
     
@@ -36,7 +38,7 @@ class MyGroupsModel : ObservableObject {
 //        addSubscribers()
 //    }
     
-    
+    // MARK: - Queries
     func queryGroupsAttending() {
         
         DispatchQueue.init(label: "getUserGroupsAttending").async {
@@ -49,13 +51,13 @@ class MyGroupsModel : ObservableObject {
                 DispatchQueue.main.async {
                     self.groupsAttending = groupsAttending
                     self.hasGroups = true
-                    print(self.hasGroups)
+//                    print(self.hasGroups)
 //                    print(self.groupsAttending)
+
                 }
             }
         }
     }
-    
     
     func queryGroupsHosting() {
         
@@ -67,14 +69,23 @@ class MyGroupsModel : ObservableObject {
                 // Update the UI in the main thread
                 DispatchQueue.main.async {
                     self.groupsHosting = groupsHosting
-                    print(self.groupsHosting)
+//                    print(self.groupsHosting)
                 }
+                
             }
         }
         
     }
     
+    func queryRestaurantsInGroups() {
+        // Creates a query from the names of restaurants in firebase to yelp and outputs all the info into the user groups
+        
+        
+        
+        
+    }
     
+    // MARK: - Add Restaurants to Group
     func addRestaurantNameToMyGroup(groupId: String, restaurantName : String) {
         // Restaurant Name is stored in firebase
         
@@ -96,17 +107,6 @@ class MyGroupsModel : ObservableObject {
         
         
     }
-    
-    func queryRestaurantsInGroups() {
-        // Creates a query from the names of restaurants in firebase to yelp and outputs all the info into the user groups
-        
-        
-        
-        
-    }
-
-
-    
     
     func addSubscribers() {
         
