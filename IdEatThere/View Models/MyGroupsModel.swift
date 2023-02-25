@@ -135,6 +135,8 @@ class MyGroupsModel : ObservableObject {
         // Make sure to the new documentid (same as groupid) in the subcollection with a timestamp field
         let activeGroupsDocPath = subCollectionPath.document(groupId)
         
+        activeGroupsDocPath.setData(["time": FirebaseFirestore.FieldValue.serverTimestamp()])
+        
         // Create the new group path collection with user's filled out fields from the create groups form
         
         let groupPath = db.collection("groups").document(groupId)
@@ -147,6 +149,8 @@ class MyGroupsModel : ObservableObject {
                            "allowInvites" : allowInvites]) { (error) in
             
             if let error = error {
+                
+                
                 completion(error)
             }
             
@@ -158,6 +162,13 @@ class MyGroupsModel : ObservableObject {
         }
         
         
+        
+    }
+    
+    func resetGroupDetailForm() {
+        self.groupName = ""
+        self.datePicked = Date()
+        self.allowInvitesToGroup = false
         
     }
     
