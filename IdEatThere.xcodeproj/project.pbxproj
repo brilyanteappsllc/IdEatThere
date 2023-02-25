@@ -293,7 +293,6 @@
 				862C8B6729A7D46E00768DDE /* AddingToMyGroupsView.swift */,
 				862C8B6129A6E17000768DDE /* GroupsDetailView.swift */,
 				867C99D92999AAEB00E57C3C /* Contacts */,
-				862C8B6D29A90FB400768DDE /* SelectContactsView.swift */,
 			);
 			path = MyGroupsView;
 			sourceTree = "<group>";
@@ -343,6 +342,7 @@
 			children = (
 				867464CC297753C900358EEF /* ContactsListView.swift */,
 				867C99DA2999AB0D00E57C3C /* ContactsRow.swift */,
+				862C8B6D29A90FB400768DDE /* SelectContactsView.swift */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
