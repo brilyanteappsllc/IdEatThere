@@ -66,6 +66,7 @@
 		86A80AD629708C9A001B8941 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A80AD529708C9A001B8941 /* User.swift */; };
 		86A80AD829709FB8001B8941 /* PhoneTextHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A80AD729709FB7001B8941 /* PhoneTextHelper.swift */; };
 		86A80ADA2970B731001B8941 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A80AD92970B731001B8941 /* ImagePicker.swift */; };
+		86ABBF9E29B50128009FFB9F /* AddingToMyGroupsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ABBF9D29B50128009FFB9F /* AddingToMyGroupsListView.swift */; };
 		86C1A978296674CE00C1B602 /* FilteredBusinessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1A977296674CE00C1B602 /* FilteredBusinessData.swift */; };
 		86E4BCA92965248900244E88 /* IdEatThereApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4BCA82965248900244E88 /* IdEatThereApp.swift */; };
 		86E4BCB02965248C00244E88 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86E4BCAF2965248C00244E88 /* Preview Assets.xcassets */; };
@@ -156,6 +157,7 @@
 		86A80AD529708C9A001B8941 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		86A80AD729709FB7001B8941 /* PhoneTextHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTextHelper.swift; sourceTree = "<group>"; };
 		86A80AD92970B731001B8941 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		86ABBF9D29B50128009FFB9F /* AddingToMyGroupsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingToMyGroupsListView.swift; sourceTree = "<group>"; };
 		86C1A977296674CE00C1B602 /* FilteredBusinessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredBusinessData.swift; sourceTree = "<group>"; };
 		86E4BCA52965248900244E88 /* IdEatThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IdEatThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86E4BCA82965248900244E88 /* IdEatThereApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdEatThereApp.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				867464CE2977544400358EEF /* GroupsListView.swift */,
 				864B2A70299EAF9700D8AAF5 /* SelectedGroupView.swift */,
 				862C8B6729A7D46E00768DDE /* AddingToMyGroupsView.swift */,
+				86ABBF9D29B50128009FFB9F /* AddingToMyGroupsListView.swift */,
 				862C8B6129A6E17000768DDE /* GroupsDetailView.swift */,
 				867C99D92999AAEB00E57C3C /* Contacts */,
 			);
@@ -644,6 +647,7 @@
 				862C8B6A29A7F4F500768DDE /* GroupTest.swift in Sources */,
 				864B2A73299EB07600D8AAF5 /* Groups.swift in Sources */,
 				86E4BCE62965262300244E88 /* ContentModel.swift in Sources */,
+				86ABBF9E29B50128009FFB9F /* AddingToMyGroupsListView.swift in Sources */,
 				862C8B6429A7CC5300768DDE /* SplashScreen.swift in Sources */,
 				8627FA022967F63900382DA8 /* RestaurantsDataServices.swift in Sources */,
 				867C99DB2999AB0D00E57C3C /* ContactsRow.swift in Sources */,

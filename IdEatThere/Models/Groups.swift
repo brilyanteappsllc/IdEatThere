@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 
@@ -15,6 +16,19 @@ struct Groups : Codable, Identifiable {
     var groupName : String?
     var attendees : [String]?
     var host : [String]?
-    var restaurants : [String]?
+    @ServerTimestamp var date : Date?
+    var restaurantsList : [RestaurantsList]?
 
+}
+
+
+struct RestaurantsList : Codable, Identifiable {
+    
+    @DocumentID var id : String?
+    
+    var restaurantId : String?
+    var restaurantAlias : String?
+    var restaurantName : String?
+    var suggestorId : String?
+    
 }

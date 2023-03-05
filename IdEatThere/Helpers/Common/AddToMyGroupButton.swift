@@ -14,6 +14,7 @@ struct AddToMyGroupButton: View {
     @State private var testFalse : Bool = false
     @State private var showMyGroupsView : Bool = false // new sheet to add restaurant to my groups list
     
+    var business : Business
     
     var body: some View {
         
@@ -39,13 +40,13 @@ struct AddToMyGroupButton: View {
             }
         }
         .sheet(isPresented: $showMyGroupsView) {
-            AddingToMyGroupsView()
+            AddingToMyGroupsView(business: business)
         }
     }
 }
 
-struct AddToMyGroupButton_Previews: PreviewProvider {
-    static var previews: some View {
-        AddToMyGroupButton()
-    }
-}
+//struct AddToMyGroupButton_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddToMyGroupButton()
+//    }
+//}

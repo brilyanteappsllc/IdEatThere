@@ -13,6 +13,8 @@ struct AddingToMyGroupsView: View {
     
     @EnvironmentObject var myGroupsModel : MyGroupsModel
     
+    var business : Business
+    
     
     var body: some View {
         
@@ -26,7 +28,7 @@ struct AddingToMyGroupsView: View {
                         .padding(.leading)
                     
                 
-            GroupsListView(groups: myGroupsModel.groupsHosting)
+            AddingToMyGroupsListView(groups: myGroupsModel.groupsHosting, business: business)
                 
                 
             // MARK: - Attending List
@@ -35,7 +37,7 @@ struct AddingToMyGroupsView: View {
                     .padding(.top, 25)
                     .padding(.leading)
                 
-                GroupsListView(groups: myGroupsModel.groupsAttending)
+               AddingToMyGroupsListView(groups: myGroupsModel.groupsAttending, business: business)
             
         }
         .onAppear{
@@ -45,8 +47,8 @@ struct AddingToMyGroupsView: View {
     }
 }
 
-struct AddingToMyGroupsView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddingToMyGroupsView()
-    }
-}
+//struct AddingToMyGroupsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddingToMyGroupsView()
+//    }
+//}

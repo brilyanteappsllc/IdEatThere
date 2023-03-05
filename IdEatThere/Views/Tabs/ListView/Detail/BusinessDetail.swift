@@ -75,7 +75,7 @@ struct BusinessDetail: View {
             }
             
             
-            AddToMyGroupButton()
+            AddToMyGroupButton(business: business)
             
 
             Spacer()

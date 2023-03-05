@@ -23,7 +23,9 @@ class MyGroupsModel : ObservableObject {
     @Published var groupsAttending = [Groups]()
     @Published var groupsHosting = [Groups]()
     @Published var groupsHostDetails = [User]()
-    @Published var groupsRestaurantDetails = [Business]()
+    @Published var groupsRestaurantsList = [RestaurantsList]()
+    
+    @Published var allGroupsIn = [Groups]()
     
     // Setting up initial group details
     @Published var groupName = ""
@@ -99,13 +101,58 @@ class MyGroupsModel : ObservableObject {
         
     }
     
-    func queryRestaurantsInGroups() {
+    func queryRestaurantsInGroups(groupsId : String) {
         // Creates a query from the names of restaurants in firebase to yelp and outputs all the info into the user groups
         
+        // Ensure user is logged in
+        guard self.checkLogin() != false else {
+            
+            // Use is not logged in
+            return
+        }
+        
+        
+        DispatchQueue.init(label: "getRestaurantList").async {
+            
+            
+            self.list(groupsId: groupsId ?? "") { groupsRestaurantList in
+                self.groupsRestaurantsList = groupsRestaurantList
+            }
+        }
         
         
         
     }
+    
+    func list(groupsId: String, completion: @escaping ([RestaurantsList]) -> Void) {
+        
+        let restuarantQuery = db.collection("groups").document(groupsId).collection("restaurantsList")
+        
+        restuarantQuery.getDocuments { snapshot, error in
+            
+            if snapshot != nil && error == nil {
+                
+                var restaurants = [RestaurantsList]()
+                
+                // Loop through returned restaurant docs
+                for doc in snapshot!.documents {
+                    
+                   let restaurant = try? doc.data(as: RestaurantsList.self)
+                    
+                    if let restaurant = restaurant {
+                        
+                        restaurants.append(restaurant)
+                    }
+                }
+                
+                completion(restaurants)
+                
+            }
+            
+        }
+    }
+    
+    // MARK: - Create Group Form
     
     func createGroup(groupName: String, groupPhoto: UIImage?, datePicked: Date, allowInvites: Bool, completion: @escaping (Error?) -> Void) {
         
@@ -173,12 +220,25 @@ class MyGroupsModel : ObservableObject {
     }
     
     // MARK: - Add Restaurants to Group
-    func addRestaurantNameToMyGroup(groupId: String, restaurantName : String) {
+    func addRestaurantNameToMyGroup(groupId: String, restaurantName : String, restaurantId : String, restaurantAlias: String, completion: @escaping (Error?) -> Void) {
         // Restaurant Name is stored in firebase
+        
+        // Ensure user is logged in
+        guard self.checkLogin() != false else {
+            
+            // Use is not logged in
+            return
+        }
+        
+        // Get reference to the database
+        let restaurantListPath = db.collection("groups").document(groupId).collection("resturantsList")
+        
+        
+        // Create document id for adding restaurant
         
         DispatchQueue.init(label: "userAddedRestaurantToGroup").async {
             
-            UserManagerModel().userAddedRestauranttoGroup(groupId: groupId, restaurantName: restaurantName) { success in
+            UserManagerModel().userAddedRestauranttoGroup(groupId: groupId, restaurantName: restaurantName) { error in
                 
                 
                 
@@ -186,15 +246,8 @@ class MyGroupsModel : ObservableObject {
                 
                 
             }
-            
-            
-            
-            
         }
-        
-        
     }
-    
     func addSubscribers() {
         
         

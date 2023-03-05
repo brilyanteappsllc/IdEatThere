@@ -25,7 +25,9 @@ struct SelectedGroupView: View {
              //   Text("GroupId: \(groups.id ?? "")")
            //     Text("GroupName: \(groups.groupName ?? "")")
                 
-                
+                List(myGroupsModel.groupsRestaurantsList) { restarant in
+                    
+                    Text(restarant.restaurantName ?? "")
                 
                 
             }
@@ -33,6 +35,9 @@ struct SelectedGroupView: View {
             .onAppear{
                 
                 userHostDetails.hostName(hostId: groups.host?[0] ?? "")
+                myGroupsModel.queryRestaurantsInGroups(groupsId: groups.id ?? "")
+                    
+                }
                 
             }
             .navigationBarTitleDisplayMode(.inline)
