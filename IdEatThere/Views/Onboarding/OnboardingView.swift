@@ -19,7 +19,7 @@ enum OnboardingStep : Int {
 struct OnboardingView: View {
 
     @EnvironmentObject var userManager : UserManagerModel
-    @EnvironmentObject var modelLocation : RestaurantDataService
+
     
     var noSwiping = true
     
@@ -218,6 +218,6 @@ struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
         OnboardingView()
             .environmentObject(UserManagerModel())
-            .environmentObject(RestaurantDataService())
+
     }
 }

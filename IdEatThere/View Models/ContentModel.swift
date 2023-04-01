@@ -44,6 +44,7 @@ class RestaurantsContentModel: ObservableObject {
         
     }
     
+    
     func addSubscribers() {
         
         dataService.$restaurants
@@ -57,10 +58,10 @@ class RestaurantsContentModel: ObservableObject {
                 self?.authorizationState = returnedAuthorizationState
             }.store(in: &cancellables)
         
-        dataService.$sights
-            .sink { [weak self] (returnedSights) in
-                self?.sights = returnedSights
-            }.store(in: &cancellables)
+//        dataService.$sights
+//            .sink { [weak self] (returnedSights) in
+//                self?.sights = returnedSights
+//            }.store(in: &cancellables)
         
         dataService.$placemark
             .sink { [weak self] (returnedPlaceMark) in

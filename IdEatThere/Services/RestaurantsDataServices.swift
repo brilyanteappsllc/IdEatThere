@@ -12,10 +12,12 @@ import SwiftUI
 class RestaurantDataService:  NSObject, CLLocationManagerDelegate, ObservableObject {
     
     /// This service leverages the location of the user and also a manual location search
+    ///
+    
     
     @Published var authorizationState = CLAuthorizationStatus.notDetermined
     @Published var restaurants = [Business]()
-    @Published var sights = [Business]()
+//    @Published var sights = [Business]()
     
     @Published var placemark : CLPlacemark?
     
@@ -93,7 +95,7 @@ class RestaurantDataService:  NSObject, CLLocationManagerDelegate, ObservableObj
             
             // If we have the coordinates of the user, send it into Yelp API
  //           getBusinesses(category: Constants.sightsKey, location: userLocation!)
-            getBusinesses(category: Constants.restaurantsKey, location: userLocation!)
+            getBusinessesDefault(category: Constants.restaurantsKey, location: userLocation!)
             
         }
         
@@ -101,7 +103,7 @@ class RestaurantDataService:  NSObject, CLLocationManagerDelegate, ObservableObj
     
     // MARK: - Yelp API Methods -
     
-    func getBusinesses(category:String, location:CLLocation) {
+    func getBusinessesDefault(category:String, location:CLLocation) {
          
         // Create URL
         /*
@@ -110,13 +112,15 @@ class RestaurantDataService:  NSObject, CLLocationManagerDelegate, ObservableObj
         */
         var urlComponents = URLComponents(string: Constants.apiURL)
             urlComponents?.queryItems = [
+//                URLQueryItem(name: "term", value: String(location.coordinate.latitude)),
+                URLQueryItem(name: "term", value: "food"),
                 URLQueryItem(name: "latitude", value: String(location.coordinate.latitude)),
                 URLQueryItem(name: "longitude", value: String(location.coordinate.longitude)),
                 URLQueryItem(name: "categories", value: String(category)),
-                URLQueryItem(name: "categories", value: "Food"),
+                URLQueryItem(name: "categories", value: "food")
 //               URLQueryItem(name: "sort_by", value: "review_count"),
 //                URLQueryItem(name: "sort_by", value: "rating"),
-                URLQueryItem(name: "limit", value: "50")
+//                URLQueryItem(name: "limit", value: "50")
             ]
         let url = urlComponents?.url
         
@@ -173,8 +177,8 @@ class RestaurantDataService:  NSObject, CLLocationManagerDelegate, ObservableObj
                                  */
                             // use switch statement to handle each case. More effecient than if statements
                             switch category {
-                            case Constants.sightsKey:
-                                self.sights = businesses
+//                            case Constants.sightsKey:
+//                                self.sights = businesses
                             case Constants.restaurantsKey:
                                 self.restaurants = businesses
                             default:
@@ -195,6 +199,10 @@ class RestaurantDataService:  NSObject, CLLocationManagerDelegate, ObservableObj
             // Start the DataTask
                 dataTask.resume()
         }
+        
+    }
+    
+    func getBusinessesLiveSearch(term: String, location: CLLocation, categories: String) {
         
     }
     
