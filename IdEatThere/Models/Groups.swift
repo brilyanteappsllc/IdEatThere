@@ -26,8 +26,8 @@ struct RestaurantsList : Codable, Identifiable {
     
     @DocumentID var id : String?
     
-    var restaurantId : String?
     var restaurantAlias : String?
+    var restaurantId : String?
     var restaurantName : String?
     var suggestorId : String?
     

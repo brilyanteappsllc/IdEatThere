@@ -18,29 +18,32 @@ struct AddToMyGroupButton: View {
     
     var body: some View {
         
-        Button {
-            self.isAddedToMyGroup.toggle()
-            self.animateButton.toggle()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                showMyGroupsView.toggle()
-            }
-        } label: {
-            ZStack {
-                Rectangle()
-                    .opacity(0)
-                HStack {
-                    Text(isAddedToMyGroup ? "Added to My Group!" : "Add to My Group!")
-                        .foregroundColor(Color.theme.accent)
-                        .bold()
-                    CircleButton(iconName: "heart.fill", height: 15, width: 15, addToMyGroup: $isAddedToMyGroup)
-                        .background(
-                            CircleButtonAnimation(animate: $animateButton)
+        NavigationView {
+            
+            Button {
+                self.isAddedToMyGroup.toggle()
+                self.animateButton.toggle()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    showMyGroupsView.toggle()
+                }
+            } label: {
+                ZStack {
+                    Rectangle()
+                        .opacity(0)
+                    HStack {
+                        Text(isAddedToMyGroup ? "Added to My Group!" : "Add to My Group!")
+                            .foregroundColor(Color.theme.accent)
+                            .bold()
+                        CircleButton(iconName: "heart.fill", height: 15, width: 15, addToMyGroup: $isAddedToMyGroup)
+                            .background(
+                                CircleButtonAnimation(animate: $animateButton)
                             )
+                    }
                 }
             }
-        }
-        .sheet(isPresented: $showMyGroupsView) {
-            AddingToMyGroupsView(business: business)
+            .sheet(isPresented: $showMyGroupsView) {
+                AddingToMyGroupsView(showMyGroupsView: $showMyGroupsView, business: business)
+            }
         }
     }
 }

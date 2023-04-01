@@ -11,38 +11,60 @@ struct AddingToMyGroupsView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    @Binding var showMyGroupsView : Bool
+    
     @EnvironmentObject var myGroupsModel : MyGroupsModel
     
     var business : Business
     
     
     var body: some View {
-        
-        VStack {
-            
-            Text("My Groups")
-            
-            // MARK: - Hosting List
+        NavigationView {
+            VStack {
+                
+                // MARK: - Hosting List
                 Text("Hosting")
-                        .padding(.top, 25)
-                        .padding(.leading)
-                    
-                
-            AddingToMyGroupsListView(groups: myGroupsModel.groupsHosting, business: business)
+                    .padding(.top, 25)
+                    .padding(.leading)
                 
                 
-            // MARK: - Attending List
+                AddingToMyGroupsListView(groups: myGroupsModel.groupsHosting, business: business)
+                
+                
+                // MARK: - Attending List
                 
                 Text("Attending")
                     .padding(.top, 25)
                     .padding(.leading)
                 
-               AddingToMyGroupsListView(groups: myGroupsModel.groupsAttending, business: business)
+                AddingToMyGroupsListView(groups: myGroupsModel.groupsAttending, business: business)
+                
+            }
+            .onAppear{
+                myGroupsModel.queryGroupsHosting()
+                myGroupsModel.queryGroupsAttending()
+            }
             
-        }
-        .onAppear{
-            myGroupsModel.queryGroupsHosting()
-            myGroupsModel.queryGroupsAttending()
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                    HStack {
+                        Text("My Groups")
+                            .font(.system(size: 30))
+                            .font(Font.headingFont)
+                        Spacer()
+                        Button {
+                            self.showMyGroupsView = false
+                        } label: {
+                            Text("Done")
+                                .bold()
+                        }
+
+                    }
+                    .padding(.top, 10)
+                }
+            }
         }
     }
 }

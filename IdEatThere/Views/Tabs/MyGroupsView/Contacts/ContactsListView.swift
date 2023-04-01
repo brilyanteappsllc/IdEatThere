@@ -34,22 +34,24 @@ struct ContactsListView: View {
                 Spacer()
 
                 HostSelectedContactsButton()
-                    .onTapGesture {
-                        userManagerModel.userCreatesGroup() { error in
-                            
-                            if error == nil {
-                                
-                                myGroupsModel.queryGroupsAttending()
-                                myGroupsModel.queryGroupsHosting()
-                                dismiss()
-                                dismiss.callAsFunction()
-                            }
-                            
-                        }
-//                        if !self.selectedAtLeastOneContact {
-//                            self.presentHostAlert.toggle()
+                // TODO: Create group call when selecting contacts
+//                    .onTapGesture {
+//
+//                        userManagerModel.userCreatesGroup() { error in
+//
+//                            if error == nil {
+//
+//                                myGroupsModel.queryGroupsAttending()
+//                                myGroupsModel.queryGroupsHosting()
+//                                dismiss()
+//                                dismiss.callAsFunction()
+//                            }
+//
 //                        }
-                    }
+////                        if !self.selectedAtLeastOneContact {
+////                            self.presentHostAlert.toggle()
+////                        }
+//                    }
                     .padding(.top, 10)
                 
             }

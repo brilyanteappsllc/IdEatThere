@@ -13,6 +13,8 @@ struct AddingToMyGroupsListView: View {
     
     var business : Business
     
+    @EnvironmentObject var myGroupsModel : MyGroupsModel
+    
     var body: some View {
         
         
@@ -27,7 +29,11 @@ struct AddingToMyGroupsListView: View {
                     Button {
                         print("Adding \(String(describing: business.name)) to group \(String(describing: groups.groupName))")
                         
-                        
+                        myGroupsModel.addRestaurantNameToMyGroup(groupId: groups.id ?? "", restaurantName: business.name ?? "", restaurantId: business.id ?? "", restaurantAlias: business.alias ?? "") { error in
+                            
+                            
+                            
+                        }
                         
                     } label: {
                     GridButton(groupName: groups.groupName ?? "")

@@ -22,20 +22,19 @@ struct SelectedGroupView: View {
             VStack {
                 Text("Your Host: \(userHostDetails.userHostName)")
                 
-             //   Text("GroupId: \(groups.id ?? "")")
-           //     Text("GroupName: \(groups.groupName ?? "")")
+                //   Text("GroupId: \(groups.id ?? "")")
+                //     Text("GroupName: \(groups.groupName ?? "")")
                 
-                List(myGroupsModel.groupsRestaurantsList) { restarant in
+                if myGroupsModel.groupsRestaurantsList.isEmpty {
+                    Text("No Restaurants have been added yet.")
                     
-                    Text(restarant.restaurantName ?? "")
-                
-                
-            }
-            
-            .onAppear{
-                
-                userHostDetails.hostName(hostId: groups.host?[0] ?? "")
-                myGroupsModel.queryRestaurantsInGroups(groupsId: groups.id ?? "")
+                }
+                else {
+                    
+                    List(myGroupsModel.groupsRestaurantsList) { restarant in
+                        
+                        Text(restarant.restaurantName ?? "")
+                    }
                     
                 }
                 
@@ -57,6 +56,12 @@ struct SelectedGroupView: View {
                 
                 
             }
+            .onAppear{
+                
+                userHostDetails.hostName(hostId: groups.host?[0] ?? "")
+                myGroupsModel.queryRestaurantsInGroups(groupsId: groups.id ?? "")
+                    
+                }
         }
         
     }
