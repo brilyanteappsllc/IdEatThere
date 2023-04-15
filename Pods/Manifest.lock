@@ -653,9 +653,6 @@ PODS:
     - FirebaseCore (~> 10.0)
     - FirebaseCoreExtension (~> 10.0)
     - GTMSessionFetcher/Core (< 4.0, >= 2.1)
-  - Flurry-iOS-SDK/CrashReporter (12.2.0)
-  - Flurry-iOS-SDK/FlurrySDK (12.2.0):
-    - Flurry-iOS-SDK/CrashReporter
   - GoogleUtilities/AppDelegateSwizzler (7.11.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -742,7 +739,6 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - FirebaseFirestoreSwift
-  - Flurry-iOS-SDK/FlurrySDK
 
 SPEC REPOS:
   trunk:
@@ -759,7 +755,6 @@ SPEC REPOS:
     - FirebaseFirestoreSwift
     - FirebaseSharedSwift
     - FirebaseStorage
-    - Flurry-iOS-SDK
     - GoogleUtilities
     - "gRPC-C++"
     - gRPC-Core
@@ -783,7 +778,6 @@ SPEC CHECKSUMS:
   FirebaseFirestoreSwift: fc1fdfd56acd12a0fbcc5f00cca2d42784ceb142
   FirebaseSharedSwift: 993e46657e34f14fe497c4a43c1f9608dabfb2e5
   FirebaseStorage: 4841efa304543e1f9e4ca116c559c7a1ea2a9d0f
-  Flurry-iOS-SDK: acac6eb6761fc39f7accbf1f8c4859ef297c7ee9
   GoogleUtilities: c2bdc4cf2ce786c4d2e6b3bcfd599a25ca78f06f
   "gRPC-C++": 9675f953ace2b3de7c506039d77be1f2e77a8db2
   gRPC-Core: 943e491cb0d45598b0b0eb9e910c88080369290b
@@ -793,6 +787,6 @@ SPEC CHECKSUMS:
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
 
-PODFILE CHECKSUM: ffb9c5bb79777c1d0b19f4e5a3dc498654327908
+PODFILE CHECKSUM: 8c645c89876cdaaac4fe031d9e9e40092619cb60
 
 COCOAPODS: 1.11.3

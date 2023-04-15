@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BusinessRow: View {
     
-    @ObservedObject var business: Business
+    let business: Business
     
     var distanceMiles: String {
         
@@ -20,23 +20,39 @@ struct BusinessRow: View {
             return "%.1f mile away"
         }
     }
-    
+
     
     var body: some View {
         
         VStack(alignment: .leading) { 
             
             HStack {
+                AsyncImage(url: URL(string: business.imageUrl ?? "")) { image in
+                    image
+                        .resizable()
+                } placeholder: {
+                    ProgressView()
+                }
+                .frame(width: 110, height: 110)
+                .cornerRadius(10)
+                .padding(5)
                 // Image - need to fetch imageURL
-                let uiImage = UIImage(data: business.imageData ?? Data())
-                Image(uiImage: uiImage ?? UIImage()) // if nill us empty image
-                    .resizable()
-                    .frame(width: 58, height: 58)
-                    .cornerRadius(5)
-                    .scaledToFit()
+                
+                
+//                let uiImage = UIImage(data: business.imageData ?? Data())
+//                Image(uiImage: uiImage ?? UIImage()) // if nill us empty image
+//                    .resizable()
+//                    .frame(width: 58, height: 58)
+//                    .cornerRadius(5)
+//                    .scaledToFit()
+                
+//                AsyncImage(url: URL(string: business.imageUrl!)) { image in
+//                    image
+//                        .resi
+//                }
                 
                 // Name and Distance
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 5) {
                     Text(business.name ?? "")
                         .bold()
                         .foregroundColor(Color.theme.secondaryText)
@@ -45,16 +61,14 @@ struct BusinessRow: View {
                         .font(.caption)
                         .foregroundColor(Color.theme.secondaryText)
                     
-                }
-                
-                Spacer()
-                
-                // Star rating and number of reviews
-                VStack(alignment: .leading) {
-                    Image("regular_\(business.rating ?? 0)")
-                    Text("\(business.reviewCount ?? 0) Reviews")
-                        .font(.caption)
-                        .foregroundColor(Color.theme.secondaryText)
+                    // Star rating and number of reviews
+                    HStack {
+                        Image("regular_\(business.rating ?? 0)")
+                        Text("\(business.reviewCount ?? 0) Reviews")
+                            .font(.caption)
+                            .foregroundColor(Color.theme.secondaryText)
+                        
+                    }
                     
                 }
                 

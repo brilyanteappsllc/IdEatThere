@@ -14,7 +14,7 @@ struct MapView: View {
     @State var selectedBusiness: Business?
     
     @EnvironmentObject var model: RestaurantsContentModel
-    @EnvironmentObject var modelLocation : RestaurantDataService
+    @EnvironmentObject var modelLocation : UserLocationService
     
     var body: some View {
         
@@ -35,24 +35,6 @@ struct MapView: View {
                     
                     // MARK: - List View -
                     VStack(alignment: .leading) {
-                        HStack {
-                            Image(systemName: "location")
-                            Text(model.placemark?.locality ?? "") //city associated with placemark
-                            Spacer()
-                            //                            Button {
-                            //                                self.isMapShowing = true
-                            //                            } label: {
-                            //                                CircleButton(iconName: "chevron.right")
-                            //                            }
-                            
-                            Button("Switch to map view") {
-                                self.isMapShowing = true
-                            }
-                            .foregroundColor(Color.theme.blackText)
-                            
-                        }
-                        
-                        Divider()
                         
                         // - BusinessList View -
                         FilterButton(searchText: $model.searchText, filterOptions: $model.filterOptions)
@@ -60,18 +42,20 @@ struct MapView: View {
                             
                             BusinessList()
                             
-                            //                            HStack {
-                            //                                Spacer()
-                            //                                YelpAttribution(link: "https://yelp.ca")
-                            //                            }
-                            
                             
                         }
                         
                         
                     }
-                    .padding([.horizontal, .top])
-                    .navigationBarHidden(true)
+                    .padding([.horizontal, .top])                          .navigationTitle(Text(model.placemark?.locality ?? ""))
+                    .toolbar(content: {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button("Switch to map view") {
+                                self.isMapShowing = true
+                            }
+                            .foregroundColor(Color.theme.blackText)
+                        }
+                    })
                     
                 }
                 

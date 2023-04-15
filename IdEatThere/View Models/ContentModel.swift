@@ -18,6 +18,7 @@ class RestaurantsContentModel: ObservableObject {
     
     @Published var placemark : CLPlacemark?
     @Published var locationManager = CLLocationManager()
+    @Published var userLocation : CLLocation?
     
     enum filterOption {
         case none, reviews, stars, isOpen, takesReservations
@@ -34,57 +35,117 @@ class RestaurantsContentModel: ObservableObject {
     @Published var mySelectedRestaurants : [Business] = []
     @Published var searchText: String = ""
     @Published var filterOptions : filterOption = .none
+    @Published var selectedCategory : FoodCategory = .all
     
-    private let dataService = RestaurantDataService()
+//    private let dataService = RestaurantDataService()
+    private let userLocationService = UserLocationService()
     private var cancellables = Set<AnyCancellable>()
     
     init() {
         
-        addSubscribers()
+       addSubscribers()
+        
+        apiRequest()
+        
+    }
+    
+    func apiRequest(service: YelpAPIService = .live) {
+        
+        // Need to make sure we have the location of the user before request to yelp API
+        if locationManager.location != nil {
+            
+            let live = YelpAPIService.live
+            
+            live.request(
+                .search(
+                    term: searchText,
+                    location: locationManager.location! ,
+                    category: selectedCategory)
+            )
+            .assign(to: &$restaurants)
+            
+            $searchText
+                .combineLatest($selectedCategory)
+                .flatMap { [self] (term, category) in
+                    
+                    live.request(
+                        .search(
+                            term: term,
+                            location: locationManager.location!,
+                            category: term.isEmpty ? category : nil))
+                    
+                }
+                .assign(to: &$restaurants)
+            
+        }
         
     }
     
     
     func addSubscribers() {
-        
-        dataService.$restaurants
-            .sink { [weak self] (returnedRestaurants) in
-                self?.restaurants = returnedRestaurants
-            }
-            .store(in: &cancellables)
-        
-        dataService.$authorizationState
-            .sink { [weak self] (returnedAuthorizationState) in
-                self?.authorizationState = returnedAuthorizationState
-            }.store(in: &cancellables)
-        
-//        dataService.$sights
-//            .sink { [weak self] (returnedSights) in
-//                self?.sights = returnedSights
+//
+//        dataService.$restaurants
+//            .sink { [weak self] (returnedRestaurants) in
+//                self?.restaurants = returnedRestaurants
+//            }
+//            .store(in: &cancellables)
+//
+//        dataService.$authorizationState
+//            .sink { [weak self] (returnedAuthorizationState) in
+//                self?.authorizationState = returnedAuthorizationState
 //            }.store(in: &cancellables)
-        
-        dataService.$placemark
+//
+////        dataService.$sights
+////            .sink { [weak self] (returnedSights) in
+////                self?.sights = returnedSights
+////            }.store(in: &cancellables)
+//
+        userLocationService.$placemark
             .sink { [weak self] (returnedPlaceMark) in
                 self?.placemark = returnedPlaceMark
             }.store(in: &cancellables)
-        
-        dataService.$locationManager
+//
+        userLocationService.$locationManager
             .sink { [weak self] (returnedLocationManager) in
                 self?.locationManager = returnedLocationManager
             }.store(in: &cancellables)
-        
-        // Filters the restaurants based on user input for search bar text and selected catagories
-        $searchText
-            .combineLatest(dataService.$restaurants, $filterOptions)
-            .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
-            .map(filterRestaurantsByCategory)
-            .sink { [weak self] (returnedRestaurants) in
-                self?.restaurants = returnedRestaurants
-            }
-            .store(in: &cancellables)
-        
+//        
+//        dataService.$userLocation
+//            .sink { [weak self] (returneduserLocation) in
+//                self?.userLocation = returneduserLocation
+//            }.store(in: &cancellables)
 
-    }
+        // Filters the restaurants based on user input for search bar text and selected catagories
+//        $searchText
+//            .combineLatest(dataService.$restaurants, $filterOptions)
+//            .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
+//            .map(filterRestaurantsByCategory)
+//            .sink { [weak self] (returnedRestaurants) in
+//                self?.restaurants = returnedRestaurants
+//            }
+//            .store(in: &cancellables)
+
+        // Create new request for category selected
+//        $selectedCategory
+//            .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
+//            .map(foodCategorySearch(foodCategory: selectedCategory))
+
+
+
+   }
+    
+//    private func foodCategorySearch(foodCategory: FoodCategory, service: YelpAPIService = .live) {
+//
+//        let live = YelpAPIService.live
+//
+//        live.request(
+//
+//            .search(term: "", category: foodCategory))
+//
+//        .assign(to: &$restaurants)
+//
+//
+//    }
     
     private func filterRestaurantsByCategory(text: String, restaurants: [Business], filter: filterOption) -> [Business] {
         var searchedRestaurants = filterRestaurantsByTextSearch(text: text, restaurants: restaurants)

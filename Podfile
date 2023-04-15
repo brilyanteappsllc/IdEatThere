@@ -6,7 +6,6 @@ target 'IdEatThere' do
   use_frameworks!
 
   # Pods for IdEatThere
-  pod 'Flurry-iOS-SDK/FlurrySDK' #Analytics Pod
   pod 'Firebase/Firestore'
   pod 'Firebase/Auth'
   pod 'FirebaseFirestoreSwift'

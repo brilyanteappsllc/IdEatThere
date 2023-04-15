@@ -66,6 +66,8 @@
 		86A80AD629708C9A001B8941 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A80AD529708C9A001B8941 /* User.swift */; };
 		86A80AD829709FB8001B8941 /* PhoneTextHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A80AD729709FB7001B8941 /* PhoneTextHelper.swift */; };
 		86A80ADA2970B731001B8941 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A80AD92970B731001B8941 /* ImagePicker.swift */; };
+		86A8AB2429EB1E1A00F991B3 /* FoodCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A8AB2329EB1E1A00F991B3 /* FoodCategories.swift */; };
+		86A8AB2629EB4DF500F991B3 /* UserLocationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A8AB2529EB4DF500F991B3 /* UserLocationServices.swift */; };
 		86ABBF9E29B50128009FFB9F /* AddingToMyGroupsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ABBF9D29B50128009FFB9F /* AddingToMyGroupsListView.swift */; };
 		86C1A978296674CE00C1B602 /* FilteredBusinessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1A977296674CE00C1B602 /* FilteredBusinessData.swift */; };
 		86E4BCA92965248900244E88 /* IdEatThereApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4BCA82965248900244E88 /* IdEatThereApp.swift */; };
@@ -157,6 +159,8 @@
 		86A80AD529708C9A001B8941 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		86A80AD729709FB7001B8941 /* PhoneTextHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTextHelper.swift; sourceTree = "<group>"; };
 		86A80AD92970B731001B8941 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		86A8AB2329EB1E1A00F991B3 /* FoodCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategories.swift; sourceTree = "<group>"; };
+		86A8AB2529EB4DF500F991B3 /* UserLocationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationServices.swift; sourceTree = "<group>"; };
 		86ABBF9D29B50128009FFB9F /* AddingToMyGroupsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingToMyGroupsListView.swift; sourceTree = "<group>"; };
 		86C1A977296674CE00C1B602 /* FilteredBusinessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredBusinessData.swift; sourceTree = "<group>"; };
 		86E4BCA52965248900244E88 /* IdEatThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IdEatThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,6 +242,7 @@
 			children = (
 				8627F9E929672EBF00382DA8 /* FilterTag.swift */,
 				8627F9F82967755500382DA8 /* FilterButton.swift */,
+				86A8AB2329EB1E1A00F991B3 /* FoodCategories.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -280,6 +285,7 @@
 			children = (
 				8627FA012967F63800382DA8 /* RestaurantsDataServices.swift */,
 				8643AB90296CC4050069D5F5 /* GroupsDataService.swift */,
+				86A8AB2529EB4DF500F991B3 /* UserLocationServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -660,6 +666,7 @@
 				86E4BCD22965261000244E88 /* BusinessMap.swift in Sources */,
 				862C8B6229A6E17000768DDE /* GroupsDetailView.swift in Sources */,
 				867C99D8299996C700E57C3C /* HostSelectedContactsButton.swift in Sources */,
+				86A8AB2629EB4DF500F991B3 /* UserLocationServices.swift in Sources */,
 				862C8B6E29A90FB400768DDE /* SelectContactsView.swift in Sources */,
 				86E4BCA92965248900244E88 /* IdEatThereApp.swift in Sources */,
 				8627F9FD2967811000382DA8 /* CircleButtonAnimation.swift in Sources */,
@@ -687,6 +694,7 @@
 				8643AB44296B7F1F0069D5F5 /* ReviewsLinkButton.swift in Sources */,
 				8603C24D29653EA4006C1A58 /* EditUserProfile.swift in Sources */,
 				862C8B7029A9299900768DDE /* CreateGroupButton.swift in Sources */,
+				86A8AB2429EB1E1A00F991B3 /* FoodCategories.swift in Sources */,
 				8627F9F92967755500382DA8 /* FilterButton.swift in Sources */,
 				8627F9EA29672EBF00382DA8 /* FilterTag.swift in Sources */,
 				8643AB4D296C44EC0069D5F5 /* CustomTabBar.swift in Sources */,
