@@ -21,9 +21,9 @@ struct FilterTag: View {
         } label: {
             HStack {
                 Text(category.emoji)
-                    .font(.title)
+                    .font(.bodyFont)
                 Text(category.rawValue)
-                    .bold()
+                    .font(.bodyFont)
             }
         }
         .padding(5)

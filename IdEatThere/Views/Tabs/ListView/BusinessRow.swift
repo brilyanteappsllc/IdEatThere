@@ -24,7 +24,7 @@ struct BusinessRow: View {
     
     var body: some View {
         
-        VStack(alignment: .leading) { 
+        VStack(alignment: .leading, spacing: 5) {
             
             HStack {
                 
@@ -66,7 +66,7 @@ struct BusinessRow: View {
             .padding(5)
             .background(.white)
             .cornerRadius(15)
-            .shadow(radius: 2)
+            .shadow(radius: 0.5)
             
             
 //            DashedDivider()

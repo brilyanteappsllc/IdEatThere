@@ -18,10 +18,10 @@ struct FilterButton: View {
     var body: some View {
         
         VStack(alignment: .leading) {
-            Group {            
-                SearchBar(searchText: $filterModel.searchText)
-                    .padding(.horizontal)
-            }
+//            Group {
+//                SearchBar(searchText: $filterModel.searchText)
+//                    .padding(.horizontal)
+//            }
             
             Group {
                 ScrollView(.horizontal, showsIndicators: false) {

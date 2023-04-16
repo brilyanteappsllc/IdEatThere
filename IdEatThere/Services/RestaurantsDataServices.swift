@@ -213,6 +213,8 @@ struct YelpAPIService {
     
     var request : (Endpoint) ->AnyPublisher<[Business], Never>
     var details : (Endpoint) ->AnyPublisher<Business?, Never>
+    var autoCompletion : (Endpoint) ->AnyPublisher<[Term], Never>
+    
                         
     
 }
@@ -239,7 +241,19 @@ extension YelpAPIService {
             .replaceError(with: nil)
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
-    })
+    }) { endpoint in
+        return URLSession.shared.dataTaskPublisher(for: endpoint.request)
+            .map(\.data)
+            .breakpointOnError()
+            .decode(type: Completions.self, decoder: JSONDecoder())
+            .map(\.terms)
+            .replaceError(with: [])
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+        
+        
+        
+    }
 }
 
 
@@ -247,6 +261,7 @@ enum Endpoint {
     
     case search(term: String?, location: CLLocation, category: FoodCategory?)
     case detail(id: String)
+    case autoCompletion(text: String, location: CLLocation)
     
     var path : String {
         switch self {
@@ -254,6 +269,8 @@ enum Endpoint {
             return "/v3/businesses/search"
         case .detail(let id) :
             return "/v3/businesses/\(id)"
+        case .autoCompletion :
+            return "/v3/autocomplete"
         }
     }
     
@@ -272,6 +289,14 @@ enum Endpoint {
         case .detail :
             return []
             
+            
+        case .autoCompletion(let text, let location) :
+            return [
+                .init(name: "text", value: text),
+                .init(name: "longitude", value: String(location.coordinate.longitude)),
+                .init(name: "latitude", value: String(location.coordinate.latitude)),
+            ]
+            
         }
     }
     var request : URLRequest {
@@ -285,6 +310,17 @@ enum Endpoint {
         return request
         
     }
+}
+
+struct Completions : Decodable {
+    var terms : [Term]
+    var businesses : [Business]
+    var categories : [Category]
+    
+}
+
+struct Term : Decodable {
+    var text : String
 }
 
 struct SearchResult: Decodable {

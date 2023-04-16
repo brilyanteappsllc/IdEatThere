@@ -16,6 +16,7 @@ class RestaurantsContentModel: ObservableObject {
     @Published var restaurants : [Business] = [] // List
     @Published var restaurant : Business? // Details
     @Published var sights : [Business] = []
+    @Published var autoCompletion = [String]()
     
     @Published var placemark : CLPlacemark?
     @Published var locationManager = CLLocationManager()
@@ -46,11 +47,12 @@ class RestaurantsContentModel: ObservableObject {
         
        addSubscribers()
         
-        apiRequest()
+       apiRequest()
         
     }
     
     func apiRequest(service: YelpAPIService = .live) {
+        
         
         // Need to make sure we have the location of the user before request to yelp API
         if locationManager.location != nil {
@@ -66,6 +68,7 @@ class RestaurantsContentModel: ObservableObject {
             .assign(to: &$restaurants)
             
             $searchText
+                .debounce(for: 0.3, scheduler: DispatchQueue.main)
                 .combineLatest($selectedCategory)
                 .flatMap { [self] (term, category) in
                     
@@ -77,6 +80,17 @@ class RestaurantsContentModel: ObservableObject {
                     
                 }
                 .assign(to: &$restaurants)
+            
+            
+            $searchText
+                .debounce(for: 0.3, scheduler: DispatchQueue.main)
+                .combineLatest($userLocation)
+                .flatMap { term, location in
+                    live.autoCompletion(
+                        .autoCompletion(text: term, location: location ?? CLLocation(latitude: 37.2, longitude: 22.9)))
+                }
+                .map { $0.map(\.text)}
+                .assign(to: &$autoCompletion)
             
         }
         

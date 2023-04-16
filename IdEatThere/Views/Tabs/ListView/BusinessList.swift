@@ -24,9 +24,12 @@ struct BusinessList: View {
  //               BusinessSection(title: "Sights", businesses: model.sights)
                 
                 
-            } // End of LazyVstack
+            }// End of LazyVstack
+            .padding(.vertical, 10) // <-- added padding here to make space for shadow
             
-        } // End of ScrollView
+        }// End of ScrollView
+        .padding(.vertical, -10) // <-- added padding here to shrink space created with padding above
+        
     } // End of Body
 }
 

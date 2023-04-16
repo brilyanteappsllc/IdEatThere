@@ -50,6 +50,15 @@ struct MapView: View {
                     }
                     .padding(.top)
                     .navigationTitle(Text(model.placemark?.locality ?? ""))
+                    .searchable(text: $model.searchText, prompt: Text("Search Food...")) {
+                        
+                        // Auto Complete Search with yelp api help
+                        ForEach(model.autoCompletion, id: \.self) { completion in
+                            Text(completion)
+                                .searchCompletion(completion)
+                                .foregroundColor(Color.blue)
+                        }
+                    }
                     .toolbar(content: {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button("Switch to map view") {
