@@ -37,17 +37,19 @@ struct MapView: View {
                     VStack(alignment: .leading) {
                         
                         // - BusinessList View -
-                        FilterButton(searchText: $model.searchText, filterOptions: $model.filterOptions)
-                        ZStack (alignment: .top) {
+                        FilterButton(filterOptions: $model.filterOptions)
+
+                        
                             
-                            BusinessList()
+                        BusinessList()
                             
                             
-                        }
+                        
                         
                         
                     }
-                    .padding([.horizontal, .top])                          .navigationTitle(Text(model.placemark?.locality ?? ""))
+                    .padding(.top)
+                    .navigationTitle(Text(model.placemark?.locality ?? ""))
                     .toolbar(content: {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button("Switch to map view") {

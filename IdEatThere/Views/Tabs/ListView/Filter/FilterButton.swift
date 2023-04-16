@@ -13,57 +13,15 @@ struct FilterButton: View {
     
     @State var isFilterShowing = false
     @State var selectedFilter = false
-    @Binding var searchText : String
     @Binding var filterOptions : RestaurantsContentModel.filterOption
     
     var body: some View {
         
         VStack(alignment: .leading) {
-            Group {
-                HStack {
-                    Image(systemName: "magnifyingglass")
-                        .foregroundColor(
-                            selectedFilter || !searchText.isEmpty ?
-                            Color.theme.accent : Color.theme.secondaryText
-                        )
-                    
-                    TextField("Search...", text: $searchText)
-                        .foregroundColor(Color.theme.accent)
-                    //                    .disableAutocorrection(true)
-                    
-                    //                ScrollView(.horizontal, showsIndicators: false) {
-                    //                    HStack {
-                    //                        ForEach(filterModel.selection) { item in
-                    //                            FilterTag(filterData: item)
-                    //                        }
-                    //                    }
-                    
-                    Spacer()
-                    Button(action: {
-                        filterModel.clearSelection()
-                        self.selectedFilter = false
-                        self.searchText = ""
-                        self.filterOptions = .none
-                        UIApplication.shared.endEditing()
-                    }) {
-                        Image(systemName: "xmark.circle.fill")
-                            .padding(3)
-                            .foregroundColor(
-                                selectedFilter || !searchText.isEmpty ?
-                                Color.theme.accent : Color.theme.secondaryText)
-                    }
-                }
-                
+            Group {            
+                SearchBar(searchText: $filterModel.searchText)
+                    .padding(.horizontal)
             }
-            .font(.headline)
-            .padding(6)
-            .background(
-                RoundedRectangle(cornerRadius: 25)
-                    .fill(Color.theme.background)
-                    .shadow(
-                        color: Color.theme.accent,
-                        radius: 5, x: 0, y: 0)
-            )
             
             Group {
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -76,6 +34,7 @@ struct FilterButton: View {
                     }
                     .padding(.top)
                     .padding(.bottom)
+                    .padding(.leading)
                     
                 }
 

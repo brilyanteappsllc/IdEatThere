@@ -27,6 +27,8 @@ struct BusinessRow: View {
         VStack(alignment: .leading) { 
             
             HStack {
+                
+                // Image - need to fetch imageURL
                 AsyncImage(url: URL(string: business.imageUrl ?? "")) { image in
                     image
                         .resizable()
@@ -36,20 +38,7 @@ struct BusinessRow: View {
                 .frame(width: 110, height: 110)
                 .cornerRadius(10)
                 .padding(5)
-                // Image - need to fetch imageURL
-                
-                
-//                let uiImage = UIImage(data: business.imageData ?? Data())
-//                Image(uiImage: uiImage ?? UIImage()) // if nill us empty image
-//                    .resizable()
-//                    .frame(width: 58, height: 58)
-//                    .cornerRadius(5)
-//                    .scaledToFit()
-                
-//                AsyncImage(url: URL(string: business.imageUrl!)) { image in
-//                    image
-//                        .resi
-//                }
+
                 
                 // Name and Distance
                 VStack(alignment: .leading, spacing: 5) {
@@ -71,11 +60,19 @@ struct BusinessRow: View {
                     }
                     
                 }
+                Spacer()
                 
             }
-            DashedDivider()
-                .padding(.vertical)
+            .padding(5)
+            .background(.white)
+            .cornerRadius(15)
+            .shadow(radius: 2)
+            
+            
+//            DashedDivider()
+//                .padding(.vertical)
         }
+        .padding(.horizontal)
     }
 }
 

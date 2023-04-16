@@ -25,11 +25,16 @@ struct PhoneNumberView: View {
                     .font(.body)
                 
                     
-                    
-                TextField(userManager.phone.isEmpty ? " e.g. (613) 515-0123 " : userManager.phone, text: $userManager.phone.applyPatternOnNumbers(userManager.phone, pattern: "(###) ###-####", replacementCharacter: "#"))
+                TextField(userManager.phone.isEmpty ? " e.g. (613) 515-0123 " : userManager.phone, text: $userManager.phone)
                         .textFieldStyle(OnboardingTextFields())
                         .keyboardType(.numberPad)
                         .padding(.horizontal)
+                        .foregroundColor(Color.accentColor)
+//                TextField(userManager.phone.isEmpty ? " e.g. (613) 515-0123 " : userManager.phone, text: $userManager.phone.applyPatternOnNumbers(userManager.phone, pattern: "(###) ###-####", replacementCharacter: "#"))
+//                        .textFieldStyle(OnboardingTextFields())
+//                        .keyboardType(.numberPad)
+//                        .padding(.horizontal)
+//                        .foregroundColor(Color.accentColor)
             
                     if userManager.errorMessage != nil {
                         Section {

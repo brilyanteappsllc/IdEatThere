@@ -19,13 +19,23 @@ struct BusinessDetail: View {
                 
                 // - Image -
                 GeometryReader() { geometry in
+                    
+                    AsyncImage(url: URL(string: business.imageUrl ?? "")) { image in
+                        image
+                            .resizable()
+                    } placeholder: {
+                        ProgressView()
+                    }
+                    .scaledToFill()
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .clipped()
                 
-                    let uiImage = UIImage(data: business.imageData ?? Data())
-                    Image(uiImage: uiImage ?? UIImage())
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: geometry.size.width, height: geometry.size.height)
-                        .clipped()
+//                    let uiImage = UIImage(data: business.imageData ?? Data())
+//                    Image(uiImage: uiImage ?? UIImage())
+//                        .resizable()
+//                        .scaledToFill()
+//                        .frame(width: geometry.size.width, height: geometry.size.height)
+//                        .clipped()
                     
                 }
                 .ignoresSafeArea(.all, edges: .top)
