@@ -13,7 +13,8 @@ import SwiftUI
 class RestaurantsContentModel: ObservableObject {
     
     @Published var authorizationState = CLAuthorizationStatus.notDetermined
-    @Published var restaurants : [Business] = []
+    @Published var restaurants : [Business] = [] // List
+    @Published var restaurant : Business? // Details
     @Published var sights : [Business] = []
     
     @Published var placemark : CLPlacemark?
@@ -78,6 +79,19 @@ class RestaurantsContentModel: ObservableObject {
                 .assign(to: &$restaurants)
             
         }
+        
+    }
+    
+    func apiRequestDetails(forId id : String) {
+        
+        let live = YelpAPIService.live
+        
+        let details = live
+            .details(.detail(id: id))
+            .share()
+        
+        details
+            .assign(to: &$restaurant)
         
     }
     

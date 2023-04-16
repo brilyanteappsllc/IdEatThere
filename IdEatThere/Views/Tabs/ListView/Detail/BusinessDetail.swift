@@ -7,92 +7,46 @@
 
 import SwiftUI
 
-struct BusinessDetail: View {
+struct BusinessDetailView: View {
+    
+    @EnvironmentObject var restaurant : RestaurantsContentModel
     
     var business: Business
     
     var body: some View {
         
-        VStack(alignment: .leading) {
+        
+        ZStack(alignment: .top) {
             
-            VStack (alignment: .leading) {
-                
-                // - Image -
-                GeometryReader() { geometry in
-                    
-                    AsyncImage(url: URL(string: business.imageUrl ?? "")) { image in
-                        image
-                            .resizable()
-                    } placeholder: {
-                        ProgressView()
-                    }
-                    .scaledToFill()
-                    .frame(width: geometry.size.width, height: geometry.size.height)
-                    .clipped()
-                
-//                    let uiImage = UIImage(data: business.imageData ?? Data())
-//                    Image(uiImage: uiImage ?? UIImage())
-//                        .resizable()
-//                        .scaledToFill()
-//                        .frame(width: geometry.size.width, height: geometry.size.height)
-//                        .clipped()
-                    
-                }
-                .ignoresSafeArea(.all, edges: .top)
-                
-            }
+            //Spacer
+            Rectangle()
+                .fill(Color.clear)
             
-            Group {
-                
-                // BusinessTitle View
-                HStack {
-                    BusinessTitle(business: business)
-                        .padding(.leading)
-                    
-                }
-                
-                Text(business.isClosed! ? "Closed..." : "Open!")
-                    .foregroundColor(business.isClosed! ? Color.theme.red : Color.theme.green)
-                    .padding(.leading)
-                
-                
-                DashedDivider()
-                
-                // - Horizontal Categories -
-                HStack {
-                    Spacer()
-                    
-                    CallButton(business: business)
-                    
-                    Spacer()
-                        
-                    ReviewsLinkButton(business: business)
-                    
-                    Spacer()
-                    
-                    MapLinkButton(business: business)
-                    
-                    Spacer()
-                    
-                    YelpAttribution(link: business.url!)
-                    
-                    Spacer()
-                }
-                .padding()
-                
-                DashedDivider()
-
-            }
+            //Map View
+            DirectionsMap(business: business)
+                .frame(height: UIScreen.main.bounds.height * 0.45)
             
-            
-            AddToMyGroupButton(business: business)
-            
-
-            Spacer()
-        } // End of VStack
-        .onAppear() {
-            print("\(business.id!)")
         }
+        .overlay (
+            
+            restaurant.restaurant != nil ?
+            BusinessDetailCard(business: restaurant.restaurant!)
+                .cornerRadius(10)
+            : nil,
+        alignment: .bottom
+        )
+        .ignoresSafeArea(edges: .top)
+        .onAppear {
+            restaurant.apiRequestDetails(forId: business.id ?? "")
+        }
+            
         
     }
 }
+
+
+//struct BusinessDetail_Previews: PreviewProvider {
+//    static var previews: some View {
+//       BusinessDetail()
+//    }
+//}

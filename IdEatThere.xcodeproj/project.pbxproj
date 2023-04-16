@@ -69,6 +69,7 @@
 		86A8AB2429EB1E1A00F991B3 /* FoodCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A8AB2329EB1E1A00F991B3 /* FoodCategories.swift */; };
 		86A8AB2629EB4DF500F991B3 /* UserLocationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A8AB2529EB4DF500F991B3 /* UserLocationServices.swift */; };
 		86A8AB2829EB6DA400F991B3 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A8AB2729EB6DA400F991B3 /* SearchBar.swift */; };
+		86A8AB2A29EC51C300F991B3 /* BusinessDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A8AB2929EC51C200F991B3 /* BusinessDetailCard.swift */; };
 		86ABBF9E29B50128009FFB9F /* AddingToMyGroupsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ABBF9D29B50128009FFB9F /* AddingToMyGroupsListView.swift */; };
 		86C1A978296674CE00C1B602 /* FilteredBusinessData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1A977296674CE00C1B602 /* FilteredBusinessData.swift */; };
 		86E4BCA92965248900244E88 /* IdEatThereApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E4BCA82965248900244E88 /* IdEatThereApp.swift */; };
@@ -163,6 +164,7 @@
 		86A8AB2329EB1E1A00F991B3 /* FoodCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategories.swift; sourceTree = "<group>"; };
 		86A8AB2529EB4DF500F991B3 /* UserLocationServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationServices.swift; sourceTree = "<group>"; };
 		86A8AB2729EB6DA400F991B3 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		86A8AB2929EC51C200F991B3 /* BusinessDetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetailCard.swift; sourceTree = "<group>"; };
 		86ABBF9D29B50128009FFB9F /* AddingToMyGroupsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingToMyGroupsListView.swift; sourceTree = "<group>"; };
 		86C1A977296674CE00C1B602 /* FilteredBusinessData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredBusinessData.swift; sourceTree = "<group>"; };
 		86E4BCA52965248900244E88 /* IdEatThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IdEatThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -432,6 +434,7 @@
 				86E4BCC32965261000244E88 /* BusinessTitle.swift */,
 				86E4BCC42965261000244E88 /* BusinessDetail.swift */,
 				86E4BCC52965261000244E88 /* DirectionsView.swift */,
+				86A8AB2929EC51C200F991B3 /* BusinessDetailCard.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -647,6 +650,7 @@
 				86E4BCDB2965261000244E88 /* LocationDeniedView.swift in Sources */,
 				8627F9FB2967769800382DA8 /* ChevronDownButton.swift in Sources */,
 				86A25728296DF1B900CFDFAB /* CreateProfileView.swift in Sources */,
+				86A8AB2A29EC51C300F991B3 /* BusinessDetailCard.swift in Sources */,
 				8643AB46296B7FAA0069D5F5 /* MapLinkButton.swift in Sources */,
 				86A80AD4297086BD001B8941 /* ContactsModel.swift in Sources */,
 				86E4BCE02965261000244E88 /* OnboardingView.swift in Sources */,

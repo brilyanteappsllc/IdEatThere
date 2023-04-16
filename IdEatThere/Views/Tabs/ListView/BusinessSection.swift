@@ -20,7 +20,7 @@ struct BusinessSection: View {
                 ForEach(businesses) { business in
                     
                     NavigationLink {
-                        BusinessDetail(business: business)
+                        BusinessDetailView(business: business)
                     } label: {
                         BusinessRow(business: business)
                     }

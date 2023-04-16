@@ -29,7 +29,7 @@ struct BusinessRow: View {
             HStack {
                 
                 // Image - need to fetch imageURL
-                AsyncImage(url: URL(string: business.imageUrl ?? "")) { image in
+                AsyncImage(url: URL(string: business.imageURL ?? "")) { image in
                     image
                         .resizable()
                 } placeholder: {

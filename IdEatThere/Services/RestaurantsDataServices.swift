@@ -212,13 +212,15 @@ struct YelpAPIService {
     // search term, user location, category    // output to update list
     
     var request : (Endpoint) ->AnyPublisher<[Business], Never>
+    var details : (Endpoint) ->AnyPublisher<Business?, Never>
+                        
     
 }
 
 extension YelpAPIService {
-    static let live = YelpAPIService { endpoint in
+    static let live = YelpAPIService(request:  { endpoint in
         
-        // URL Request and return [Businesses}
+        // URL Request and return [Businesses] list
         return URLSession.shared.dataTaskPublisher(for: endpoint.request)
             .map(\.data)
             .breakpointOnError()
@@ -227,7 +229,17 @@ extension YelpAPIService {
             .replaceError(with: [])
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
-    }
+    }, details: { endpoint  in
+        
+        // URL Request and return Businesses details
+        return URLSession.shared.dataTaskPublisher(for: endpoint.request)
+            .map(\.data)
+            .breakpointOnError()
+            .decode(type: Business?.self, decoder: JSONDecoder())
+            .replaceError(with: nil)
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    })
 }
 
 

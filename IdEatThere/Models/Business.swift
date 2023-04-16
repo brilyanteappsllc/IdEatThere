@@ -12,43 +12,33 @@ class Business: Decodable, Identifiable, ObservableObject {
     // Data we download for image
     @Published var imageData: Data?
     
-    // Making all variables optional to safe gaurd
-    var id: String?
-    var alias: String?
-    var name: String?
-    var imageUrl: String?
-    var isClosed: Bool?
+    var id, alias, name: String?
+    var imageURL: String?
+    var isClaimed, isClosed: Bool?
     var url: String?
+    var phone, displayPhone: String?
     var reviewCount: Int?
     var categories: [Category]?
     var rating: Double?
-    var coordinates: Coordinate?
-    var transactions: [String]?
-    var price: String?
     var location: Location?
-    var phone: String?
-    var displayPhone: String?
+    var coordinates: Coordinates?
+    var photos: [String]?
+    var price: String?
+    var hours: [Hour]?
+    var transactions: [String]?
+    var specialHours: [SpecialHour]?
     var distance: Double?
-    var data : data?
-    
+
     enum CodingKeys: String, CodingKey {
-        
-        case imageUrl = "image_url"
+        case id, alias, name
+        case imageURL = "image_url"
+        case isClaimed = "is_claimed"
         case isClosed = "is_closed"
-        case reviewCount = "review_count"
+        case url, phone
         case displayPhone = "display_phone"
-        
-        case id
-        case alias
-        case name
-        case url
-        case categories
-        case rating
-        case coordinates
-        case transactions
-        case price
-        case location
-        case phone
+        case reviewCount = "review_count"
+        case categories, rating, location, coordinates, photos, price, hours, transactions
+        case specialHours = "special_hours"
         case distance
         
     }
@@ -56,12 +46,12 @@ class Business: Decodable, Identifiable, ObservableObject {
     func getImageData(){
         
         // Check that image url isn't nil
-        guard imageUrl != nil else {
+        guard imageURL != nil else {
             return
         }
         
         // Download the data for the image
-        if let url = URL(string: imageUrl!) {
+        if let url = URL(string: imageURL!) {
             
             // Get session
             let session = URLSession.shared
@@ -83,27 +73,57 @@ class Business: Decodable, Identifiable, ObservableObject {
 }
 
 struct Location: Decodable {
-    
-    var address1: String?
-    var address2: String?
-    var address3: String?
-    var city: String?
-    var zipCode: String?
-    var country: String?
-    var state: String?
+    var address1, address2, address3, city: String?
+    var zipCode, country, state: String?
     var displayAddress: [String]?
-    
+    var crossStreets: String?
+
     enum CodingKeys: String, CodingKey {
-        
+        case address1, address2, address3, city
         case zipCode = "zip_code"
+        case country, state
         case displayAddress = "display_address"
-        
-        case address1
-        case address2
-        case address3
-        case city
-        case country
-        case state
+        case crossStreets = "cross_streets"
+    }
+}
+
+// MARK: - Hour
+struct Hour: Decodable {
+    var hourOpen: [Open]?
+    var hoursType: String?
+    var isOpenNow: Bool?
+
+    enum CodingKeys: String, CodingKey {
+        case hourOpen = "open"
+        case hoursType = "hours_type"
+        case isOpenNow = "is_open_now"
+    }
+}
+
+// MARK: - Open
+struct Open: Codable {
+    var isOvernight: Bool?
+    var start, end: String?
+    var day: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case isOvernight = "is_overnight"
+        case start, end, day
+    }
+}
+
+// MARK: - SpecialHour
+struct SpecialHour: Codable {
+    var date: String?
+    var isClosed: Bool?
+    var start, end: String?
+    var isOvernight: Bool?
+
+    enum CodingKeys: String, CodingKey {
+        case date
+        case isClosed = "is_closed"
+        case start, end
+        case isOvernight = "is_overnight"
     }
 }
 
@@ -120,8 +140,18 @@ struct Category: Decodable {
     var title: String?
 }
 
-struct Coordinate: Decodable {
+// MARK: - Coordinates
+struct Coordinates: Decodable {
+    var latitude, longitude: Double?
+}
+
+
+
+
+extension Business {
     
-    var latitude: Double?
-    var longitude: Double?
+    var images: [URL] {
+        
+        return photos?.compactMap { URL.init(string: $0) } ?? []
+    }
 }

@@ -17,6 +17,6 @@ struct BusinessSeach: Decodable {
 
 struct Region: Decodable {
     
-    var center =  Coordinate()
+    var center =  Coordinates()
     
 }

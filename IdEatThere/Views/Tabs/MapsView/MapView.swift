@@ -72,7 +72,7 @@ struct MapView: View {
                                 
                                 // Create a business detail view instance
                                 // Pass in the selected business
-                                BusinessDetail(business: business)
+                                BusinessDetailView(business: business)
                             }
                         
                         // Rectangle overlay
