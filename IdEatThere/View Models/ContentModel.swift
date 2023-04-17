@@ -70,7 +70,7 @@ class RestaurantsContentModel: ObservableObject {
             $searchText
                 .debounce(for: 0.3, scheduler: DispatchQueue.main)
                 .combineLatest($selectedCategory)
-                .flatMap { [self] (term, category) in
+                .map { [self] (term, category) in
                     
                     live.request(
                         .search(
@@ -79,16 +79,18 @@ class RestaurantsContentModel: ObservableObject {
                             category: term.isEmpty ? category : nil))
                     
                 }
+                .switchToLatest()
                 .assign(to: &$restaurants)
             
             
             $searchText
                 .debounce(for: 0.3, scheduler: DispatchQueue.main)
                 .combineLatest($userLocation)
-                .flatMap { term, location in
+                .map { term, location in
                     live.autoCompletion(
                         .autoCompletion(text: term, location: location ?? CLLocation(latitude: 37.2, longitude: 22.9)))
                 }
+                .switchToLatest()
                 .map { $0.map(\.text)}
                 .assign(to: &$autoCompletion)
             
