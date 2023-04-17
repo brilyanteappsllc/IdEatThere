@@ -43,8 +43,9 @@ struct BusinessDetailCard: View {
                         AsyncImage.init(url: url) { image in
                             image
                                 .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .cornerRadius(10)
+                                .scaledToFill()
+                                .padding()
+                            
                         } placeholder: {
                             Color.gray
                         }
@@ -53,7 +54,12 @@ struct BusinessDetailCard: View {
                     }
                     
                 }
+                //TODO: Fix padding for images
+                .padding(.horizontal)
+                .cornerRadius(50)
                 .tabViewStyle(.page)
+                .clipShape(RoundedRectangle(cornerRadius: 15))
+
                 
                 
             }
