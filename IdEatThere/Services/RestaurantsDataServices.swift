@@ -211,16 +211,35 @@ import SwiftUI
 struct YelpAPIService {
     // search term, user location, category    // output to update list
     
-    var request : (Endpoint) ->AnyPublisher<[Business], Never>
-    var details : (Endpoint) ->AnyPublisher<Business?, Never>
-    var autoCompletion : (Endpoint) ->AnyPublisher<[Term], Never>
+//    var request : (Endpoint) ->AnyPublisher<[Business], Never>
+//    var details : (Endpoint) ->AnyPublisher<Business?, Never>
+//    var autoCompletion : (Endpoint) ->AnyPublisher<[Term], Never>
     
-                        
+    // default request for restaurants
+    var defaultRequest : (Endpoint) ->AnyPublisher<[Business], Never>
+
+    // request for selected business details
+    var businessDetails : (Endpoint) ->AnyPublisher<Business?, Never>
+
+    // request for food categories
+    var foodCategoryRequest : (Endpoint) ->AnyPublisher<[Business], Never>
+
+    // request for filter restaurants
+    var filterRequest : (Endpoint) ->AnyPublisher<[Business], Never>
+
+    // request for sorting restaurants
+    var sortRequest : (Endpoint) ->AnyPublisher<[Business], Never>
+
+    // request for filter + sort restaurants
+    var comboRequest : (Endpoint) ->AnyPublisher<[Business], Never>
+
+    // autocomplete search request
+    var searchAutoCompletion : (Endpoint) ->AnyPublisher<[Term], Never>
     
 }
 
 extension YelpAPIService {
-    static let live = YelpAPIService(request:  { endpoint in
+    static let live = YelpAPIService(defaultRequest:  { endpoint in
         
         // URL Request and return [Businesses] list
         return URLSession.shared.dataTaskPublisher(for: endpoint.request)
@@ -231,7 +250,7 @@ extension YelpAPIService {
             .replaceError(with: [])
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
-    }, details: { endpoint  in
+    }, businessDetails: { endpoint  in
         
         // URL Request and return Businesses details
         return URLSession.shared.dataTaskPublisher(for: endpoint.request)
@@ -239,6 +258,46 @@ extension YelpAPIService {
             .breakpointOnError()
             .decode(type: Business?.self, decoder: JSONDecoder())
             .replaceError(with: nil)
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }, foodCategoryRequest: { endpoint in
+        // URL Request and return [Businesses] list
+        return URLSession.shared.dataTaskPublisher(for: endpoint.request)
+            .map(\.data)
+            .breakpointOnError()
+            .decode(type: SearchResult.self, decoder: JSONDecoder())
+            .map(\.businesses)
+            .replaceError(with: [])
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }, filterRequest: { endpoint in
+        // URL Request and return [Businesses] list
+        return URLSession.shared.dataTaskPublisher(for: endpoint.request)
+            .map(\.data)
+            .breakpointOnError()
+            .decode(type: SearchResult.self, decoder: JSONDecoder())
+            .map(\.businesses)
+            .replaceError(with: [])
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }, sortRequest: { endpoint in
+        // URL Request and return [Businesses] list
+        return URLSession.shared.dataTaskPublisher(for: endpoint.request)
+            .map(\.data)
+            .breakpointOnError()
+            .decode(type: SearchResult.self, decoder: JSONDecoder())
+            .map(\.businesses)
+            .replaceError(with: [])
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }, comboRequest: { endpoint in
+        // URL Request and return [Businesses] list
+        return URLSession.shared.dataTaskPublisher(for: endpoint.request)
+            .map(\.data)
+            .breakpointOnError()
+            .decode(type: SearchResult.self, decoder: JSONDecoder())
+            .map(\.businesses)
+            .replaceError(with: [])
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }) { endpoint in
@@ -250,12 +309,8 @@ extension YelpAPIService {
             .replaceError(with: [])
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
-        
-        
-        
     }
 }
-
 
 enum Endpoint {
     

@@ -25,8 +25,7 @@ struct MapView: View {
         NavigationView {
             
             // If there is data
-            if model.restaurants.count != 0 ||
-                model.sights.count != 0 {
+            if model.restaurants.count != 0 {
                 
                 // Determine if we should show list or map
                 
@@ -36,17 +35,20 @@ struct MapView: View {
                     // MARK: - List View -
                     VStack(alignment: .leading) {
                         
-                        // - BusinessList View -
-                        FilterButton(filterOptions: $model.filterOptions)
+                        
+                        // Category Button
+                        CategoryButton()
+                        
+                        // Attribute Button
+                        AttributeButton()
+                        
+                        // Sort Button
+                        SortButton()
 
                         
-                            
+                        // - BusinessList View -
                         BusinessList()
                             
-                            
-                        
-                        
-                        
                     }
                     .padding(.top)
                     .navigationTitle(Text(model.placemark?.locality ?? ""))

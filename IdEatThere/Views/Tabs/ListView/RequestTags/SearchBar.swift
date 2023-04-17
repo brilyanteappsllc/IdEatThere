@@ -32,7 +32,7 @@ struct SearchBar: View {
             
             Spacer()
             Button(action: {
-                filterModel.clearSelection()
+//                filterModel.clearSelection()
                 self.searchText = ""
 //                self.filterOptions = .none
                 UIApplication.shared.endEditing()
