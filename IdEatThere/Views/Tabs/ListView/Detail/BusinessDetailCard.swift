@@ -27,11 +27,14 @@ struct BusinessDetailCard: View {
                         .padding(.leading)
                     
                 }
-                
-                Text(business.isClosed! ? "Closed..." : "Open!")
-                    .foregroundColor(business.isClosed! ? Color.theme.red : Color.theme.green)
-                    .padding(.leading)
-                
+                HStack {
+                    
+                    Text(business.isClosed! ? "Closed..." : "Open!")
+                        .foregroundColor(business.isClosed! ? Color.theme.red : Color.theme.green)
+                        .padding(.leading)
+                    
+                    AddToMyGroupButton(business: business)
+                }
             }
             
             Group {

@@ -15,7 +15,7 @@ struct GroupsListView: View {
     var body: some View {
         
         
-        ScrollView(.horizontal) {
+        ScrollView(.horizontal, showsIndicators: false) {
             
             let rows = GridItem(.flexible(minimum: 100, maximum: 100), spacing: 15)
             
@@ -31,8 +31,10 @@ struct GroupsListView: View {
                 }
                 }
             }
+            .padding(.vertical, 10)
 
         }
+        .padding(.vertical, -10)
         .padding(.horizontal)
 
     }
