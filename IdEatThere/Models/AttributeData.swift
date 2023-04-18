@@ -14,9 +14,9 @@ enum AttributeOptions : String, CaseIterable, Equatable {
     
     case none,
          deals,
-         genderNeutralRestrooms,
-         hotAndNew,
-         takesReservations
+         genderNeutralRestrooms = "gender_neutral_restrooms",
+         hotAndNew = "hot_and_new",
+         reservation
     
     var imageName : String {
 
@@ -30,7 +30,7 @@ enum AttributeOptions : String, CaseIterable, Equatable {
             return "person.circle"
         case .hotAndNew :
             return "thermometer.sun"
-        case .takesReservations :
+        case .reservation :
             return "phone"
         }
     }
@@ -42,11 +42,11 @@ enum AttributeOptions : String, CaseIterable, Equatable {
         case .deals:
             return "Deals"
         case .genderNeutralRestrooms:
-            return "Gender Neutral Restrooms"
+            return "gender_neutral_restrooms"
         case .hotAndNew:
-            return "Hot and New"
-        case .takesReservations:
-            return "Takes Reservations"
+            return "hot_and_new"
+        case .reservation:
+            return "reservation"
         }
     }
     

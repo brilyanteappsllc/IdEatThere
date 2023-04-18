@@ -56,20 +56,24 @@ class RestaurantsContentModel: ObservableObject {
                 .search(
                     term: searchText,
                     location: locationManager.location! ,
-                    category: selectedCategory)
+                    category: selectedCategory,
+                    attributes: selectedAttribute,
+                    sort: selectedSort)
             )
             .assign(to: &$restaurants)
             
             $searchText
                 .debounce(for: 0.3, scheduler: DispatchQueue.main)
-                .combineLatest($selectedCategory)
-                .map { [self] (term, category) in
+                .combineLatest($selectedCategory, $selectedAttribute, $selectedSort)
+                .map { [self] (term, category, attributes, sort) in
                     
                     live.defaultRequest(
                         .search(
                             term: term,
                             location: locationManager.location!,
-                            category: term.isEmpty ? category : nil))
+                            category: category,
+                            attributes: attributes,
+                            sort: sort))
                     
                 }
                 .switchToLatest()

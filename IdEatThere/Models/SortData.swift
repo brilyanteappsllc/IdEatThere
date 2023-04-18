@@ -10,10 +10,10 @@ import Foundation
 
 enum SortOptions : String, CaseIterable, Equatable {
     
-    case none,
+    case none = "best_match",
          distance,
          rating,
-         reviews
+         reviews = "review_count"
     
     
     var imageName : String {
@@ -30,7 +30,7 @@ enum SortOptions : String, CaseIterable, Equatable {
         }
     }
     
-    var alies : String {
+    var alias : String {
         
         switch self {
         case .none:

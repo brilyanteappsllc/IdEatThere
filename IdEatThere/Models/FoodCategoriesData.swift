@@ -10,8 +10,8 @@ import Foundation
 
 enum FoodCategory: String, CaseIterable, Equatable {
     case all, coffee, beer
-    case icecream = "ice cream"
-    case breakfeast, donuts
+    case icecream = "icecream"
+    case breakfast, donuts
     
     var emoji: String {
         switch self {
@@ -23,7 +23,7 @@ enum FoodCategory: String, CaseIterable, Equatable {
             return "\u{1F37A}"
         case .icecream:
             return "\u{1F366}"
-        case .breakfeast:
+        case .breakfast:
             return "\u{1F95E}"
         case .donuts:
             return "\u{1F369}"
@@ -40,7 +40,7 @@ enum FoodCategory: String, CaseIterable, Equatable {
             return "beer_and_wine"
         case .icecream:
             return "icecream"
-        case .breakfeast:
+        case .breakfast:
             return "breakfast_brunch"
         case .donuts:
             return "donuts"
