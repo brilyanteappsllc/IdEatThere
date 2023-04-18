@@ -23,9 +23,7 @@ struct CategoryTag : View {
         } label: {
             HStack {
                 Text(category.emoji)
-                    .font(.bodyFont)
                 Text(category.rawValue)
-                    .font(.bodyFont)
             }
         }
         .padding(5)

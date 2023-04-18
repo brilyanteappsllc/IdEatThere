@@ -22,7 +22,6 @@ struct AttributeTag: View {
             HStack {
                 Image(systemName: attribute.imageName)
                 Text(attribute.rawValue)
-                    .font(.bodyFont)
             }
         }
         .padding(5)

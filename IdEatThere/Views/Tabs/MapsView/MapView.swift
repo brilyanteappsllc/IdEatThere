@@ -12,6 +12,7 @@ struct MapView: View {
     
     @State var isMapShowing = false
     @State var selectedBusiness: Business?
+    @State var showFilterAndSortView : Bool = false
     
     @EnvironmentObject var model: RestaurantsContentModel
     @EnvironmentObject var modelLocation : UserLocationService
@@ -33,24 +34,29 @@ struct MapView: View {
                 if isMapShowing == false {
                     
                     // MARK: - List View -
-                    VStack(alignment: .leading) {
-                        
-                        
-                        // Category Button
-                        CategoryButton()
-                        
-                        // Attribute Button
-                        AttributeButton()
-                        
-                        // Sort Button
-                        SortButton()
-
+                    VStack(alignment: .leading, spacing: 0) {
+                        Group {
+                            
+                            
+                            // Category Button
+                            CategoryButton()
+                            
+//                            // Attribute Button
+//                            AttributeButton()
+//
+//                            // Sort Button
+//                            SortButton()
+                            
+                            FilterAndSortButton()
+                            
+                          //  FilterAndSortButton()
+                        }
                         
                         // - BusinessList View -
                         BusinessList()
                             
                     }
-                    .padding(.top)
+//                    .padding(.top)
                     .navigationTitle(Text(model.placemark?.locality ?? ""))
                     .searchable(text: $model.searchText, prompt: Text("Search Food...")) {
                         
@@ -69,6 +75,13 @@ struct MapView: View {
                             .foregroundColor(Color.theme.blackText)
                         }
                     })
+                    .safeAreaInset(edge: .bottom) {
+                        Rectangle()
+                            .fill(LinearGradient(colors: [.white, .white.opacity(0)], startPoint: .bottom, endPoint: .top))
+                            .frame(height: 90)
+                            .padding(.bottom, 50)
+                    }
+                    .edgesIgnoringSafeArea(.bottom)
                     
                 }
                 

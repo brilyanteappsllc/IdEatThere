@@ -11,6 +11,8 @@ struct AttributeButton: View {
     
     @EnvironmentObject var attributeModel : RestaurantsContentModel
     
+    @State var isAttributesShowing = false
+    
     var body: some View {
         
         
@@ -21,18 +23,34 @@ struct AttributeButton: View {
             //            }
             
             Group {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(AttributeOptions.allCases, id: \.self) { attribute in
-                            
-                            AttributeTag(selectedAttribute: $attributeModel.selectedAttribute, attribute: attribute)
-                            
+                
+                HStack {
+                    Text(isAttributesShowing ? "Collapse Attributes" : " Show Attribute Options")
+                    ChevronDownButton(iconName: "chevron.down", height: 15, width: 15)
+                        .rotationEffect(Angle(degrees: isAttributesShowing ? 180 : 0))
+                        .onTapGesture {
+                            withAnimation(.spring()) {
+                                isAttributesShowing.toggle()
+                            }
                         }
-                    }
-                    .padding(.top)
-                    .padding(.bottom)
-                    .padding(.leading)
+                }
+                
+                ScrollView(.horizontal, showsIndicators: false) {
                     
+                    if isAttributesShowing {
+                        HStack {
+                            ForEach(AttributeOptions.allCases, id: \.self) { attribute in
+                                
+                                AttributeTag(selectedAttribute: $attributeModel.selectedAttribute, attribute: attribute)
+                                
+                            }
+                        }
+                        .padding(.top)
+                        .padding(.bottom)
+                        .padding(.leading)
+                        
+                        
+                    }
                 }
                 
             }

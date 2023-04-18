@@ -23,7 +23,6 @@ struct SortTag : View {
             HStack {
                 Image(systemName: sort.imageName)
                 Text(sort.rawValue)
-                    .font(.bodyFont)
             }
         }
         .padding(5)

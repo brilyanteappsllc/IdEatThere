@@ -11,6 +11,8 @@ struct SortButton: View {
     
     @EnvironmentObject var sortModel : RestaurantsContentModel
     
+    @State var isSortShowing = false
+    
     var body: some View {
         
         VStack(alignment: .leading) {
@@ -20,18 +22,31 @@ struct SortButton: View {
             //            }
             
             Group {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(SortOptions.allCases, id: \.self) { sort in
-                            
-                            SortTag(selectedSort: $sortModel.selectedSort, sort: sort)
-                            
+                HStack {
+                    Text(isSortShowing ? "Collapse Sort Options" : " Show Sort Options")
+                    ChevronDownButton(iconName: "chevron.down", height: 15, width: 15)
+                        .rotationEffect(Angle(degrees: isSortShowing ? 180 : 0))
+                        .onTapGesture {
+                            withAnimation(.spring()) {
+                                isSortShowing.toggle()
+                            }
                         }
-                    }
-                    .padding(.top)
-                    .padding(.bottom)
-                    .padding(.leading)
+                }
+                
+                ScrollView(.horizontal, showsIndicators: false) {
                     
+                    if isSortShowing {
+                        HStack {
+                            ForEach(SortOptions.allCases, id: \.self) { sort in
+                                
+                                SortTag(selectedSort: $sortModel.selectedSort, sort: sort)
+                                
+                            }
+                        }
+                        .padding(.top)
+                        .padding(.bottom)
+                        .padding(.leading)
+                    }
                 }
                 
             }
