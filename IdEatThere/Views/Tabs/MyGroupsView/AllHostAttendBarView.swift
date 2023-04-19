@@ -58,6 +58,7 @@ struct AllHostAttendBarView: View {
                 }
                 
             }
+            .frame(width: geo.size.width, height: 20)
             
         }
         

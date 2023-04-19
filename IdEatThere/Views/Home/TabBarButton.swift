@@ -19,11 +19,6 @@ struct TabBarButton: View {
             
             
             VStack(alignment: .center, spacing: 4) {
-
-                Image(systemName: imageName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 40, height: 30)
                 Text(buttonText)
                 
                 if isActive {

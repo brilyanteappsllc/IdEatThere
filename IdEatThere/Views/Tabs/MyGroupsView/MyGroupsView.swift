@@ -23,68 +23,72 @@ struct MyGroupsView: View {
             
             
             NavigationView {
+                
+                VStack(alignment: .leading, spacing: 10) {
                     
-                    VStack(alignment: .leading) {
+                    Group {
                         
-                        Group {
+                        Text("Upcoming Events")
+                            .font(.bodyHeaderFont)
+                            .padding(.leading)
+                            .padding(.top, 50)
+                    }
+                    
+                    
+                    HostButton()
+                    
+                    
+                    AllHostAttendBarView(groupTabSelection: $groupTabSelection)
+                        .padding(.top, 10)
+                    
+                    VStack {
+                        if groupTabSelection == .all {
                             
-                            Text("Upcoming")
-                                .font(.bodyHeaderFont)
-                                .padding(.leading)
-                                .padding(.top, 50)
+                            Text("All")
+                            
                         }
                         
-                        Group {
+                        if groupTabSelection == .host {
                             
-                            AllHostAttendBarView(groupTabSelection: $groupTabSelection)
+                            GroupsListView(groups: myGroupsModel.groupsHosting)
                             
-                            
-                            if groupTabSelection == .all {
-                                
-                                Text("All")
-                                
-                            }
-                            
-                            if groupTabSelection == .host {
-                                
-                                GroupsListView(groups: myGroupsModel.groupsHosting)
-                                
-                            }
-                            
-                            if groupTabSelection == .attend {
-                                
-                                GroupsListView(groups: myGroupsModel.groupsAttending)
-                                
-                            }
                         }
                         
-                        Spacer()
-                    }
-                    .sheet(isPresented: $presentCreateGroupView) {
-                        CreateGroupsView()
-                    }
-                    .navigationBarTitleDisplayMode(.inline)
-                    .toolbar {
+                        if groupTabSelection == .attend {
+                            
+                            GroupsListView(groups: myGroupsModel.groupsAttending)
+                            
+                        }
                         
-                        ToolbarItem(placement: .navigationBarLeading) {
-                                Text("My Groups")
-                                    .font(.system(size: 30))
-                                    .font(Font.headingFont)
+                    }
+                    Spacer()
+                    
+                }
+                .sheet(isPresented: $presentCreateGroupView) {
+                    CreateGroupsView()
+                }
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Text("My Groups")
+                            .font(.system(size: 30))
+                            .font(Font.headingFont)
                             .padding(.top, 10)
-                        }
-                        
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            
-                            Button {
-                                presentCreateGroupView.toggle()
-                            } label: {
-                                Image(systemName: "plus.circle")
-                            }
-                            .font(.headingFont)
-                            .padding(.top, 10)
-                            
-                        }
                     }
+                    
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        
+                        Button {
+                            presentCreateGroupView.toggle()
+                        } label: {
+                            Image(systemName: "plus.circle")
+                        }
+                        .font(.headingFont)
+                        .padding(.top, 10)
+                        
+                    }
+                }
             }
         }
         
