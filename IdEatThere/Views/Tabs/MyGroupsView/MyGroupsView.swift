@@ -12,6 +12,8 @@ struct MyGroupsView: View {
     
     @EnvironmentObject var myGroupsModel : MyGroupsModel
     
+    @State var groupTabSelection = TabsSelections.all
+    
     
     @State var presentCreateGroupView : Bool = false
     
@@ -24,59 +26,63 @@ struct MyGroupsView: View {
                     
                     VStack(alignment: .leading) {
                         
-                        Text("My Groups")
-                            .font(.bodyHeaderFont)
-                            .padding(.leading)
-                            .padding(.top, 50)
-                        
-                        Button {
-                            //                self.hasGroups = true
-                            presentCreateGroupView.toggle()
+                        Group {
                             
-                        } label : {
-                            
-                            HostButton()
-                        }
-                        
-                        .sheet(isPresented: $presentCreateGroupView) {
-                            CreateGroupsView()
-                        }
-                        
-
-                            
-                    // MARK: - Hosting List
-                        Text("Hosting")
-                            .font(.bodyHeaderFont)
-                                .padding(.top, 25)
+                            Text("Upcoming")
+                                .font(.bodyHeaderFont)
                                 .padding(.leading)
+                                .padding(.top, 50)
+                        }
+                        
+                        Group {
                             
-                        
-                        GroupsListView(groups: myGroupsModel.groupsHosting)
-                        
-                        
-                    // MARK: - Attending List
-                        
-                        Text("Attending")
-                            .font(.bodyHeaderFont)
-                            .padding(.top, 25)
-                            .padding(.leading)
-                        
-                        GroupsListView(groups: myGroupsModel.groupsAttending)
+                            AllHostAttendBarView(groupTabSelection: $groupTabSelection)
+                            
+                            
+                            if groupTabSelection == .all {
+                                
+                                Text("All")
+                                
+                            }
+                            
+                            if groupTabSelection == .host {
+                                
+                                GroupsListView(groups: myGroupsModel.groupsHosting)
+                                
+                            }
+                            
+                            if groupTabSelection == .attend {
+                                
+                                GroupsListView(groups: myGroupsModel.groupsAttending)
+                                
+                            }
+                        }
                         
                         Spacer()
+                    }
+                    .sheet(isPresented: $presentCreateGroupView) {
+                        CreateGroupsView()
                     }
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
                         
                         ToolbarItem(placement: .navigationBarLeading) {
-                            HStack {
-                                Image(systemName: "fork.knife.circle.fill")
-                                    .font(.system(size: 25))
-                                Text("I'd Eat There")
+                                Text("My Groups")
                                     .font(.system(size: 30))
                                     .font(Font.headingFont)
-                            }
                             .padding(.top, 10)
+                        }
+                        
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            
+                            Button {
+                                presentCreateGroupView.toggle()
+                            } label: {
+                                Image(systemName: "plus.circle")
+                            }
+                            .font(.headingFont)
+                            .padding(.top, 10)
+                            
                         }
                     }
             }

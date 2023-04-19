@@ -57,6 +57,7 @@
 		867C99DB2999AB0D00E57C3C /* ContactsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C99DA2999AB0D00E57C3C /* ContactsRow.swift */; };
 		8680813B29F041AC001DCD5E /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8680813A29F041AC001DCD5E /* FontSize.swift */; };
 		8680813D29F073BB001DCD5E /* SelectedGroupRestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8680813C29F073BB001DCD5E /* SelectedGroupRestaurantDetailView.swift */; };
+		8680813F29F08147001DCD5E /* AllHostAttendBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8680813E29F08147001DCD5E /* AllHostAttendBarView.swift */; };
 		86A25720296DEC8F00CFDFAB /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A2571F296DEC8F00CFDFAB /* WelcomeView.swift */; };
 		86A25722296DECA900CFDFAB /* PhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A25721296DECA900CFDFAB /* PhoneNumberView.swift */; };
 		86A25724296DECB700CFDFAB /* PhoneVerficationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A25723296DECB700CFDFAB /* PhoneVerficationView.swift */; };
@@ -160,6 +161,7 @@
 		867C99DA2999AB0D00E57C3C /* ContactsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsRow.swift; sourceTree = "<group>"; };
 		8680813A29F041AC001DCD5E /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		8680813C29F073BB001DCD5E /* SelectedGroupRestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedGroupRestaurantDetailView.swift; sourceTree = "<group>"; };
+		8680813E29F08147001DCD5E /* AllHostAttendBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllHostAttendBarView.swift; sourceTree = "<group>"; };
 		86A2571E296DCEC800CFDFAB /* IdEatThere.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IdEatThere.entitlements; sourceTree = "<group>"; };
 		86A2571F296DEC8F00CFDFAB /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		86A25721296DECA900CFDFAB /* PhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberView.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				862C8B6729A7D46E00768DDE /* AddingToMyGroupsView.swift */,
 				86ABBF9D29B50128009FFB9F /* AddingToMyGroupsListView.swift */,
 				862C8B6129A6E17000768DDE /* GroupsDetailView.swift */,
+				8680813E29F08147001DCD5E /* AllHostAttendBarView.swift */,
 				867C99D92999AAEB00E57C3C /* Contacts */,
 			);
 			path = MyGroupsView;
@@ -736,6 +739,7 @@
 				86E4BCE12965261000244E88 /* LoginForm.swift in Sources */,
 				86E4BCD82965261000244E88 /* BusinessDetail.swift in Sources */,
 				8643AB91296CC4050069D5F5 /* GroupsDataService.swift in Sources */,
+				8680813F29F08147001DCD5E /* AllHostAttendBarView.swift in Sources */,
 				86A25726296DECD500CFDFAB /* GeoLocationPermission.swift in Sources */,
 				862C8B6829A7D46E00768DDE /* AddingToMyGroupsView.swift in Sources */,
 				86E4BCDC2965261000244E88 /* DashedDivider.swift in Sources */,
