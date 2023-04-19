@@ -16,14 +16,20 @@ struct SelectedGroupView: View {
     
     var body: some View {
         
-        
-        NavigationView {
+   
             
-            VStack {
+        VStack(alignment: .leading) {
+            
+            Group {
+        
                 Text("Your Host: \(userHostDetails.userHostName)")
                 
                 //   Text("GroupId: \(groups.id ?? "")")
                 //     Text("GroupName: \(groups.groupName ?? "")")
+                
+                
+                
+            }
                 
                 if myGroupsModel.groupsRestaurantsList.isEmpty {
                     Text("No Restaurants have been added yet.")
@@ -31,9 +37,17 @@ struct SelectedGroupView: View {
                 }
                 else {
                     
-                    List(myGroupsModel.groupsRestaurantsList) { restarant in
+                    ForEach(myGroupsModel.groupsRestaurantsList) { restaurant in
                         
-                        Text(restarant.restaurantName ?? "")
+                        NavigationLink {
+                            SelectedGroupRestaurantDetailView(id: restaurant.restaurantId ?? "")
+                        } label: {
+                            
+                            Text(restaurant.restaurantName ?? "")
+                            
+                        }
+                        
+                        
                     }
                     
                 }
@@ -42,7 +56,7 @@ struct SelectedGroupView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .principal) {
                     HStack {
                         //TODO: Add image for the group
 //                        Image(systemName: "fork.knife.circle.fill")
@@ -62,13 +76,14 @@ struct SelectedGroupView: View {
                 myGroupsModel.queryRestaurantsInGroups(groupsId: groups.id ?? "")
                     
                 }
-        }
         
     }
 }
 
 //struct SelectedGroupView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        SelectedGroupView()
+//        SelectedGroupView(groups: Groups())
+//            .environmentObject(MyGroupsModel())
+//            .environmentObject(UserHostDetailsModel())
 //    }
 //}

@@ -36,6 +36,13 @@ struct CategoryButton: View {
                 
             }
         }
+        .safeAreaInset(edge: .trailing) {
+            Rectangle()
+                .fill(LinearGradient(colors: [.white, .white.opacity(0)], startPoint: .trailing, endPoint: .leading))
+                .frame(width: 20)
+                .frame(height: 20)
+        }
+        .edgesIgnoringSafeArea(.trailing)
     }
 }
 

@@ -24,6 +24,7 @@ class MyGroupsModel : ObservableObject {
     @Published var groupsHosting = [Groups]()
     @Published var groupsHostDetails = [User]()
     @Published var groupsRestaurantsList = [RestaurantsList]()
+    @Published var groupsRestaurantDetails : Business?
     
     @Published var allGroupsIn = [Groups]()
     
@@ -34,7 +35,6 @@ class MyGroupsModel : ObservableObject {
     @Published var allowInvitesToGroup = false
     
     private var groupId = ""
-    
     private var userId = ""
     
 //    private let groupsDataService = GroupsDataService()
@@ -173,6 +173,27 @@ class MyGroupsModel : ObservableObject {
             }
             
         }
+    }
+    
+    func querySelectedGroupsDetails(groupsId: String, completion: @escaping (Groups) -> Void) {
+        
+        
+        
+        
+    }
+    // MARK: - Yelp API Requests
+    
+    func apiRequestDetails(forId id : String) {
+        
+        let live = YelpAPIService.live
+        
+        let details = live
+            .businessDetails(.detail(id: id))
+ //           .share()
+        
+        details
+            .assign(to: &$groupsRestaurantDetails)
+
     }
     
     // MARK: - Create Group Form

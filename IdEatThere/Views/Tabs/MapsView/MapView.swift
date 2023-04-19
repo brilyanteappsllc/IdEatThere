@@ -44,6 +44,7 @@ struct MapView: View {
                             
                             // Category Button
                             CategoryButton()
+                                .padding(.bottom, 5)
                             
                         }
                         
