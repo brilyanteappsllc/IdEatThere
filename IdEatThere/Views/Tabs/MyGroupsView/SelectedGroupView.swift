@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+    // TODO: Change view to operate in group details and add specific features and elements for applicability
+
 struct SelectedGroupView: View {
     
     @EnvironmentObject var myGroupsModel : MyGroupsModel
