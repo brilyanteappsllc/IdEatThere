@@ -14,7 +14,7 @@ struct HostButton: View {
         ZStack {
             
             Rectangle()
-                .frame(height: 350)
+                .frame(height: 300)
                 .cornerRadius(10)
                 .foregroundColor(Color.theme.groupButtonColor)
                 .padding(.horizontal)

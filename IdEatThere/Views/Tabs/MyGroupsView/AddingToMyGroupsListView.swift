@@ -36,7 +36,7 @@ struct AddingToMyGroupsListView: View {
                         }
                         
                     } label: {
-                    GridButton(groupName: groups.groupName ?? "")
+                    GridButton(group: groups)
                 }
                 }
             }

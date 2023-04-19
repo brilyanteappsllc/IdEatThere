@@ -14,24 +14,25 @@ struct TabBarButton: View {
     var isActive : Bool
     
     var body: some View {
-        
-        GeometryReader {geo in
-            
             
             VStack(alignment: .center, spacing: 4) {
                 Text(buttonText)
+                    .font(.bodyHeaderFont)
                 
-                if isActive {
+                
+                ZStack{
                     
-                    Rectangle()
-                        .foregroundColor(Color.theme.accent)
-                        .frame(width: geo.size.width/2, height: 4)
+                    DashedDivider()
+                    if isActive {
+                        
+                        Rectangle()
+                            .foregroundColor(Color.theme.accent)
+                            .frame(width: 50, height: 2)
+                    }
                 }
                 
             }
-            .frame(width: geo.size.width, height: geo.size.height)
-            
-        }
+
     }
 }
 

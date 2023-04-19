@@ -12,7 +12,7 @@ struct MyGroupsView: View {
     
     @EnvironmentObject var myGroupsModel : MyGroupsModel
     
-    @State var groupTabSelection = TabsSelections.all
+    @State var groupTabSelection = TabsSelections.host
     
     
     @State var presentCreateGroupView : Bool = false
@@ -37,28 +37,18 @@ struct MyGroupsView: View {
                     
                     HostButton()
                     
-                    
                     AllHostAttendBarView(groupTabSelection: $groupTabSelection)
                         .padding(.top, 10)
                     
-                    VStack {
-                        if groupTabSelection == .all {
-                            
-                            Text("All")
-                            
-                        }
+                    if groupTabSelection == .host {
                         
-                        if groupTabSelection == .host {
-                            
-                            GroupsListView(groups: myGroupsModel.groupsHosting)
-                            
-                        }
+                        GroupsListView(groups: myGroupsModel.groupsHosting)
                         
-                        if groupTabSelection == .attend {
-                            
-                            GroupsListView(groups: myGroupsModel.groupsAttending)
-                            
-                        }
+                    }
+                    
+                    if groupTabSelection == .attend {
+                        
+                        GroupsListView(groups: myGroupsModel.groupsAttending)
                         
                     }
                     Spacer()

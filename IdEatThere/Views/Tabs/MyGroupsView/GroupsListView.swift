@@ -15,20 +15,32 @@ struct GroupsListView: View {
     var body: some View {
         
         
-        ScrollView(.horizontal, showsIndicators: false) {
+        ScrollView(showsIndicators: false) {
             
-            let rows = GridItem(.flexible(minimum: 100, maximum: 100), spacing: 15)
+//            let rows = GridItem(.flexible(minimum: 100, maximum: 100), spacing: 15)
+//
+//            LazyHGrid(rows: [rows], spacing: 15) {
+//
+//                ForEach(groups, id: \.id) { groups in
+//
+//                    NavigationLink {
+//                        SelectedGroupView(groups: groups)
+//
+//                    } label: {
+//                    GridButton(groupName: groups.groupName ?? "")
+//                }
+//                }
+//            }
             
-            LazyHGrid(rows: [rows], spacing: 15) {
-                
+            LazyVStack(alignment: .leading) {
                 ForEach(groups, id: \.id) { groups in
                     
                     NavigationLink {
                         SelectedGroupView(groups: groups)
                         
                     } label: {
-                    GridButton(groupName: groups.groupName ?? "")
-                }
+                        GridButton(group: groups)
+                    }
                 }
             }
             .padding(.vertical, 10)

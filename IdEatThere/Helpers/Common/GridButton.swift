@@ -9,23 +9,31 @@ import SwiftUI
 
 struct GridButton: View {
     
-    var groupName : String
+    var group : Groups
     
     var body: some View {
         
-
-            VStack() {
-                ZStack {
-                    Rectangle()
-                        .frame(width: 125, height: 75)
-                        .cornerRadius(10)
-                        .foregroundColor(Color.theme.green)
-                    Text("PlaceHolder")
-                        .foregroundColor(Color.theme.accent)
-                }
-                Text(groupName)
+        
+        
+        
+        VStack(alignment: .leading, spacing: 5) {
+            
+            HStack {
+                
+                Rectangle()
+                    .frame(width: 110, height: 110)
+                    .cornerRadius(10)
+                    .padding(5)
+                
+                Text(group.groupName ?? "")
+                    .font(.bodyHeaderFont)
+                    .foregroundColor(Color.theme.secondaryText)
                 
             }
+            .padding(5)
+            .cornerRadius(15)
+            .shadow(radius: 0.5)
+        }
     }
 }
 

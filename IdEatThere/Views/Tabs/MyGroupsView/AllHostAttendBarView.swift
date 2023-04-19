@@ -9,9 +9,8 @@ import SwiftUI
 
 enum TabsSelections : Int {
     
-    case all = 0
-    case host = 1
-    case attend = 2
+    case host = 0
+    case attend = 1
     
 }
 
@@ -21,21 +20,8 @@ struct AllHostAttendBarView: View {
     
     var body: some View {
         
-        
-        GeometryReader {geo in
             
             HStack(alignment: .center) {
-                
-                // --- All ---
-                Button {
-                    groupTabSelection = .all
-                } label: {
-                    TabBarButton(
-                        buttonText: "All",
-                        imageName: "",
-                        isActive: groupTabSelection == .all)
-                }
-                
                 
                 // --- Host ---
                 Button {
@@ -58,14 +44,13 @@ struct AllHostAttendBarView: View {
                 }
                 
             }
-            .frame(width: geo.size.width, height: 20)
-            
+            .padding(.horizontal)
         }
         
         
         
     }
-}
+
 
 //struct AllHostAttendBarView_Previews: PreviewProvider {
 //    static var previews: some View {
