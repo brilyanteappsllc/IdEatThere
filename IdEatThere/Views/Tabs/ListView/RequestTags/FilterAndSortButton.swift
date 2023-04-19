@@ -23,7 +23,8 @@ struct FilterAndSortButton: View {
                     HStack {
                         Image(systemName: "slider.horizontal.3")
                             .foregroundColor(.black)
-                        Text("Options")
+                        Text("Sort")
+                            .font(.filtersFont)
                             .foregroundColor(.black)
                     }
                     

@@ -37,19 +37,14 @@ struct MapView: View {
                     VStack(alignment: .leading, spacing: 0) {
                         Group {
                             
+                            // Filters and Sorting Options
+                            FilterAndSortButton()
+                            
+                            DashedDivider()
                             
                             // Category Button
                             CategoryButton()
                             
-//                            // Attribute Button
-//                            AttributeButton()
-//
-//                            // Sort Button
-//                            SortButton()
-                            
-                            FilterAndSortButton()
-                            
-                          //  FilterAndSortButton()
                         }
                         
                         // - BusinessList View -

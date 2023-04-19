@@ -43,18 +43,18 @@ struct BusinessRow: View {
                 // Name and Distance
                 VStack(alignment: .leading, spacing: 5) {
                     Text(business.name ?? "")
-                        .bold()
+                        .font(.bodyHeaderFont)
                         .foregroundColor(Color.theme.secondaryText)
                     // Formatting number of decimal places, f = floating point
                     Text(String(format: distanceMiles, (business.distance ?? 0) * 0.000621 )) // convert to miles
-                        .font(.caption)
+                        .font(.bodyFont)
                         .foregroundColor(Color.theme.secondaryText)
                     
                     // Star rating and number of reviews
                     HStack {
                         Image("regular_\(business.rating ?? 0)")
                         Text("\(business.reviewCount ?? 0) Reviews")
-                            .font(.caption)
+                            .font(.bodyFont)
                             .foregroundColor(Color.theme.secondaryText)
                         
                     }

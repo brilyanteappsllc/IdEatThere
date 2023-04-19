@@ -23,10 +23,13 @@ struct CategoryTag : View {
         } label: {
             HStack {
                 Text(category.emoji)
-                Text(category.rawValue)
+                    .font(.filtersFont)
+                Text(category.displayText)
+                    .font(.filtersFont)
             }
         }
         .padding(5)
+        .padding(.horizontal, 4)
         .background(selectedCategory == category ? Color.theme.accent : .white)
         .cornerRadius(20)
         .shadow(radius: 4)

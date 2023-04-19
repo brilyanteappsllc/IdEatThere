@@ -25,6 +25,7 @@ struct MyGroupsView: View {
                     VStack(alignment: .leading) {
                         
                         Text("My Groups")
+                            .font(.bodyHeaderFont)
                             .padding(.leading)
                             .padding(.top, 50)
                         
@@ -45,6 +46,7 @@ struct MyGroupsView: View {
                             
                     // MARK: - Hosting List
                         Text("Hosting")
+                            .font(.bodyHeaderFont)
                                 .padding(.top, 25)
                                 .padding(.leading)
                             
@@ -55,6 +57,7 @@ struct MyGroupsView: View {
                     // MARK: - Attending List
                         
                         Text("Attending")
+                            .font(.bodyHeaderFont)
                             .padding(.top, 25)
                             .padding(.leading)
                         

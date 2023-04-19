@@ -30,6 +30,25 @@ enum FoodCategory: String, CaseIterable, Equatable {
         }
     }
     
+    var displayText : String {
+        
+        
+        switch self {
+        case .all:
+            return "All"
+        case .coffee:
+            return "Coffee"
+        case .beer:
+            return "Drinks"
+        case .icecream:
+            return "Ice Cream"
+        case .breakfast:
+            return "Breakfast"
+        case .donuts:
+            return "Donuts"
+        }
+    }
+    
     var alias: String {
         switch self {
         case .all:

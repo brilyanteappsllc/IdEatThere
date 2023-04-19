@@ -55,6 +55,7 @@
 		867464CF2977544400358EEF /* GroupsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867464CE2977544400358EEF /* GroupsListView.swift */; };
 		867C99D8299996C700E57C3C /* HostSelectedContactsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C99D7299996C700E57C3C /* HostSelectedContactsButton.swift */; };
 		867C99DB2999AB0D00E57C3C /* ContactsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867C99DA2999AB0D00E57C3C /* ContactsRow.swift */; };
+		8680813B29F041AC001DCD5E /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8680813A29F041AC001DCD5E /* FontSize.swift */; };
 		86A25720296DEC8F00CFDFAB /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A2571F296DEC8F00CFDFAB /* WelcomeView.swift */; };
 		86A25722296DECA900CFDFAB /* PhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A25721296DECA900CFDFAB /* PhoneNumberView.swift */; };
 		86A25724296DECB700CFDFAB /* PhoneVerficationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A25723296DECB700CFDFAB /* PhoneVerficationView.swift */; };
@@ -156,6 +157,7 @@
 		867464CE2977544400358EEF /* GroupsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsListView.swift; sourceTree = "<group>"; };
 		867C99D7299996C700E57C3C /* HostSelectedContactsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostSelectedContactsButton.swift; sourceTree = "<group>"; };
 		867C99DA2999AB0D00E57C3C /* ContactsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsRow.swift; sourceTree = "<group>"; };
+		8680813A29F041AC001DCD5E /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		86A2571E296DCEC800CFDFAB /* IdEatThere.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IdEatThere.entitlements; sourceTree = "<group>"; };
 		86A2571F296DEC8F00CFDFAB /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		86A25721296DECA900CFDFAB /* PhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberView.swift; sourceTree = "<group>"; };
@@ -284,7 +286,7 @@
 		8627F9EF29674F6200382DA8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				8643AB6C296C792C0069D5F5 /* Fonts.swift */,
+				8643AB52296C78130069D5F5 /* Font */,
 				8627F9F029674F6D00382DA8 /* Color.swift */,
 				8627F9FE2967F17200382DA8 /* UIApplication.swift */,
 			);
@@ -362,7 +364,9 @@
 		8643AB52296C78130069D5F5 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				8643AB6C296C792C0069D5F5 /* Fonts.swift */,
 				8643AB86296C7EB00069D5F5 /* NotoSerifToto-VariableFont_wght.ttf */,
+				8680813A29F041AC001DCD5E /* FontSize.swift */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -523,7 +527,6 @@
 		86E4BCF02965266200244E88 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				8643AB52296C78130069D5F5 /* Font */,
 				8627F9F229676C4A00382DA8 /* Common */,
 				8627F9EF29674F6200382DA8 /* Extensions */,
 				86E4BCEE2965265A00244E88 /* Assets.xcassets */,
@@ -698,6 +701,7 @@
 				86A80AD4297086BD001B8941 /* ContactsModel.swift in Sources */,
 				86E4BCE02965261000244E88 /* OnboardingView.swift in Sources */,
 				86E4BCD52965261000244E88 /* BusinessRow.swift in Sources */,
+				8680813B29F041AC001DCD5E /* FontSize.swift in Sources */,
 				8643AB6D296C792C0069D5F5 /* Fonts.swift in Sources */,
 				86A2572A296DF1D500CFDFAB /* ContactsView.swift in Sources */,
 				86A8AB6029EF54DF00F991B3 /* FilterAndSortView.swift in Sources */,

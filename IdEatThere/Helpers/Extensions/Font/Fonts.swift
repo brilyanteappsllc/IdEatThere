@@ -18,8 +18,16 @@ extension Font {
         return Font.custom("NotoSeriToto-Regular_SemiBold", size: 24)
     }
     
+    public static var bodyHeaderFont : Font {
+        return Font.custom("NotoSeriToto-Regular_SemiBold", size: 18)
+    }
+    
     public static var bodyFont : Font {
-        return Font.custom("NotoSeriToto-Regular", size: 24)
+        return Font.custom("NotoSeriToto-Regular", size: 12)
+    }
+    
+    public static var filtersFont : Font {
+        return Font.custom("NotoSeriToto-Regular", size: 15)
     }
     
     public static var captionFont : Font {
