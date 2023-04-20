@@ -7,9 +7,10 @@
 
 import SwiftUI
 import MapKit
+import GoogleMapsTileOverlay
 
 
-struct BusinessMap: UIViewRepresentable {
+struct SearchBusinessMap: UIViewRepresentable {
     
     @EnvironmentObject var model: RestaurantsContentModel
     @Binding var selectedBusiness: Business?
@@ -42,6 +43,27 @@ struct BusinessMap: UIViewRepresentable {
     func makeUIView(context: Context) -> MKMapView {
         
         let mapView = MKMapView()
+        
+        
+        do {
+            if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
+        
+                let gmTileOverlay = try GoogleMapsTileOverlay(jsonURL: styleURL)
+                gmTileOverlay.canReplaceMapContent = true
+                mapView.addOverlay(gmTileOverlay)
+            }
+  
+            else {
+  
+                print("Unable to find style.json")
+            }
+  
+  
+        } catch {
+  
+            print("Oneo r more of the map styles failed to load. \(error.localizedDescription)")
+        }
+        
         mapView.delegate = context.coordinator
         
         
@@ -80,9 +102,9 @@ struct BusinessMap: UIViewRepresentable {
     
     class Coordinator: NSObject,  MKMapViewDelegate {
         
-        var map: BusinessMap
+        var map: SearchBusinessMap
         
-        init(map: BusinessMap) {
+        init(map: SearchBusinessMap) {
             self.map = map
         }
         
@@ -133,6 +155,13 @@ struct BusinessMap: UIViewRepresentable {
                 }
             }
             
+        }
+        
+        func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+            if let gmTileOverlay = overlay as? MKTileOverlay {
+                return MKTileOverlayRenderer(tileOverlay: gmTileOverlay)
+            }
+            return MKPolygonRenderer(overlay: overlay)
         }
         
     }

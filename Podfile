@@ -10,4 +10,6 @@ target 'IdEatThere' do
   pod 'Firebase/Auth'
   pod 'FirebaseFirestoreSwift'
   pod 'Firebase/Storage'
+  pod 'GoogleMapsTileOverlay', '~> 0.4.1'
+
 end

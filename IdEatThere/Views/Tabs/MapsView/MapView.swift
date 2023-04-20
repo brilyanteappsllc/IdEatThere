@@ -86,7 +86,7 @@ struct MapView: View {
                     ZStack(alignment: .top) {
                         
                         // Show map
-                        BusinessMap(selectedBusiness: $selectedBusiness)
+                        SearchBusinessMap(selectedBusiness: $selectedBusiness)
                             .ignoresSafeArea()
                             .sheet(item: $selectedBusiness) { business in
                                 

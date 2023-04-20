@@ -23,8 +23,10 @@ struct SelectedGroupRestaurantDetailView: View {
                 .fill(Color.clear)
             
             //Map View
+            myGroupsModel.groupsRestaurantDetails != nil ?
             DirectionsMap(business: myGroupsModel.groupsRestaurantDetails ?? Business())
                 .frame(height: UIScreen.main.bounds.height * 0.45)
+            : nil
             
         }
         .overlay (
