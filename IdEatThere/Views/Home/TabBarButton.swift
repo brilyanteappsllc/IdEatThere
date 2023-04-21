@@ -22,7 +22,7 @@ struct TabBarButton: View {
                 
                 ZStack{
                     
-                    DashedDivider()
+                   // DashedDivider()
                     if isActive {
                         
                         Rectangle()

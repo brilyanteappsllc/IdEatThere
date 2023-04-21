@@ -69,7 +69,7 @@ struct CreateGroupsView: View {
                         }
                         
                         Section(header: Text("Pick your date")) {
-                            DatePicker("Reservations on: ", selection: $myGroupsModel.datePicked, displayedComponents: [.date, .hourAndMinute])
+                            DatePicker("Date", selection: $myGroupsModel.datePicked, displayedComponents: [.date, .hourAndMinute])
                             
                         }
                         

@@ -17,23 +17,30 @@ struct GridButton: View {
         
         
         VStack(alignment: .leading, spacing: 5) {
-            
-            HStack {
-                
-                Rectangle()
-                    .frame(width: 110, height: 110)
-                    .cornerRadius(10)
-                    .padding(5)
-                
-                Text(group.groupName ?? "")
-                    .font(.bodyHeaderFont)
-                    .foregroundColor(Color.theme.secondaryText)
-                
-            }
-            .padding(5)
-            .cornerRadius(15)
-            .shadow(radius: 0.5)
+
+
+                HStack {
+                    
+                    Rectangle()
+                        .frame(width: 75, height: 75)
+                        .cornerRadius(10)
+                        .padding(5)
+                    
+                    Text(group.groupName ?? "")
+                        .font(.bodyHeaderFont)
+                        .foregroundColor(Color.theme.secondaryText)
+                    
+                    Spacer()
+                    
+                }
+                .padding(5)
+                .background(.white)
+                .cornerRadius(15)
+                .shadow(radius: 0.5)
+
+
         }
+        .padding(.horizontal)
     }
 }
 

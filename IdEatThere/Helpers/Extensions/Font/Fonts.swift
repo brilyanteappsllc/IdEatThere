@@ -22,6 +22,10 @@ extension Font {
         return Font.custom("NotoSeriToto-Regular_SemiBold", size: 18)
     }
     
+    public static var bodyHeaderFontBold : Font {
+        return Font.custom("NotoSeriToto-Bold", size: 18)
+    }
+    
     public static var bodyFont : Font {
         return Font.custom("NotoSeriToto-Regular", size: 12)
     }

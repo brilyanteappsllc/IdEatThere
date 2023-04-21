@@ -17,6 +17,26 @@ struct GroupsListView: View {
         
         ScrollView(showsIndicators: false) {
             
+            LazyVStack(alignment: .leading) {
+                ForEach(groups, id: \.id) { groups in
+                    
+                    NavigationLink {
+                        SelectedGroupView(groups: groups)
+                        
+                    } label: {
+                        GridButton(group: groups)
+                    }
+                }
+            }
+            .padding(.vertical, 10)
+        }
+        .padding(.vertical, -10)
+  //      .padding(.horizontal)
+
+    }
+}
+
+
 //            let rows = GridItem(.flexible(minimum: 100, maximum: 100), spacing: 15)
 //
 //            LazyHGrid(rows: [rows], spacing: 15) {
@@ -31,26 +51,6 @@ struct GroupsListView: View {
 //                }
 //                }
 //            }
-            
-            LazyVStack(alignment: .leading) {
-                ForEach(groups, id: \.id) { groups in
-                    
-                    NavigationLink {
-                        SelectedGroupView(groups: groups)
-                        
-                    } label: {
-                        GridButton(group: groups)
-                    }
-                }
-            }
-            .padding(.vertical, 10)
-
-        }
-        .padding(.vertical, -10)
-        .padding(.horizontal)
-
-    }
-}
 
 //struct GroupsListView_Previews: PreviewProvider {
 //    static var previews: some View {

@@ -24,21 +24,35 @@ struct MyGroupsView: View {
             
             NavigationView {
                 
-                VStack(alignment: .leading, spacing: 10) {
+                VStack(alignment: .leading) {
                     
-                    Group {
-                        
-                        Text("Upcoming Events")
-                            .font(.bodyHeaderFont)
-                            .padding(.leading)
-                            .padding(.top, 50)
+//                    Group {
+//
+//                        Text("Upcoming Events")
+//                            .font(.bodyHeaderFont)
+//                            .padding(.leading)
+//                            .padding(.top, 10)
+//                    }
+                    
+                    
+                    if #available(iOS 16.0, *) {
+                        CalendarView(interval: DateInterval(start: .distantPast, end: .distantFuture))
+                    } else {
+                        // Fallback on earlier versions
                     }
                     
-                    
-                    HostButton()
-                    
-                    AllHostAttendBarView(groupTabSelection: $groupTabSelection)
-                        .padding(.top, 10)
+                    ZStack(alignment: .bottom) {
+                        
+                        DashedDivider()
+                        
+                        AllHostAttendBarView(groupTabSelection: $groupTabSelection)
+                          //  .padding(.top, 10)
+                        
+                        
+                        
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom, 5)
                     
                     if groupTabSelection == .host {
                         
@@ -57,7 +71,7 @@ struct MyGroupsView: View {
                 .sheet(isPresented: $presentCreateGroupView) {
                     CreateGroupsView()
                 }
-                .navigationBarTitleDisplayMode(.inline)
+ //               .navigationTitle("My Groups")
                 .toolbar {
                     
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -72,9 +86,9 @@ struct MyGroupsView: View {
                         Button {
                             presentCreateGroupView.toggle()
                         } label: {
-                            Image(systemName: "plus.circle")
+                            Image(systemName: "calendar.badge.plus")
                         }
-                        .font(.headingFont)
+                        .font(.bodyHeaderFont)
                         .padding(.top, 10)
                         
                     }
@@ -100,9 +114,9 @@ struct MyGroupsView: View {
     }
 }
 
-//struct MyGroupsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MyGroupsView()
-//            .environmentObject(MyGroupsModel())
-//    }
-//}
+struct MyGroupsView_Previews: PreviewProvider {
+    static var previews: some View {
+        MyGroupsView()
+            .environmentObject(MyGroupsModel())
+    }
+}

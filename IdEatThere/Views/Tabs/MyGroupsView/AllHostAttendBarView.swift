@@ -23,6 +23,8 @@ struct AllHostAttendBarView: View {
             
             HStack(alignment: .center) {
                 
+
+                Spacer()
                 // --- Host ---
                 Button {
                     groupTabSelection = .host
@@ -33,6 +35,8 @@ struct AllHostAttendBarView: View {
                         isActive: groupTabSelection == .host)
                 }
                 
+                Spacer()
+                
                 // --- Attending ---
                 Button {
                     groupTabSelection = .attend
@@ -42,6 +46,8 @@ struct AllHostAttendBarView: View {
                         imageName: "",
                         isActive: groupTabSelection == .attend)
                 }
+                
+                Spacer()
                 
             }
             .padding(.horizontal)
