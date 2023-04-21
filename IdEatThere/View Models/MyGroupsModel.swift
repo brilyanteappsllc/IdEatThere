@@ -43,6 +43,18 @@ class MyGroupsModel : ObservableObject {
     let db = Firestore.firestore()
     
     
+    // Computed date converter from firebase timestamp -> Month DD, YYYY at HH:MM AM/PM
+    let date: Date
+    let dateFormatter: DateFormatter
+    
+    init() {
+        date = Date()
+        dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .short
+    }
+    
+    
 //    init() {
 //
 //        addSubscribers()

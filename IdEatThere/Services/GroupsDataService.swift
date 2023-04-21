@@ -114,7 +114,8 @@ class GroupsDataService {
                     
                     if let groups = try? doc.data(as: Groups.self) {
                         
-                            groupsHosting.append(groups)
+                        groupsHosting.append(groups)
+                        print(groups.date)
                     }
                 }
                 

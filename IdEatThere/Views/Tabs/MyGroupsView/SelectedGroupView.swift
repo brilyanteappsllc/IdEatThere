@@ -15,11 +15,11 @@ struct SelectedGroupView: View {
     @EnvironmentObject var userHostDetails : UserHostDetailsModel
     
     var groups : Groups
+     
     
     var body: some View {
         
-   
-            
+
         VStack(alignment: .leading) {
             
             Group {
@@ -29,6 +29,7 @@ struct SelectedGroupView: View {
                 //   Text("GroupId: \(groups.id ?? "")")
                 //     Text("GroupName: \(groups.groupName ?? "")")
                 
+                Text(groups.date ?? Date(), formatter: myGroupsModel.dateFormatter)
                 
                 
             }
