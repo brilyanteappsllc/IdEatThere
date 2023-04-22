@@ -13,8 +13,11 @@ struct SelectedGroupRestaurantDetailView: View {
     
     var id : String
     
+    @State var complete : Bool
     
     var body: some View {
+        
+        // TODO: Add loading screen
         
         ZStack(alignment: .top) {
             

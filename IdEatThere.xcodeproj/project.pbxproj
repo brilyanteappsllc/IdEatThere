@@ -58,6 +58,8 @@
 		8680813F29F08147001DCD5E /* AllHostAttendBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8680813E29F08147001DCD5E /* AllHostAttendBarView.swift */; };
 		8680819629F1ECA0001DCD5E /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = 8680819529F1ECA0001DCD5E /* style.json */; };
 		8680819929F2ED6A001DCD5E /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8680819829F2ED69001DCD5E /* CalendarView.swift */; };
+		8680819B29F3395D001DCD5E /* CalendarEventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8680819A29F3395D001DCD5E /* CalendarEventStore.swift */; };
+		8680819D29F33B38001DCD5E /* CalendarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8680819C29F33B38001DCD5E /* CalendarEvent.swift */; };
 		86A25720296DEC8F00CFDFAB /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A2571F296DEC8F00CFDFAB /* WelcomeView.swift */; };
 		86A25722296DECA900CFDFAB /* PhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A25721296DECA900CFDFAB /* PhoneNumberView.swift */; };
 		86A25724296DECB700CFDFAB /* PhoneVerficationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A25723296DECB700CFDFAB /* PhoneVerficationView.swift */; };
@@ -161,6 +163,8 @@
 		8680813E29F08147001DCD5E /* AllHostAttendBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllHostAttendBarView.swift; sourceTree = "<group>"; };
 		8680819529F1ECA0001DCD5E /* style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = style.json; sourceTree = "<group>"; };
 		8680819829F2ED69001DCD5E /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		8680819A29F3395D001DCD5E /* CalendarEventStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEventStore.swift; sourceTree = "<group>"; };
+		8680819C29F33B38001DCD5E /* CalendarEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEvent.swift; sourceTree = "<group>"; };
 		86A2571E296DCEC800CFDFAB /* IdEatThere.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IdEatThere.entitlements; sourceTree = "<group>"; };
 		86A2571F296DEC8F00CFDFAB /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		86A25721296DECA900CFDFAB /* PhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberView.swift; sourceTree = "<group>"; };
@@ -515,6 +519,7 @@
 				8643AB8E296CC3190069D5F5 /* MyGroupsModel.swift */,
 				862C8B6B29A852A100768DDE /* UserHostDetailsViewModel.swift */,
 				86E4BCE32965262300244E88 /* UserManager.swift */,
+				8680819A29F3395D001DCD5E /* CalendarEventStore.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -530,6 +535,7 @@
 				86A8AB4F29ED929A00F991B3 /* AttributeData.swift */,
 				86A8AB2329EB1E1A00F991B3 /* FoodCategoriesData.swift */,
 				86A8AB5129ED9D4A00F991B3 /* SortData.swift */,
+				8680819C29F33B38001DCD5E /* CalendarEvent.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -695,6 +701,7 @@
 				86726A29299D6C6200ED4DB7 /* EmailView.swift in Sources */,
 				864B2A6F299EA36400D8AAF5 /* TabBarButton.swift in Sources */,
 				8643AB8D296C94AF0069D5F5 /* CreateGroupsView.swift in Sources */,
+				8680819B29F3395D001DCD5E /* CalendarEventStore.swift in Sources */,
 				8603C24529653488006C1A58 /* MapView.swift in Sources */,
 				8627F9F129674F6D00382DA8 /* Color.swift in Sources */,
 				86A2572C296FACA300CFDFAB /* OnboardingTextFields.swift in Sources */,
@@ -770,6 +777,7 @@
 				8603C25129653EEC006C1A58 /* LogoutForm.swift in Sources */,
 				862C8B6C29A852A200768DDE /* UserHostDetailsViewModel.swift in Sources */,
 				86A8AB5829EDEE0F00F991B3 /* CategoryTag.swift in Sources */,
+				8680819D29F33B38001DCD5E /* CalendarEvent.swift in Sources */,
 				86E4BCEA2965263000244E88 /* Business.swift in Sources */,
 				8643AB48296B83CC0069D5F5 /* AddToMyGroupButton.swift in Sources */,
 				86A8AB5A29EDEE3500F991B3 /* SortTag.swift in Sources */,

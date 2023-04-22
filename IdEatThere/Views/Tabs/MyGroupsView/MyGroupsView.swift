@@ -17,6 +17,8 @@ struct MyGroupsView: View {
     
     @State var presentCreateGroupView : Bool = false
     
+    private var selectedDate : Date?
+    
     var body: some View {
         
         if myGroupsModel.hasGroups == true {
@@ -92,7 +94,15 @@ struct MyGroupsView: View {
                         .padding(.top, 10)
                         
                     }
+                    
                 }
+                .safeAreaInset(edge: .bottom) {
+                    Rectangle()
+                        .fill(LinearGradient(colors: [.white, .white.opacity(0)], startPoint: .bottom, endPoint: .top))
+                        .frame(height: 90)
+                        .padding(.bottom, 50)
+                }
+                .edgesIgnoringSafeArea(.bottom)
             }
         }
         

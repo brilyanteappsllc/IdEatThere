@@ -43,7 +43,7 @@ struct SelectedGroupView: View {
                     ForEach(myGroupsModel.groupsRestaurantsList) { restaurant in
                         
                         NavigationLink {
-                            SelectedGroupRestaurantDetailView(id: restaurant.restaurantId ?? "")
+                            SelectedGroupRestaurantDetailView(id: restaurant.restaurantId ?? "", complete: false)
                         } label: {
                             
                             Text(restaurant.restaurantName ?? "")

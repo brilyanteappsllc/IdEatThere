@@ -12,21 +12,37 @@ struct CalendarView: UIViewRepresentable {
     
     let interval: DateInterval
     
+  //  @Binding var selectedDate : Date?
+    
     func makeUIView(context: Context) -> UICalendarView {
         let view = UICalendarView()
         view.calendar = Calendar(identifier: .gregorian)
         view.availableDateRange = interval
+ //       view.selectionBehavior = UICalendarSelectionSingleDate(delegate: context.coordinator)
         return view
     }
     
+//    func makeCoordinator() -> Coordinator {
+//        <#code#>
+//    }
+//    
+    
     func updateUIView(_ uiView: UICalendarView, context: Context) {
+        
+        uiView.calendar = Calendar(identifier: .gregorian)
+        uiView.availableDateRange = interval
         
     }
     
+//    class Coordinator: NSObject, UICalendarViewDelegate {
+//
+//        func calendarView(_ calendarView: UICalendarView, decorationFor dateComponents: DateComponents) -> UICalendarView.Decoration? {
+//            return nil
+//        }
+//
+//
+//    }
     
-    
-    
-
 }
 
 //struct CalendarView_Previews: PreviewProvider {
