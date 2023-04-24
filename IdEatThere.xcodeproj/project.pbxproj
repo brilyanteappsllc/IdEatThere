@@ -290,6 +290,7 @@
 		8627F9EF29674F6200382DA8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				86A80AD729709FB7001B8941 /* PhoneTextHelper.swift */,
 				8643AB52296C78130069D5F5 /* Font */,
 				8627F9F029674F6D00382DA8 /* Color.swift */,
 				8627F9FE2967F17200382DA8 /* UIApplication.swift */,
@@ -300,22 +301,13 @@
 		8627F9F229676C4A00382DA8 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				8643AB47296B83CC0069D5F5 /* AddToMyGroupButton.swift */,
-				8643AB41296B7DFE0069D5F5 /* CallButton.swift */,
 				8627F9F329676C5900382DA8 /* CircleButton.swift */,
 				8627F9FA2967769800382DA8 /* ChevronDownButton.swift */,
 				8627F9FC2967811000382DA8 /* CircleButtonAnimation.swift */,
 				86E4BCCA2965261000244E88 /* DashedDivider.swift */,
-				864B2A6C299E971600D8AAF5 /* GridButton.swift */,
-				8643AB8A296C905E0069D5F5 /* HostButton.swift */,
-				867C99D7299996C700E57C3C /* HostSelectedContactsButton.swift */,
-				8643AB45296B7FAA0069D5F5 /* MapLinkButton.swift */,
 				86A2572B296FACA300CFDFAB /* OnboardingTextFields.swift */,
-				8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */,
 				862C8B6529A7CEC900768DDE /* SplashScreenButton.swift */,
 				8627FA0329687D3A00382DA8 /* XMarkButton.swift */,
-				86E4BCCB2965261000244E88 /* YelpAttribution.swift */,
-				862C8B6F29A9299900768DDE /* CreateGroupButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -336,12 +328,10 @@
 				8603C246296534CB006C1A58 /* MyGroupsView.swift */,
 				8680813E29F08147001DCD5E /* AllHostAttendBarView.swift */,
 				867464CE2977544400358EEF /* GroupsListView.swift */,
-				864B2A70299EAF9700D8AAF5 /* SelectedGroupView.swift */,
-				8680813C29F073BB001DCD5E /* SelectedGroupRestaurantDetailView.swift */,
-				8643AB88296C87EA0069D5F5 /* NoGroupsYet.swift */,
-				8643AB8C296C94AF0069D5F5 /* CreateGroupsView.swift */,
-				862C8B6729A7D46E00768DDE /* AddingToMyGroupsView.swift */,
-				86ABBF9D29B50128009FFB9F /* AddingToMyGroupsListView.swift */,
+				868081A229F6DAD6001DCD5E /* NoGroups */,
+				868081A129F6DA89001DCD5E /* SelectedGroup */,
+				868081A029F6DA35001DCD5E /* CreateGroup */,
+				8680819F29F6D9FF001DCD5E /* AddToGroup */,
 				8680819729F2ED55001DCD5E /* Calendar */,
 				867C99D92999AAEB00E57C3C /* Contacts */,
 			);
@@ -396,6 +386,7 @@
 				867464CC297753C900358EEF /* ContactsListView.swift */,
 				867C99DA2999AB0D00E57C3C /* ContactsRow.swift */,
 				862C8B6D29A90FB400768DDE /* SelectContactsView.swift */,
+				867C99D7299996C700E57C3C /* HostSelectedContactsButton.swift */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
@@ -406,6 +397,55 @@
 				8680819829F2ED69001DCD5E /* CalendarView.swift */,
 			);
 			path = Calendar;
+			sourceTree = "<group>";
+		};
+		8680819E29F6D9C8001DCD5E /* Yelp */ = {
+			isa = PBXGroup;
+			children = (
+				86E4BCCB2965261000244E88 /* YelpAttribution.swift */,
+				8643AB41296B7DFE0069D5F5 /* CallButton.swift */,
+				8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */,
+				8643AB45296B7FAA0069D5F5 /* MapLinkButton.swift */,
+			);
+			path = Yelp;
+			sourceTree = "<group>";
+		};
+		8680819F29F6D9FF001DCD5E /* AddToGroup */ = {
+			isa = PBXGroup;
+			children = (
+				86ABBF9D29B50128009FFB9F /* AddingToMyGroupsListView.swift */,
+				862C8B6729A7D46E00768DDE /* AddingToMyGroupsView.swift */,
+				8643AB47296B83CC0069D5F5 /* AddToMyGroupButton.swift */,
+			);
+			path = AddToGroup;
+			sourceTree = "<group>";
+		};
+		868081A029F6DA35001DCD5E /* CreateGroup */ = {
+			isa = PBXGroup;
+			children = (
+				8643AB8C296C94AF0069D5F5 /* CreateGroupsView.swift */,
+				862C8B6F29A9299900768DDE /* CreateGroupButton.swift */,
+			);
+			path = CreateGroup;
+			sourceTree = "<group>";
+		};
+		868081A129F6DA89001DCD5E /* SelectedGroup */ = {
+			isa = PBXGroup;
+			children = (
+				864B2A70299EAF9700D8AAF5 /* SelectedGroupView.swift */,
+				8680813C29F073BB001DCD5E /* SelectedGroupRestaurantDetailView.swift */,
+				864B2A6C299E971600D8AAF5 /* GridButton.swift */,
+			);
+			path = SelectedGroup;
+			sourceTree = "<group>";
+		};
+		868081A229F6DAD6001DCD5E /* NoGroups */ = {
+			isa = PBXGroup;
+			children = (
+				8643AB88296C87EA0069D5F5 /* NoGroupsYet.swift */,
+				8643AB8A296C905E0069D5F5 /* HostButton.swift */,
+			);
+			path = NoGroups;
 			sourceTree = "<group>";
 		};
 		86E4BC9C2965248900244E88 = {
@@ -436,9 +476,9 @@
 				86E4BCB82965261000244E88 /* Views */,
 				86E4BCE22965262300244E88 /* View Models */,
 				86E4BCE72965263000244E88 /* Models */,
+				8627FA002967F62600382DA8 /* Services */,
 				86E4BCF02965266200244E88 /* Helpers */,
 				86E4BCAE2965248C00244E88 /* Preview Content */,
-				8627FA002967F62600382DA8 /* Services */,
 			);
 			path = IdEatThere;
 			sourceTree = "<group>";
@@ -543,13 +583,13 @@
 		86E4BCF02965266200244E88 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				8680819E29F6D9C8001DCD5E /* Yelp */,
 				8680819529F1ECA0001DCD5E /* style.json */,
 				8627F9F229676C4A00382DA8 /* Common */,
 				8627F9EF29674F6200382DA8 /* Extensions */,
 				86E4BCEE2965265A00244E88 /* Assets.xcassets */,
 				86E4BCEC2965264D00244E88 /* Constants.swift */,
 				86E4BCB62965256100244E88 /* GoogleService-Info.plist */,
-				86A80AD729709FB7001B8941 /* PhoneTextHelper.swift */,
 				86A80AD92970B731001B8941 /* ImagePicker.swift */,
 			);
 			path = Helpers;
