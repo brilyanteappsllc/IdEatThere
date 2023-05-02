@@ -12,7 +12,7 @@ import Foundation
 
 class CalendarEventStoreViewModel : ObservableObject {
     
-  //  @Published var events =
+    @Published var eventType : CalendarEventType = .unspecified
     
     
 }

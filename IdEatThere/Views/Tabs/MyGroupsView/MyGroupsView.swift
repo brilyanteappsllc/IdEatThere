@@ -11,6 +11,7 @@ struct MyGroupsView: View {
     
     
     @EnvironmentObject var myGroupsModel : MyGroupsModel
+    @EnvironmentObject var calendarEventModel : CalendarEventStoreViewModel
     
     @State var groupTabSelection = TabsSelections.host
     
@@ -71,7 +72,7 @@ struct MyGroupsView: View {
                     
                 }
                 .sheet(isPresented: $presentCreateGroupView) {
-                    CreateGroupsView()
+                    CreateGroupsView(eventType: $calendarEventModel.eventType)
                 }
  //               .navigationTitle("My Groups")
                 .toolbar {

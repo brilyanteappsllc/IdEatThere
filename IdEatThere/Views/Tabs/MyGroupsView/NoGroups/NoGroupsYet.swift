@@ -10,6 +10,7 @@ import SwiftUI
 struct NoGroupsYet: View {
     
     @StateObject var myGroupsModel = MyGroupsModel()
+    @StateObject var calenderEventModel = CalendarEventStoreViewModel()
     
 //    @Binding var hasGroups : Bool
     
@@ -41,7 +42,7 @@ struct NoGroupsYet: View {
             
         }
         .sheet(isPresented: $presentCreateGroupView) {
-            CreateGroupsView()
+            CreateGroupsView(eventType: $calenderEventModel.eventType)
         }
 
     }

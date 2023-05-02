@@ -15,7 +15,7 @@ class GroupsDataService {
     
     let db = Firestore.firestore()
     
-    func userCreatesGroup(userId: String, groupName: String, groupPhoto: UIImage?, datePicked: Date, allowInvites: Bool, completion: @escaping (Error?) -> Void) {
+    func userCreatesGroup(userId: String, groupName: String, groupType: String, groupPhoto: UIImage?, datePicked: Date, allowInvites: Bool, completion: @escaping (Error?) -> Void) {
         
         // Set document id
         let userDocumentId = userId

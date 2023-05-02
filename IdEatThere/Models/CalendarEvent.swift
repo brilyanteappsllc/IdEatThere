@@ -13,10 +13,6 @@ enum CalendarEventType: String, CaseIterable, Equatable {
         
     case social, date, business, celebration, unspecified
         
-        var id: String {
-            self.rawValue
-        }
-        
         var icon: String {
             switch self {
             case .social:
@@ -32,4 +28,20 @@ enum CalendarEventType: String, CaseIterable, Equatable {
             }
             
         }
+    
+    var type: String {
+        
+        switch self {
+        case .social:
+            return "Social"
+        case .date:
+            return "Date"
+        case .business:
+            return "Business"
+        case .celebration:
+            return "Celebration"
+        case .unspecified:
+            return "Unspecified"
+        }
+    }
 }

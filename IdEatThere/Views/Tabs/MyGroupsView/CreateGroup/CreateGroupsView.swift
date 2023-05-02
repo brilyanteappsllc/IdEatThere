@@ -10,12 +10,14 @@ import SwiftUI
 struct CreateGroupsView: View {
     
     @EnvironmentObject var myGroupsModel : MyGroupsModel
+    @EnvironmentObject var calendarEventModel : CalendarEventStoreViewModel
     @Environment(\.dismiss) var dismiss
     
     @State var selectedImage : UIImage?
     @State var isPickerShowing : Bool = false
     @State var isSourceMenuShowing = false
     @State var source : UIImagePickerController.SourceType = .photoLibrary
+    @Binding var eventType : CalendarEventType
     
     var body: some View {
         
@@ -68,6 +70,23 @@ struct CreateGroupsView: View {
                             
                         }
                         
+                            
+                            Section(header: Text("Event Type")) {
+                                Picker("Select an event type", selection: $eventType) {
+                                    ForEach(CalendarEventType.allCases, id: \.self) { type in
+                                        Text("\(type.icon)   \(type.type)")
+                                        
+                                        
+                                    }
+                               
+                                }
+                                .pickerStyle(.menu)
+//                              .onChange(of: eventType) { newValue in
+//                                  print(newValue.rawValue)
+//                              }
+                                
+                            }
+                        
                         Section(header: Text("Pick your date")) {
                             DatePicker("Date", selection: $myGroupsModel.datePicked, displayedComponents: [.date, .hourAndMinute])
                             
@@ -96,7 +115,7 @@ struct CreateGroupsView: View {
              //       .scrollContentBackground(.hidden)
                 
                 Button {
-                    myGroupsModel.createGroup(groupName: myGroupsModel.groupName, groupPhoto: myGroupsModel.groupPhoto, datePicked: myGroupsModel.datePicked, allowInvites: myGroupsModel.allowInvitesToGroup) { error in
+                    myGroupsModel.createGroup(groupName: myGroupsModel.groupName, groupType: calendarEventModel.eventType.rawValue, groupPhoto: myGroupsModel.groupPhoto, datePicked: myGroupsModel.datePicked, allowInvites: myGroupsModel.allowInvitesToGroup) { error in
                         
                         if error == nil {
                             
@@ -120,7 +139,8 @@ struct CreateGroupsView: View {
 
 struct CreateGroupsView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateGroupsView()
+        CreateGroupsView(eventType: .constant(.unspecified))
             .environmentObject(MyGroupsModel())
+            .environmentObject(CalendarEventStoreViewModel())
     }
 }

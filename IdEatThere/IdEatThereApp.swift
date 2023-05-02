@@ -30,6 +30,7 @@ struct IdEatThereApp: App {
                 .environmentObject(ContactsModel())
                 .environmentObject(LaunchViewModel())
                 .environmentObject(UserHostDetailsModel())
+                .environmentObject(CalendarEventStoreViewModel())
             
         }
     }

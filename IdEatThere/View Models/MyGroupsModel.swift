@@ -210,7 +210,7 @@ class MyGroupsModel : ObservableObject {
     
     // MARK: - Create Group Form
     
-    func createGroup(groupName: String, groupPhoto: UIImage?, datePicked: Date, allowInvites: Bool, completion: @escaping (Error?) -> Void) {
+    func createGroup(groupName: String, groupType: String, groupPhoto: UIImage?, datePicked: Date, allowInvites: Bool, completion: @escaping (Error?) -> Void) {
         
         // Ensure user is logged in
         guard self.checkLogin() != false else {
@@ -226,7 +226,7 @@ class MyGroupsModel : ObservableObject {
         DispatchQueue.init(label: "getUserGroupsHosting").async {
             
             
-            GroupsDataService().userCreatesGroup(userId: self.userId, groupName: groupName, groupPhoto: groupPhoto, datePicked: datePicked, allowInvites: allowInvites) { error in
+            GroupsDataService().userCreatesGroup(userId: self.userId, groupName: groupName, groupType: groupType, groupPhoto: groupPhoto, datePicked: datePicked, allowInvites: allowInvites) { error in
                 
                 // Update the UI in the main thread
                 DispatchQueue.main.async {

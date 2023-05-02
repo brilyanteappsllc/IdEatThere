@@ -14,6 +14,7 @@ struct Groups : Codable, Identifiable {
     
     @DocumentID var id : String?
     var groupName : String?
+    var groupType : String?
     var attendees : [String]?
     var host : [String]?
     @ServerTimestamp var date : Date?
