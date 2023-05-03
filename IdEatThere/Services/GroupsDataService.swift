@@ -40,6 +40,7 @@ class GroupsDataService {
         
         // TODO: Add uploading image option (convert to url string) (reference userManager)
         groupPath.setData(["groupName" : groupName,
+                           "groupType" : groupType,
                            "attendees" : FieldValue.arrayUnion([""]),
                            "host" : FieldValue.arrayUnion(["\(userId)"]),
                            "date" : Timestamp(date: datePicked),

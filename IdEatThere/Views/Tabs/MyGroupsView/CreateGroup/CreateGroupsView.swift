@@ -115,7 +115,7 @@ struct CreateGroupsView: View {
              //       .scrollContentBackground(.hidden)
                 
                 Button {
-                    myGroupsModel.createGroup(groupName: myGroupsModel.groupName, groupType: calendarEventModel.eventType.rawValue, groupPhoto: myGroupsModel.groupPhoto, datePicked: myGroupsModel.datePicked, allowInvites: myGroupsModel.allowInvitesToGroup) { error in
+                    myGroupsModel.createGroup(groupName: myGroupsModel.groupName, groupType: eventType.rawValue, groupPhoto: myGroupsModel.groupPhoto, datePicked: myGroupsModel.datePicked, allowInvites: myGroupsModel.allowInvitesToGroup) { error in
                         
                         if error == nil {
                             

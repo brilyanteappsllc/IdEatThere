@@ -9,6 +9,8 @@ import SwiftUI
 
 struct GridButton: View {
     
+    @EnvironmentObject var myGroupsModel: MyGroupsModel
+    
     var group : Groups
     
     var body: some View {
@@ -26,9 +28,19 @@ struct GridButton: View {
                         .cornerRadius(10)
                         .padding(5)
                     
-                    Text(group.groupName ?? "")
-                        .font(.bodyHeaderFont)
-                        .foregroundColor(Color.theme.secondaryText)
+                    VStack(alignment: .leading, spacing: 5) {
+                        
+                        Text(group.groupName ?? "")
+                            .font(.bodyHeaderFont)
+                            .foregroundColor(Color.theme.secondaryText)
+                        
+                        Text(group.date ?? Date(), formatter: myGroupsModel.dateFormatter)
+                            .font(.bodyFont)
+                        
+//                        Text(group.groupType ?? "")
+//                            .font(.bodyFont)
+//                            .foregroundColor(Color.theme.secondaryText)
+                    }
                     
                     Spacer()
                     

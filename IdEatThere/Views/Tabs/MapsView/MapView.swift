@@ -134,6 +134,7 @@ struct MapView: View {
         .accentColor(.white)
         .onAppear{
             modelLocation.requestGeolocationPermission()
+            model.apiRequest()
         }
         
         

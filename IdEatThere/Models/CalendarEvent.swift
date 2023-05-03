@@ -11,7 +11,11 @@ import Foundation
   
 enum CalendarEventType: String, CaseIterable, Equatable {
         
-    case social, date, business, celebration, unspecified
+    case social = "Social",
+         date = "Date",
+         business = "Business",
+         celebration = "Celebration",
+         unspecified = "Unspecified"
         
         var icon: String {
             switch self {

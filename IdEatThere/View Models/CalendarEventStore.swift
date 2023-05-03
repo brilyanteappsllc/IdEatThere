@@ -15,4 +15,7 @@ class CalendarEventStoreViewModel : ObservableObject {
     @Published var eventType : CalendarEventType = .unspecified
     
     
+    @Published var calendarEvents = []
+    
+    
 }

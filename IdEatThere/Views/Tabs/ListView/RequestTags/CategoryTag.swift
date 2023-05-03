@@ -32,7 +32,7 @@ struct CategoryTag : View {
         .padding(.horizontal, 4)
         .background(selectedCategory == category ? Color.theme.accent : .white)
         .cornerRadius(20)
-        .shadow(radius: 4)
+        .shadow(radius: 2)
         .foregroundColor(.black)
     }
 }
