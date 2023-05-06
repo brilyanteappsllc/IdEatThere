@@ -13,6 +13,7 @@ struct LaunchView: View {
     
     
     @EnvironmentObject var launchViewModel : LaunchViewModel
+    @EnvironmentObject var userManagerModel : UserManagerModel
     
     
     var body: some View {
@@ -23,9 +24,9 @@ struct LaunchView: View {
         }
         
         else {
-            
-            if self.launchViewModel.isUserLoggedIn {
-                
+
+            if self.userManagerModel.completedOnboarding{
+
                 HomeView()
                 
             }

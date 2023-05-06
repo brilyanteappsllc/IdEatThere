@@ -12,9 +12,11 @@ struct WelcomeView: View {
         VStack (spacing: 20) {
             Spacer()
 
-            Image("onboardingRestaurant")
+            Image("onboardLogo")
                 .resizable()
                 .scaledToFit()
+                .cornerRadius(25)
+ //               .foregroundColor(Color.theme.red)
             Text("Welcome to I'd Eat There")
                 .bold()
                 .font(.title)
@@ -26,7 +28,7 @@ struct WelcomeView: View {
                 .padding(.bottom, 15)
         }
         .multilineTextAlignment(.center)
-        .foregroundColor(.white)
+        .foregroundColor(Color.theme.accent)
         .padding(.horizontal)
     }
 }

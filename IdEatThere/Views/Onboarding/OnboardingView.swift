@@ -127,13 +127,13 @@ struct OnboardingView: View {
                     userManager.verifyCode(code: userManager.verificationCode) { error in
                         
                         if error == nil {
-                
-                                    tabSelection = .profile
+                            tabSelection = .profile
                         }
                         
                         else {
                             
                             // Show error
+                            print(error as Any)
                         }
                         if buttonDisabled {
                             
@@ -142,8 +142,6 @@ struct OnboardingView: View {
                         
                     }
                     
-                    tabSelection = .profile
-                    
                 case .profile :
                     
                    buttonDisabled.toggle()
@@ -151,6 +149,7 @@ struct OnboardingView: View {
                     userManager.setUserProfile(firstName: userManager.firstName, lastName: userManager.lastName, photo: userManager.photo) { isSuccess in
                         
                         if isSuccess {
+                            userManager.userCompletedOnboarding()
                             
                         }
                         
@@ -174,9 +173,10 @@ struct OnboardingView: View {
                 ZStack {
                     
                     Rectangle()
-                        .foregroundColor(Color.theme.accent)
+                        .foregroundColor(Color.theme.red)
                         .frame(height: 48)
-                        .cornerRadius(10)
+                        .cornerRadius(20)
+                        .padding(.horizontal)
                     
                     switch tabSelection {
                         
@@ -208,7 +208,7 @@ struct OnboardingView: View {
             .disabled(buttonDisabled)
             
         }
-        .background(Color.theme.red)
+//        .background(Color.theme.red)
         .disabled(buttonDisabled)
         
     }

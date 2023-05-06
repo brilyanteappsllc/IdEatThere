@@ -107,20 +107,24 @@ struct LoginForm: View {
             
         label: {
             
+                
             ZStack {
                 
                 Rectangle()
-                    .foregroundColor(Color.theme.accent)
+                    .foregroundColor(Color.theme.red)
                     .frame(height: 48)
                     .cornerRadius(10)
                 
                 switch tabSelection {
                 case .phoneNumber:
+                    
                     Text("Next")
+                    
                 case .phoneVerification:
+                    
                     Text("Verify")
+                    
                 }
-                
             }
         }
         .padding()
@@ -129,7 +133,7 @@ struct LoginForm: View {
             
             
         }
-        .background(Color.theme.red)
+  //      .background(Color.theme.red)
         .disabled(buttonDisabled)
         
         
@@ -168,5 +172,6 @@ struct LoginForm: View {
 struct LoginForm_Previews: PreviewProvider {
     static var previews: some View {
         LoginForm()
+            .environmentObject(UserManagerModel())
     }
 }

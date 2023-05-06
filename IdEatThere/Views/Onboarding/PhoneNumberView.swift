@@ -23,13 +23,14 @@ struct PhoneNumberView: View {
                 Text("Enter your mobile number below, we'll send you a verification code after via sms.")
                     .padding(.top, 12)
                     .font(.body)
+                    .padding(.horizontal)
                 
                     
-                TextField(userManager.phone.isEmpty ? " e.g. (613) 515-0123 " : userManager.phone, text: $userManager.phone)
+                TextField(userManager.phone.isEmpty ? "e.g. (613) 515-0123 " : userManager.phone, text: $userManager.phone)
                         .textFieldStyle(OnboardingTextFields())
                         .keyboardType(.numberPad)
-                        .padding(.horizontal)
                         .foregroundColor(Color.accentColor)
+                        .shadow(radius: 2)
 //                TextField(userManager.phone.isEmpty ? " e.g. (613) 515-0123 " : userManager.phone, text: $userManager.phone.applyPatternOnNumbers(userManager.phone, pattern: "(###) ###-####", replacementCharacter: "#"))
 //                        .textFieldStyle(OnboardingTextFields())
 //                        .keyboardType(.numberPad)

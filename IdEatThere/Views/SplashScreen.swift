@@ -16,16 +16,18 @@ struct SplashScreen: View {
                 Text("Splash Screen")
                 
                 NavigationLink {
-                    LoginForm()
+                    OnboardingView()
                 } label: {
-                    SplashScreenButton(buttonName: "Login")
+                    SplashScreenButton(buttonName: "Register", login: false)
                 }
                 
                 NavigationLink {
-                    OnboardingView()
+                    LoginForm()
                 } label: {
-                    SplashScreenButton(buttonName: "Register")
+                    SplashScreenButton(buttonName: "Login", login: true)
                 }
+                
+
 
             }
         }

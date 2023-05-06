@@ -93,6 +93,12 @@ class UserManagerModel : NSObject, ObservableObject {
         
     }
     
+    func userCompletedOnboarding() {
+        
+        self.completedOnboarding = true
+        
+    }
+    
     
     // MARK: - Sign In
     
@@ -173,7 +179,7 @@ class UserManagerModel : NSObject, ObservableObject {
             
             if error == nil {
                 
-                self.userInfo()
+              //  self.userInfo()
                 
                 DispatchQueue.main.async {
                     
@@ -220,9 +226,9 @@ class UserManagerModel : NSObject, ObservableObject {
         
         username.getDocument(source: .cache) { [self] (document, error) in
             if let document = document {
-                self.firstName = document.get("firstName") as! String
-                self.lastName = document.get("lastName") as! String
-                self.phone = document.get("phone") as! String
+                self.firstName = document.get("firstName") as? String ?? "No Name"
+                self.lastName = document.get("lastName") as? String ?? "No Name"
+                self.phone = document.get("phone") as? String ?? "1234567891"
                 self.profilePhoto = document.get("photo") as? String
         }
             else {

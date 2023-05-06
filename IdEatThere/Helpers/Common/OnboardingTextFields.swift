@@ -23,6 +23,7 @@ struct OnboardingTextFields : TextFieldStyle {
                 .cornerRadius(10)
             
                 configuration
+                .padding(.horizontal)
 
         }
         .padding(.horizontal)
