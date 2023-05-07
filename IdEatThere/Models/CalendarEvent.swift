@@ -20,13 +20,13 @@ enum CalendarEventType: String, CaseIterable, Equatable {
         var icon: String {
             switch self {
             case .social:
-                return "🍺"
+                return "🍻"
             case .date:
-                return "❣️"
+                return "💌"
             case .business:
                return "🤝"
             case .celebration:
-               return "🎉"
+               return "🎊"
             case .unspecified:
                return "🗓"
             }

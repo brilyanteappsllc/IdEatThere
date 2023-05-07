@@ -18,25 +18,27 @@ struct LaunchView: View {
     
     var body: some View {
         
-        if self.launchViewModel.loadingLogginStatus {
-            
-            ProgressView()
-        }
+        HomeView()
         
-        else {
-
-            if self.userManagerModel.completedOnboarding{
-
-                HomeView()
-                
-            }
-            
-            else if !self.launchViewModel.isUserLoggedIn {
-                
-               SplashScreen()
-                
-            }
-        }
+//        if self.launchViewModel.loadingLogginStatus {
+//
+//            ProgressView()
+//        }
+//
+//        else {
+//
+//            if self.userManagerModel.completedOnboarding{
+//
+//                HomeView()
+//
+//            }
+//
+//            else if !self.launchViewModel.isUserLoggedIn {
+//
+//               SplashScreen()
+//
+//            }
+//        }
     }
 }
 

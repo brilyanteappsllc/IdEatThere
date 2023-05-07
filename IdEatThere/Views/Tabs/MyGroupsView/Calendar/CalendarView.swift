@@ -14,12 +14,16 @@ struct CalendarView: UIViewRepresentable {
     let interval: DateInterval
     
     @ObservedObject var eventStore : CalendarEventStoreViewModel
+    @Binding var dateSelected: DateComponents?
+    @Binding var displayEvents: Bool
     
     func makeUIView(context: Context) -> UICalendarView {
         let view = UICalendarView()
         view.delegate = context.coordinator
         view.calendar = Calendar(identifier: .gregorian)
         view.availableDateRange = interval
+        let dateSelection = UICalendarSelectionSingleDate(delegate: context.coordinator)
+        view.selectionBehavior = dateSelection
         return view
     }
     
@@ -36,7 +40,8 @@ struct CalendarView: UIViewRepresentable {
         
     }
     
-    class Coordinator : NSObject, UICalendarViewDelegate {
+    class Coordinator : NSObject, UICalendarViewDelegate, UICalendarSelectionSingleDateDelegate {
+        
         
         
         var parent : CalendarView
@@ -75,10 +80,29 @@ struct CalendarView: UIViewRepresentable {
             return .customView {
                 let icon = UILabel()
                 icon.text = self.eventStore.eventIcon(groupType: CalendarEventType(rawValue: singleEvent.groupType!) ?? .unspecified)
-                icon.lineBreakMode = .byCharWrapping
                 return icon
             }
             
+        }
+        
+        func dateSelection(_ selection: UICalendarSelectionSingleDate, didSelectDate dateComponents: DateComponents?) {
+            
+            parent.dateSelected = dateComponents
+            
+            guard let dateComponents else { return }
+            
+            let foundEvents = eventStore.calendarEvents
+                .filter{
+                    $0.date?.startOfDay == dateComponents.date?.startOfDay
+                }
+            
+            if !foundEvents.isEmpty {
+                parent.displayEvents.toggle()
+            }
+        }
+        
+        func dateSelection(_ selection: UICalendarSelectionSingleDate, didSelectDate dateComponents: DateComponents?) -> Bool {
+            return true
         }
         
     }

@@ -12,8 +12,11 @@ struct MyGroupsView: View {
     
     @EnvironmentObject var myGroupsModel : MyGroupsModel
     @EnvironmentObject var calendarEventModel : CalendarEventStoreViewModel
+    @EnvironmentObject var userManagerModel : UserManagerModel
     
     @State var groupTabSelection = TabsSelections.host
+    @State var dateSelected : DateComponents?
+    @State var displayEvents = false 
     
     
     @State var presentCreateGroupView : Bool = false
@@ -39,7 +42,7 @@ struct MyGroupsView: View {
                     
                     
                     if #available(iOS 16.0, *) {
-                        CalendarView(interval: DateInterval(start: .distantPast, end: .distantFuture), eventStore: calendarEventModel)
+                        CalendarView(interval: DateInterval(start: .distantPast, end: .distantFuture), eventStore: calendarEventModel, dateSelected: $dateSelected, displayEvents: $displayEvents)
                     } else {
                         // Fallback on earlier versions
                     }
@@ -74,6 +77,14 @@ struct MyGroupsView: View {
                 .sheet(isPresented: $presentCreateGroupView) {
                     CreateGroupsView(eventType: $calendarEventModel.eventType)
                 }
+                .sheet(isPresented: $displayEvents, content: {
+                    if #available(iOS 16.0, *) {
+                        CalendarEventSheetView(dateSelected: $dateSelected)
+                            .presentationDetents([.medium, .large])
+                    } else {
+                        // Fallback on earlier versions
+                    }
+                })
  //               .navigationTitle("My Groups")
                 .toolbar {
                     

@@ -32,6 +32,8 @@
 		862C8B7029A9299900768DDE /* CreateGroupButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C8B6F29A9299900768DDE /* CreateGroupButton.swift */; };
 		86358C5F2A07FE3C00693245 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86358C5E2A07FE3C00693245 /* DateExtension.swift */; };
 		86358C612A080E7300693245 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86358C602A080E7300693245 /* Calendar.swift */; };
+		86358C672A0853D300693245 /* CalendarEventSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86358C662A0853D300693245 /* CalendarEventSheetView.swift */; };
+		86358C692A0856AE00693245 /* CalendarEventListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86358C682A0856AE00693245 /* CalendarEventListRowView.swift */; };
 		8643085D2A07658000A8ABFB /* ProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643085C2A07658000A8ABFB /* ProfileButton.swift */; };
 		8643AB42296B7DFE0069D5F5 /* CallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB41296B7DFE0069D5F5 /* CallButton.swift */; };
 		8643AB44296B7F1F0069D5F5 /* ReviewsLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */; };
@@ -140,6 +142,8 @@
 		862C8B6F29A9299900768DDE /* CreateGroupButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupButton.swift; sourceTree = "<group>"; };
 		86358C5E2A07FE3C00693245 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		86358C602A080E7300693245 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
+		86358C662A0853D300693245 /* CalendarEventSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEventSheetView.swift; sourceTree = "<group>"; };
+		86358C682A0856AE00693245 /* CalendarEventListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEventListRowView.swift; sourceTree = "<group>"; };
 		8643085C2A07658000A8ABFB /* ProfileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButton.swift; sourceTree = "<group>"; };
 		8643AB41296B7DFE0069D5F5 /* CallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallButton.swift; sourceTree = "<group>"; };
 		8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsLinkButton.swift; sourceTree = "<group>"; };
@@ -403,6 +407,8 @@
 			isa = PBXGroup;
 			children = (
 				8680819829F2ED69001DCD5E /* CalendarView.swift */,
+				86358C662A0853D300693245 /* CalendarEventSheetView.swift */,
+				86358C682A0856AE00693245 /* CalendarEventListRowView.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -750,6 +756,7 @@
 				86726A29299D6C6200ED4DB7 /* EmailView.swift in Sources */,
 				864B2A6F299EA36400D8AAF5 /* TabBarButton.swift in Sources */,
 				8643AB8D296C94AF0069D5F5 /* CreateGroupsView.swift in Sources */,
+				86358C692A0856AE00693245 /* CalendarEventListRowView.swift in Sources */,
 				8680819B29F3395D001DCD5E /* CalendarEventStore.swift in Sources */,
 				8603C24529653488006C1A58 /* MapView.swift in Sources */,
 				8627F9F129674F6D00382DA8 /* Color.swift in Sources */,
@@ -828,6 +835,7 @@
 				8643AB4D296C44EC0069D5F5 /* CustomTabBar.swift in Sources */,
 				8603C25129653EEC006C1A58 /* LogoutForm.swift in Sources */,
 				862C8B6C29A852A200768DDE /* UserHostDetailsViewModel.swift in Sources */,
+				86358C672A0853D300693245 /* CalendarEventSheetView.swift in Sources */,
 				86A8AB5829EDEE0F00F991B3 /* CategoryTag.swift in Sources */,
 				8680819D29F33B38001DCD5E /* CalendarEvent.swift in Sources */,
 				86E4BCEA2965263000244E88 /* Business.swift in Sources */,
