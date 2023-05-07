@@ -20,7 +20,6 @@ class CalendarEventStoreViewModel : ObservableObject {
     
     @Published var eventType : CalendarEventType = .unspecified
     
-    
     @Published var calendarEvents = [CalendarEvents]()
     
     
@@ -67,6 +66,13 @@ class CalendarEventStoreViewModel : ObservableObject {
             
             
         }
+    }
+    
+    func eventIcon(groupType: CalendarEventType) -> String {
+        
+        return groupType.icon
+        
+        
     }
     
     

@@ -17,6 +17,7 @@ struct CalendarView: UIViewRepresentable {
     
     func makeUIView(context: Context) -> UICalendarView {
         let view = UICalendarView()
+        view.delegate = context.coordinator
         view.calendar = Calendar(identifier: .gregorian)
         view.availableDateRange = interval
         return view
@@ -48,13 +49,39 @@ struct CalendarView: UIViewRepresentable {
         
         @MainActor
         func calendarView(_ calendarView: UICalendarView, decorationFor dateComponents: DateComponents) -> UICalendarView.Decoration? {
-      //      let foundEvents = eventStore.
-            return nil
+            
+            // Determine if there are found events from query
+            let foundEvents = eventStore.calendarEvents
+                // compare iterated event dates from firebase to calendar
+                .filter {
+                    $0.date?.startOfDay == dateComponents.date?.startOfDay
+                }
+            
+            
+            if foundEvents.isEmpty {return nil}
+            
+            // If multiple dates on a single data is found
+            if foundEvents.count > 1 {
+                return .image(UIImage(systemName: "doc.on.doc.fill"),
+                              color: .red,
+                              size: .large
+                )
+                
+            }
+            // Else return icon emoji
+            let singleEvent = foundEvents.first!
+            
+            
+            return .customView {
+                let icon = UILabel()
+                icon.text = self.eventStore.eventIcon(groupType: CalendarEventType(rawValue: singleEvent.groupType!) ?? .unspecified)
+                icon.lineBreakMode = .byCharWrapping
+                return icon
+            }
+            
         }
         
     }
-    
-
     
 }
 
