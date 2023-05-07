@@ -30,6 +30,8 @@
 		862C8B6C29A852A200768DDE /* UserHostDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C8B6B29A852A100768DDE /* UserHostDetailsViewModel.swift */; };
 		862C8B6E29A90FB400768DDE /* SelectContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C8B6D29A90FB400768DDE /* SelectContactsView.swift */; };
 		862C8B7029A9299900768DDE /* CreateGroupButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C8B6F29A9299900768DDE /* CreateGroupButton.swift */; };
+		86358C5F2A07FE3C00693245 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86358C5E2A07FE3C00693245 /* DateExtension.swift */; };
+		86358C612A080E7300693245 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86358C602A080E7300693245 /* Calendar.swift */; };
 		8643085D2A07658000A8ABFB /* ProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643085C2A07658000A8ABFB /* ProfileButton.swift */; };
 		8643AB42296B7DFE0069D5F5 /* CallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB41296B7DFE0069D5F5 /* CallButton.swift */; };
 		8643AB44296B7F1F0069D5F5 /* ReviewsLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */; };
@@ -136,6 +138,8 @@
 		862C8B6B29A852A100768DDE /* UserHostDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHostDetailsViewModel.swift; sourceTree = "<group>"; };
 		862C8B6D29A90FB400768DDE /* SelectContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectContactsView.swift; sourceTree = "<group>"; };
 		862C8B6F29A9299900768DDE /* CreateGroupButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupButton.swift; sourceTree = "<group>"; };
+		86358C5E2A07FE3C00693245 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		86358C602A080E7300693245 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		8643085C2A07658000A8ABFB /* ProfileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButton.swift; sourceTree = "<group>"; };
 		8643AB41296B7DFE0069D5F5 /* CallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallButton.swift; sourceTree = "<group>"; };
 		8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsLinkButton.swift; sourceTree = "<group>"; };
@@ -293,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				86A80AD729709FB7001B8941 /* PhoneTextHelper.swift */,
+				86358C5E2A07FE3C00693245 /* DateExtension.swift */,
 				8643AB52296C78130069D5F5 /* Font */,
 				8627F9F029674F6D00382DA8 /* Color.swift */,
 				8627F9FE2967F17200382DA8 /* UIApplication.swift */,
@@ -578,6 +583,7 @@
 				86A8AB4F29ED929A00F991B3 /* AttributeData.swift */,
 				86A8AB2329EB1E1A00F991B3 /* FoodCategoriesData.swift */,
 				86A8AB5129ED9D4A00F991B3 /* SortData.swift */,
+				86358C602A080E7300693245 /* Calendar.swift */,
 				8680819C29F33B38001DCD5E /* CalendarEvent.swift */,
 			);
 			path = Models;
@@ -767,6 +773,7 @@
 				8680813B29F041AC001DCD5E /* FontSize.swift in Sources */,
 				8643AB6D296C792C0069D5F5 /* Fonts.swift in Sources */,
 				86A2572A296DF1D500CFDFAB /* ContactsView.swift in Sources */,
+				86358C612A080E7300693245 /* Calendar.swift in Sources */,
 				8643085D2A07658000A8ABFB /* ProfileButton.swift in Sources */,
 				86A8AB6029EF54DF00F991B3 /* FilterAndSortView.swift in Sources */,
 				862C8B6A29A7F4F500768DDE /* GroupTest.swift in Sources */,
@@ -800,6 +807,7 @@
 				86E4BCDC2965261000244E88 /* DashedDivider.swift in Sources */,
 				8627F9F429676C5900382DA8 /* CircleButton.swift in Sources */,
 				867464CF2977544400358EEF /* GroupsListView.swift in Sources */,
+				86358C5F2A07FE3C00693245 /* DateExtension.swift in Sources */,
 				8603C24F29653EA9006C1A58 /* EditUserProfileButton.swift in Sources */,
 				86A80ADA2970B731001B8941 /* ImagePicker.swift in Sources */,
 				8603C24A296534DE006C1A58 /* MyProfileView.swift in Sources */,

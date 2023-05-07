@@ -82,8 +82,8 @@ struct ContactsRow: View {
     }
 }
 
-struct ContactsRow_Previews: PreviewProvider {
-    static var previews: some View {
-        ContactsRow(user: User())
-    }
-}
+//struct ContactsRow_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContactsRow(user: User(from: <#Decoder#>))
+//    }
+//}

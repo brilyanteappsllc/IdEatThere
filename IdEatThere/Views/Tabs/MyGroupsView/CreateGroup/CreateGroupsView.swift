@@ -122,6 +122,7 @@ struct CreateGroupsView: View {
                             myGroupsModel.queryGroupsAttending()
                             myGroupsModel.queryGroupsHosting()
                             myGroupsModel.resetGroupDetailForm()
+                            calendarEventModel.queryCalendarEvents()
                             dismiss()
                             dismiss.callAsFunction()
                         }

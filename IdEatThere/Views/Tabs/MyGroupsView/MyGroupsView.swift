@@ -39,7 +39,7 @@ struct MyGroupsView: View {
                     
                     
                     if #available(iOS 16.0, *) {
-                        CalendarView(interval: DateInterval(start: .distantPast, end: .distantFuture))
+                        CalendarView(interval: DateInterval(start: .distantPast, end: .distantFuture), eventStore: calendarEventModel)
                     } else {
                         // Fallback on earlier versions
                     }

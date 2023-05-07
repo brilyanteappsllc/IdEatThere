@@ -9,23 +9,24 @@ import SwiftUI
 
 @available(iOS 16.0, *)
 struct CalendarView: UIViewRepresentable {
+
     
     let interval: DateInterval
     
-  //  @Binding var selectedDate : Date?
+    @ObservedObject var eventStore : CalendarEventStoreViewModel
     
     func makeUIView(context: Context) -> UICalendarView {
         let view = UICalendarView()
         view.calendar = Calendar(identifier: .gregorian)
         view.availableDateRange = interval
- //       view.selectionBehavior = UICalendarSelectionSingleDate(delegate: context.coordinator)
         return view
     }
     
-//    func makeCoordinator() -> Coordinator {
-//        <#code#>
-//    }
-//    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(parent: self, eventSore: _eventStore)
+    }
+    
+  
     
     func updateUIView(_ uiView: UICalendarView, context: Context) {
         
@@ -34,19 +35,27 @@ struct CalendarView: UIViewRepresentable {
         
     }
     
-//    class Coordinator: NSObject, UICalendarViewDelegate {
-//
-//        func calendarView(_ calendarView: UICalendarView, decorationFor dateComponents: DateComponents) -> UICalendarView.Decoration? {
-//            return nil
-//        }
-//
-//
-//    }
+    class Coordinator : NSObject, UICalendarViewDelegate {
+        
+        
+        var parent : CalendarView
+        @ObservedObject var eventStore : CalendarEventStoreViewModel
+        
+        init(parent: CalendarView, eventSore: ObservedObject<CalendarEventStoreViewModel>) {
+            self.parent = parent
+            self._eventStore = eventSore
+        }
+        
+        @MainActor
+        func calendarView(_ calendarView: UICalendarView, decorationFor dateComponents: DateComponents) -> UICalendarView.Decoration? {
+      //      let foundEvents = eventStore.
+            return nil
+        }
+        
+    }
+    
+
     
 }
 
-//struct CalendarView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CalendarView()
-//    }
-//}
+

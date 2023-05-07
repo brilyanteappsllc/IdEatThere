@@ -16,5 +16,15 @@ struct User : Codable, Identifiable {
     var lastName : String?
     var phone : String?
     var photo: String?
+    var calendarEvents : [CalendarEvents]
+    
 
+}
+
+struct CalendarEvents : Codable, Identifiable {
+    @DocumentID var id : String?
+    var groupName : String?
+    var groupType : String?
+    @ServerTimestamp var date : Date?
+    
 }

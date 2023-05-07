@@ -19,6 +19,7 @@ struct HomeView: View {
     
     @EnvironmentObject var userManagerModel : UserManagerModel
     @EnvironmentObject var myGroupsModel : MyGroupsModel
+    @EnvironmentObject var calenderModel : CalendarEventStoreViewModel
     @State var tabSelection : Tab = .Groups
     
 
@@ -40,6 +41,7 @@ struct HomeView: View {
                     .onAppear{
                         myGroupsModel.queryGroupsAttending()
                         myGroupsModel.queryGroupsHosting()
+                        calenderModel.queryCalendarEvents()
                     }
                 
                 // --- Home View ---
