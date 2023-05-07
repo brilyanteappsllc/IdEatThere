@@ -11,6 +11,7 @@ struct GroupsListView: View {
     
     var groups : [Groups]
     
+    var isHost: Bool
     
     var body: some View {
         
@@ -21,10 +22,10 @@ struct GroupsListView: View {
                 ForEach(groups, id: \.id) { groups in
                     
                     NavigationLink {
-                        SelectedGroupView(groups: groups)
+                        SelectedGroupView(groups: groups, viewAsHost: isHost)
                         
                     } label: {
-                        GridButton(group: groups)
+                        GridButton(group: groups, viewAsHost: isHost)
                     }
                 }
             }

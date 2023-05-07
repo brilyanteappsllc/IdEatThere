@@ -36,7 +36,7 @@ struct AddingToMyGroupsListView: View {
                         }
                         
                     } label: {
-                    GridButton(group: groups)
+                    GridButton(group: groups, viewAsHost: false)
                 }
                 }
             }

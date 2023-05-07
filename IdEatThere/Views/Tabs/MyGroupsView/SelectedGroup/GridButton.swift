@@ -12,6 +12,7 @@ struct GridButton: View {
     @EnvironmentObject var myGroupsModel: MyGroupsModel
     
     var group : Groups
+    var viewAsHost : Bool
     
     var body: some View {
         

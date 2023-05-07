@@ -62,13 +62,13 @@ struct MyGroupsView: View {
                     
                     if groupTabSelection == .host {
                         
-                        GroupsListView(groups: myGroupsModel.groupsHosting)
+                        GroupsListView(groups: myGroupsModel.groupsHosting, isHost: true)
                         
                     }
                     
                     if groupTabSelection == .attend {
                         
-                        GroupsListView(groups: myGroupsModel.groupsAttending)
+                        GroupsListView(groups: myGroupsModel.groupsAttending, isHost: false)
                         
                     }
                     Spacer()

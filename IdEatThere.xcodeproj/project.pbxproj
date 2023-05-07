@@ -34,6 +34,8 @@
 		86358C612A080E7300693245 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86358C602A080E7300693245 /* Calendar.swift */; };
 		86358C672A0853D300693245 /* CalendarEventSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86358C662A0853D300693245 /* CalendarEventSheetView.swift */; };
 		86358C692A0856AE00693245 /* CalendarEventListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86358C682A0856AE00693245 /* CalendarEventListRowView.swift */; };
+		86358C6B2A0869AA00693245 /* HostGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86358C6A2A0869AA00693245 /* HostGroupView.swift */; };
+		86358C6D2A0869C100693245 /* AttendeeGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86358C6C2A0869C100693245 /* AttendeeGroupView.swift */; };
 		8643085D2A07658000A8ABFB /* ProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643085C2A07658000A8ABFB /* ProfileButton.swift */; };
 		8643AB42296B7DFE0069D5F5 /* CallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB41296B7DFE0069D5F5 /* CallButton.swift */; };
 		8643AB44296B7F1F0069D5F5 /* ReviewsLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */; };
@@ -144,6 +146,8 @@
 		86358C602A080E7300693245 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		86358C662A0853D300693245 /* CalendarEventSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEventSheetView.swift; sourceTree = "<group>"; };
 		86358C682A0856AE00693245 /* CalendarEventListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEventListRowView.swift; sourceTree = "<group>"; };
+		86358C6A2A0869AA00693245 /* HostGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostGroupView.swift; sourceTree = "<group>"; };
+		86358C6C2A0869C100693245 /* AttendeeGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendeeGroupView.swift; sourceTree = "<group>"; };
 		8643085C2A07658000A8ABFB /* ProfileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButton.swift; sourceTree = "<group>"; };
 		8643AB41296B7DFE0069D5F5 /* CallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallButton.swift; sourceTree = "<group>"; };
 		8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsLinkButton.swift; sourceTree = "<group>"; };
@@ -447,6 +451,8 @@
 			isa = PBXGroup;
 			children = (
 				864B2A70299EAF9700D8AAF5 /* SelectedGroupView.swift */,
+				86358C6A2A0869AA00693245 /* HostGroupView.swift */,
+				86358C6C2A0869C100693245 /* AttendeeGroupView.swift */,
 				8680813C29F073BB001DCD5E /* SelectedGroupRestaurantDetailView.swift */,
 				864B2A6C299E971600D8AAF5 /* GridButton.swift */,
 			);
@@ -783,6 +789,7 @@
 				86358C612A080E7300693245 /* Calendar.swift in Sources */,
 				8643085D2A07658000A8ABFB /* ProfileButton.swift in Sources */,
 				86A8AB6029EF54DF00F991B3 /* FilterAndSortView.swift in Sources */,
+				86358C6D2A0869C100693245 /* AttendeeGroupView.swift in Sources */,
 				862C8B6A29A7F4F500768DDE /* GroupTest.swift in Sources */,
 				864B2A73299EB07600D8AAF5 /* Groups.swift in Sources */,
 				86E4BCE62965262300244E88 /* ContentModel.swift in Sources */,
@@ -815,6 +822,7 @@
 				8627F9F429676C5900382DA8 /* CircleButton.swift in Sources */,
 				867464CF2977544400358EEF /* GroupsListView.swift in Sources */,
 				86358C5F2A07FE3C00693245 /* DateExtension.swift in Sources */,
+				86358C6B2A0869AA00693245 /* HostGroupView.swift in Sources */,
 				8603C24F29653EA9006C1A58 /* EditUserProfileButton.swift in Sources */,
 				86A80ADA2970B731001B8941 /* ImagePicker.swift in Sources */,
 				8603C24A296534DE006C1A58 /* MyProfileView.swift in Sources */,
