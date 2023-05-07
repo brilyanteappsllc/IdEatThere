@@ -21,13 +21,7 @@ struct LogoutForm: View {
                     
                     self.userManagerModel.signOut()
                     
-                } label: {Text("Sign out")}
-                    .padding(5)
-                    .padding(.horizontal, 15)
-                    .background(.white)
-                    .cornerRadius(10)
-                    .shadow(radius: 2)
-                    .foregroundColor(.black)
+                } label: {ProfileButton(buttonName: "Logout")}
                 
                 
             }

@@ -19,7 +19,7 @@ struct MyProfileView: View {
             ZStack( ) {
                 ScrollView {
                     
-                    VStack {
+                    VStack(spacing: 25) {
                         // User Profile Info
                         HStack {
                             
@@ -34,6 +34,7 @@ struct MyProfileView: View {
                                     ZStack {
                                         Circle()
                                             .foregroundColor(.white)
+                                            .shadow(radius: 1)
                                         
                                         Text(userModel.firstName.isEmpty ? "M" : userModel.firstName.prefix(1) )
                                             .bold()
@@ -61,6 +62,7 @@ struct MyProfileView: View {
                             //   .frame(width: 44, height: 44)
                             //    .resizable()
                             .frame(width: 100, height: 100)
+                            .padding(.horizontal)
                             // .cornerRadius(100)
                             
                             Spacer()
@@ -77,19 +79,12 @@ struct MyProfileView: View {
                         HStack {
                                 Spacer()
                                 // Edit Profile
-                                NavigationLink {
-                                    EditUserProfileForm()
-                                } label: {
-                                    ProfileButton(buttonName: "Edit Profile")
-                                }
+                                EditUserProfileButton()
+                          
                                 Spacer()
                                 
                                 // Sign out
-                                NavigationLink {
-                                    LogoutForm()
-                                } label: {
-                                    ProfileButton(buttonName: "Logout")
-                                }
+                                LogoutForm()
                                 Spacer()
                             }
                         .padding(.horizontal)
