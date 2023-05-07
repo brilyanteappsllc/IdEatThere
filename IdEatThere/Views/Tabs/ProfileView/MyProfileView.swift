@@ -16,13 +16,15 @@ struct MyProfileView: View {
         
         let photoURL = URL(string: userModel.profilePhoto ?? "")
             
-            ZStack {
+            ZStack( ) {
                 ScrollView {
                     
                     VStack {
                         // User Profile Info
                         HStack {
-                            Spacer()
+                            
+//                            Spacer()
+                            
                             AsyncImage(url: photoURL) { phase in
                                 
                                 switch phase {
@@ -33,7 +35,7 @@ struct MyProfileView: View {
                                         Circle()
                                             .foregroundColor(.white)
                                         
-                                        Text(userModel.firstName.prefix(1) ?? "")
+                                        Text(userModel.firstName.isEmpty ? "M" : userModel.firstName.prefix(1) )
                                             .bold()
                                     }
                                 case .success(let image):
@@ -51,50 +53,58 @@ struct MyProfileView: View {
                                         Circle()
                                             .foregroundColor(.white)
                                         
-                                        Text((userModel.firstName.prefix(1) ?? ""))
+                                        Text(userModel.firstName.isEmpty ? "M" : userModel.firstName )
                                             .bold()
                                     }
                                 }
                             }
-                         //   .frame(width: 44, height: 44)
-                        //    .resizable()
-                                .frame(width: 100, height: 100)
-                               // .cornerRadius(100)
-                            Spacer()
-                            VStack{
-                                Text(String("\(userModel.firstName)"))
-                                    .bold()
-                                    .foregroundColor(Color.theme.accent)
-
-                                Spacer()
-                                
-                                HStack {
-                                    Spacer()
-                                    // Edit Profile
-                                    EditUserProfileButton()
-                                    Spacer()
-                                    
-                                    // Sign out
-                                    LogoutForm()
-                                    Spacer()
-                                }
-      
-                                
-
-                            }
+                            //   .frame(width: 44, height: 44)
+                            //    .resizable()
+                            .frame(width: 100, height: 100)
+                            // .cornerRadius(100)
+                            
                             Spacer()
                             
+                            Text(String("\(userModel.firstName.isEmpty ? "Matthew" :userModel.firstName)"))
+                                .bold()
+                                .foregroundColor(Color.theme.accent)
+                            
+                            Spacer()
                         }
-                        .padding(.top, 70.0)
+                        .padding(.horizontal)
+                        
+                                
+                        HStack {
+                                Spacer()
+                                // Edit Profile
+                                NavigationLink {
+                                    EditUserProfileForm()
+                                } label: {
+                                    ProfileButton(buttonName: "Edit Profile")
+                                }
+                                Spacer()
+                                
+                                // Sign out
+                                NavigationLink {
+                                    LogoutForm()
+                                } label: {
+                                    ProfileButton(buttonName: "Logout")
+                                }
+                                Spacer()
+                            }
+                        .padding(.horizontal)
+      
+                            
+                        }
+                    
+                        DashedDivider()
                         
                         Spacer()
 
                     }
                     
-                }
-               
-            }
-            .onAppear{
+                    
+                } .onAppear{
                 userModel.userInfo()
             }
             
@@ -105,5 +115,6 @@ struct MyProfileView: View {
 struct MyProfileView_Previews: PreviewProvider {
     static var previews: some View {
         MyProfileView()
+            .environmentObject(UserManagerModel())
     }
 }

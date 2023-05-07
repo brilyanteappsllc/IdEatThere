@@ -16,8 +16,16 @@ struct EditUserProfileButton: View {
             // Edit Profile
             userManager.editUserInformation = true
         } label: {
-            Text("Edit Profile")
+            ZStack {
+                Rectangle()
+                    .frame(height: 30)
+                    .cornerRadius(15)
+                Text("Edit Profile")
+            }
         }
+        .cornerRadius(10)
+        .shadow(radius: 2)
+        .foregroundColor(.black)
         .sheet(isPresented: $userManager.editUserInformation, onDismiss: userManager.saveFirstName) {
             EditUserProfileForm()
         }
@@ -27,6 +35,6 @@ struct EditUserProfileButton: View {
 struct EditUserProfileButton_Previews: PreviewProvider {
     static var previews: some View {
         EditUserProfileButton()
-            .environmentObject(RestaurantsContentModel())
+            .environmentObject(UserManagerModel())
     }
 }
