@@ -20,79 +20,89 @@ struct MyProfileView: View {
                 ScrollView {
                     
                     VStack(spacing: 25) {
+                        
                         // User Profile Info
-                        HStack {
+                        Group {
                             
-//                            Spacer()
                             
-                            AsyncImage(url: photoURL) { phase in
+                            HStack {
                                 
-                                switch phase {
+                                //                            Spacer()
+                                
+                                AsyncImage(url: photoURL) { phase in
                                     
-                                case .empty :
-                                    
-                                    ZStack {
-                                        Circle()
-                                            .foregroundColor(.white)
-                                            .shadow(radius: 1)
+                                    switch phase {
                                         
-                                        Text(userModel.firstName.isEmpty ? "M" : userModel.firstName.prefix(1) )
-                                            .bold()
-                                    }
-                                case .success(let image):
-                                    
-                                    //Display the fetched image
-                                    image
-                                        .resizable()
-                                        .scaledToFit()
-                                    
-                                case .failure (let error):
-                                    // Couldn't fetch photo url
-                                    // Display a cirlce with first letter of first name
-                                    
-                                    ZStack {
-                                        Circle()
-                                            .foregroundColor(.white)
+                                    case .empty :
                                         
-                                        Text(userModel.firstName.isEmpty ? "M" : userModel.firstName )
-                                            .bold()
+                                        ZStack {
+                                            Circle()
+                                                .foregroundColor(.white)
+                                                .shadow(radius: 1)
+                                            
+                                            Text(userModel.firstName.isEmpty ? "M" : userModel.firstName.prefix(1) )
+                                                .bold()
+                                        }
+                                    case .success(let image):
+                                        
+                                        //Display the fetched image
+                                        image
+                                            .resizable()
+                                            .scaledToFit()
+                                        
+                                    case .failure (let error):
+                                        // Couldn't fetch photo url
+                                        // Display a cirlce with first letter of first name
+                                        
+                                        ZStack {
+                                            Circle()
+                                                .foregroundColor(.white)
+                                            
+                                            Text(userModel.firstName.isEmpty ? "M" : userModel.firstName )
+                                                .bold()
+                                        }
                                     }
                                 }
-                            }
-                            //   .frame(width: 44, height: 44)
-                            //    .resizable()
-                            .frame(width: 100, height: 100)
-                            .padding(.horizontal)
-                            // .cornerRadius(100)
-                            
-                            Spacer()
-                            
-                            Text(String("\(userModel.firstName.isEmpty ? "Matthew" :userModel.firstName)"))
-                                .bold()
-                                .foregroundColor(Color.theme.accent)
-                            
-                            Spacer()
-                        }
-                        .padding(.horizontal)
-                        
+                                //   .frame(width: 44, height: 44)
+                                //    .resizable()
+                                .frame(width: 100, height: 100)
+                                .padding(.horizontal)
+                                // .cornerRadius(100)
                                 
-                        HStack {
+                                Spacer()
+                                
+                                Text(String("\(userModel.firstName.isEmpty ? "Matthew" :userModel.firstName)"))
+                                    .bold()
+                                    .foregroundColor(Color.theme.accent)
+                                
+                                Spacer()
+                            }
+                            .padding(.horizontal)
+                            
+                            
+                            HStack {
                                 Spacer()
                                 // Edit Profile
                                 EditUserProfileButton()
-                          
+                                
                                 Spacer()
                                 
                                 // Sign out
                                 LogoutForm()
+                                
+                               ProfileSettingsButton(image: "gear")
+
+                                
                                 Spacer()
                             }
-                        .padding(.horizontal)
-      
+                            .padding(.horizontal)
                             
+                        }
                         }
                     
                         DashedDivider()
+                    
+                    
                         
                         Spacer()
 

@@ -36,6 +36,7 @@
 		86358C692A0856AE00693245 /* CalendarEventListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86358C682A0856AE00693245 /* CalendarEventListRowView.swift */; };
 		86358C6B2A0869AA00693245 /* HostGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86358C6A2A0869AA00693245 /* HostGroupView.swift */; };
 		86358C6D2A0869C100693245 /* AttendeeGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86358C6C2A0869C100693245 /* AttendeeGroupView.swift */; };
+		86358C6F2A09743500693245 /* ProfileSettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86358C6E2A09743500693245 /* ProfileSettingsButton.swift */; };
 		8643085D2A07658000A8ABFB /* ProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643085C2A07658000A8ABFB /* ProfileButton.swift */; };
 		8643AB42296B7DFE0069D5F5 /* CallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB41296B7DFE0069D5F5 /* CallButton.swift */; };
 		8643AB44296B7F1F0069D5F5 /* ReviewsLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */; };
@@ -148,6 +149,7 @@
 		86358C682A0856AE00693245 /* CalendarEventListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEventListRowView.swift; sourceTree = "<group>"; };
 		86358C6A2A0869AA00693245 /* HostGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostGroupView.swift; sourceTree = "<group>"; };
 		86358C6C2A0869C100693245 /* AttendeeGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendeeGroupView.swift; sourceTree = "<group>"; };
+		86358C6E2A09743500693245 /* ProfileSettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsButton.swift; sourceTree = "<group>"; };
 		8643085C2A07658000A8ABFB /* ProfileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButton.swift; sourceTree = "<group>"; };
 		8643AB41296B7DFE0069D5F5 /* CallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallButton.swift; sourceTree = "<group>"; };
 		8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsLinkButton.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				862C8B6529A7CEC900768DDE /* SplashScreenButton.swift */,
 				8627FA0329687D3A00382DA8 /* XMarkButton.swift */,
 				8643085C2A07658000A8ABFB /* ProfileButton.swift */,
+				86358C6E2A09743500693245 /* ProfileSettingsButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -800,6 +803,7 @@
 				867C99DB2999AB0D00E57C3C /* ContactsRow.swift in Sources */,
 				86E4BCD62965261000244E88 /* BusinessSection.swift in Sources */,
 				86E4BCD92965261000244E88 /* DirectionsView.swift in Sources */,
+				86358C6F2A09743500693245 /* ProfileSettingsButton.swift in Sources */,
 				86A25724296DECB700CFDFAB /* PhoneVerficationView.swift in Sources */,
 				86E4BCDD2965261000244E88 /* YelpAttribution.swift in Sources */,
 				86E4BCD12965261000244E88 /* HomeView.swift in Sources */,
