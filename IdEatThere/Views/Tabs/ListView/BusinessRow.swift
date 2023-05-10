@@ -32,6 +32,7 @@ struct BusinessRow: View {
                 AsyncImage(url: URL(string: business.imageURL ?? "")) { image in
                     image
                         .resizable()
+                        .scaledToFill()
                 } placeholder: {
                     ProgressView()
                 }
@@ -41,7 +42,8 @@ struct BusinessRow: View {
 
                 
                 // Name and Distance
-                VStack(alignment: .leading, spacing: 5) {
+                VStack(alignment: .leading, spacing: 0) {
+                    Spacer()
                     Text(business.name ?? "")
                         .font(.bodyHeaderFont)
                         .foregroundColor(Color.theme.secondaryText)
@@ -50,15 +52,20 @@ struct BusinessRow: View {
                         .font(.bodyFont)
                         .foregroundColor(Color.theme.secondaryText)
                     
+                    Spacer()
+                    
                     // Star rating and number of reviews
                     HStack {
                         Image("regular_\(business.rating ?? 0)")
-                        Text("\(business.reviewCount ?? 0) Reviews")
-                            .font(.bodyFont)
-                            .foregroundColor(Color.theme.secondaryText)
+                        
+                        YelpAttribution(link: business.url ?? "")
                         
                     }
                     
+                    Text("Based on \(business.reviewCount ?? 0) Reviews")
+                        .font(.bodyFont)
+                        .foregroundColor(Color.theme.secondaryText)
+                    Spacer()
                 }
                 Spacer()
                 

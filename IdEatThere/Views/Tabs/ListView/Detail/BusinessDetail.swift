@@ -9,6 +9,9 @@ import SwiftUI
 
 struct BusinessDetailView: View {
     
+    
+// TODO: Change to slide up view with rounded corners
+    
     @EnvironmentObject var restaurant : RestaurantsContentModel
     
     var business: Business
@@ -31,7 +34,7 @@ struct BusinessDetailView: View {
             
             restaurant.restaurant != nil ?
             BusinessDetailCard(business: restaurant.restaurant!)
-                .cornerRadius(10)
+                .cornerRadius(20)
             : nil,
         alignment: .bottom
         )

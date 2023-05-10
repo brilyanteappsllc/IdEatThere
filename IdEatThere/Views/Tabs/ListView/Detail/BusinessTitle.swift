@@ -14,11 +14,15 @@ struct BusinessTitle: View {
         
         VStack (alignment: .leading) {
             // - Business Name -
-            Text(business.name!)
-                .font(.title2)
-                .bold()
-                
             
+            HStack {
+                Text(business.name!)
+                    .font(.title2)
+                    .bold()
+                Spacer()
+                YelpAttribution(link: business.url!)
+            }
+
             // - Address - loop through display address -
             if business.location?.displayAddress != nil {
                 
@@ -28,14 +32,18 @@ struct BusinessTitle: View {
                     
                 }
             }
+            
+            Text(business.isClosed! ? "Closed..." : "Open!")
+                .foregroundColor(business.isClosed! ? Color.theme.red : Color.theme.green)
+            
 
             // - Star review -
             HStack {
                 Text(String(business.rating ?? 0.0))
                     .font(.headline)
-                    .padding(.bottom, 5)
                 Image("regular_\(business.rating ?? 0)")
-                    .padding(.bottom, 5)
+//                Spacer()
+//                AddToMyGroupButton(business: business)
             }
         }
 

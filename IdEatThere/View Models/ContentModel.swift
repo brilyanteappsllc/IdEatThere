@@ -38,7 +38,7 @@ class RestaurantsContentModel: ObservableObject {
     
     init() {
         
-       addSubscribers()
+//       addSubscribers()
         
     /// We are only going to request from the api when we are on the specific view. No need to init this method.
     /// Moved to .onAppear in MapView()

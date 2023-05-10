@@ -12,17 +12,23 @@ struct YelpAttribution: View {
     
     var body: some View {
         
-        
+
+            
         Link(destination: URL(string: link)!) {
-            Image("yelp")
-                .resizable()
-                .scaledToFit()
-                .frame(height: 45)
-                .cornerRadius(25)
-        }
+                Image("yelp_logo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 30)
+                    .frame(width: 35)
+            }
         
         
-        
+    }
+}
+
+struct YelpAttribution_Previews: PreviewProvider {
+    static var previews: some View {
+        YelpAttribution(link: "test")
     }
 }
 

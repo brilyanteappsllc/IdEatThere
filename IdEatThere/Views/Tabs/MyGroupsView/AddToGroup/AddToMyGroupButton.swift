@@ -18,7 +18,6 @@ struct AddToMyGroupButton: View {
     
     var body: some View {
         
-        NavigationView {
             
             Button {
                 self.isAddedToMyGroup.toggle()
@@ -27,9 +26,7 @@ struct AddToMyGroupButton: View {
                     showMyGroupsView.toggle()
                 }
             } label: {
-                ZStack {
-                    Rectangle()
-                        .opacity(0)
+
                     HStack {
                         Text(isAddedToMyGroup ? "Added to My Group!" : "Add to My Group!")
                             .foregroundColor(Color.theme.accent)
@@ -39,12 +36,10 @@ struct AddToMyGroupButton: View {
                                 CircleButtonAnimation(animate: $animateButton)
                             )
                     }
-                }
             }
             .sheet(isPresented: $showMyGroupsView) {
                 AddingToMyGroupsView(showMyGroupsView: $showMyGroupsView, business: business)
             }
-        }
     }
 }
 

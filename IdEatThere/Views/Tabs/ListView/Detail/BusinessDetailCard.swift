@@ -24,16 +24,28 @@ struct BusinessDetailCard: View {
                 // BusinessTitle View
                 HStack {
                     BusinessTitle(business: business)
-                        .padding(.leading)
+                        .padding(.horizontal)
                     
                 }
                 HStack {
                     
-                    Text(business.isClosed! ? "Closed..." : "Open!")
-                        .foregroundColor(business.isClosed! ? Color.theme.red : Color.theme.green)
-                        .padding(.leading)
+                    Spacer()
                     
-                    AddToMyGroupButton(business: business)
+                    CallButton(business: business)
+                    
+                    Spacer()
+                    
+                    ReviewsLinkButton(business: business)
+                    
+                    Spacer()
+                    
+                    MapLinkButton(business: business)
+                    
+                    Spacer()
+                    
+//                    YelpAttribution(link: business.url!)
+//                    
+//                    Spacer()
                 }
             }
             
@@ -47,7 +59,7 @@ struct BusinessDetailCard: View {
                             image
                                 .resizable()
                                 .scaledToFill()
-                                .padding()
+//                                .padding()
                             
                         } placeholder: {
                             Color.gray
@@ -58,7 +70,6 @@ struct BusinessDetailCard: View {
                     
                 }
                 //TODO: Fix padding for images
-                .padding(.horizontal)
                 .cornerRadius(50)
                 .tabViewStyle(.page)
                 .clipShape(RoundedRectangle(cornerRadius: 15))
