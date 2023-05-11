@@ -29,6 +29,7 @@ struct RestaurantsList : Codable, Identifiable {
     
     var restaurantAlias : String?
     var restaurantId : String?
+    var voteCount : Int?
     var restaurantName : String?
     var suggestorId : String?
     

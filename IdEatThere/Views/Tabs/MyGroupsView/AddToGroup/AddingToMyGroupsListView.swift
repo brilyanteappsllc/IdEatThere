@@ -29,7 +29,7 @@ struct AddingToMyGroupsListView: View {
                     Button {
                         print("Adding \(String(describing: business.name)) to group \(String(describing: groups.groupName))")
                         
-                        myGroupsModel.addRestaurantNameToMyGroup(groupId: groups.id ?? "", restaurantName: business.name ?? "", restaurantId: business.id ?? "", restaurantAlias: business.alias ?? "") { error in
+                        myGroupsModel.addRestaurantNameToMyGroup(groupId: groups.id ?? "", restaurantName: business.name ?? "", voteCount: 0, restaurantId: business.id ?? "", restaurantAlias: business.alias ?? "") { error in
                             
                             
                             

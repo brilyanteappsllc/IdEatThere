@@ -101,6 +101,8 @@ struct MyGroupsView: View {
                             presentCreateGroupView.toggle()
                         } label: {
                             Image(systemName: "calendar.badge.plus")
+                                .foregroundColor(Color.theme.groupButtonColor)
+                                .padding(.trailing)
                         }
                         .font(.bodyHeaderFont)
                         .padding(.top, 10)
@@ -140,5 +142,6 @@ struct MyGroupsView_Previews: PreviewProvider {
     static var previews: some View {
         MyGroupsView()
             .environmentObject(MyGroupsModel())
+            .environmentObject(CalendarEventStoreViewModel())
     }
 }

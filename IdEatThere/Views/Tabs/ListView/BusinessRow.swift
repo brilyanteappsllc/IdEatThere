@@ -58,7 +58,7 @@ struct BusinessRow: View {
                     HStack {
                         Image("regular_\(business.rating ?? 0)")
                         
-                        YelpAttribution(link: business.url ?? "")
+                        YelpAttribution(link: business.url ?? "", height: 30, width: 35)
                         
                     }
                     

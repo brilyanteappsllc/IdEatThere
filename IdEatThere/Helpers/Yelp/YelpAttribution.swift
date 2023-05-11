@@ -9,6 +9,8 @@ import SwiftUI
 struct YelpAttribution: View {
     
     var link : String
+    var height: CGFloat
+    var width: CGFloat
     
     var body: some View {
         
@@ -18,17 +20,17 @@ struct YelpAttribution: View {
                 Image("yelp_logo")
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 30)
-                    .frame(width: 35)
+                    .frame(height: height)
+                    .frame(width: width)
             }
         
         
     }
 }
 
-struct YelpAttribution_Previews: PreviewProvider {
-    static var previews: some View {
-        YelpAttribution(link: "test")
-    }
-}
+//struct YelpAttribution_Previews: PreviewProvider {
+//    static var previews: some View {
+//        YelpAttribution(link: "test")
+//    }
+//}
 

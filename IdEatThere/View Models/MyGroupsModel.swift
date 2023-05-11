@@ -50,7 +50,7 @@ class MyGroupsModel : ObservableObject {
     init() {
         date = Date()
         dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .long
+        dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .short
     }
     
@@ -150,14 +150,20 @@ class MyGroupsModel : ObservableObject {
         DispatchQueue.init(label: "getRestaurantList").async {
             
             
-            self.list(groupsId: groupsId ) { groupsRestaurantList in
-                self.groupsRestaurantsList = groupsRestaurantList
+            self.list(groupsId: groupsId ) { restaurantList in
+                
+             let newList =   restaurantList.sorted { list1, list2 in
+                  return  list1.voteCount ?? 0 > list2.voteCount ?? 0
+                }
+                
+                self.groupsRestaurantsList = newList
             }
         }
         
         
         
     }
+    
     
     func list(groupsId: String, completion: @escaping ([RestaurantsList]) -> Void) {
         
@@ -248,7 +254,7 @@ class MyGroupsModel : ObservableObject {
     }
     
     // MARK: - Add Restaurants to Group
-    func addRestaurantNameToMyGroup(groupId: String, restaurantName : String, restaurantId : String, restaurantAlias: String, completion: @escaping (Error?) -> Void) {
+    func addRestaurantNameToMyGroup(groupId: String, restaurantName : String, voteCount: Int, restaurantId : String, restaurantAlias: String, completion: @escaping (Error?) -> Void) {
         // Restaurant Name is stored in firebase
         
         // Ensure user is logged in
@@ -264,7 +270,7 @@ class MyGroupsModel : ObservableObject {
         
         DispatchQueue.init(label: "userAddedRestaurantToGroup").async {
             
-            GroupsDataService().userAddedRestauranttoGroup(groupId: groupId, restaurantAlias: restaurantAlias, restaurantId: restaurantId, restaurantName: restaurantName, suggestorId: suggestorId) { error in
+            GroupsDataService().userAddedRestauranttoGroup(groupId: groupId, restaurantAlias: restaurantAlias, restaurantId: restaurantId, restaurantName: restaurantName, voteCount: voteCount, suggestorId: suggestorId) { error in
                 
                 if error == nil {
                     

@@ -20,7 +20,7 @@ struct BusinessTitle: View {
                     .font(.title2)
                     .bold()
                 Spacer()
-                YelpAttribution(link: business.url!)
+                YelpAttribution(link: business.url!, height: 40, width: 45)
             }
 
             // - Address - loop through display address -
@@ -43,7 +43,7 @@ struct BusinessTitle: View {
                     .font(.headline)
                 Image("regular_\(business.rating ?? 0)")
 //                Spacer()
-//                AddToMyGroupButton(business: business)
+                AddToMyGroupButton(business: business)
             }
         }
 

@@ -138,7 +138,7 @@ class GroupsDataService {
         
     }
     
-    func userAddedRestauranttoGroup(groupId: String, restaurantAlias: String, restaurantId: String, restaurantName: String, suggestorId: String, completion: @escaping (Error?) -> Void) {
+    func userAddedRestauranttoGroup(groupId: String, restaurantAlias: String, restaurantId: String, restaurantName: String, voteCount: Int, suggestorId: String, completion: @escaping (Error?) -> Void) {
         
         let selectedGroupId = groupId
         
@@ -155,6 +155,7 @@ class GroupsDataService {
         restaurantDoc.setData(["restaurantAlias" : restaurantAlias,
                                "restaurantId" : restaurantId,
                                "restaurantName" : restaurantName,
+                               "voteCount" : voteCount,
                                "suggestorId" : suggestorId]) { (error) in
             
             if let error = error {
