@@ -18,7 +18,7 @@ struct TabBarButton: View {
             VStack(alignment: .center, spacing: 4) {
                 Text(buttonText)
                     .font(.bodyHeaderFont)
-                    .foregroundColor(Color.theme.blackText)
+                    .foregroundColor(Color.theme.secondaryText)
                 
                 
                 ZStack{
@@ -27,8 +27,8 @@ struct TabBarButton: View {
                     if isActive {
                         
                         Rectangle()
-                            .foregroundColor(Color.theme.blackText)
-                            .frame(width: 50, height: 2)
+                            .foregroundColor(Color.theme.secondaryText)
+                            .frame(width: buttonText == "Hosting" ? 65 : 80, height: 2)
                             .cornerRadius(20)
                     }
                 }

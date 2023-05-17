@@ -89,25 +89,24 @@ struct MyGroupsView: View {
                 .toolbar {
                     
                     ToolbarItem(placement: .navigationBarLeading) {
-                        Text("My Groups")
-                            .font(.system(size: 30))
-                            .font(Font.headingFont)
-                            .padding(.top, 10)
+                        HStack {
+                            Text("My Groups")
+                                .font(.system(size: 30))
+                                .font(Font.headingFont)
+                                .foregroundColor(Color.theme.secondaryText)
+                                
+                            Button {
+                                presentCreateGroupView.toggle()
+                            } label: {
+                                Image(systemName: "calendar.badge.plus")
+                                    .foregroundColor(Color.theme.groupButtonColor)
+                            }
+                            .font(.bodyHeaderFont)
+                            .padding(.top, 4)
+                        }
+                        .padding(.top, 10)
                     }
                     
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        
-                        Button {
-                            presentCreateGroupView.toggle()
-                        } label: {
-                            Image(systemName: "calendar.badge.plus")
-                                .foregroundColor(Color.theme.groupButtonColor)
-                                .padding(.trailing)
-                        }
-                        .font(.bodyHeaderFont)
-                        .padding(.top, 10)
-                        
-                    }
                     
                 }
                 .safeAreaInset(edge: .bottom) {

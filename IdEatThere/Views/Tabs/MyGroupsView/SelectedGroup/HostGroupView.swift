@@ -17,6 +17,7 @@ struct HostGroupView: View {
     
     var body: some View {
         
+        
         let array = myGroupsModel.groupsRestaurantsList
         
         
@@ -33,14 +34,11 @@ struct HostGroupView: View {
                         } label: {
                             
                             HStack {
-                                Text("Edit")
                                 Image(systemName: "pencil.circle")
                             }
                             
                             
                         }
-                        .shadow(radius: 1)
-                        .cornerRadius(10)
                        
                         
                     }
@@ -62,14 +60,11 @@ struct HostGroupView: View {
                         } label: {
                             
                             HStack {
-                                Text("View Attendees")
                                 Image(systemName: "person.fill.questionmark")
                             }
                             
                             
                         }
-                        .shadow(radius: 1)
-                        .cornerRadius(10)
                     }
                 }
                 
@@ -84,14 +79,11 @@ struct HostGroupView: View {
                         } label: {
                             
                             HStack {
-                                Text("Edit")
                                 Image(systemName: "pencil.circle")
                             }
                             
                             
                         }
-                        .shadow(radius: 1)
-                        .cornerRadius(10)
                        
                     }
                 }

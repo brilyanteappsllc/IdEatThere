@@ -28,6 +28,8 @@ struct GridButton: View {
                         .frame(width: 75, height: 75)
                         .cornerRadius(10)
                         .padding(5)
+                        .foregroundColor(Color.clear)
+                        .shadow(radius: 1)
                     
                     VStack(alignment: .leading, spacing: 5) {
                         

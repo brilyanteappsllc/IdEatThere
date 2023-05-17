@@ -22,6 +22,9 @@ struct CalendarView: UIViewRepresentable {
         view.delegate = context.coordinator
         view.calendar = Calendar(identifier: .gregorian)
         view.availableDateRange = interval
+        view.tintColor = UIColor(Color.theme.secondaryText)
+        view.fontDesign = .rounded
+   //     view.fontDesign = foregroundColor(Color.theme.secondaryText)
         let dateSelection = UICalendarSelectionSingleDate(delegate: context.coordinator)
         view.selectionBehavior = dateSelection
         return view
@@ -80,6 +83,7 @@ struct CalendarView: UIViewRepresentable {
             return .customView {
                 let icon = UILabel()
                 icon.text = self.eventStore.eventIcon(groupType: CalendarEventType(rawValue: singleEvent.groupType!) ?? .unspecified)
+            
                 return icon
             }
             
