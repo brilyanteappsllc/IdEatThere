@@ -37,6 +37,7 @@
 		86358C6B2A0869AA00693245 /* HostGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86358C6A2A0869AA00693245 /* HostGroupView.swift */; };
 		86358C6D2A0869C100693245 /* AttendeeGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86358C6C2A0869C100693245 /* AttendeeGroupView.swift */; };
 		86358C6F2A09743500693245 /* ProfileSettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86358C6E2A09743500693245 /* ProfileSettingsButton.swift */; };
+		86358C712A12C03000693245 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86358C702A12C03000693245 /* ViewModifiers.swift */; };
 		8643085D2A07658000A8ABFB /* ProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643085C2A07658000A8ABFB /* ProfileButton.swift */; };
 		8643AB42296B7DFE0069D5F5 /* CallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB41296B7DFE0069D5F5 /* CallButton.swift */; };
 		8643AB44296B7F1F0069D5F5 /* ReviewsLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */; };
@@ -150,6 +151,7 @@
 		86358C6A2A0869AA00693245 /* HostGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostGroupView.swift; sourceTree = "<group>"; };
 		86358C6C2A0869C100693245 /* AttendeeGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendeeGroupView.swift; sourceTree = "<group>"; };
 		86358C6E2A09743500693245 /* ProfileSettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsButton.swift; sourceTree = "<group>"; };
+		86358C702A12C03000693245 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		8643085C2A07658000A8ABFB /* ProfileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButton.swift; sourceTree = "<group>"; };
 		8643AB41296B7DFE0069D5F5 /* CallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallButton.swift; sourceTree = "<group>"; };
 		8643AB43296B7F1F0069D5F5 /* ReviewsLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsLinkButton.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				8627FA0329687D3A00382DA8 /* XMarkButton.swift */,
 				8643085C2A07658000A8ABFB /* ProfileButton.swift */,
 				86358C6E2A09743500693245 /* ProfileSettingsButton.swift */,
+				86358C702A12C03000693245 /* ViewModifiers.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -836,6 +839,7 @@
 				86E4BCEB2965263000244E88 /* Business Search.swift in Sources */,
 				864B2A71299EAF9700D8AAF5 /* SelectedGroupView.swift in Sources */,
 				86E4BCD32965261000244E88 /* DirectionsMap.swift in Sources */,
+				86358C712A12C03000693245 /* ViewModifiers.swift in Sources */,
 				8643AB8F296CC3190069D5F5 /* MyGroupsModel.swift in Sources */,
 				8627FA0429687D3A00382DA8 /* XMarkButton.swift in Sources */,
 				8643AB44296B7F1F0069D5F5 /* ReviewsLinkButton.swift in Sources */,
