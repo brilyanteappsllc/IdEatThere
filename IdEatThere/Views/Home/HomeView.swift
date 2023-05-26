@@ -33,8 +33,8 @@ struct HomeView: View {
                 MyGroupsView()
                     .tabItem {
                         VStack{
-                            Image(systemName: "person.3")
-                            Text("My Groups")
+                            Image(systemName: "house")
+                            Text("Home")
                         }
                     }
                     .tag(Tab.Groups)
@@ -49,7 +49,7 @@ struct HomeView: View {
                     .tabItem{
                         VStack{
                             Image(systemName: "fork.knife")
-                            Text("I'd Eat That")
+                            Text("Restaurants")
                         }
                     }
                     .tag(Tab.Map)
@@ -61,8 +61,8 @@ struct HomeView: View {
                 MyProfileView()
                     .tabItem {
                         VStack{
-                            Image(systemName: "person.circle")
-                            Text("My Profile")
+                            Image(systemName: "person.fill")
+                            Text("Profile")
                         }
                     }
                     .tag(Tab.Profile)

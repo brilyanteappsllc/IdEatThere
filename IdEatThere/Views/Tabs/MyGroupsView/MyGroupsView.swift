@@ -40,7 +40,6 @@ struct MyGroupsView: View {
 //                            .padding(.top, 10)
 //                    }
                     
-                    
                     if #available(iOS 16.0, *) {
                         CalendarView(interval: DateInterval(start: .distantPast, end: .distantFuture), eventStore: calendarEventModel, dateSelected: $dateSelected, displayEvents: $displayEvents)
                     } else {
@@ -90,11 +89,18 @@ struct MyGroupsView: View {
                     
                     ToolbarItem(placement: .navigationBarLeading) {
                         HStack {
-                            Text("My Groups")
+                            Text("I'd Eat There")
                                 .font(.system(size: 30))
                                 .font(Font.headingFont)
                                 .foregroundColor(Color.theme.secondaryText)
-                                
+                            
+                        }
+                        .padding(.top, 10)
+                    }
+                    
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        
+                        HStack {
                             Button {
                                 presentCreateGroupView.toggle()
                             } label: {
@@ -104,7 +110,6 @@ struct MyGroupsView: View {
                             .font(.bodyHeaderFont)
                             .padding(.top, 4)
                         }
-                        .padding(.top, 10)
                     }
                     
                     
