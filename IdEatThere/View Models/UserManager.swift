@@ -38,7 +38,7 @@ class UserManagerModel : NSObject, ObservableObject {
     @Published var password : String = ""
     @Published var errorMessage : String?
     @Published var userName : String = ""
-    @Published var newUser : Bool = true
+    @Published var newUser : Bool = true // is new user until they complete profile
     
     @Published var completedOnboarding : Bool = false
     
@@ -50,6 +50,17 @@ class UserManagerModel : NSObject, ObservableObject {
         
         return self.loggedIn
     }
+    
+    func loadProfile() {
+        self.userInfo()
+    }
+    
+    func finishedProfile() {
+        
+        self.newUser = false
+        
+    }
+    
     
     func appLaunch_listener(completion: @escaping (Bool) -> Void) {
         
@@ -84,12 +95,6 @@ class UserManagerModel : NSObject, ObservableObject {
         self.userId = Auth.auth().currentUser?.uid ?? ""
         
         return self.userId
-        
-    }
-    
-    func isNewUser() {
-        
-        
         
     }
     
@@ -140,6 +145,7 @@ class UserManagerModel : NSObject, ObservableObject {
             print(error)
         }
     }
+
     
     // MARK: -- Phone Number Auth and Verification
     
@@ -179,7 +185,7 @@ class UserManagerModel : NSObject, ObservableObject {
             
             if error == nil {
                 
-              //  self.userInfo()
+                self.userInfo()
                 
                 DispatchQueue.main.async {
                     
@@ -229,6 +235,7 @@ class UserManagerModel : NSObject, ObservableObject {
                 self.firstName = document.get("firstName") as? String ?? "No Name"
                 self.lastName = document.get("lastName") as? String ?? "No Name"
                 self.phone = document.get("phone") as? String ?? "1234567891"
+                self.newUser = document.get("newUser") as? Bool ?? true
                 self.profilePhoto = document.get("photo") as? String
         }
             else {
@@ -343,7 +350,8 @@ class UserManagerModel : NSObject, ObservableObject {
             
         path.setData(["firstName" : self.firstName,
                       "lastName" : self.lastName,
-                          "phone" : userPhone])
+                      "phone" : userPhone,
+                      "newUser" : false])
                        //   "photo" : photo])
         
         // Check if an image is passed through

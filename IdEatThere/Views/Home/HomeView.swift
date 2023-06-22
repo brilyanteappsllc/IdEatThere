@@ -26,48 +26,93 @@ struct HomeView: View {
     
     var body: some View {
         
-        ZStack {
-            
-            TabView(selection: $tabSelection) {
-                // --- Community View ----
-                MyGroupsView()
-                    .tabItem {
-                        VStack{
-                            Image(systemName: "house")
-                            Text("Home")
+        if userManagerModel.newUser {
+            VStack {
+                    CreateProfileView()
+
+                        Button {
+                            userManagerModel.setUserProfile(firstName: userManagerModel.firstName, lastName: userManagerModel.lastName, photo: userManagerModel.photo) { isSuccess in
+                                
+                                if isSuccess {
+                                    self.userManagerModel.finishedProfile()
+                                    
+                                }
+                                
+                                else {
+                                    
+                                    // Show warning error
+                                    print(isSuccess)
+                                    
+                                }
+                            }
+                                
+                            
+                        } label: {
+                            ZStack {
+                            Rectangle()
+                                .foregroundColor(Color.theme.red)
+                                .frame(height: 48)
+                                .cornerRadius(20)
+                                .padding(.horizontal)
+                            
+                            Text("Save")
                         }
+                            .padding(.bottom)
+
+ 
                     }
-                    .tag(Tab.Groups)
-                    .onAppear{
-                        myGroupsModel.queryGroupsAttending()
-                        myGroupsModel.queryGroupsHosting()
-                        calenderModel.queryCalendarEvents()
-                    }
-                
-                // --- Home View ---
-                MapView()
-                    .tabItem{
-                        VStack{
-                            Image(systemName: "fork.knife")
-                            Text("Restaurants")
-                        }
-                    }
-                    .tag(Tab.Map)
-                    
+
                 
                 
-                
-                // --- My Profile View ---
-                MyProfileView()
-                    .tabItem {
-                        VStack{
-                            Image(systemName: "person.fill")
-                            Text("Profile")
-                        }
-                    }
-                    .tag(Tab.Profile)
             }
             
+        }
+        
+        else {
+            
+            ZStack {
+                
+                TabView(selection: $tabSelection) {
+                    // --- Community View ----
+                    MyGroupsView()
+                        .tabItem {
+                            VStack{
+                                Image(systemName: "house")
+                                Text("Home")
+                            }
+                        }
+                        .tag(Tab.Groups)
+                        .onAppear{
+                            myGroupsModel.queryGroupsAttending()
+                            myGroupsModel.queryGroupsHosting()
+                            calenderModel.queryCalendarEvents()
+                        }
+                    
+                    // --- Home View ---
+                    MapView()
+                        .tabItem{
+                            VStack{
+                                Image(systemName: "fork.knife")
+                                Text("Restaurants")
+                            }
+                        }
+                        .tag(Tab.Map)
+                    
+                    
+                    
+                    
+                    // --- My Profile View ---
+                    MyProfileView()
+                        .tabItem {
+                            VStack{
+                                Image(systemName: "person.fill")
+                                Text("Profile")
+                            }
+                        }
+                        .tag(Tab.Profile)
+                }
+                
+            }
         }
     }
 }

@@ -17,28 +17,22 @@ struct LaunchView: View {
     
     
     var body: some View {
+    
         
-        HomeView()
+        if self.launchViewModel.isUserLoggedIn {
+            
+            HomeView()
+                .onAppear{
+                    self.userManagerModel.loadProfile()
+                }
+            
+        }
         
-//        if self.launchViewModel.loadingLogginStatus {
-//
-//            ProgressView()
-//        }
-//
-//        else {
-//
-//            if self.userManagerModel.completedOnboarding{
-//
-//                HomeView()
-//
-//            }
-//
-//            else if !self.launchViewModel.isUserLoggedIn {
-//
-//               SplashScreen()
-//
-//            }
-//        }
+        else {
+            
+            SplashScreen()
+            
+        }
     }
 }
 

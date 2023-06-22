@@ -15,6 +15,7 @@ struct User : Codable, Identifiable {
     var firstName : String?
     var lastName : String?
     var phone : String?
+    var newUser: Bool?
     var photo: String?
     var calendarEvents : [CalendarEvents]
     
