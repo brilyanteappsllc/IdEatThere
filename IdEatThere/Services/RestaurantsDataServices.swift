@@ -271,8 +271,15 @@ enum Endpoint {
         urlComponents.queryItems = queryItems
         let url = urlComponents.url!
         var request = URLRequest(url: url)
-        request.addValue("Bearer \(Constants.apiKey)", forHTTPHeaderField: "Authorization")
         
+        #if DEBUG
+        request.addValue("Bearer \(Constants.apiKeySandBox)", forHTTPHeaderField: "Authorization")
+        
+        #else
+        request.addValue("Bearer \(Constants.apiKeyProd)", forHTTPHeaderField: "Authorization")
+      
+        
+        #endif
         return request
         
     }
