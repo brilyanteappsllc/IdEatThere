@@ -26,49 +26,6 @@ struct HomeView: View {
     
     var body: some View {
         
-        if userManagerModel.newUser {
-            VStack {
-                    CreateProfileView()
-
-                        Button {
-                            userManagerModel.setUserProfile(firstName: userManagerModel.firstName, lastName: userManagerModel.lastName, photo: userManagerModel.photo) { isSuccess in
-                                
-                                if isSuccess {
-                                    self.userManagerModel.finishedProfile()
-                                    
-                                }
-                                
-                                else {
-                                    
-                                    // Show warning error
-                                    print(isSuccess)
-                                    
-                                }
-                            }
-                                
-                            
-                        } label: {
-                            ZStack {
-                            Rectangle()
-                                .foregroundColor(Color.theme.red)
-                                .frame(height: 48)
-                                .cornerRadius(20)
-                                .padding(.horizontal)
-                            
-                            Text("Save")
-                        }
-                            .padding(.bottom)
-
- 
-                    }
-
-                
-                
-            }
-            
-        }
-        
-        else {
             
             ZStack {
                 
@@ -113,7 +70,6 @@ struct HomeView: View {
                 }
                 
             }
-        }
     }
 }
 

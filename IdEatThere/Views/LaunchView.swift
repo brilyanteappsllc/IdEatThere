@@ -17,22 +17,33 @@ struct LaunchView: View {
     
     
     var body: some View {
-    
         
-        if self.launchViewModel.isUserLoggedIn {
+        
+        if self.launchViewModel.loadingLogginStatus {
             
-            HomeView()
-                .onAppear{
-                    self.userManagerModel.loadProfile()
-                }
+            ProgressView()
+        }
+        
+        else if !self.launchViewModel.isUserLoggedIn {
+            
+            SplashScreen()
             
         }
         
         else {
             
-            SplashScreen()
+            if self.userManagerModel.completedOnboarding {
+                HomeView()
+            }
+            
+            else {
+                
+                // Need to have phone registration and profile steps different than just in Onboarding
+                OnboardingView()
+            }
             
         }
+
     }
 }
 
