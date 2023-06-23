@@ -11,9 +11,10 @@ enum OnboardingStep : Int {
     
     case welcome = 0
     case email = 1
-    case phoneNumber = 2
-    case phoneVerification = 3
-    case profile = 4
+    case profile = 2
+    case phoneNumber = 3
+    case phoneVerification = 4
+    
 }
 
 struct OnboardingView: View {
@@ -44,6 +45,11 @@ struct OnboardingView: View {
                     .tag(OnboardingStep.email)
                     .contentShape(Rectangle()).gesture(DragGesture())
                 
+                // Profile View
+                CreateProfileView()
+                    .tag(OnboardingStep.profile)
+                    .contentShape(Rectangle()).gesture(DragGesture())
+                
                 // Phone Number
                 PhoneNumberView()
                     .tag(OnboardingStep.phoneNumber)
@@ -54,10 +60,6 @@ struct OnboardingView: View {
                     .tag(OnboardingStep.phoneVerification)
                     .contentShape(Rectangle()).gesture(DragGesture())
                 
-                // Profile View
-                CreateProfileView()
-                    .tag(OnboardingStep.profile)
-                    .contentShape(Rectangle()).gesture(DragGesture())
                 
                 
             }
@@ -72,7 +74,7 @@ struct OnboardingView: View {
                     
                 case .welcome :
                     
-                    tabSelection = .phoneNumber
+                    tabSelection = .profile
                     
 //                    // TODO: Set up Email and 2FA
                 case .email :
@@ -95,6 +97,10 @@ struct OnboardingView: View {
                         }
 
                     }
+                case .profile :
+                    
+                    tabSelection = .phoneNumber
+                    
                 case .phoneNumber :
                    
                     buttonDisabled.toggle()
@@ -124,15 +130,33 @@ struct OnboardingView: View {
                     
                    buttonDisabled.toggle()
                     
+                    
+                    // Verify Phone Number first to log user in
                     userManager.verifyCode(code: userManager.verificationCode) { error in
                         
                         if error == nil {
-                            tabSelection = .profile
+                            
+                            // If no error, set up user profile
+                            userManager.setUserProfile(firstName: userManager.firstName, lastName: userManager.lastName, photo: userManager.photo) { isSuccess in
+                                
+                                if isSuccess {
+                                    userManager.userCompletedOnboarding()
+                                    
+                                }
+                                
+                                else {
+                                    
+                                    // Show warning error
+                                    print(isSuccess)
+                                    
+                                }
+                                
+                            }
                         }
                         
+                        // Show error
                         else {
                             
-                            // Show error
                             print(error as Any)
                         }
                         if buttonDisabled {
@@ -142,31 +166,8 @@ struct OnboardingView: View {
                         
                     }
                     
-                case .profile :
-                    
-                   buttonDisabled.toggle()
-                    
-                    userManager.setUserProfile(firstName: userManager.firstName, lastName: userManager.lastName, photo: userManager.photo) { isSuccess in
-                        
-                        if isSuccess {
-                            userManager.userCompletedOnboarding()
-                            
-                        }
-                        
-                        else {
-                            
-                            // Show warning error
-                            print(isSuccess)
-                            
-                        }
-                        
-                        if buttonDisabled {
-                            buttonDisabled.toggle()
-                        }
-                        
-                    }
-            
                 }
+                
                 
             } label: {
                 
@@ -188,19 +189,19 @@ struct OnboardingView: View {
                         
                     case .email:
                         Text(buttonDisabled ? "Saving..." : "Create Account")
+                                                
+                    case .profile :
+                        Text("Next")
                         
                     case .phoneNumber:
                         Text("Next")
                         
                     case .phoneVerification :
-                        Text("Verify")
-                        
-                        
-                    case .profile :
-                        Text(buttonDisabled ? "Uploading..." : "Save Profile")
-                        
+                        Text(buttonDisabled ? "Saving Profile..." : "Verify")
+                            .foregroundColor(.white)
                         
                     }
+                    
                 }
             }
             .padding()

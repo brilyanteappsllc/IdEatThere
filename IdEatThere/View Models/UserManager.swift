@@ -139,7 +139,6 @@ class UserManagerModel : NSObject, ObservableObject {
     func signOut() {
         do {
             try Auth.auth().signOut()
-            LaunchViewModel().getLoggedInStatus()
         }
         catch let error {
             print(error)

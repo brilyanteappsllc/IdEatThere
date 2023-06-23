@@ -32,15 +32,7 @@ struct LaunchView: View {
         
         else {
             
-            if self.userManagerModel.completedOnboarding {
-                HomeView()
-            }
-            
-            else {
-                
-                // Need to have phone registration and profile steps different than just in Onboarding
-                OnboardingView()
-            }
+            HomeView()
             
         }
 
