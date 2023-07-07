@@ -16,7 +16,8 @@ struct MyProfileView: View {
         
         let photoURL = URL(string: userModel.profilePhoto ?? "")
             
-            ZStack( ) {
+            NavigationView {
+                
                 ScrollView {
                     
                     VStack(spacing: 25) {

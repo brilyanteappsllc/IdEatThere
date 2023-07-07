@@ -25,7 +25,7 @@ struct CreateProfileView: View {
                 .font(.title)
                 .padding(.top, 52)
             
-            Text("Just a few more details to get started")
+            Text("Let's start with who you are!")
                 .padding(.top, 12)
                 .font(.body)
             

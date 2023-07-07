@@ -12,16 +12,15 @@ struct EditUserProfileButton: View {
     @EnvironmentObject var userManager: UserManagerModel
     
     var body: some View {
-        Button {
+        NavigationLink {
             // Edit Profile
-            userManager.editUserInformation = true
+            EditUserProfileForm()
         } label: {
             ProfileButton(buttonName: "Edit Profile")
         }
-        .sheet(isPresented: $userManager.editUserInformation, onDismiss: userManager.saveFirstName) {
-            EditUserProfileForm()
+//        .sheet(isPresented: $userManager.editUserInformation, onDismiss: userManager.saveFirstName) {
+            
         }
-    }
 }
 
 struct EditUserProfileButton_Previews: PreviewProvider {

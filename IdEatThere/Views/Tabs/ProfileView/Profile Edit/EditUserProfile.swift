@@ -13,16 +13,17 @@ struct EditUserProfileForm: View {
     @EnvironmentObject var userManager: UserManagerModel
     var body: some View {
         
-        ZStack {
-            VStack {
-                Spacer()
-                Text(String("\(userManager.firstName)"))
-    
-                Section {
-                TextField("Name", text: $userManager.firstName)
-                        
+        
+        
+
+        VStack {
+            Form {
+                
+                Section(header: Text("Name")) {
+                    TextField("Name", text: $userManager.firstName)
+                    
+                    
                 }
-                Spacer()
                 Section {
                     Button {
                         userManager.saveFirstName()
@@ -30,12 +31,29 @@ struct EditUserProfileForm: View {
                         Text("Save")
                             .foregroundColor(.white)
                     }
-
+                    
                 }
                 Spacer()
-                
- 
-            } // End of Lazy V
+            }
+
+        } // End of Lazy V
+  
+        .padding(.horizontal)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            
+            ToolbarItem(placement: .principal) {
+                HStack {
+                    //TODO: Add image for the group
+                    //                        Image(systemName: "fork.knife.circle.fill")
+                    //                            .font(.system(size: 25))
+                    Text("Edit Profile")
+                        .font(Font.headingFont)
+                }
+                .padding(.top, 10)
+            }
+            
+            
         }
         
     }
