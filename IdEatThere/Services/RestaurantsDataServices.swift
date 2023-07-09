@@ -129,19 +129,7 @@ struct YelpAPIService {
 
     // request for selected business details
     var businessDetails : (Endpoint) ->AnyPublisher<Business?, Never>
-
-    // request for food categories
-    var foodCategoryRequest : (Endpoint) ->AnyPublisher<[Business], Never>
-
-    // request for filter restaurants
-    var attributeRequest : (Endpoint) ->AnyPublisher<[Business], Never>
-
-    // request for sorting restaurants
-    var sortRequest : (Endpoint) ->AnyPublisher<[Business], Never>
-
-    // request for filter + sort restaurants
-    var comboRequest : (Endpoint) ->AnyPublisher<[Business], Never>
-
+    
     // autocomplete search request
     var searchAutoCompletion : (Endpoint) ->AnyPublisher<[Term], Never>
     
@@ -169,46 +157,6 @@ extension YelpAPIService {
             .replaceError(with: nil)
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
-    }, foodCategoryRequest: { endpoint in
-        // URL Request and return [Businesses] list
-        return URLSession.shared.dataTaskPublisher(for: endpoint.request)
-            .map(\.data)
-            .breakpointOnError()
-            .decode(type: SearchResult.self, decoder: JSONDecoder())
-            .map(\.businesses)
-            .replaceError(with: [])
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
-    }, attributeRequest: { endpoint in
-        // URL Request and return [Businesses] list
-        return URLSession.shared.dataTaskPublisher(for: endpoint.request)
-            .map(\.data)
-            .breakpointOnError()
-            .decode(type: SearchResult.self, decoder: JSONDecoder())
-            .map(\.businesses)
-            .replaceError(with: [])
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
-    }, sortRequest: { endpoint in
-        // URL Request and return [Businesses] list
-        return URLSession.shared.dataTaskPublisher(for: endpoint.request)
-            .map(\.data)
-            .breakpointOnError()
-            .decode(type: SearchResult.self, decoder: JSONDecoder())
-            .map(\.businesses)
-            .replaceError(with: [])
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
-    }, comboRequest: { endpoint in
-        // URL Request and return [Businesses] list
-        return URLSession.shared.dataTaskPublisher(for: endpoint.request)
-            .map(\.data)
-            .breakpointOnError()
-            .decode(type: SearchResult.self, decoder: JSONDecoder())
-            .map(\.businesses)
-            .replaceError(with: [])
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
     }) { endpoint in
         return URLSession.shared.dataTaskPublisher(for: endpoint.request)
             .map(\.data)
@@ -223,8 +171,9 @@ extension YelpAPIService {
 
 enum Endpoint {
     
-    case search(term: String?, location: CLLocation, category: FoodCategory?, attributes: AttributeOptions?, sort: SortOptions?)
+    case search(term: String?, location: CLLocation, category: FoodCategory?, attributes: AttributeOptions?, sort: SortOptions?, time: String?, date: String?, cover: String?)
     case detail(id: String)
+    case reserve(id: String)
     case autoCompletion(text: String, location: CLLocation)
     
     var path : String {
@@ -233,6 +182,9 @@ enum Endpoint {
             return "/v3/businesses/search"
         case .detail(let id) :
             return "/v3/businesses/\(id)"
+        case .reserve(let id) :
+            return "/v3/bookings/\(id)"
+            
         case .autoCompletion :
             return "/v3/autocomplete"
         }
@@ -242,7 +194,7 @@ enum Endpoint {
         
         switch self {
             
-        case .search(let term, let location, let category, let attribute, let sort) :
+        case .search(let term, let location, let category, let attribute, let sort, let time, let date, let cover) :
             return [
                 .init(name: "term", value: term),
                 .init(name: "longitude", value: String(location.coordinate.longitude)),
@@ -250,10 +202,16 @@ enum Endpoint {
                 .init(name: "categories", value: category?.rawValue ?? FoodCategory.all.rawValue),
                 .init(name: "attributes", value: attribute?.rawValue ?? AttributeOptions.none.rawValue),
                 .init(name: "sort_by", value: sort?.rawValue ?? SortOptions.none.rawValue),
+                .init(name: "reservation_time", value: time),
+                .init(name: "reservation_date", value: date),
+                .init(name: "reservation_covers", value: cover)
             ]
             
         case .detail :
             return []
+            
+        case .reserve :
+            return[]
             
             
         case .autoCompletion(let text, let location) :

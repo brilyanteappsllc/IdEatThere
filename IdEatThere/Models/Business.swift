@@ -129,7 +129,7 @@ struct SpecialHour: Codable {
 
 struct data : Decodable {
     
-    var reservation_openings : String?
+    var reservation_openings : [String?]
 }
 
 

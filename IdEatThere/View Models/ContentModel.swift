@@ -60,7 +60,10 @@ class RestaurantsContentModel: ObservableObject {
                     location: locationManager.location! ,
                     category: selectedCategory,
                     attributes: selectedAttribute,
-                    sort: selectedSort)
+                    sort: selectedSort,
+                    time: "20:44",
+                    date: "2023-07-25",
+                    cover: "1")
             )
             .assign(to: &$restaurants)
             
@@ -75,7 +78,10 @@ class RestaurantsContentModel: ObservableObject {
                             location: locationManager.location!,
                             category: category,
                             attributes: attributes,
-                            sort: sort))
+                            sort: sort,
+                            time: "20:44",
+                            date: "2023-07-25",
+                            cover: "1"))
                     
                 }
                 .switchToLatest()
