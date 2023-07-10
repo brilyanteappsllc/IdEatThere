@@ -133,6 +133,9 @@ struct YelpAPIService {
     // autocomplete search request
     var searchAutoCompletion : (Endpoint) ->AnyPublisher<[Term], Never>
     
+    
+    var businessBooking : (Endpoint) ->AnyPublisher<BusinessBooking?, Never>
+    
 }
 
 extension YelpAPIService {
@@ -166,6 +169,16 @@ extension YelpAPIService {
             .replaceError(with: [])
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
+    } businessBooking: {endpoint in
+        
+        // URL Request and return Businesses details
+        return URLSession.shared.dataTaskPublisher(for: endpoint.request)
+            .map(\.data)
+            .breakpointOnError()
+            .decode(type: BusinessBooking?.self, decoder: JSONDecoder())
+            .replaceError(with: nil)
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
 }
 
@@ -173,7 +186,7 @@ enum Endpoint {
     
     case search(term: String?, location: CLLocation, category: FoodCategory?, attributes: AttributeOptions?, sort: SortOptions?, time: String?, date: String?, cover: String?)
     case detail(id: String)
-    case reserve(id: String)
+    case reserve(id: String, time: String?, date: String?, covers: String?)
     case autoCompletion(text: String, location: CLLocation)
     
     var path : String {
@@ -182,8 +195,8 @@ enum Endpoint {
             return "/v3/businesses/search"
         case .detail(let id) :
             return "/v3/businesses/\(id)"
-        case .reserve(let id) :
-            return "/v3/bookings/\(id)"
+        case .reserve(let id, _, _, _) :
+            return "/v3/bookings/\(id)/openings"
             
         case .autoCompletion :
             return "/v3/autocomplete"
@@ -210,8 +223,12 @@ enum Endpoint {
         case .detail :
             return []
             
-        case .reserve :
-            return[]
+        case .reserve(_, let time, let date, let covers) :
+            return[
+                .init(name: "time", value: time),
+                .init(name: "date", value: date),
+                .init(name: "covers", value: covers)
+            ]
             
             
         case .autoCompletion(let text, let location) :

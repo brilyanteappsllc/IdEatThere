@@ -65,6 +65,10 @@ struct BusinessRow: View {
                     Text("Based on \(business.reviewCount ?? 0) Reviews")
                         .font(.bodyFont)
                         .foregroundColor(Color.theme.secondaryText)
+                    ForEach(business.data?.reservationOpenings ?? [""], id: \.self) { displayLine in
+                        Text(displayLine ?? "None")
+                            .foregroundColor(Color.theme.blackText)
+                    }
                     Spacer()
                 }
                 Spacer()

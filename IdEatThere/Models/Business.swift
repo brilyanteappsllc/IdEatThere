@@ -28,6 +28,7 @@ class Business: Decodable, Identifiable, ObservableObject {
     var transactions: [String]?
     var specialHours: [SpecialHour]?
     var distance: Double?
+    var data: data?
 
     enum CodingKeys: String, CodingKey {
         case id, alias, name
@@ -40,6 +41,7 @@ class Business: Decodable, Identifiable, ObservableObject {
         case categories, rating, location, coordinates, photos, price, hours, transactions
         case specialHours = "special_hours"
         case distance
+        case data
         
     }
     
@@ -127,10 +129,22 @@ struct SpecialHour: Codable {
     }
 }
 
+// MARK: - Reservation Data
 struct data : Decodable {
     
-    var reservation_openings : [String?]
+    var reservationOpenings: [String]
+
+    enum CodingKeys: String, CodingKey {
+        case reservationOpenings = "reservation_openings"
+    }
 }
+
+
+
+    enum CodingKeys: String, CodingKey {
+        case creditCardRequired = "credit_card_required"
+        case time, url
+    }
 
 
 

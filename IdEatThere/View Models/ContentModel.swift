@@ -16,6 +16,7 @@ class RestaurantsContentModel: ObservableObject {
     @Published var authorizationState = CLAuthorizationStatus.notDetermined
     @Published var restaurants : [Business] = [] // List
     @Published var restaurant : Business? // Details
+    @Published var restaurantBooking : BusinessBooking? // booking details
     @Published var filteredRestaurants : [Business] = [] // Filtered
     
     @Published var sights : [Business] = []
@@ -115,7 +116,19 @@ class RestaurantsContentModel: ObservableObject {
             .assign(to: &$restaurant)
         
     }
-    
+    func apiRequestBookingDetails(forId id: String) {
+        
+        let live = YelpAPIService.live
+        
+        let booking = live
+            
+            .businessBooking(.reserve(id: id, time: "18:30", date: "2023-07-25", covers: "4"))
+            .share()
+        
+        booking
+            .assign(to: &$restaurantBooking)
+        
+    }
     
     func addSubscribers() {
         

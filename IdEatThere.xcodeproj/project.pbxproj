@@ -69,6 +69,7 @@
 		8680819929F2ED6A001DCD5E /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8680819829F2ED69001DCD5E /* CalendarView.swift */; };
 		8680819B29F3395D001DCD5E /* CalendarEventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8680819A29F3395D001DCD5E /* CalendarEventStore.swift */; };
 		8680819D29F33B38001DCD5E /* CalendarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8680819C29F33B38001DCD5E /* CalendarEvent.swift */; };
+		86909D902A5CA83B0029BF8B /* BusinessBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86909D8F2A5CA83B0029BF8B /* BusinessBooking.swift */; };
 		86A25720296DEC8F00CFDFAB /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A2571F296DEC8F00CFDFAB /* WelcomeView.swift */; };
 		86A25722296DECA900CFDFAB /* PhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A25721296DECA900CFDFAB /* PhoneNumberView.swift */; };
 		86A25724296DECB700CFDFAB /* PhoneVerficationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A25723296DECB700CFDFAB /* PhoneVerficationView.swift */; };
@@ -183,6 +184,7 @@
 		8680819829F2ED69001DCD5E /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		8680819A29F3395D001DCD5E /* CalendarEventStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEventStore.swift; sourceTree = "<group>"; };
 		8680819C29F33B38001DCD5E /* CalendarEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEvent.swift; sourceTree = "<group>"; };
+		86909D8F2A5CA83B0029BF8B /* BusinessBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessBooking.swift; sourceTree = "<group>"; };
 		86A2571E296DCEC800CFDFAB /* IdEatThere.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IdEatThere.entitlements; sourceTree = "<group>"; };
 		86A2571F296DEC8F00CFDFAB /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		86A25721296DECA900CFDFAB /* PhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberView.swift; sourceTree = "<group>"; };
@@ -594,6 +596,7 @@
 			isa = PBXGroup;
 			children = (
 				86E4BCE82965263000244E88 /* Business.swift */,
+				86909D8F2A5CA83B0029BF8B /* BusinessBooking.swift */,
 				86E4BCE92965263000244E88 /* Business Search.swift */,
 				86A80AD529708C9A001B8941 /* User.swift */,
 				864B2A72299EB07600D8AAF5 /* Groups.swift */,
@@ -858,6 +861,7 @@
 				8643AB48296B83CC0069D5F5 /* AddToMyGroupButton.swift in Sources */,
 				86A8AB5A29EDEE3500F991B3 /* SortTag.swift in Sources */,
 				86E4BCE52965262300244E88 /* UserManager.swift in Sources */,
+				86909D902A5CA83B0029BF8B /* BusinessBooking.swift in Sources */,
 				86E4BCD42965261000244E88 /* BusinessList.swift in Sources */,
 				8603C247296534CB006C1A58 /* MyGroupsView.swift in Sources */,
 				86A8AB2829EB6DA400F991B3 /* SearchBar.swift in Sources */,
