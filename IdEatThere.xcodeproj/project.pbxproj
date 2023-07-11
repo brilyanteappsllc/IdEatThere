@@ -70,6 +70,7 @@
 		8680819B29F3395D001DCD5E /* CalendarEventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8680819A29F3395D001DCD5E /* CalendarEventStore.swift */; };
 		8680819D29F33B38001DCD5E /* CalendarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8680819C29F33B38001DCD5E /* CalendarEvent.swift */; };
 		86909D902A5CA83B0029BF8B /* BusinessBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86909D8F2A5CA83B0029BF8B /* BusinessBooking.swift */; };
+		86909D922A5DE2300029BF8B /* BusinessBookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86909D912A5DE2300029BF8B /* BusinessBookingView.swift */; };
 		86A25720296DEC8F00CFDFAB /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A2571F296DEC8F00CFDFAB /* WelcomeView.swift */; };
 		86A25722296DECA900CFDFAB /* PhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A25721296DECA900CFDFAB /* PhoneNumberView.swift */; };
 		86A25724296DECB700CFDFAB /* PhoneVerficationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A25723296DECB700CFDFAB /* PhoneVerficationView.swift */; };
@@ -185,6 +186,7 @@
 		8680819A29F3395D001DCD5E /* CalendarEventStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEventStore.swift; sourceTree = "<group>"; };
 		8680819C29F33B38001DCD5E /* CalendarEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEvent.swift; sourceTree = "<group>"; };
 		86909D8F2A5CA83B0029BF8B /* BusinessBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessBooking.swift; sourceTree = "<group>"; };
+		86909D912A5DE2300029BF8B /* BusinessBookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessBookingView.swift; sourceTree = "<group>"; };
 		86A2571E296DCEC800CFDFAB /* IdEatThere.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IdEatThere.entitlements; sourceTree = "<group>"; };
 		86A2571F296DEC8F00CFDFAB /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		86A25721296DECA900CFDFAB /* PhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberView.swift; sourceTree = "<group>"; };
@@ -550,6 +552,7 @@
 				86E4BCC42965261000244E88 /* BusinessDetail.swift */,
 				86E4BCC52965261000244E88 /* DirectionsView.swift */,
 				86A8AB2929EC51C200F991B3 /* BusinessDetailCard.swift */,
+				86909D912A5DE2300029BF8B /* BusinessBookingView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -838,6 +841,7 @@
 				8603C24A296534DE006C1A58 /* MyProfileView.swift in Sources */,
 				86E4BCDF2965261000244E88 /* CreateUserForm.swift in Sources */,
 				86E4BCD72965261000244E88 /* BusinessTitle.swift in Sources */,
+				86909D922A5DE2300029BF8B /* BusinessBookingView.swift in Sources */,
 				862C8B6629A7CEC900768DDE /* SplashScreenButton.swift in Sources */,
 				86E4BCEB2965263000244E88 /* Business Search.swift in Sources */,
 				864B2A71299EAF9700D8AAF5 /* SelectedGroupView.swift in Sources */,

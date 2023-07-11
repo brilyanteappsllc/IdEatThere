@@ -130,15 +130,15 @@ struct YelpAPIService {
     // request for selected business details
     var businessDetails : (Endpoint) ->AnyPublisher<Business?, Never>
     
+    var businessBooking : (Endpoint) ->AnyPublisher<BusinessBooking?, Never>
+    
     // autocomplete search request
     var searchAutoCompletion : (Endpoint) ->AnyPublisher<[Term], Never>
-    
-    
-    var businessBooking : (Endpoint) ->AnyPublisher<BusinessBooking?, Never>
     
 }
 
 extension YelpAPIService {
+    
     static let live = YelpAPIService(defaultRequest:  { endpoint in
         
         // URL Request and return [Businesses] list
@@ -160,6 +160,19 @@ extension YelpAPIService {
             .replaceError(with: nil)
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
+        
+    }, businessBooking: {endpoint in
+        
+        // URL Request and return Businesses details
+        return URLSession.shared.dataTaskPublisher(for: endpoint.request)
+            .map(\.data)
+            .breakpointOnError()
+            .decode(type: BusinessBooking?.self, decoder: JSONDecoder())
+            .breakpointOnError()
+            .replaceError(with: nil)
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+        
     }) { endpoint in
         return URLSession.shared.dataTaskPublisher(for: endpoint.request)
             .map(\.data)
@@ -167,16 +180,6 @@ extension YelpAPIService {
             .decode(type: Completions.self, decoder: JSONDecoder())
             .map(\.terms)
             .replaceError(with: [])
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
-    } businessBooking: {endpoint in
-        
-        // URL Request and return Businesses details
-        return URLSession.shared.dataTaskPublisher(for: endpoint.request)
-            .map(\.data)
-            .breakpointOnError()
-            .decode(type: BusinessBooking?.self, decoder: JSONDecoder())
-            .replaceError(with: nil)
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
@@ -249,6 +252,7 @@ enum Endpoint {
         
         #if DEBUG
         request.addValue("Bearer \(Constants.apiKeySandBox)", forHTTPHeaderField: "Authorization")
+        print(request)
         
         #else
         request.addValue("Bearer \(Constants.apiKeyProd)", forHTTPHeaderField: "Authorization")
@@ -277,6 +281,7 @@ struct SearchResult: Decodable {
 
     
 }
+
 
 //extension Business {
 //

@@ -141,13 +141,6 @@ struct data : Decodable {
 
 
 
-    enum CodingKeys: String, CodingKey {
-        case creditCardRequired = "credit_card_required"
-        case time, url
-    }
-
-
-
 struct Category: Decodable {
     
     var alias: String?

@@ -120,13 +120,14 @@ class RestaurantsContentModel: ObservableObject {
         
         let live = YelpAPIService.live
         
-        let booking = live
-            
-            .businessBooking(.reserve(id: id, time: "18:30", date: "2023-07-25", covers: "4"))
-            .share()
-        
-        booking
-            .assign(to: &$restaurantBooking)
+        live.businessBooking(.reserve(
+                id: id,
+                time: "18:30",
+                date: "2023-07-25",
+                covers: "4"
+            ))
+        .share()
+        .assign(to: &$restaurantBooking)
         
     }
     

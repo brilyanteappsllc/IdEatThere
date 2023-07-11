@@ -41,7 +41,6 @@ struct BusinessDetailView: View {
         .ignoresSafeArea(edges: .top)
         .onAppear {
             restaurant.apiRequestDetails(forId: business.id ?? "")
-            restaurant.apiRequestBookingDetails(forId: business.id ?? "")
 
         }
             
