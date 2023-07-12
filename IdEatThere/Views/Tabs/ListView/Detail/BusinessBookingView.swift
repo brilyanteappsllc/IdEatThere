@@ -14,9 +14,21 @@ struct BusinessBookingView: View {
     var body: some View {
         
         
+        // For each to loop through available dates
         ForEach(businessBooking.reservationTimes!) {booking in
             
+            // Date
             Text(booking.date ?? "")
+            
+                // For each to loop through available times
+                ForEach(booking.times!) { times in
+                
+                    // times
+                    Text(times.time ?? "")
+                
+                    // credit card required?
+                    Text(String(times.creditCardRequired!))
+            }
         }
         
     }
