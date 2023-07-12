@@ -130,6 +130,7 @@ struct YelpAPIService {
     // request for selected business details
     var businessDetails : (Endpoint) ->AnyPublisher<Business?, Never>
     
+    // business booking openings
     var businessBooking : (Endpoint) ->AnyPublisher<BusinessBooking?, Never>
     
     // autocomplete search request
@@ -189,7 +190,7 @@ enum Endpoint {
     
     case search(term: String?, location: CLLocation, category: FoodCategory?, attributes: AttributeOptions?, sort: SortOptions?, time: String?, date: String?, cover: String?)
     case detail(id: String)
-    case reserve(id: String, time: String?, date: String?, covers: String?)
+    case booking_Openings(id: String, time: String?, date: String?, covers: String?)
     case autoCompletion(text: String, location: CLLocation)
     
     var path : String {
@@ -198,7 +199,7 @@ enum Endpoint {
             return "/v3/businesses/search"
         case .detail(let id) :
             return "/v3/businesses/\(id)"
-        case .reserve(let id, _, _, _) :
+        case .booking_Openings(let id, _, _, _) :
             return "/v3/bookings/\(id)/openings"
             
         case .autoCompletion :
@@ -226,7 +227,7 @@ enum Endpoint {
         case .detail :
             return []
             
-        case .reserve(_, let time, let date, let covers) :
+        case .booking_Openings(_, let time, let date, let covers) :
             return[
                 .init(name: "time", value: time),
                 .init(name: "date", value: date),

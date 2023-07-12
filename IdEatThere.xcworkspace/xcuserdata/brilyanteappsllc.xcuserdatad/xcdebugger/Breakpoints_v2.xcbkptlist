@@ -94,8 +94,8 @@
             filePath = "IdEatThere/Services/RestaurantsDataServices.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
             landmarkName = "path"
             landmarkType = "24">
          </BreakpointContent>
@@ -110,8 +110,8 @@
             filePath = "IdEatThere/Services/RestaurantsDataServices.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
             landmarkName = "queryItems"
             landmarkType = "24">
          </BreakpointContent>
@@ -126,8 +126,8 @@
             filePath = "IdEatThere/Services/RestaurantsDataServices.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
+            startingLineNumber = "263"
+            endingLineNumber = "263"
             landmarkName = "request"
             landmarkType = "24">
          </BreakpointContent>
@@ -142,10 +142,58 @@
             filePath = "IdEatThere/Services/RestaurantsDataServices.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "live"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "509DDF48-0DEC-4E67-ACD4-5C205E37DE3C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IdEatThere/Models/BusinessBooking.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "509DDF48-0DEC-4E67-ACD4-5C205E37DE3C - d8854eb1b64d4d1a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IdEatThere.ReservationTime.init() -&gt; IdEatThere.ReservationTime"
+                  moduleName = "IdEatThere"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brilyanteappsllc/Documents/milliondollarappIdea/IdEatThere/IdEatThere/Models/BusinessBooking.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "169">
+               </Location>
+               <Location
+                  uuid = "509DDF48-0DEC-4E67-ACD4-5C205E37DE3C - 107051150fc57c50"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IdEatThere.ReservationTime.init(id: Swift.Optional&lt;Swift.String&gt;, date: Swift.Optional&lt;Swift.String&gt;, times: Swift.Optional&lt;Swift.Array&lt;IdEatThere.Time&gt;&gt;) -&gt; IdEatThere.ReservationTime"
+                  moduleName = "IdEatThere"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brilyanteappsllc/Documents/milliondollarappIdea/IdEatThere/IdEatThere/Models/BusinessBooking.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

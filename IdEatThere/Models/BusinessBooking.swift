@@ -8,8 +8,9 @@
 import Foundation
 
 // MARK: - Business Booking
-class BusinessBooking : Decodable, Identifiable, ObservableObject {
-    let reservationTimes: [ReservationTime]?
+struct BusinessBooking : Hashable, Codable, Identifiable{
+    var id: String?
+    var reservationTimes: [ReservationTime]?
 
     enum CodingKeys: String, CodingKey {
         case reservationTimes = "reservation_times"
@@ -17,15 +18,19 @@ class BusinessBooking : Decodable, Identifiable, ObservableObject {
 }
 
 // MARK: - ReservationTime
-struct ReservationTime: Codable {
-    let date: String?
-    let times: [Time]?
+struct ReservationTime: Hashable, Codable, Identifiable{
+    var id: String?
+    var date: String?
+    var times: [Time]?
+
 }
 
 // MARK: - Time
-struct Time: Codable {
-    let creditCardRequired: Bool?
-    let time: String?
+struct Time: Hashable, Codable, Identifiable{
+    
+    var id: String?
+    var creditCardRequired: Bool?
+    var time: String?
 
     enum CodingKeys: String, CodingKey {
         case creditCardRequired = "credit_card_required"

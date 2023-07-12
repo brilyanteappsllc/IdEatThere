@@ -9,14 +9,15 @@ import SwiftUI
 
 struct BusinessBookingView: View {
     
-    @EnvironmentObject var restaurant : RestaurantsContentModel
-    
-    var businessBooking: BusinessBooking
-    
+    var businessBooking : BusinessBooking
     
     var body: some View {
         
-        Text(businessBooking.reservationTimes?.description ?? "")
+        
+        ForEach(businessBooking.reservationTimes!) {booking in
+            
+            Text(booking.date ?? "")
+        }
         
     }
 }

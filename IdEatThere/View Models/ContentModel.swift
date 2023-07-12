@@ -120,7 +120,7 @@ class RestaurantsContentModel: ObservableObject {
         
         let live = YelpAPIService.live
         
-        live.businessBooking(.reserve(
+        live.businessBooking(.booking_Openings(
                 id: id,
                 time: "18:30",
                 date: "2023-07-25",
