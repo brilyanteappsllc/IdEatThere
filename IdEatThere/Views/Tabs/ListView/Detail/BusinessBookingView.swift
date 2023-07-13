@@ -15,19 +15,28 @@ struct BusinessBookingView: View {
         
         
         // For each to loop through available dates
-        ForEach(businessBooking.reservationTimes!) {booking in
+        
+        Text("Date Availble")
+            .font(.bodyHeaderFontBold)
+        ForEach(businessBooking.reservationTimes!, id: \.self) {booking in
             
             // Date
             Text(booking.date ?? "")
             
-                // For each to loop through available times
-                ForEach(booking.times!) { times in
+            // For each to loop through available times
+            Text("Available Times")
+                .font(.bodyHeaderFontBold)
+            ForEach(booking.times!, id: \.self) { times in
                 
-                    // times
-                    Text(times.time ?? "")
-                
-                    // credit card required?
-                    Text(String(times.creditCardRequired!))
+                HStack{
+                        // times
+                        Text(times.time ?? "")
+
+                        // credit card required?
+                        Text(String(times.creditCardRequired!))
+
+                    
+                }
             }
         }
         
