@@ -81,6 +81,7 @@ struct MapView: View {
                         ToolbarItem(placement: .navigationBarLeading) {
                             Button(groups.groupName ?? "No name yet") {
                                // self.isMapShowing = true
+                                print(model.locationManager.location as Any)
                             }
                             .foregroundColor(Color.theme.blackText)
                             .font(Font.bodyHeaderFontBold)
