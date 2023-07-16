@@ -14,6 +14,10 @@ struct MapView: View {
     @State var selectedBusiness: Business?
     @State var showFilterAndSortView : Bool = false
     
+    @State var showDropDown : Bool = false
+    
+    var groups : Groups
+    
     @EnvironmentObject var model: RestaurantsContentModel
     @EnvironmentObject var modelLocation : UserLocationService
     
@@ -65,11 +69,23 @@ struct MapView: View {
                     }
                     .toolbar(content: {
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            Button("Switch to map view") {
+                            
+                            Button {
                                 self.isMapShowing = true
+                            } label: {
+                                Image(systemName: "map")
+                                    .foregroundColor(Color.theme.accent)
+                            }
+
+                        }
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Button(groups.groupName ?? "No name yet") {
+                               // self.isMapShowing = true
                             }
                             .foregroundColor(Color.theme.blackText)
+                            .font(Font.bodyHeaderFontBold)
                         }
+                    
                     })
                     .safeAreaInset(edge: .bottom) {
                         Rectangle()
@@ -142,9 +158,9 @@ struct MapView: View {
     
 }
 
-struct MapView_Previews: PreviewProvider {
-    static var previews: some View {
-        MapView()
-            .environmentObject(RestaurantsContentModel())
-    }
-}
+//struct MapView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MapView()
+//            .environmentObject(RestaurantsContentModel())
+//    }
+//}

@@ -76,6 +76,13 @@ struct HostGroupView: View {
                         Spacer()
                         Button {
                             
+                            // TESTING DATES
+//                            let datetoString = DateConverter().formatDateToString(date: groups.date ?? Date())
+//                            let testDate = DateConverter().formattedDateFromString(dateString: datetoString ?? "", withFormat: "yyyy-mm-dd")
+//
+//                            print("Date To String = \(datetoString)")
+//                            print("TEST DATE = \(testDate as Any)")
+                            
                         } label: {
                             
                             HStack {
@@ -119,6 +126,14 @@ struct HostGroupView: View {
                 
                 
                 Section(header: Text("Restaurants"), footer: Text("\(array.count) \(array.count > 1 ? "restaurants" : "restaurant")")) {
+                    
+                    NavigationLink {
+                        MapView(groups: groups)
+                        
+                    } label: {
+                        Image(systemName: "map")
+                    }
+                        
                     List {
                         
                         ForEach(myGroupsModel.groupsRestaurantsList) {restaurant in

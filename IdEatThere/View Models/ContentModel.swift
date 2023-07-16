@@ -116,7 +116,15 @@ class RestaurantsContentModel: ObservableObject {
             .assign(to: &$restaurant)
         
     }
-    func apiRequestBookingDetails(forId id: String) {
+    
+    
+    func apiRequestBookingDetails(forId id: String, time: String, date: String, covers: String) {
+        
+        // request group info first, if no errors, then create a request to the yelp api
+//
+//        let yelpDateInput = DateConverter().formattedDateFromString(dateString: date, withFormat: "YYYY-MM-DD")
+//
+//        print(yelpDateInput as Any)
         
         let live = YelpAPIService.live
         

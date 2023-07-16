@@ -14,8 +14,6 @@ struct BusinessBookingView: View {
     var body: some View {
         
         
-        // For each to loop through available dates
-        
         Text("Date Availble")
             .font(.bodyHeaderFontBold)
         ForEach(businessBooking.reservationTimes!, id: \.self) {booking in

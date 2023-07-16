@@ -33,6 +33,7 @@ class MyGroupsModel : ObservableObject {
     @Published var datePicked = Date()
     @Published var groupPhoto : UIImage?
     @Published var allowInvitesToGroup = false
+    @Published var groupLocation = "String"
     
     private var groupId = ""
     private var userId = ""

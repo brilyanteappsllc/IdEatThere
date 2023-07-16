@@ -10,8 +10,8 @@ import SwiftUI
 enum Tab : Int {
     
     case Groups = 0
-    case Map = 1
-    case Profile = 2
+//    case Map = 1
+    case Profile = 1
     
 }
 
@@ -46,16 +46,16 @@ struct HomeView: View {
                         }
                     
                     // --- Home View ---
-                    MapView()
-                        .tabItem{
-                            VStack{
-                                Image(systemName: "fork.knife")
-                                Text("Restaurants")
-                            }
-                        }
-                        .tag(Tab.Map)
-                    
-                    
+//                    MapView()
+//                        .tabItem{
+//                            VStack{
+//                                Image(systemName: "fork.knife")
+//                                Text("Restaurants")
+//                            }
+//                        }
+//                        .tag(Tab.Map)
+//
+//
                     
                     
                     // --- My Profile View ---

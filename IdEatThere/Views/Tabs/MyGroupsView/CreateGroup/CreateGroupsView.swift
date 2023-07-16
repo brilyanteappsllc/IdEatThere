@@ -69,6 +69,11 @@ struct CreateGroupsView: View {
                             
                             
                         }
+                            
+                            Section(header: Text("Location")) {
+                                
+                                Text("")
+                            }
                         
                             
                             Section(header: Text("Event Type")) {

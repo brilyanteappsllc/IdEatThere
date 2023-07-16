@@ -22,6 +22,7 @@
 		8627F9FF2967F17200382DA8 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8627F9FE2967F17200382DA8 /* UIApplication.swift */; };
 		8627FA022967F63900382DA8 /* RestaurantsDataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8627FA012967F63800382DA8 /* RestaurantsDataServices.swift */; };
 		8627FA0429687D3A00382DA8 /* XMarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8627FA0329687D3A00382DA8 /* XMarkButton.swift */; };
+		8629FB1D2A6490D2009D4A7F /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8629FB1C2A6490D2009D4A7F /* DateConverter.swift */; };
 		862C8B5C29A6B53F00768DDE /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C8B5B29A6B53F00768DDE /* LaunchViewModel.swift */; };
 		862C8B6429A7CC5300768DDE /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C8B6329A7CC5300768DDE /* SplashScreen.swift */; };
 		862C8B6629A7CEC900768DDE /* SplashScreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C8B6529A7CEC900768DDE /* SplashScreenButton.swift */; };
@@ -138,6 +139,7 @@
 		8627F9FE2967F17200382DA8 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		8627FA012967F63800382DA8 /* RestaurantsDataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsDataServices.swift; sourceTree = "<group>"; };
 		8627FA0329687D3A00382DA8 /* XMarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMarkButton.swift; sourceTree = "<group>"; };
+		8629FB1C2A6490D2009D4A7F /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
 		862C8B5B29A6B53F00768DDE /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 		862C8B6329A7CC5300768DDE /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		862C8B6529A7CEC900768DDE /* SplashScreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenButton.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 			children = (
 				86A80AD729709FB7001B8941 /* PhoneTextHelper.swift */,
 				86358C5E2A07FE3C00693245 /* DateExtension.swift */,
+				8629FB1C2A6490D2009D4A7F /* DateConverter.swift */,
 				8643AB52296C78130069D5F5 /* Font */,
 				8627F9F029674F6D00382DA8 /* Color.swift */,
 				8627F9FE2967F17200382DA8 /* UIApplication.swift */,
@@ -806,6 +809,7 @@
 				864B2A73299EB07600D8AAF5 /* Groups.swift in Sources */,
 				86E4BCE62965262300244E88 /* ContentModel.swift in Sources */,
 				86ABBF9E29B50128009FFB9F /* AddingToMyGroupsListView.swift in Sources */,
+				8629FB1D2A6490D2009D4A7F /* DateConverter.swift in Sources */,
 				86A8AB5229ED9D4A00F991B3 /* SortData.swift in Sources */,
 				862C8B6429A7CC5300768DDE /* SplashScreen.swift in Sources */,
 				8627FA022967F63900382DA8 /* RestaurantsDataServices.swift in Sources */,

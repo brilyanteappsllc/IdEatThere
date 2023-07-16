@@ -26,6 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             // Setting apperance when content is no longer under the tab bar
             ColorTheme().tabBarAppearance(appearance: "ScrollEdge")
+        
+        
+        // --- Date Picker ---
+        
+            UIDatePicker.appearance().minuteInterval = 15
 
         
         // --- Configure Firebase ---

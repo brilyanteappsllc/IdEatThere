@@ -84,7 +84,7 @@ struct BusinessDetailCard: View {
         .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.height * 0.45)
         .onAppear() {
             restaurant.apiRequestDetails(forId: business.id ?? "")
-            restaurant.apiRequestBookingDetails(forId: business.id ?? "")
+            restaurant.apiRequestBookingDetails(forId: business.id ?? "", time: "", date: "", covers: "")
         }
     }
 }
